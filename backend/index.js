@@ -1,0 +1,1 @@
+var routes = require('./routes'); // Importamos el js routes que tiene las rutas base
