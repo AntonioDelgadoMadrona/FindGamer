@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventos</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <!--------- HEADER ---------->
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- COLUMNA DEL LOGOTIPO -->
+                <div class="col-10 col-md-2 d-flex justify-content-center align-items-center">
+                    <i class="fab fa-cloudsmith fa-2x"></i>
+                    <i class="fas fa-gamepad fa-2x"></i>
+                </div>
+                <!-- COLUMNA DE MENU NAVEGACION-->
+                <div class="d-none d-md-block col-md-9">
+                    <nav class="nav justify-content-center align-items-center">
+                        <a href="inicio.html" class="nav-link mr-lg-3">Inicio</a>
+                        <a href="comunidad.html" class="nav-link mr-lg-3">Comunidad</a>
+                        <a href="juegos.html" class="nav-link mr-lg-3">Juegos</a>
+                        <a href="eventos.html" class="nav-link mr-lg-3">Eventos</a>
+                        <a href="mired.html" class="nav-link mr-lg-3">Mi Red</a>
+                        <a href="#" class="nav-link ">Noticias</a>
+                    </nav>
+                </div>
+
+                <!-- COLUMNA DEL MENU DE NAVEGACION DERECHO -->
+                <div class="col-2 col-md-1 d-flex menu align-items-center">
+                    <!--<a href="#"><i class="fas fa-user-circle fa-2x mr-2 mr-md-0"></i></a>-->
+                    <a href="#" class="imagen"><img src="img/340x250.jpg" class="img-fluid w-100" width="40" height="40" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BOTON DE MENU EN DISPOSITIVOS MOVILES -->
+    <div class="row d-block d-md-none">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-block" id="btn-menu"><i class="fas fa-bars fa-2x"></i></button>
+        </div>
+    </div>
+
+    <!--MENU NAVEGACION PARTE IZQUIERDA SOLO EN MOVILES-->
+    <div id="header-movil">
+        <div class="d-md-none barra-lateral-izquierda" id="barra-lateral-izquierda">
+            <nav>
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <a href="#"><i class="fas fa-users"></i>Comunidad</a>
+                <a href="#"><i class="fas fa-gamepad"></i>Juegos</a>
+                <a href="#"><i class="fas fa-address-book"></i>Eventos</a>
+                <a href="#"><i class="fas fa-clipboard-list"></i>Mi Red</a>
+                <a href="#"><i class="far fa-newspaper"></i>Noticias</a>
+            </nav>
+        </div>
+        <a href="#" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
+    </div>
+
+    <!----- MAIN ----->
+    <div class="container my-2">
+        <div class="row">
+            <div class="col-12 col-lg-9">
+                <h4 class="titulo-h4">EVENTOS PUBLICADOS</h4>
+            </div>
+            <div class="col-lg-3 d-none d-lg-block">
+                <h4 class="titulo-h4">SUGERENCIAS</h4>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <!--Primera columna donde van los eventos publicados-->
+            <div class="col-12 col-lg-9 rounded">
+                <!--Fila donde va los eventos que se van publicando en col-11-->
+                <div class="row my-2">
+                    <div class="col d-flex justify-content-center">
+                        <a href="#bloque1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="bloque1" class="btn btn-sm boton-celeste enlace">Crear evento</a>
+                    </div>
+                </div>
+                <!--Publicar evento-->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-11 my-2 p-2 rounded text-dark publicar-evento collapse" id="bloque1">
+                        <form action="" class="form-group">
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <input type="text" class="form-control" id="inputJuego" placeholder="Nombre del juego" required>
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                        <option selected>Plataforma</option>
+                                        <option value="1">PC</option>
+                                        <option value="2">Xbox One</option>
+                                        <option value="3">Playstation 4</option>
+                                        <option value="4">Nintendo Switch</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="">Fecha Inicio</label>
+                                    <input type="date" class="form-control" id="f-inicioEvento" required>
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="">Hora de inicio</label>
+                                    <input type="time" class="form-control" id="h-inicioEvento" required>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="">Fecha de fin</label>
+                                    <input type="date" class="form-control" id="f-finEvento" required>
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="">Hora de fin</label>
+                                    <input type="time" class="form-control" id="h-finEvento" required>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <select class="custom-select" id="inputJugadores" aria-label="Example select with button addon">
+                                        <option selected>Numero de jugadores</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <select class="custom-select" id="inputJugadores" aria-label="Example select with button addon">
+                                        <option selected>Minimo de estrellas para participar</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="3">4</option>
+                                        <option value="3">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <textarea class="form-control" placeholder="Si quieres añadir un mensaje..." name="" id=""></textarea>
+                            </div>
+                            <br>
+                            <div class="form-row d-flex justify-content-center">
+                                <button type="submit" class="btn boton-celeste">Publicar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-11 my-2 py-1 rounded sombra-celeste mensaje-timeline-eventos">
+                        <div class="row p-2">
+                            <div class=" d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
+                                    <div class="float-right ml-3 datos-evento">
+                                        <p class="font-weight-bold">Nombre de Jugador</p>
+                                        <p class="text-muted">17/12/1960 - 15:45h</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row texto-evento">
+                            <div class="d-none col-lg-3 d-flex align-items-center">
+                                <img src="img/fortnite.jpg" class="img-fluid rounded imagen-evento" alt="">
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-h4"><a href="juego.html">Fortnite Battle Royale</a></h4>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <h5>Jugadores: 3</h5>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <p>Plataforma: <span class="celeste">Xbox One</span></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 ">
+                                        <h5>Puntuacion para acceder:</h5>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <span class="text-warning"><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i>
+                                            <i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <h6>Inicio: <span>15/10/2056 - 12:00h</span></h6>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <h6>Fin: <span>16/10/2056 - 12:00h</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Busco a tres personas para formar una squad en Fortine y partir trocolos a todo el que se ponga por delante que me cago ya en satanas joder hijo de las mil putas hostia me cago en dios</p>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col mr-5">
+                                <i class="far fa-thumbs-up fa-lg ml-md-3 mr-md-3 cursor like"></i><small class="text-muted">15 likes</small>
+                            </div>
+                            <div class="col ml-5">
+                                <a type="button" class="btn btn-sm boton-celeste" href="#comentario1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario1">Responder</a>
+                            </div>
+                        </div>
+                        <div class="row collapse mt-2 mensaje-nuevo" id="comentario1">
+                            <div class="col d-flex justify-content-end">
+                                <form action="" class="form-group form-inline">
+                                    <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
+                                    <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-11 my-2 py-1 rounded sombra-celeste mensaje-timeline-eventos">
+                        <div class="row p-2">
+                            <div class=" d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
+                                    <div class="float-right ml-3 datos-evento">
+                                        <p class="font-weight-bold">Nombre de Jugador</p>
+                                        <p class="text-muted">17/12/1960 - 15:45h</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row texto-evento">
+                            <div class="d-none col-lg-3 d-flex align-items-center">
+                                <img src="img/fortnite.jpg" class="img-fluid rounded imagen-evento" alt="">
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-h4"><a href="juego.html">Fortnite Battle Royale</a></h4>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <h5>Jugadores: 3</h5>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <p>Plataforma: <span class="celeste">Xbox One</span></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 ">
+                                        <h5>Puntuacion para acceder:</h5>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <span class="text-warning"><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i>
+                                            <i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <h6>Inicio: <span>15/10/2056 - 12:00h</span></h6>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <h6>Fin: <span>16/10/2056 - 12:00h</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Busco a tres personas para formar una squad en Fortine y partir trocolos a todo el que se ponga por delante que me cago ya en satanas joder hijo de las mil putas hostia me cago en dios</p>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col mr-5">
+                                <i class="far fa-thumbs-up fa-lg ml-md-3 mr-md-3 cursor like"></i><small class="text-muted">15 likes</small>
+                            </div>
+                            <div class="col ml-5">
+                                <a type="button" class="btn btn-sm boton-celeste" href="#comentario2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario2">Responder</a>
+                            </div>
+                        </div>
+                        <div class="row collapse mt-2 mensaje-nuevo" id="comentario2">
+                            <div class="col d-flex justify-content-end">
+                                <form action="" class="form-group form-inline">
+                                    <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
+                                    <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <!--Columna del aside de recomendaciones-->
+            <div class="col-md-3 d-none d-lg-block sombra-1" id="barra-lateral-derecha-jugadores">
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pb-3 jugador-recomendacion">
+                    <div class="d-flex justify-content-around">
+                        <a href="">
+                            <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                            <div class="float-right ml-3">
+                                <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                <p><span class="verde">Puntuacion</span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container-fluid text-center">
+            <div class="row cuerpo-footer">
+                <div class="col-12 col-sm-6 col-md-4 mx-auto">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Quienes somos</a>
+                        </li>
+                        <li>
+                            <a href="">Trabaja con nosotros</a>
+                        </li>
+                        <li>
+                            <a href="">Contacto</a>
+                        </li>
+                        <li>
+                            <a href="">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mx-auto">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Politica de privacidad</a>
+                        </li>
+                        <li>
+                            <a href="">Condiciones de compra</a>
+                        </li>
+                        <li>
+                            <a href="">Politica de cookies</a>
+                        </li>
+                        <li>
+                            <a href="">Condiciones de uso</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-12 col-md-4 mx-auto d-inline d-md-block">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Comunidad</a>
+                        </li>
+                        <li>
+                            <a href="">Juegos</a>
+                        </li>
+                        <li>
+                            <a href="">Eventos</a>
+                        </li>
+                        <li>
+                            <a href="">Noticias</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <span class="linea-footer"></span>
+            <div class="row">
+                <div class="col mx-auto redes-sociales">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-facebook-square fa-2x"></i><span>Facebook</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-instagram fa-2x"></i><span>Instagram</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-twitter fa-2x"></i><span>Twitter</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-linkedin fa-2x"></i><span>Linkedin</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-github fa-2x"></i><span>GitHub</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    $(function() {
+        var boton = $('#btn-menu');
+        var fondo_enlace = $('#fondo-enlace');
+
+        boton.on('click', function(e) {
+            fondo_enlace.toggleClass('active');
+            $('#barra-lateral-izquierda').toggleClass('active');
+            e.preventDefault();
+        });
+
+        fondo_enlace.on('click', function(e) {
+            fondo_enlace.toggleClass('active');
+            $('#barra-lateral-izquierda').toggleClass('active');
+            e.preventDefault();
+        });
+    }())
+
+</script>
+
+</html>

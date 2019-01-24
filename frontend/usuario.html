@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil Usuario</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!--------- HEADER ---------->
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- COLUMNA DEL LOGOTIPO -->
+                <div class="col-10 col-md-2 d-flex justify-content-center align-items-center">
+                    <i class="fab fa-cloudsmith fa-2x"></i>
+                    <i class="fas fa-gamepad fa-2x"></i>
+                    <!--               <img src="img/logo-findergamer.jpg" alt="">-->
+                </div>
+                <!-- COLUMNA DE MENU NAVEGACION-->
+                <div class="d-none d-md-block col-md-9">
+                    <nav class="nav justify-content-center align-items-center">
+                        <a href="inicio.html" class="nav-link mr-lg-3">Inicio</a>
+                        <a href="comunidad.html" class="nav-link mr-lg-3">Comunidad</a>
+                        <a href="juegos.html" class="nav-link mr-lg-3">Juegos</a>
+                        <a href="eventos.html" class="nav-link mr-lg-3">Eventos</a>
+                        <a href="mired.html" class="nav-link mr-lg-3">Mi Red</a>
+                        <a href="#" class="nav-link ">Noticias</a>
+                    </nav>
+                </div>
+
+                <!-- COLUMNA DEL MENU DE NAVEGACION DERECHO -->
+                <div class="col-2 col-md-1 d-flex menu align-items-center">
+                    <i class="fas fa-user-circle fa-2x mr-2 mr-md-0" data-toggle="modal" data-target="#exampleModal"></i>
+                    <a href="#" class="imagen"><img src="img/340x250.jpg" class="img-fluid w-100" width="40" height="40" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BOTON DE MENU EN DISPOSITIVOS MOVILES -->
+    <div class="row d-block d-md-none">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-block" id="btn-menu"><i class="fas fa-bars fa-2x"></i></button>
+        </div>
+    </div>
+
+    <!--MENU NAVEGACION PARTE IZQUIERDA SOLO EN MOVILES-->
+    <div id="header-movil">
+        <div class="d-md-none barra-lateral-izquierda" id="barra-lateral-izquierda">
+            <nav>
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <a href="#"><i class="fas fa-users"></i>Comunidad</a>
+                <a href="#"><i class="fas fa-gamepad"></i>Juegos</a>
+                <a href="#"><i class="fas fa-address-book"></i>Eventos</a>
+                <a href="#"><i class="fas fa-clipboard-list"></i>Mi Red</a>
+                <a href="#"><i class="far fa-newspaper"></i>Noticias</a>
+            </nav>
+        </div>
+        <a href="#" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
+    </div>
+
+    <!----- CABECERA-PERFIL ----->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4 class="titulo-h4">PERFIL DE USUARIO</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <img src="img/fondo-pantalla.jpg" class="fondo-perfil-usuario" alt="">
+            </div>
+        </div>
+        <div class="row mensaje-seguir">
+            <div class="col-5 text-center">
+                <button type="button" class="btn btn-success">Añadir amigo</button>
+            </div>
+            <div class="col-5 text-right">
+                <button type="button" class="btn boton-celeste">Mensaje</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="img/icono-perfil.png" class="icono-perfil-usuario img-fluid rounded-circle" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Juanito23</h3>
+                <p><i class="fas fa-star text-warning fa-lg"></i><i class="fas fa-star text-warning fa-lg"></i><i class="fas fa-star text-warning fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i></p>
+            </div>
+        </div>
+    </div>
+
+    <!--MAIN USUARIO-->
+    <div class="container my-2">
+        <div class="row justify-content-between">
+            <div class="col-3">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <h4 class="titulo-h4">INFORMACION</h4>
+                    </div>
+                    <div class="col-12">
+                        <h6>Nombre: <small class="subtitulo">Juan veintitres</small></h6>
+                        <h6>Vivo en: <small class="subtitulo">La red</small></h6>
+                        <h6>Plataforma favorita: <small class="subtitulo">PC</small></h6>
+                        <h6>Juego favorito: <small class="subtitulo">Formularios 2.0</small></h6>
+                        <h6>Juegos pasados: <small class="subtitulo">120</small></h6>
+                        <h6>Registrado el: <small class="subtitulo">15/10/2019</small></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row mb-3 ">
+                    <div class="col-12">
+                        <h4 class="titulo-h4">ACTUALMENTE JUGANDO</h4>
+                    </div>
+                    <div class="col-12 juegos-usuario">
+                        <h6>Red Dead Redemption 2</h6>
+                        <h6>The Witcher 3: Wild Hunt</h6>
+                        <h6>Outlast </h6>
+                        <h6>Outlast 2</h6>
+                        <h6>Red Dead Redemption 2</h6>
+                        <h6>The Witcher 3: Wild Hunt</h6>
+                        <h6>Outlast </h6>
+                        <h6>Outlast 2</h6>
+                        <h6>Red Dead Redemption 2</h6>
+                        <h6>The Witcher 3: Wild Hunt</h6>
+                        <h6>Outlast </h6>
+                        <h6>Outlast 2</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row mb-3 ">
+                    <div class="col-12">
+                        <h4 class="titulo-h4">PROXIMOS JUEGOS</h4>
+                    </div>
+                    <div class="col-12 juegos-usuario">
+                        <h6>Red Dead Redemption 2</h6>
+                        <h6>The Witcher 3: Wild Hunt</h6>
+                        <h6>Outlast </h6>
+                        <h6>Outlast 2</h6>
+                        <h6>Red Dead Redemption 2</h6>
+                        <h6>The Witcher 3: Wild Hunt</h6>
+                        <h6>Outlast </h6>
+                        <h6>Outlast 2</h6>
+                        <h6>Red Dead Redemption 2</h6>
+                        <h6>The Witcher 3: Wild Hunt</h6>
+                        <h6>Outlast </h6>
+                        <h6>Outlast 2</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-3">
+                <div class="row ">
+                    <div class="col-12">
+                        <h4 class="titulo-h4">AMIGOS</h4>
+                    </div>
+                    <div class="col-12 amigos-usuario">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="img/foto-perfil1.jpg" class="imagen-usuario rounded-circle" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <a href="">
+                                    <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                </a>
+                                <p><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="img/foto-perfil1.jpg" class="imagen-usuario rounded-circle" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <a href="">
+                                    <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                </a>
+                                <p><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="img/foto-perfil1.jpg" class="imagen-usuario rounded-circle" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <a href="">
+                                    <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                </a>
+                                <p><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="img/foto-perfil1.jpg" class="imagen-usuario rounded-circle" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <a href="">
+                                    <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                </a>
+                                <p><span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span></p>
+                                <p class="text-muted">Fecha de registro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="titulo-h4">JUEGOS COMPLETADOS</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-4 columna-juegos-completados">
+                        <p>Nombre del juego</p>
+                    </div>
+                    <div class="col-3 columna-juegos-completados">
+                        <p>Valoracion personal</p>
+                    </div>
+                    <div class="col-3 columna-juegos-completados">
+                        <p>Fecha completado</p>
+                    </div>
+                </div>
+                <div class="lista-juegos-completados">
+                    <div class="row my-1">
+                        <div class="col-2">
+                            <img src="img/foto-juego1.jpg" class="imagen-juego-usuario" alt="">
+                        </div>
+                        <div class="col-4">
+                            <p>Red Dead Redemption 2</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>96/100</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>15/01/2019</p>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-2">
+                            <img src="img/foto-juego1.jpg" class="imagen-juego-usuario" alt="">
+                        </div>
+                        <div class="col-4">
+                            <p>Red Dead Redemption 2</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>96/100</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>15/01/2019</p>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-2">
+                            <img src="img/foto-juego1.jpg" class="imagen-juego-usuario" alt="">
+                        </div>
+                        <div class="col-4">
+                            <p>Red Dead Redemption 2</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>96/100</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>15/01/2019</p>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-2">
+                            <img src="img/foto-juego1.jpg" class="imagen-juego-usuario" alt="">
+                        </div>
+                        <div class="col-4">
+                            <p>Red Dead Redemption 2</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>96/100</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>15/01/2019</p>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-2">
+                            <img src="img/foto-juego1.jpg" class="imagen-juego-usuario" alt="">
+                        </div>
+                        <div class="col-4">
+                            <p>Red Dead Redemption 2</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>96/100</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>15/01/2019</p>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-2">
+                            <img src="img/foto-juego1.jpg" class="imagen-juego-usuario" alt="">
+                        </div>
+                        <div class="col-4">
+                            <p>Red Dead Redemption 2</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>96/100</p>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p>15/01/2019</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <!--FOOTER-->
+    <footer>
+        <div class="container-fluid text-center">
+            <div class="row cuerpo-footer">
+                <div class="col-12 col-sm-6 col-md-4 mx-auto">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Quienes somos</a>
+                        </li>
+                        <li>
+                            <a href="">Trabaja con nosotros</a>
+                        </li>
+                        <li>
+                            <a href="">Contacto</a>
+                        </li>
+                        <li>
+                            <a href="">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mx-auto">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Politica de privacidad</a>
+                        </li>
+                        <li>
+                            <a href="">Condiciones de compra</a>
+                        </li>
+                        <li>
+                            <a href="">Politica de cookies</a>
+                        </li>
+                        <li>
+                            <a href="">Condiciones de uso</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-12 col-md-4 mx-auto d-inline d-md-block">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Comunidad</a>
+                        </li>
+                        <li>
+                            <a href="">Juegos</a>
+                        </li>
+                        <li>
+                            <a href="">Eventos</a>
+                        </li>
+                        <li>
+                            <a href="">Noticias</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <span class="linea-footer"></span>
+            <div class="row">
+                <div class="col mx-auto redes-sociales">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-facebook-square fa-2x"></i><span>Facebook</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-instagram fa-2x"></i><span>Instagram</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-twitter fa-2x"></i><span>Twitter</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-linkedin fa-2x"></i><span>Linkedin</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-github fa-2x"></i><span>GitHub</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--VENTANA MODAL USUARIO-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title titulo-h4 text-dark" id="exampleModalLabel">INICIA SESION</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="form-group form-inline">
+                        <input type="email" class="form-control mr-3" placeholder="Introduce tu correo">
+                        <input type="password" class="form-control" placeholder="Contraseña">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span class="text-dark mr-5">¿Aun no estas registrado? <a href="form_registro.html">Registrate!!</a></span>
+                    <button type="submit" class="btn btn-sm boton-celeste ml-5">Iniciar sesion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    $(function() {
+        var boton = $('#btn-menu');
+        var fondo_enlace = $('#fondo-enlace');
+
+        boton.on('click', function(e) {
+            fondo_enlace.toggleClass('active');
+            $('#barra-lateral-izquierda').toggleClass('active');
+            e.preventDefault();
+        });
+
+        fondo_enlace.on('click', function(e) {
+            fondo_enlace.toggleClass('active');
+            $('#barra-lateral-izquierda').toggleClass('active');
+            e.preventDefault();
+        });
+    }())
+
+</script>
+
+</html>
