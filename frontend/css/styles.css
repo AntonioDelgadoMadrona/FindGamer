@@ -22,6 +22,15 @@ a {
     color: #99cc00;
 }
 
+.titulo {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 5px;
+    opacity: .85;
+    font-weight: bolder;
+    padding-bottom: 5px;
+    font-size: .95rem;
+}
+
 .titulo-h2 {
     font-family: 'Roboto', sans-serif;
     padding-top: 5px;
@@ -35,6 +44,26 @@ a {
     font-family: 'Roboto', sans-serif;
     padding-top: 5px;
     border-bottom: 1px solid #99cc00;
+    opacity: .85;
+    font-weight: bolder;
+    padding-bottom: 5px;
+    font-size: .95rem;
+}
+
+.titulo-h4-azul {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 5px;
+    border-bottom: 1px solid #46c5e2;
+    opacity: .85;
+    font-weight: bolder;
+    padding-bottom: 5px;
+    font-size: .95rem;
+}
+
+.titulo-h4-rojo {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 5px;
+    border-bottom: 1px solid #FF0000;
     opacity: .85;
     font-weight: bolder;
     padding-bottom: 5px;
@@ -92,6 +121,19 @@ a {
 }
 
 .boton-celeste:hover {
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+}
+
+.boton-verde {
+    background: #49cc02;
+    color: white;
+    opacity: .8;
+    text-decoration: none;
+}
+
+.boton-verde:hover {
     opacity: 1;
     color: white;
     text-decoration: none;
@@ -253,7 +295,7 @@ header .menu .imagen img {
     box-shadow: 1px 1px 2px #49cc00;
 }
 
-/* -----  NOTICIAS  ----- */
+/* --------------------  NOTICIAS  ------------------------------ */
 
 .ultimas-noticias {
     display: flex;
@@ -794,6 +836,25 @@ footer a:hover {
 .lista-juegos-completados {
     max-height: 265px;
     overflow: scroll;
+}
+
+
+/*------------------------------------------------------- EVENTO ----------------------------------------------*/
+
+.contenedor-evento {
+    background: #222222;
+}
+
+.imagen-evento {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+
+.plazas-disponibles {
+    background: #202020;
+    border-radius: 8px;
 }
 
 /* --- --- MEDIAQUERIES --- --- */
