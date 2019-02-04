@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Sans+Pro:400,700');
+
+.App {
+  background: linear-gradient(to bottom, rgba(38, 38, 38, 1) 18%, rgba(38, 38, 38, 1) 64%, rgba(65, 167, 8, 1) 92%, rgba(73, 204, 0, 1) 100%);
+  /*    background: linear-gradient(to bottom, rgba(38, 38, 38, 1) 18%, rgba(38, 38, 38, 1) 64%, rgba(67, 175, 198, 1) 92%, rgba(67, 175, 198, 1) 100%);*/
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}

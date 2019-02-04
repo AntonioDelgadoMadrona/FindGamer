@@ -9,6 +9,13 @@ const uuid = require('uuid/v4'); // Nombre imagenes
 const port = 3001;
 const app = express();
 
+// Sockets
+const http = require('http');
+const socketio = require('socket.io');
+const server = http.createServer(app);
+const io = socketio.listen(server);
+require('./routes/sockets')(io);
+
 // MIDDLEWARES
 app.use(bodyParser.urlencoded({
     extended: false

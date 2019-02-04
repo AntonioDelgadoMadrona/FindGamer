@@ -1,8 +1,8 @@
-var app = require('./app');
+var app = require('../app');
 
-var UsersController = require('./controllers/users');
-var TimelineController = require('./controllers/timeline');
-var EventoController = require('./controllers/eventos');
+var UsersController = require('../controllers/users');
+var TimelineController = require('../controllers/timeline');
+var EventoController = require('../controllers/eventos');
 
 // RUTA INICIO
 // app.get('/', function (req, res) {

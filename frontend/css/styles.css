@@ -295,7 +295,7 @@ header .menu .imagen img {
     box-shadow: 1px 1px 2px #49cc00;
 }
 
-/* --------------------  NOTICIAS  ------------------------------ */
+/* -------------------------------------  NOTICIAS  ------------------------------ */
 
 .ultimas-noticias {
     display: flex;
@@ -335,7 +335,7 @@ header .menu .imagen img {
     max-height: 120px;
 }
 
-/* ----------------- MAIN2 ------------------*/
+/* ------------------------------------------- MAIN2 ----------------------------------*/
 
 .contenido-columna-inicio {
     max-width: 825px;
@@ -393,7 +393,7 @@ div.ultimos-juegos .ultimo-juego {
     max-height: 160px;
 }
 
-/* ------- BARRA LATERAL DERECHA JUGADORES ---------- */
+/* ------------------------------------ BARRA LATERAL DERECHA JUGADORES --------------------------- */
 
 #barra-lateral-derecha-jugadores {
     line-height: 40%;
@@ -416,7 +416,7 @@ div.ultimos-juegos .ultimo-juego {
     font-size: 0.8em;
 }
 
-/* --------- NUEVOS JUGADORES -----------*/
+/* ------------------ NUEVOS JUGADORES -----------------------*/
 
 .ultimos-jugadores {
     overflow: auto;
@@ -449,7 +449,7 @@ div.ultimos-juegos .ultimo-juego {
     margin: 10px 15px 0px 15px;
 }
 
-/* ------ FOOTER -------*/
+/* ---------------------------------- FOOTER --------------------------------------------*/
 
 footer {
     padding: 5px;
