@@ -2,9 +2,9 @@
   "name": "findgamer",
   "version": "1.0.0",
   "description": "Backend de findgamer",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Toni",
@@ -14,7 +14,11 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "mongoose": "^5.4.6"
+    "mongoose": "^5.4.6",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

@@ -1,4 +1,4 @@
-var mongoose = require('../config/database');
+var mongoose = require('../database/config');
 var Schema = mongoose.Schema;
 
 var eventoSchema = Schema({
@@ -7,11 +7,11 @@ var eventoSchema = Schema({
     plataforma: String,
     f_inicio: String,
     f_fin: String,
-    jugadores: Number,
-    participantes: Array,
+    n_jugadores: Number,
     puntuacion_min: Number,
     mensaje: String,
-    likes: Number,
+    participantes: Array,
+    likes: Array,
     comentarios: Array,
     f_creacion: Date
 
