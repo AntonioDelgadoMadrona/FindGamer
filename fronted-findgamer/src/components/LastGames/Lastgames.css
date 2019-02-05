@@ -1,0 +1,49 @@
+div.ultimos-juegos {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.ultimos-juegos .ultimo-juego {
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    max-width: 250px;
+}
+
+.cuerpo-juego {
+    position: relative;
+    text-align: center;
+    color: white;
+    background: #141414;
+}
+
+.enlace-juego {
+    width: 100%;
+    opacity: .4;
+    text-decoration: none;
+    color: white;
+    line-height: 8px;
+    font-size: .8rem;
+}
+
+.enlace-juego:hover {
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.texto-juego {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.imagen-ultimos-juegos {
+    max-width: 250px;
+    max-height: 160px;
+}

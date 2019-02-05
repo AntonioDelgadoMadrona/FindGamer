@@ -1,0 +1,24 @@
+.carrusel {
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    align-content: center;
+}
+
+.imagen-carrusel {
+    max-width: 900px;
+    max-height: 500px;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+
+}
+
+.carousel-item {
+    opacity: .5;
+}
+
+.carousel-item:hover {
+    opacity: .8;
+}

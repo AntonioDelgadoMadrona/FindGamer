@@ -4,14 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagram, faTwitter, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import './Footer.css';
+import { Container, Row, Col } from "react-bootstrap";
 
 class Footer extends Component {
   render() {
     return (
       <footer>
-        <div className="container-fluid text-center">
-          <div className="row cuerpo-footer">
-            <div className="col-12 col-sm-6 col-md-4 mx-auto">
+        <Container fluid className="text-center">
+          <Row className="cuerpo-footer">
+            <Col xs={12} sm={6} md={4} className="mx-auto">
               <ul className="list-unstyled">
                 <li>
                   <a href="/">Quienes somos</a>
@@ -26,9 +27,9 @@ class Footer extends Component {
                   <a href="/">Ayuda</a>
                 </li>
               </ul>
-            </div>
+            </Col>
 
-            <div className="col-12 col-sm-6 col-md-4 mx-auto">
+            <Col xs={12} sm={6} md={4} className="mx-auto">
               <ul className="list-unstyled">
                 <li>
                   <a href="/">Politica de privacidad</a>
@@ -43,8 +44,8 @@ class Footer extends Component {
                   <a href="/">Condiciones de uso</a>
                 </li>
               </ul>
-            </div>
-            <div className="col-12 col-md-4 mx-auto d-inline d-md-block">
+            </Col>
+            <Col xs={12} md={4} className="mx-auto d-inline d-md-block">
               <ul className="list-unstyled">
                 <li>
                   <a href="/">Comunidad</a>
@@ -59,11 +60,11 @@ class Footer extends Component {
                   <a href="/">Noticias</a>
                 </li>
               </ul>
-            </div>
-          </div>
+            </Col>
+          </Row>
           <span className="linea-footer" />
-          <div className="row">
-            <div className="col mx-auto redes-sociales">
+          <Row className="row">
+            <Col className="mx-auto redes-sociales">
               <ul className="list-unstyled list-inline">
                 <li className="list-inline-item">
                   <a href="/">
@@ -96,9 +97,9 @@ class Footer extends Component {
                   </a>
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </footer>
     );
   }

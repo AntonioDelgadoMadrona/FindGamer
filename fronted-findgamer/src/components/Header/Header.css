@@ -29,12 +29,16 @@ header .menu a:hover {
 }
 
 header .menu .imagen {
-    display: inline-block;
+    /* display: inline-block; */
     width: 45px;
     height: 45px;
-    overflow: hidden;
+    text-align: center;
+    justify-content: center;
 }
 
-header .menu .imagen img {
+.imagen_perfil_header {
     border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    /* margin-right: 10px; */
 }
