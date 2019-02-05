@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juego</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!--------- HEADER ---------->
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- COLUMNA DEL LOGOTIPO -->
+                <div class="col-10 col-md-2 d-flex justify-content-center align-items-center">
+                    <i class="fab fa-cloudsmith fa-2x"></i>
+                    <i class="fas fa-gamepad fa-2x"></i>
+                </div>
+                <!-- COLUMNA DE MENU NAVEGACION-->
+                <div class="d-none d-md-block col-md-9">
+                    <nav class="nav justify-content-center align-items-center">
+                        <a href="inicio.html" class="nav-link mr-lg-3">Inicio</a>
+                        <a href="comunidad.html" class="nav-link mr-lg-3">Comunidad</a>
+                        <a href="juegos.html" class="nav-link mr-lg-3">Juegos</a>
+                        <a href="eventos.html" class="nav-link mr-lg-3">Eventos</a>
+                        <a href="mired.html" class="nav-link mr-lg-3">Mi Red</a>
+                        <a href="#" class="nav-link ">Noticias</a>
+                    </nav>
+                </div>
+
+                <!-- COLUMNA DEL MENU DE NAVEGACION DERECHO -->
+                <div class="col-2 col-md-1 d-flex menu align-items-center">
+                    <i class="fas fa-user-circle fa-2x mr-2 mr-md-0" data-toggle="modal" data-target="#exampleModal"></i>
+                    <a href="#" class="imagen"><img src="img/340x250.jpg" class="img-fluid w-100" width="40" height="40" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BOTON DE MENU EN DISPOSITIVOS MOVILES -->
+    <div class="row d-block d-md-none">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-block" id="btn-menu"><i class="fas fa-bars fa-2x"></i></button>
+        </div>
+    </div>
+
+    <!--MENU NAVEGACION PARTE IZQUIERDA SOLO EN MOVILES-->
+    <div id="header-movil">
+        <div class="d-md-none barra-lateral-izquierda" id="barra-lateral-izquierda">
+            <nav>
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <a href="#"><i class="fas fa-users"></i>Comunidad</a>
+                <a href="#"><i class="fas fa-gamepad"></i>Juegos</a>
+                <a href="#"><i class="fas fa-address-book"></i>Eventos</a>
+                <a href="#"><i class="fas fa-clipboard-list"></i>Mi Red</a>
+                <a href="#"><i class="far fa-newspaper"></i>Noticias</a>
+            </nav>
+        </div>
+        <a href="#" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
+    </div>
+
+    <div class="container padre">
+
+        <!----- JUEGO ----->
+        <div class="container hijo pt-0">
+            <div class="row">
+                <img src="img/foto-juego1.jpg" class="w-100 imagen-juego-cabecera" alt="">
+            </div>
+            <div class="row cuerpo-juego-portada">
+                <div class="col-12 col-lg-3">
+                    <img src="img/foto-juego1.jpg" class="imagen-juego-portada" alt="">
+                    <div class="d-flex justify-content-around mt-5">
+                        <p><i class="far fa-clock fa-2x enlace"></i></p>
+                        <p><i class="fas fa-gamepad fa-2x enlace"></i></p>
+                        <p><i class="fas fa-check-circle fa-2x enlace"></i></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <h3>Red Dead Redemption 2</h3>
+                    <h4>Cd Project Red</h4>
+                    <h5>Publicado: 16/05/2015</h5>
+                    <br>
+                    <p>Genero: <span>RPG, Aventura</span></p>
+                    <p>Plataformas: PC/Xbox One/PS4</p>
+                    <p>Descripcion:</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum esse fugit laboriosam tenetur voluptas, atque aut, cumque adipisci dolore nam numquam et, voluptatem ut incidunt repellendus corporis dolorum asperiores quo! Itaque nisi rerum nesciunt ratione, architecto assumenda sint soluta similique odio eligendi officia commodi libero, esse. Tempore quod rerum quam!</p>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <h4>Puntuacion:</h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95/100</div>
+                    </div>
+                    <h4>Tu valoracion:</h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80/100</div>
+                    </div>
+                    <br>
+                    <p>Valora este juego:</p>
+                    <p><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i></p>
+                </div>
+            </div>
+        </div>
+
+        <!--VIDEOS-->
+        <div class="container hijo">
+            <div class="row">
+                <div class="col">
+                    <h4 class="titulo-h4">VIDEOS</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ultimos-juegos mx-3">
+                    <div class="p-0 mr-1 bg-dark ultimo-juego">
+                        <div class="card-body cuerpo-juego w-100 p-1">
+                            <a href="#" class="enlace-juego">
+                                <img src="img/foto-juego1.jpg" class="w-100 imagen-ultimos-juegos" alt="">
+                                <div class="texto-juego">
+                                    <p>Nombre del juego</p>
+                                    <p>Plataformas</p>
+                                    <p>Fecha publicacion</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-0 mr-1 bg-dark ultimo-juego">
+                        <div class="card-body cuerpo-juego w-100 p-1">
+                            <a href="#" class="enlace-juego">
+                                <img src="img/juego2.jpg" class="w-100 imagen-ultimos-juegos" alt="">
+                                <div class="texto-juego">
+                                    <p>Nombre del juego</p>
+                                    <p>Plataformas</p>
+                                    <p>Fecha publicacion</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-0 mr-1 bg-dark ultimo-juego">
+                        <div class="card-body cuerpo-juego w-100 p-1">
+                            <a href="#" class="enlace-juego">
+                                <img src="img/foto-juego1.jpg" class="w-100 imagen-ultimos-juegos" alt="">
+                                <div class="texto-juego">
+                                    <p>Nombre del juego</p>
+                                    <p>Plataformas</p>
+                                    <p>Fecha publicacion</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-0 mr-1 bg-dark ultimo-juego">
+                        <div class="card-body cuerpo-juego w-100 p-1">
+                            <a href="#" class="enlace-juego">
+                                <img src="img/juego2.jpg" class="w-100 imagen-ultimos-juegos" alt="">
+                                <div class="texto-juego">
+                                    <p>Nombre del juego</p>
+                                    <p>Plataformas</p>
+                                    <p>Fecha publicacion</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-0 mr-1 bg-dark ultimo-juego">
+                        <div class="card-body cuerpo-juego w-100 p-1">
+                            <a href="#" class="enlace-juego">
+                                <img src="img/foto-juego1.jpg" class="w-100 imagen-ultimos-juegos" alt="">
+                                <div class="texto-juego">
+                                    <p>Nombre del juego</p>
+                                    <p>Plataformas</p>
+                                    <p>Fecha publicacion</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-0 mr-1 bg-dark ultimo-juego">
+                        <div class="card-body cuerpo-juego w-100 p-1">
+                            <a href="#" class="enlace-juego">
+                                <img src="img/juego2.jpg" class="w-100 imagen-ultimos-juegos" alt="">
+                                <div class="texto-juego">
+                                    <p>Nombre del juego</p>
+                                    <p>Plataformas</p>
+                                    <p>Fecha publicacion</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--COMENTARIOS-->
+        <div class="container hijo">
+            <div class="row">
+                <div class="col">
+                    <h4 class="titulo-h4">COMENTARIOS</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-9 rounded">
+                    <!--Fila donde va los mensajes que se van publicando en col-11-->
+                    <div class="row d-flex justify-content-center">
+                        <!--Publicar un mensaje-->
+                        <div class="col-11 my-2 p-2 rounded text-dark publicar-mensaje">
+                            <form action="" class="form-group">
+                                <textarea class="form-control" id="" placeholder="Comparte un comentario"></textarea>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <button type="submit" class="btn btn-sm boton-celeste">Compartir</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--Mensajes publicados-->
+                        <div class="col-11 my-2 bg-white rounded text-dark mensaje-timeline">
+                            <!--Formato mensaje solo texto-->
+                            <div class="row p-2 mensaje-cuerpo">
+                                <div class=" d-flex justify-content-around">
+                                    <a href="">
+                                        <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
+                                        <div class="float-right ml-3 usuario-mensaje">
+                                            <p class="font-weight-bold">Nombre de Jugador</p>
+                                            <p class="text-muted">17/12/1960 - 15:45h</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="texto-mensaje" id="mensaje-comunidad">
+                                        <p>Hola chicos, mi nombre es Roberto y estoy buscanco a compañeros para poder jugar que estoy mas solo que la una macho... asi que por favor contad conmigo para jugar al juego que sea, tengo fortnite, Fortnite, FORTNITE y el fornait ese que esta muy chulo la verdad el mejor de la lista</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-1">
+                                <div class="col">
+                                    <i class="far fa-thumbs-up fa-lg cursor like ml-md-3 mr-md-3"></i><small class="text-muted">15 likes</small>
+                                </div>
+                                <div class="col">
+                                    <a type="button" class="btn btn-sm boton-celeste" href="#comentario1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario1">Responder</a>
+                                </div>
+                            </div>
+                            <div class="row collapse mt-2 mensaje-nuevo" id="comentario1">
+                                <div class="col d-flex justify-content-end">
+                                    <form action="" class="form-group form-inline">
+                                        <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
+                                        <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container-fluid text-center">
+            <div class="row cuerpo-footer">
+                <div class="col-12 col-sm-6 col-md-4 mx-auto">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Quienes somos</a>
+                        </li>
+                        <li>
+                            <a href="">Trabaja con nosotros</a>
+                        </li>
+                        <li>
+                            <a href="">Contacto</a>
+                        </li>
+                        <li>
+                            <a href="">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mx-auto">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Politica de privacidad</a>
+                        </li>
+                        <li>
+                            <a href="">Condiciones de compra</a>
+                        </li>
+                        <li>
+                            <a href="">Politica de cookies</a>
+                        </li>
+                        <li>
+                            <a href="">Condiciones de uso</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-12 col-md-4 mx-auto d-inline d-md-block">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Comunidad</a>
+                        </li>
+                        <li>
+                            <a href="">Juegos</a>
+                        </li>
+                        <li>
+                            <a href="">Eventos</a>
+                        </li>
+                        <li>
+                            <a href="">Noticias</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <span class="linea-footer"></span>
+            <div class="row">
+                <div class="col mx-auto redes-sociales">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-facebook-square fa-2x"></i><span>Facebook</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-instagram fa-2x"></i><span>Instagram</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-twitter fa-2x"></i><span>Twitter</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-linkedin fa-2x"></i><span>Linkedin</span></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="fab fa-github fa-2x"></i><span>GitHub</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    $(function() {
+        var boton = $('#btn-menu');
+        var fondo_enlace = $('#fondo-enlace');
+
+        boton.on('click', function(e) {
+            fondo_enlace.toggleClass('active');
+            $('#barra-lateral-izquierda').toggleClass('active');
+            e.preventDefault();
+        });
+
+        fondo_enlace.on('click', function(e) {
+            fondo_enlace.toggleClass('active');
+            $('#barra-lateral-izquierda').toggleClass('active');
+            e.preventDefault();
+        });
+    }())
+
+</script>
+
+</html>

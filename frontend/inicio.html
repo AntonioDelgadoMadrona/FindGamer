@@ -68,18 +68,15 @@
     </div>
 
     <!----- MAIN ----->
-    <div class="container mt-2 main">
-        <div class="row">
-            <div class="col">
-                <h4 class="titulo-h4">DESTACADOS</h4>
-            </div>
-            <div class="col-3 d-none d-lg-block">
-                <h4 class="titulo-h4">RECOMENDACIONES</h4>
-            </div>
-        </div>
+    <div class="container-fluid mx-3 my-4 main">
         <div class="row">
             <!--CARRUSEL-->
             <div class="col carrusel sombra-1">
+               <div class="row">
+                   <div class="col">
+                       <h4 class="titulo-h4">DESTACADOS</h4>
+                   </div>
+               </div>
                 <div class="row">
                     <div id="carouselExampleFade" class="carousel slide carousel-fade " data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -150,8 +147,14 @@
 
 
             <!--BARRA LATERAL DERECHA RECOMENDACION JUEGOS-->
-            <div class="col-3 d-none ml-3 d-lg-block sombra-1" id="barra-lateral-derecha">
-                <div class="row pb-3 juego-recomendacion">
+            <div class="col-3 d-none ml-3 d-lg-block sombra-1">
+               <div class="row">
+                   <div class="col d-none ml-3 d-lg-block">
+                       <h4 class="titulo-h4">RECOMENDACIONES</h4>
+                   </div>
+               </div>
+               <div class="container" id="barra-lateral-derecha">
+                   <div class="row pb-3 juego-recomendacion">
                     <div class="d-flex justify-content-around">
                         <a href="">
                             <img src="img/juego2.jpg" class="float-left img-fluid rounded" width="60" alt="">
@@ -223,12 +226,14 @@
                         </a>
                     </div>
                 </div>
+               </div>
+                
             </div>
         </div>
     </div>
 
     <!--NOTICIAS-->
-    <div class="container-fluid my-2 sombra-1">
+    <div class="container my-2 sombra-1">
         <div class="row">
             <div class="col">
                 <h4 class="titulo-h4">ULTIMAS NOTICIAS</h4>

@@ -246,13 +246,14 @@ header .menu .imagen img {
 /*----------- MAIN ----------------*/
 
 .main .carrusel {
-    max-height: 450px;
-    max-width: 850px;
+    max-height: 500px;
+    max-width: 950px;
+    min-height: 100%;
 }
 
 .imagen-carrusel {
-    max-width: 850px;
-    max-height: 450px;
+    max-width: 950px;
+    max-height: 460px !important;
     width: 100%;
     min-height: 100%;
     min-width: 100%;
@@ -274,7 +275,7 @@ header .menu .imagen img {
 #barra-lateral-derecha {
     line-height: 40%;
     border-radius: 10px;
-    max-height: 450px;
+    max-height: 460px;
     overflow: scroll;
 }
 

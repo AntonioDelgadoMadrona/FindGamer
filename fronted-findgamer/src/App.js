@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Smartphone from './components/Smartphone/Smartphone';
 import Footer from './components/Footer/Footer';
 
+import "./bootstrap/css/bootstrap.min.css";
 import './App.css';
 
 class App extends Component {

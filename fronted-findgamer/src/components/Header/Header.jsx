@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import "../../bootstrap/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud, faGamepad, faUser } from "@fortawesome/free-solid-svg-icons";
 
