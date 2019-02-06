@@ -15,6 +15,10 @@
 </head>
 
 <body>
+   
+   <!--IMAGEN DE FONDO-->
+    <img src="./img/fondo-6.jpg" alt="" id="imagen-fondo-inicio">
+   
     <!--------- HEADER ---------->
     <header>
         <div class="container-fluid">
@@ -68,107 +72,111 @@
         <a href="#" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
     </div>
 
-    <!----- CUERPO DEL EVENTO ----->
-    <div class="container contenedor-evento sombra-1 my-3">
-        <!--Nombre del juego del evento-->
-        <div class="row">
-            <div class="col-12 text-center">
-                <h3 class="titulo-h2">FORTNITE: BATTLE ROYALE</h3>
-            </div>
-        </div>
-        <!--Informacion del evento-->
-        <div class="row my-2">
-            <div class="col-12 col-md-4">
-                <div>
-                    <img src="img/fortnite.jpg" class="imagen-evento" alt="">
-                </div>
-            </div>
-            <div class="col-12 col-md-8">
-                <h3>Creado por: <span>Madrona5</span>
-                    <h3>Plataforma: <span>Xbox One</span></h3>
-                    <h3>NºJugadores: <span>4</span></h3>
-                    <h3>Puntuacion minima: <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span></h3>
+    <div class="container padre">
 
-            </div>
-        </div>
-        <!--Duracion del evento-->
-        <div class="row my-2">
-            <div class="col-6">
-                <h4 class="titulo-h4-azul">INICIO DEL EVENTO: <span>15/01/19 - 11:00h</span></h4>
-            </div>
-            <div class="col-6">
-                <h4 class="titulo-h4-rojo">FIN DEL EVENTO: <span>15/01/19 - 12:00h</span></h4>
-            </div>
-        </div>
-        <!--Mensaje-->
-        <div class="row my-2">
-            <div class="col-12">
-                <h5 class="titulo-h4">Mensaje del creador:</h5>
-                <div class="justify-content-center">
-                    <p>Hola busco 3 jugadores que se unan conmigo para partir cabezas ahi fuera, no quiero ningun mierdecillas que no tenga huevos para a una media de 15 kills por partida, juro que todo aquel que no cumpla con este promedio le voy a dar una puntuacion de mierda, como el gamer que es.</p>
+        <!----- CUERPO DEL EVENTO ----->
+        <div class="container contenedor-evento hijo">
+            <!--Nombre del juego del evento-->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="titulo-h2">FORTNITE: BATTLE ROYALE</h3>
                 </div>
             </div>
-        </div>
-    </div>
+            <!--Informacion del evento-->
+            <div class="row my-2">
+                <div class="col-12 col-md-4">
+                    <div>
+                        <img src="img/fortnite.jpg" class="imagen-evento" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <h3 class="titulo">CREADOR: <span class="badge badge-dark">Madrona5</span>
+                        <h3 class="titulo">PLATAFORMA: <span class="badge badge-success mx-1">Xbox One</span><span class="badge badge-primary mx-1">PS4</span></h3>
+                        <h3 class="titulo">Nº JUGADORES: <span class="badge badge-info">4</span></h3>
+                        <h3 class="titulo">PUNTUACION MINIMA: <span class="subtitulo"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span></h3>
 
-    <!--PARTICIPAR EN EL EVENTO-->
-    <div class="container my-2">
-        <div class="row">
-            <div class="col-8 plazas-disponibles">
-                <h2 class="titulo">PLAZAS DISPONIBLES: <span>3/4</span></h2>
+                </div>
             </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-sm boton-verde">Participar</button>
+            <!--Duracion del evento-->
+            <div class="row my-3 text-center">
+                <div class="col-12 col-md-6">
+                    <p class="subtitulo">INICIO DEL EVENTO: <span class="text-muted">15/01/19 - 11:00h</span></p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p class="subtitulo">FIN DEL EVENTO: <span class="text-muted">15/01/19 - 12:00h</span></p>
+                </div>
+            </div>
+            <!--Mensaje-->
+            <div class="row my-2">
+                <div class="col-12">
+                    <h5 class="titulo-h4">Mensaje del creador:</h5>
+                    <div class="justify-content-center">
+                        <p>Hola busco 3 jugadores que se unan conmigo para partir cabezas ahi fuera, no quiero ningun mierdecillas que no tenga huevos para a una media de 15 kills por partida, juro que todo aquel que no cumpla con este promedio le voy a dar una puntuacion de mierda, como el gamer que es.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!--JUGADORES YA INSCRITOS-->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="titulo-h4">JUGADORES INSCRITOS</h4>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="img/foto-perfil3.jpg" class="imagen-usuario rounded-circle" alt="">
-                    </div>
-                    <div class="col-5">
-                        <h4>Madrona5</h4>
-                    </div>
-                    <div class="col-4">
-                        <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
-                    </div>
+        <!--PARTICIPAR EN EL EVENTO-->
+        <div class="container hijo">
+            <div class="row">
+                <div class="col-8 plazas-disponibles">
+                    <h2 class="titulo">PLAZAS DISPONIBLES: <span class="badge badge-light">3/4</span></h2>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-sm boton-verde">Participar</button>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="img/foto-perfil3.jpg" class="imagen-usuario rounded-circle" alt="">
-                    </div>
-                    <div class="col-5">
-                        <h4>Madrona5</h4>
-                    </div>
-                    <div class="col-4">
-                        <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+        </div>
+
+        <!--JUGADORES YA INSCRITOS-->
+        <div class="container hijo">
+            <div class="row ">
+                <div class="col-12">
+                    <h4 class="titulo-h4">JUGADORES INSCRITOS</h4>
+                </div>
+                <div class="col-12 col-lg-7 my-1">
+                    <div class="row text-center align-items-center">
+                        <div class="col-3">
+                            <img src="img/foto-perfil3.jpg" class="imagen-usuario rounded-circle" alt="">
+                        </div>
+                        <div class="col-5">
+                            <h4>Madrona5</h4>
+                        </div>
+                        <div class="col-4 col-lg-3">
+                            <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="img/foto-perfil3.jpg" class="imagen-usuario rounded-circle" alt="">
+                <div class="col-12 col-lg-7 my-1">
+                    <div class="row text-center align-items-center">
+                        <div class="col-3">
+                            <img src="img/foto-perfil3.jpg" class="imagen-usuario rounded-circle" alt="">
+                        </div>
+                        <div class="col-5">
+                            <h4>Madrona5</h4>
+                        </div>
+                        <div class="col-4 col-lg-3">
+                            <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                        </div>
                     </div>
-                    <div class="col-5">
-                        <h4>Madrona5</h4>
-                    </div>
-                    <div class="col-4">
-                        <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                </div>
+                <div class="col-12 col-lg-7 my-1">
+                    <div class="row text-center align-items-center">
+                        <div class="col-3">
+                            <img src="img/foto-perfil3.jpg" class="imagen-usuario rounded-circle" alt="">
+                        </div>
+                        <div class="col-5">
+                            <h4>Madrona5</h4>
+                        </div>
+                        <div class="col-4 col-lg-3">
+                            <span><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!--FOOTER-->

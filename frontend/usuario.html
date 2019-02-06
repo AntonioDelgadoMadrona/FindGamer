@@ -15,6 +15,10 @@
 </head>
 
 <body>
+   
+   <!--IMAGEN DE FONDO-->
+    <img src="./img/fondo-5.jpg" alt="" id="imagen-fondo-inicio">
+    
     <!--------- HEADER ---------->
     <header>
         <div class="container-fluid">
@@ -67,9 +71,11 @@
         </div>
         <a href="#" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
     </div>
-
-    <!----- CABECERA-PERFIL ----->
-    <div class="container">
+    
+    <div class="container padre">
+    
+     <!----- CABECERA-PERFIL ----->
+    <div class="container hijo">
         <div class="row">
             <div class="col">
                 <h4 class="titulo-h4">PERFIL DE USUARIO</h4>
@@ -96,14 +102,14 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <h3>Juanito23</h3>
+                <h3 class="text-black">Juanito23</h3>
                 <p><i class="fas fa-star text-warning fa-lg"></i><i class="fas fa-star text-warning fa-lg"></i><i class="fas fa-star text-warning fa-lg"></i><i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i></p>
             </div>
         </div>
     </div>
 
     <!--MAIN USUARIO-->
-    <div class="container my-2">
+        <div class="container hijo">
         <div class="row justify-content-between">
             <div class="col-3">
                 <div class="row mb-3">
@@ -329,6 +335,7 @@
 
             </div>
         </div>
+    </div>
     </div>
     
     <!--FOOTER-->

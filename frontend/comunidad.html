@@ -15,6 +15,10 @@
 </head>
 
 <body>
+   
+   <!--IMAGEN DE FONDO-->
+    <img src="./img/fondo-2.jpg" alt="" id="imagen-fondo-inicio">
+    
     <!--------- HEADER ---------->
     <header>
         <div class="container-fluid">
@@ -23,6 +27,7 @@
                 <div class="col-10 col-md-2 d-flex justify-content-center align-items-center">
                     <i class="fab fa-cloudsmith fa-2x"></i>
                     <i class="fas fa-gamepad fa-2x"></i>
+                    <!--               <img src="img/logo-findergamer.jpg" alt="">-->
                 </div>
                 <!-- COLUMNA DE MENU NAVEGACION-->
                 <div class="d-none d-md-block col-md-9">
@@ -38,7 +43,7 @@
 
                 <!-- COLUMNA DEL MENU DE NAVEGACION DERECHO -->
                 <div class="col-2 col-md-1 d-flex menu align-items-center">
-                    <!--<a href="#"><i class="fas fa-user-circle fa-2x mr-2 mr-md-0"></i></a>-->
+                    <i class="fas fa-user-circle fa-2x mr-2 mr-md-0" data-toggle="modal" data-target="#exampleModal"></i>
                     <a href="#" class="imagen"><img src="img/340x250.jpg" class="img-fluid w-100" width="40" height="40" alt=""></a>
                 </div>
             </div>
@@ -68,237 +73,245 @@
     </div>
 
     <!----- MAIN ----->
-    <div class="container my-2">
-        <div class="row justify-content-between">
-            <!--Primera columna donde van los mensajes publicados-->
-            <div class="col-12 col-lg-9">
-                <h4 class="titulo-h4">MENSAJES DE LA COMUNIDAD</h4>
-            </div>
-            <div class="col-12 col-lg-9 rounded">
-                <div class="row my-2">
-                    <div class="col d-flex justify-content-center">
-                        <a href="#bloque1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="bloque1" class="btn btn-sm boton-celeste enlace">Publicar mensaje</a>
+    <div class="container padre">
+        <div class="container hijo ">
+            <div class="row justify-content-between">
+                <!-- TIMELINE -->
+                <div class="col-12 col-lg-8 col-xl-9">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="titulo-h4">MENSAJES DE LA COMUNIDAD</h4>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col d-flex justify-content-center">
+                            <a href="#bloque1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="bloque1" class="btn btn-sm boton-celeste enlace">Publicar mensaje</a>
+                        </div>
+                    </div>
+                    <!--Fila donde va los mensajes que se van publicando en col-11-->
+                    <div class="row d-flex justify-content-center">
+                        <!--PUBLICAR MENSAJE-->
+                        <div class="col-12 collapse publicar-mensaje" id="bloque1">
+
+                            <form action="" class="form-group">
+                                <textarea class="form-control" id="" placeholder="Comparte un mensaje, foto o evento..."></textarea>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <input type="file" class="form-control-file form-control-sm " name="" id="">
+                                    <!--
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" lang="es">
+                                        <label class="custom-file-label" for="customFile">Elige una foto</label>
+                                    </div>
+-->
+                                    <button type="submit" class="btn btn-sm boton-celeste">Compartir</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="container timeline">
+                            <!-- MENSAJE TEXTO -->
+                            <div class="col-12 mensaje-timeline">
+                                <!--Formato mensaje solo texto-->
+                                <div class="row p-2 mensaje-cuerpo">
+                                    <div class=" d-flex justify-content-around">
+                                        <a href="">
+                                            <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
+                                            <div class="float-right ml-3 usuario-mensaje">
+                                                <p class="font-weight-bold">Nombre de Jugador</p>
+                                                <p class="text-muted">17/12/1960 - 15:45h</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="texto-mensaje" id="mensaje-comunidad">
+                                            <p>Hola chicos, mi nombre es Roberto y estoy buscanco a compañeros para poder jugar que estoy mas solo que la una macho... asi que por favor contad conmigo para jugar al juego que sea, tengo fortnite, Fortnite, FORTNITE y el fornait ese que esta muy chulo la verdad el mejor de la lista</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col">
+                                        <i class="far fa-thumbs-up fa-lg cursor like ml-md-3 mr-md-3"></i><small class="text-muted">15 likes</small>
+                                    </div>
+                                    <div class="col">
+                                        <a type="button" class="btn btn-sm boton-celeste" href="#comentario1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario1">Responder</a>
+                                    </div>
+                                </div>
+                                <div class="row collapse mensaje-nuevo" id="comentario1">
+                                    <div class="col d-flex justify-content-end">
+                                        <form action="" class="form-group form-inline">
+                                            <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
+                                            <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--MENSAJE CON IMAGEN-->
+                            <div class="col-12 mensaje-timeline">
+                                <div class="row p-2 mensaje-cuerpo">
+                                    <div class=" d-flex justify-content-around">
+                                        <a href="">
+                                            <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
+                                            <div class="float-right ml-3 usuario-mensaje">
+                                                <p class="font-weight-bold">Nombre de Jugador</p>
+                                                <p class="text-muted">17/12/1960 - 15:45h</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row my-1">
+                                    <div class="col">
+                                        <img src="img/340x250.jpg" class="imagen-mensaje-timeline rounded" alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="texto-mensaje" id="mensaje-comunidad">
+                                            <p>Hola chicos, mi nombre es Roberto y estoy buscanco a compañeros para poder jugar que estoy mas solo que la una macho... asi que por favor contad conmigo para jugar al juego que sea, tengo fortnite, Fortnite, FORTNITE y el fornait ese que esta muy chulo la verdad el mejor de la lista</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col mx-1">
+                                        <i class="far fa-thumbs-up fa-lg cursor like mr-1"></i><small class="text-muted">15 likes</small>
+                                    </div>
+                                    <div class="col">
+                                        <a type="button" class="btn btn-sm boton-celeste" href="#comentario2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario2">Responder</a>
+                                    </div>
+                                </div>
+                                <div class="row collapse mt-2 mensaje-nuevo" id="comentario2">
+                                    <div class="col d-flex justify-content-end">
+                                        <form action="" class="form-group form-inline">
+                                            <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
+                                            <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!--Fila donde va los mensajes que se van publicando en col-11-->
-                <div class="row d-flex justify-content-center">
-                    <!--Publicar un mensaje-->
-                    <div class="col-11 my-2 collapse p-2 rounded text-dark publicar-mensaje" id="bloque1">
-
-                        <form action="" class="form-group">
-                            <textarea class="form-control" id="" placeholder="Comparte un mensaje, foto o evento..."></textarea>
-                            <div class="d-flex justify-content-between mt-2">
-                                <!--                                <input type="file" class="form-control-file form-control-sm " name="" id="">-->
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" lang="es">
-                                    <label class="custom-file-label" for="customFile">Elige una foto</label>
-                                </div>
-                                <button type="submit" class="btn btn-sm boton-celeste">Compartir</button>
-                            </div>
-                        </form>
+                <!--USUARIOS MAS ACTIVOS-->
+                <div class="col-lg-4 col-xl-3 d-none d-lg-block">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="titulo-h4">JUGADORES MAS ACTIVOS</h4>
+                        </div>
                     </div>
-
-                    <!--Mensajes publicados-->
-                    <div class="col-11 my-2 bg-white rounded text-dark mensaje-timeline">
-                        <!--Formato mensaje solo texto-->
-                        <div class="row p-2 mensaje-cuerpo">
-                            <div class=" d-flex justify-content-around">
+                    <div id="lista-vertical-timeline">
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
                                 <a href="">
-                                    <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
-                                    <div class="float-right ml-3 usuario-mensaje">
-                                        <p class="font-weight-bold">Nombre de Jugador</p>
-                                        <p class="text-muted">17/12/1960 - 15:45h</p>
+                                    <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="texto-mensaje" id="mensaje-comunidad">
-                                    <p>Hola chicos, mi nombre es Roberto y estoy buscanco a compañeros para poder jugar que estoy mas solo que la una macho... asi que por favor contad conmigo para jugar al juego que sea, tengo fortnite, Fortnite, FORTNITE y el fornait ese que esta muy chulo la verdad el mejor de la lista</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-1">
-                            <div class="col">
-                                <i class="far fa-thumbs-up fa-lg cursor like ml-md-3 mr-md-3"></i><small class="text-muted">15 likes</small>
-                            </div>
-                            <div class="col">
-                                <a type="button" class="btn btn-sm boton-celeste" href="#comentario1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario1">Responder</a>
-                            </div>
-                        </div>
-                        <div class="row collapse mt-2 mensaje-nuevo" id="comentario1">
-                            <div class="col d-flex justify-content-end">
-                                <form action="" class="form-group form-inline">
-                                    <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
-                                    <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--MENSAJE CON IMAGEN-->
-                    <div class="col-11 my-2 bg-white rounded text-dark mensaje-timeline">
-                        <div class="row p-2 mensaje-cuerpo">
-                            <div class=" d-flex justify-content-around">
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
                                 <a href="">
-                                    <img src="img/340x250.jpg" class="float-left img-fluid rounded-circle" width="60" height="65" alt="">
-                                    <div class="float-right ml-3 usuario-mensaje">
-                                        <p class="font-weight-bold">Nombre de Jugador</p>
-                                        <p class="text-muted">17/12/1960 - 15:45h</p>
+                                    <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="row my-1">
-                            <div class="col">
-                                <img src="img/340x250.jpg" class="imagen-mensaje-timeline rounded" alt="">
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="texto-mensaje" id="mensaje-comunidad">
-                                    <p>Hola chicos, mi nombre es Roberto y estoy buscanco a compañeros para poder jugar que estoy mas solo que la una macho... asi que por favor contad conmigo para jugar al juego que sea, tengo fortnite, Fortnite, FORTNITE y el fornait ese que esta muy chulo la verdad el mejor de la lista</p>
-                                </div>
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <div class="row mb-1">
-                            <div class="col mx-1">
-                                <i class="far fa-thumbs-up fa-lg cursor like mr-1"></i><small class="text-muted">15 likes</small>
-                            </div>
-                            <div class="col">
-                                <a type="button" class="btn btn-sm boton-celeste" href="#comentario2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="comentario2">Responder</a>
-                            </div>
-                        </div>
-                        <div class="row collapse mt-2 mensaje-nuevo" id="comentario2">
-                            <div class="col d-flex justify-content-end">
-                                <form action="" class="form-group form-inline">
-                                    <textarea class="form-control" placeholder="Envia un comentario" cols="50" rows="1" name=""></textarea>
-                                    <button type="submit" class="mx-1 btn btn-sm boton-celeste">Comentar</button>
-                                </form>
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-            <!--Columna del aside de recomendaciones-->
-            <div class="col-md-3 d-none d-lg-block sombra-1" id="barra-lateral-derecha-jugadores">
-               <div class="row d-none d-lg-block">
-                <h4 class="titulo-h4">SUGERENCIAS</h4>
-            </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
+                        </div>
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
+                        </div>
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
+                        </div>
+                        <div class="row pb-3 jugador-recomendacion">
+                            <div class="d-flex justify-content-around">
+                                <a href="">
+                                    <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
+                                    <div class="float-right ml-3">
+                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
+                                        <p><span class="verde">Puntuacion</span></p>
+                                        <p class="text-muted">Fecha de registro</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil1.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil2.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pb-3 jugador-recomendacion">
-                    <div class="d-flex justify-content-around">
-                        <a href="">
-                            <img src="img/foto-perfil3.jpg" class="float-left img-fluid rounded-circle imagen-usuario" alt="">
-                            <div class="float-right ml-3">
-                                <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                <p><span class="verde">Puntuacion</span></p>
-                                <p class="text-muted">Fecha de registro</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -383,6 +396,30 @@
             </div>
         </div>
     </footer>
+
+    <!--VENTANA MODAL USUARIO-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title titulo-h4 text-dark" id="exampleModalLabel">INICIA SESION</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="form-group form-inline">
+                        <input type="email" class="form-control mr-3" placeholder="Introduce tu correo">
+                        <input type="password" class="form-control" placeholder="Contraseña">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span class="text-dark mr-5">¿Aun no estas registrado? <a href="form_registro.html">Registrate!!</a></span>
+                    <button type="submit" class="btn btn-sm boton-celeste ml-5">Iniciar sesion</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

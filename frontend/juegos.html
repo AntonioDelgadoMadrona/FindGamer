@@ -15,6 +15,10 @@
 </head>
 
 <body>
+   
+   <!--IMAGEN DE FONDO-->
+    <img src="./img/fondo-3.jpg" alt="" id="imagen-fondo-inicio">
+   
     <!--------- HEADER ---------->
     <header>
         <div class="container-fluid">
@@ -82,301 +86,298 @@
         </div>
     </div>
 
-    <!--FILTROS BUSQUEDA-->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="titulo-h2">JUEGOS DE PC</h2>
+    <div class="container padre">
+
+        <!--FILTROS BUSQUEDA-->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="titulo-h2">JUEGOS DE PC</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-5">
+                    <form action="" class="form-group input-group-sm form-inline align-items-center">
+                        <input type="text" class="form-control mb-1" name="" placeholder="¿Buscas algun juego?">
+                        <button type="submit" class="btn btn-sm boton-celeste ml-1">Buscar</button>
+                    </form>
+                </div>
+                <div class="col-12 col-md-4">
+                    <form action="" class="input-group">
+                        <select class="custom-select input-pequeño mb-2" id="inputGroupSelect04" aria-label="Example select with button addon">
+                            <option selected>Ordenar por...</option>
+                            <option value="1">Mayor puntuación</option>
+                            <option value="2">Menor puntuación</option>
+                            <option value="3">A - Z</option>
+                            <option value="4">Z - A</option>
+                            <option value="5">Los mas recientes</option>
+                            <option value="6">Los mas antiguos</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn h-75 btn-sm boton-celeste" type="button">Filtrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-md-2 ">
+                    <a type="button" class="btn btn-sm boton-celeste" href="#busqueda" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="busqueda">Busqueda avanzada</a>
+                </div>
+                <div class="col-12 collapse" id="busqueda">
+                    <form action="" class="form-group">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Nombre del juego</label>
+                                <input type="text" class="form-control" id="inputJuego">
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Plataforma</label>
+                                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                    <option selected>...</option>
+                                    <option value="1">PC</option>
+                                    <option value="2">Xbox One</option>
+                                    <option value="3">Playstation 4</option>
+                                    <option value="4">Nintendo Switch</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Año lanzamiento</label>
+                                <select class="custom-select" id="">
+                                    <option selected></option>
+                                    <option value="1">1958</option>
+                                    <option value="2">1959</option>
+                                    <option value="3">1960</option>
+                                    <option value="3">1961</option>
+                                    <option value="3">...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Genero</label>
+                                <select class="custom-select" id="">
+                                    <option selected></option>
+                                    <option value="1">Accion</option>
+                                    <option value="2">RPG</option>
+                                    <option value="3">Aventuras</option>
+                                    <option value="3">Animacion</option>
+                                    <option value="3">...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Modo de juego</label>
+                                <select class="custom-select" id="">
+                                    <option selected></option>
+                                    <option value="1">Co-operativo</option>
+                                    <option value="2">Multijugador</option>
+                                    <option value="3">Solitario</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Perspectiva</label>
+                                <select class="custom-select" id="">
+                                    <option selected></option>
+                                    <option value="1">Primera persona</option>
+                                    <option value="2">Tercera persona</option>
+                                    <option value="3">Ojo de pajaro</option>
+                                    <option value="3">Vista lateral</option>
+                                    <option value="3">...</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Puntuacion minima</label>
+                                <select class="custom-select" id="inputJugadores" aria-label="Example select with button addon">
+                                    <option selected>1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                    <option value="4">5</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Puntuacion maxima</label>
+                                <select class="custom-select" id="inputJugadores" aria-label="Example select with button addon">
+                                    <option selected>100</option>
+                                    <option value="1">99</option>
+                                    <option value="2">98</option>
+                                    <option value="3">97</option>
+                                    <option value="4">96</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-row d-flex justify-content-center">
+                            <button type="submit" class="btn boton-celeste">Buscar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-5">
-                <form action="" class="form-group input-group-sm form-inline align-items-center">
-                    <input type="text" class="form-control mb-1" name="" placeholder="¿Buscas algun juego?">
-                    <button type="submit" class="btn btn-sm boton-celeste ml-1">Buscar</button>
-                </form>
-            </div>
-            <div class="col-12 col-md-4">
-                <form action="" class="input-group">
-                    <select class="custom-select input-pequeño mb-2" id="inputGroupSelect04" aria-label="Example select with button addon">
-                        <option selected>Ordenar por...</option>
-                        <option value="1">Mayor puntuación</option>
-                        <option value="2">Menor puntuación</option>
-                        <option value="3">A - Z</option>
-                        <option value="4">Z - A</option>
-                        <option value="5">Los mas recientes</option>
-                        <option value="6">Los mas antiguos</option>
-                    </select>
-                    <div class="input-group-append">
-                        <button type="submit" class="btn h-75 btn-sm boton-celeste" type="button">Filtrar</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-12 col-md-2 ">
-                <a type="button" class="btn btn-sm boton-celeste" href="#busqueda" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="busqueda">Busqueda avanzada</a>
-            </div>
-            <div class="col-12 collapse" id="busqueda">
-                <form action="" class="form-group">
-                    <div class="form-row">
-                        <div class="form-group col-12 col-md-6">
-                           <label for="">Nombre del juego</label>
-                            <input type="text" class="form-control" id="inputJuego">
+
+        <!--LISTA DE JUEGOS-->
+        <div class="container hijo">
+            <div class="row justify-content-around fila-lista-juegos">
+                <!--CADA JUEGO DE LA LISTA-->
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                           <label for="">Plataforma</label>
-                            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                <option selected>...</option>
-                                <option value="1">PC</option>
-                                <option value="2">Xbox One</option>
-                                <option value="3">Playstation 4</option>
-                                <option value="4">Nintendo Switch</option>
-                            </select>
+                        <div class="col-9">
+                            <p><a href="">The Witcher 3: Wild Hunt</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">94/100</span></p>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Año lanzamiento</label>
-                            <select class="custom-select" id="">
-                                <option selected></option>
-                                <option value="1">1958</option>
-                                <option value="2">1959</option>
-                                <option value="3">1960</option>
-                                <option value="3">1961</option>
-                                <option value="3">...</option>
-                            </select>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Genero</label>
-                            <select class="custom-select" id="">
-                                <option selected></option>
-                                <option value="1">Accion</option>
-                                <option value="2">RPG</option>
-                                <option value="3">Aventuras</option>
-                                <option value="3">Animacion</option>
-                                <option value="3">...</option>
-                            </select>
+                        <div class="col-9">
+                            <p><a href="">Red Dead Redemption 2</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">96/100</span></p>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Modo de juego</label>
-                            <select class="custom-select" id="">
-                                <option selected></option>
-                                <option value="1">Co-operativo</option>
-                                <option value="2">Multijugador</option>
-                                <option value="3">Solitario</option>
-                            </select>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Perspectiva</label>
-                            <select class="custom-select" id="">
-                                <option selected></option>
-                                <option value="1">Primera persona</option>
-                                <option value="2">Tercera persona</option>
-                                <option value="3">Ojo de pajaro</option>
-                                <option value="3">Vista lateral</option>
-                                <option value="3">...</option>
-                            </select>
-
+                        <div class="col-9">
+                            <p><a href="">The Witcher 3: Wild Hunt</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">94/100</span></p>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-12 col-md-6">
-                           <label for="">Puntuacion minima</label>
-                            <select class="custom-select" id="inputJugadores" aria-label="Example select with button addon">
-                                <option selected>1</option>
-                                <option value="1">2</option>
-                                <option value="2">3</option>
-                                <option value="3">4</option>
-                                <option value="4">5</option>
-                            </select>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Puntuacion maxima</label>
-                            <select class="custom-select" id="inputJugadores" aria-label="Example select with button addon">
-                                <option selected>100</option>
-                                <option value="1">99</option>
-                                <option value="2">98</option>
-                                <option value="3">97</option>
-                                <option value="4">96</option>
-                            </select>
+                        <div class="col-9">
+                            <p><a href="">Red Dead Redemption 2</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">96/100</span></p>
                         </div>
                     </div>
-                    <br>
-                    <div class="form-row d-flex justify-content-center">
-                        <button type="submit" class="btn boton-celeste">Buscar</button>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">The Witcher 3: Wild Hunt</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">94/100</span></p>
+                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!--LISTA DE JUEGOS-->
-    <div class="container my-2">
-        <div class="row justify-content-around sombra-verde py-3 fila-lista-juegos">
-            <!--CADA JUEGO DE LA LISTA-->
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">Red Dead Redemption 2</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">96/100</span></p>
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <p><a href="">The Witcher 3: Wild Hunt</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">94/100</span></p>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">The Witcher 3: Wild Hunt</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">94/100</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">Red Dead Redemption 2</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">96/100</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">The Witcher 3: Wild Hunt</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">94/100</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">Red Dead Redemption 2</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">96/100</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">The Witcher 3: Wild Hunt</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">94/100</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
+                    <div class="row juego-lista">
+                        <div class="col-3">
+                            <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
+                        </div>
+                        <div class="col-9">
+                            <p><a href="">Red Dead Redemption 2</a></p>
+                            <p class="text-muted">Publicado: <span>29/10/2016</span></p>
+                            <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
+                            <p>Puntuacion: <span class="text-warning">96/100</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">Red Dead Redemption 2</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">96/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">The Witcher 3: Wild Hunt</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">94/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">Red Dead Redemption 2</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">96/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">The Witcher 3: Wild Hunt</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">94/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">Red Dead Redemption 2</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">96/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">The Witcher 3: Wild Hunt</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">94/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">Red Dead Redemption 2</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">96/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">The Witcher 3: Wild Hunt</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">94/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">Red Dead Redemption 2</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">96/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/juego2.jpg" class="img-fluid rounded imagen-juego-lista" width="150" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">The Witcher 3: Wild Hunt</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">94/100</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 m-2 p-2 columna-lista-juegos rounded">
-                <div class="row juego-lista">
-                    <div class="col-3">
-                        <img src="img/foto-juego1.jpg" class="img-fluid rounded imagen-juego-lista" width="150" height="100" alt="">
-                    </div>
-                    <div class="col-9">
-                        <p><a href="">Red Dead Redemption 2</a></p>
-                        <p class="text-muted">Publicado: <span>29/10/2016</span></p>
-                        <p>Plataformas: <span class="celeste">Xbox One/PS4/PC</span></p>
-                        <p>Puntuacion: <span class="text-warning">96/100</span></p>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
         </div>
     </div>
 

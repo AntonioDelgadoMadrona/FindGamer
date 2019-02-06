@@ -1,0 +1,39 @@
+/* -------------------------------------  NOTICIAS  ------------------------------ */
+
+.ultimas-noticias {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    min-height: 100%;
+}
+
+.ultimas-noticias .ultima-noticia {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    max-width: 450px;
+
+}
+
+.ultimas-noticias .ultima-noticia:hover {
+    border: 0.5px solid #46c5e0;
+}
+
+.ultimas-noticias .ultima-noticia .noticia {
+    color: white;
+    /* background: linear-gradient(to bottom, #151515 18%, #151515 64%, #151515 92%, rgba(67, 175, 198, 1) 100%); */
+}
+
+.ultimas-noticias .ultima-noticia a {
+    text-decoration: none;
+}
+
+.ultimas-noticias .ultima-noticia a:hover {
+    text-decoration: none;
+}
+
+.imagen-noticia {
+    max-width: 250px;
+    max-height: 120px;
+}
