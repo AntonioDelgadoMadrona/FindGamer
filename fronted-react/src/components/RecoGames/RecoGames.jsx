@@ -16,13 +16,12 @@ class RecoGames extends Component {
             <h4 className="titulo-h4">JUEGOS RECOMENDADOS</h4>
           </Col>
         </Row>
-        <div className="lista-vertical">
+        <div id="lista-vertical">
           <Row className="pb-3 juego-recomendacion">
-            <div className="d-flex justify-content-around">
+            <div>
               <img
                 src={juego1}
-                className="float-left img-fluid rounded"
-                width="60"
+                className="float-left imagen-juego-vertical"
                 alt=""
               />
               <div className="float-right ml-3">
@@ -36,12 +35,11 @@ class RecoGames extends Component {
               </div>
             </div>
           </Row>
-          <Row className="pb-3 juego-recomendacion">
-            <div className="d-flex justify-content-around">
+          <Row className="bg-dark juego-recomendacion">
+            <div>
               <img
                 src={juego2}
-                className="float-left img-fluid rounded"
-                width="60"
+                className="float-left imagen-juego-vertical"
                 alt=""
               />
               <div className="float-right ml-3">
@@ -55,12 +53,11 @@ class RecoGames extends Component {
               </div>
             </div>
           </Row>
-          <Row className="pb-3 juego-recomendacion">
-            <div className="d-flex justify-content-around">
+          <Row className="juego-recomendacion">
+            <div>
               <img
                 src={juego3}
-                className="float-left img-fluid rounded"
-                width="60"
+                className="float-left imagen-juego-vertical"
                 alt=""
               />
               <div className="float-right ml-3">
@@ -74,12 +71,11 @@ class RecoGames extends Component {
               </div>
             </div>
           </Row>
-          <Row className="pb-3 juego-recomendacion">
-            <div className="d-flex justify-content-around">
+          <Row className="bg-dark juego-recomendacion">
+            <div>
               <img
                 src={juego1}
-                className="float-left img-fluid rounded"
-                width="60"
+                className="float-left imagen-juego-vertical"
                 alt=""
               />
               <div className="float-right ml-3">
@@ -93,12 +89,11 @@ class RecoGames extends Component {
               </div>
             </div>
           </Row>
-          <Row className="pb-3 juego-recomendacion">
-            <div className="d-flex justify-content-around">
+          <Row className="juego-recomendacion">
+            <div>
               <img
                 src={juego2}
-                className="float-left img-fluid rounded"
-                width="60"
+                className="float-left imagen-juego-vertical"
                 alt=""
               />
               <div className="float-right ml-3">
@@ -112,12 +107,11 @@ class RecoGames extends Component {
               </div>
             </div>
           </Row>
-          <Row className="pb-3 juego-recomendacion">
-            <div className="d-flex justify-content-around">
+          <Row className="bg-dark juego-recomendacion">
+            <div>
               <img
                 src={juego3}
-                className="float-left img-fluid rounded"
-                width="60"
+                className="float-left imagen-juego-vertical"
                 alt=""
               />
               <div className="float-right ml-3">
@@ -131,6 +125,7 @@ class RecoGames extends Component {
               </div>
             </div>
           </Row>
+         
           
           
         </div>

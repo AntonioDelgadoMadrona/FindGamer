@@ -53,7 +53,7 @@ class Noticias extends Component {
           </div>
           <div className="ultima-noticia p-1">
             <a href="/">
-              <div className=" noticia">
+              <div className="noticia">
                 <img
                   src={juego3}
                   className="card-img-top imagen-noticia"

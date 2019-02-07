@@ -1,0 +1,60 @@
+.evento {
+    padding: 0;
+    margin: 1rem;
+    border: 3px solid #303030;
+    box-shadow: 0 0 15px #909090;
+}
+
+.mensaje-timeline-eventos {
+    background: #d8d8d8;
+    color: black;
+    padding: 1.2rem;
+    border: 1px solid #505050;
+    padding-bottom: 0;
+}
+
+.info-evento {
+    margin: 1rem;
+    font-family: 'Times New Roman', sans-serif;
+    padding: 0 5px;
+    font-weight: 400;
+}
+
+.info-evento-2 {
+    text-align: center;
+    margin: .5rem 0;
+}
+
+.datos-evento {
+    line-height: 60%;
+    margin-left: 1rem;
+}
+
+.mensaje-evento {
+    background: #262626;
+    color: white;
+    font-weight: 400;
+}
+
+.publicar-evento {
+    background: #fafafa;
+}
+
+.imagen-evento-timeline {
+    justify-content: center;
+    max-width: 100%;
+    max-height: 150px !important;
+    height: 100%;
+    min-width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .mensaje-timeline-eventos {
+        padding: 0;
+    }
+
+    .info-evento-2 {
+        text-align: left;
+        padding: 0;
+    }
+}

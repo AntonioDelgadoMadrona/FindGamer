@@ -1,0 +1,38 @@
+.ultimos-jugadores {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.ultimos-jugadores .ultimo-jugador {
+    display: inline-block !important;
+    max-width: 200px;
+    text-decoration: none;
+}
+
+.cuerpo-jugador {
+    background: #141414;
+
+}
+
+.enlace-jugador {
+    text-decoration: none;
+    color: white;
+    line-height: 30%;
+}
+
+.enlace-jugador:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.texto-jugador {
+    margin: 10px 15px 0px 15px;
+}
+
+.imagen-usuario {
+    max-width: 70px;
+    max-height: 60px;
+    min-height: 60px;
+    min-width: 70px;
+    border-radius: 100%;
+}

@@ -7,7 +7,7 @@ import "./Header.css";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import NavLink from "react-bootstrap/NavLink";
 
-import img_perfil from '../../img/foto-perfil1.jpg';
+//import img_perfil from '../../img/foto-perfil1.jpg';
 
 class Header extends Component {
   render() {
@@ -36,10 +36,11 @@ class Header extends Component {
               <NavLink href="/">
                 <FontAwesomeIcon icon={faUser} size={"lg"} className=""/>
               </NavLink>
-              <NavLink href="#" className="imagen">
+
+              {/*<NavLink href="#" className="imagen">
                 <img src={img_perfil} className="imagen_perfil_header" alt=""></img>
-              </NavLink>
-            </Col>
+              </NavLink>*/}
+      </Col>
           </Row>
         </Container>
 

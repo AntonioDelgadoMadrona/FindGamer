@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 
 import RecoGames from '../RecoGames/RecoGames';
 import RecoUsers from '../RecoUsers/RecoUsers';
+import BestRated from '../BestRated/BestRated';
 
 class Recommendeds extends Component {
   render() {
@@ -12,6 +13,7 @@ class Recommendeds extends Component {
             <Row>
                 <RecoGames />
                 <RecoUsers />
+                <BestRated />
             </Row>
         </Container>
       </div>

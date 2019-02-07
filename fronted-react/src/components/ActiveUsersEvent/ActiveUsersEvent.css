@@ -1,0 +1,22 @@
+#lista-vertical-timeline {
+    line-height: 40%;
+    max-height: 720px;
+    overflow: scroll;
+}
+
+#lista-vertical-timeline .jugador-recomendacion {
+    margin: 5px;
+    padding: 5px;
+}
+
+#lista-vertical-timeline .jugador-recomendacion:hover {
+    border-bottom: 1px solid #949494;
+}
+
+#lista-vertical-timeline p {
+    font-size: 0.8em;
+}
+
+#lista-vertical-timeline .jugador-recomendacion:hover {
+    margin: .5rem;
+}
