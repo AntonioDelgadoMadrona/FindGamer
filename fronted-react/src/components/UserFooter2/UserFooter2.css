@@ -1,0 +1,42 @@
+.amigos-usuario {
+    line-height: 60%;
+    font-size: .8rem;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.imagen-juego-usuario {
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 60px;
+    max-height: 60px;
+}
+
+.columna-juegos-completados {
+    border-bottom: 1px solid #46c5e0;
+    margin-bottom: 10px;
+    line-height: 80%;
+}
+
+.lista-juegos-completados {
+    max-height: 265px;
+    overflow: scroll;
+}
+
+.juego-completado {
+    margin: .5rem .1rem;
+}
+
+.juego-completado:hover {
+    padding: .3rem 0;
+    background: #101010;
+}
+
+.juego-completado a {
+    color: white;
+}
+
+.amigo-usuario:hover {
+    padding: .3rem 0;
+    background: #101010;
+}

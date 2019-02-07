@@ -1,0 +1,21 @@
+.fondo-perfil-usuario {
+    max-height: 300px;
+    overflow: hidden;
+    width: 100%;
+    z-index: -.5;
+
+}
+
+.mensaje-seguir {
+    z-index: -1;
+    margin-top: 10px;
+}
+
+.icono-perfil-usuario {
+    max-height: 170px;
+    min-height: 170px;
+    max-width: 190px;
+    min-width: 190px;
+    border: 3px solid #010101;
+    margin-top: -150px;
+}

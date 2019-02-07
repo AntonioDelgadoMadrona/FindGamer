@@ -1,0 +1,4 @@
+.juegos-usuario {
+    max-height: 180px;
+    overflow: scroll;
+}

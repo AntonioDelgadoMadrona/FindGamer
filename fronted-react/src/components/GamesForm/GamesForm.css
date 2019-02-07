@@ -1,0 +1,11 @@
+.busqueda-avanzada {
+  text-align: right;
+  margin-top: -1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .busqueda-avanzada {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,31 @@
+.columna-lista-juegos {
+  line-height: 60%;
+  font-family: "Roboto", sans-serif;
+}
+
+.columna-lista-juegos:hover {
+  box-shadow: 2px 2px 20px #49cc00;
+  cursor: pointer;
+}
+
+.imagen-juego-lista {
+  max-height: 100px;
+  width: 100%;
+  height: 100%;
+}
+
+.juego-lista a {
+  text-decoration: none;
+  color: white;
+}
+
+.juego-lista a:hover {
+  color: #49cc00;
+}
+
+@media screen and (max-width: 500px) {
+  .columna-lista-juegos {
+    line-height: 100%;
+    font-size: 80%;
+  }
+}

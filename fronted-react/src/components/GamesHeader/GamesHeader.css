@@ -1,0 +1,24 @@
+.cabecera-juegos {
+    background: #202020;
+}
+
+.pc:hover {
+    background: #FFBF00;
+    border-radius: 10px;
+}
+
+.ps4:hover {
+    background: #01388f;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.xbox-one:hover {
+    background: #117a10;
+    border-radius: 10px;
+}
+
+.switch:hover {
+    background: white;
+    border-radius: 10px;
+}

@@ -10,9 +10,9 @@ import juego3 from '../../img/pubg.jpg';
 class Noticias extends Component {
   render() {
     return (
-      <Container className="container hijo">
-        <Row className="row">
-          <Col className="col">
+      <Container className="hijo">
+        <Row>
+          <Col>
             <h4 className="titulo-h4">ULTIMAS NOTICIAS</h4>
           </Col>
         </Row>

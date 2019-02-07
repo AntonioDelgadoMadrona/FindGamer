@@ -23,7 +23,7 @@ class Header extends Component {
             <Col md={9} className="d-none d-md-block">
               <Nav className="justify-content-center align-items-center">
                 <NavLink href="inicio.html" className="mr-xl-5">Inicio</NavLink>
-                <Nav.Link href="comunidad.html" className="mr-xl-5">Comunidad</Nav.Link>
+                <NavLink href="comunidad.html" className="mr-xl-5">Comunidad</NavLink>
                 <NavLink href="juegos.html" className="mr-xl-5">Juegos</NavLink>
                 <NavLink href="eventos.html" className="mr-xl-5">Eventos</NavLink>
                 <NavLink href="mired.html" className="mr-xl-5">Mi Red</NavLink>

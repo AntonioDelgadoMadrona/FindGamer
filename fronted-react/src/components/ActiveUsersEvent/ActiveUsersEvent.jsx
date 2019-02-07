@@ -1,123 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Container, Row } from 'react-bootstrap';
+import { Row, Col } from "react-bootstrap";
 
-import foto1 from '../../img/foto-perfil3.jpg';
+import foto1 from "../../img/foto-perfil3.jpg";
 
-import './ActiveUsersEvent.css';
+import "./ActiveUsersEvent.css";
 
 class ActiveUsersEvent extends Component {
-    render(){
-        return(
-              <div class="col-lg-4 col-xl-3 d-none d-lg-block">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="titulo-h4">LOS ULTIMOS EN PUBLICAR</h4>
-                        </div>
-                    </div>
-                    <div id="lista-vertical-timeline">
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row pb-3 jugador-recomendacion">
-                            <div class="d-flex justify-content-around">
-                                <div>
-                                    <img src={foto1} class="float-left img-fluid rounded-circle imagen-usuario" alt=""></img>
-                                    <div class="float-right ml-3">
-                                       <a href="/">
-                                        <p><strong class="text-white">Nombre de Jugador</strong></p>
-                                        </a>
-                                        <p><span class="verde">Puntuacion</span></p>
-                                        <p class="text-muted">Fecha de registro</p>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
+  render() {
+    return (
+      <Col lg={4} xl={3} className="d-none d-lg-block">
+        <Row>
+          <Col>
+            <h4 className="titulo-h4">LOS ULTIMOS EN PUBLICAR</h4>
+          </Col>
+        </Row>
+        <div id="lista-vertical-timeline">
+          <Row className="pb-3 jugador-recomendacion">
+            <div className="d-flex justify-content-around">
+              <div>
+                <img
+                  src={foto1}
+                  className="float-left imagen-usuario"
+                  alt=""
+                />
+                <div className="float-right ml-3">
+                  <a href="/">
+                    <p>
+                      <strong className="text-white">Nombre de Jugador</strong>
+                    </p>
+                  </a>
+                  <p>
+                    <span className="verde">Puntuacion</span>
+                  </p>
+                  <p className="text-muted">Fecha de registro</p>
                 </div>
-        )
-    }
-};
+              </div>
+            </div>
+          </Row>
+        </div>
+      </Col>
+    );
+  }
+}
 
 export default ActiveUsersEvent;

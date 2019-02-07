@@ -16,6 +16,8 @@ var auth = function (req, res, next) {
         return res.sendStatus(404);
 };
 
+
+
 // --------------------------------- USUARIOS ------------------------
 
 // REGISTRO USUARIO

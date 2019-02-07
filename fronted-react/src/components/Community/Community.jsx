@@ -5,8 +5,6 @@ import { Container, Row } from 'react-bootstrap';
 import Timeline from '../Timeline/Timeline';
 import ActiveUsers from '../ActiveUsers/ActiveUsers';
 
-import './Community.css';
-
 class Community extends Component {
     render(){
         return(
