@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import "./ExpectedGames.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from 'react-bootstrap';
+import './HomeLastGames.css';
 
-import juego1 from "../../img/ultimo1.jpg";
-import juego2 from "../../img/ultimo2.jpg";
-import juego3 from "../../img/ultimo3.jpg";
+import juego1 from '../../img/ultimo1.jpg';
+import juego2 from '../../img/ultimo2.jpg';
+import juego3 from '../../img/ultimo3.jpg';
 
-class Expectedgames extends Component {
+class HomeLastgames extends Component {
   render() {
     return (
-      <Container className="hijo">
+        <Container className="hijo">
         <Row>
           <Col>
-            <h4 className="titulo-h4">LOS TITULOS MAS ESPERADOS</h4>
+            <h4 className="titulo-h4">ULTIMOS JUEGOS PUBLICADOS</h4>
           </Col>
         </Row>
         <Row>
@@ -23,7 +23,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego1}
-                    className="imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -39,7 +39,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego2}
-                    className="imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -55,7 +55,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego3}
-                    className="imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -71,7 +71,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego1}
-                    className=" imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -87,7 +87,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego2}
-                    className=" imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -103,7 +103,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego3}
-                    className="imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -119,7 +119,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego1}
-                    className="imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -135,7 +135,7 @@ class Expectedgames extends Component {
                 <a href="/" className="enlace-juego">
                   <img
                     src={juego2}
-                    className="imagen-ultimos-juegos"
+                    className="w-100 imagen-ultimos-juegos"
                     alt=""
                   />
                   <div className="texto-juego">
@@ -149,8 +149,8 @@ class Expectedgames extends Component {
           </div>
         </Row>
       </Container>
-    );
+    )
   }
-}
+};
 
-export default Expectedgames;
+export default HomeLastgames;

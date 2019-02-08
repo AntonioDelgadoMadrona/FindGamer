@@ -19,7 +19,7 @@ class Header extends Component {
           <Row>
             {/* COLUMNA DEL LOGOTIPO  */}
             <Col xs={10} md={2} className="d-flex justify-content-center align-items-center">
-              <Link to="/home"><img src={logo}/></Link>
+              <Link to="/home"><img src={logo} alt="" /></Link>
             </Col>
             {/* COLUMNA DE MENU NAVEGACION */}
             <Col md={7} className="d-none d-md-block offset-1">

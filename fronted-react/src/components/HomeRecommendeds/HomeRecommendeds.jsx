@@ -5,7 +5,7 @@ import RecoGames from '../RecoGames/RecoGames';
 import RecoUsers from '../RecoUsers/RecoUsers';
 import BestRated from '../BestRated/BestRated';
 
-class Recommendeds extends Component {
+class HomeRecommendeds extends Component {
   render() {
     return (
       <div>
@@ -21,4 +21,4 @@ class Recommendeds extends Component {
   }
 };
 
-export default Recommendeds;
+export default HomeRecommendeds;

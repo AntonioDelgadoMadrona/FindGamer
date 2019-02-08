@@ -5,9 +5,9 @@ import juego1 from "../../img/foto-juego1.jpg";
 import juego2 from "../../img/pubg.jpg";
 import juego3 from "../../img/fortnite.jpg";
 
-import './Carousel.css';
+import './HomeCarousel.css';
 
-class ControlledCarousel extends Component {
+class HomeCarousel extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -68,4 +68,4 @@ class ControlledCarousel extends Component {
   }
 }
 
-export default ControlledCarousel;
+export default HomeCarousel;

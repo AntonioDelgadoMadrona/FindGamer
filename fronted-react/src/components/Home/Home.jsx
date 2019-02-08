@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 
 import { Container } from 'react-bootstrap';
 
-import Carousel from "../Carousel/Carousel";
-import Noticias from '../News/News';
-import Lastgames from '../LastGames/Lastgames';
-import ExpectedGames from '../ExpectedGames/ExpectedGames';
-import Recommendeds from '../Recommendeds/Recommendeds';
-import LastUsers from '../LastUsers/LastUsers';
+import HomeCarousel from "../HomeCarousel/HomeCarousel";
+import HomeNews from '../HomeNews/HomeNews';
+import HomeLastGames from '../HomeLastGames/HomeLastGames';
+import HomeExpectedGames from '../HomeExpectedGames/HomeExpectedGames';
+import HomeRecommendeds from '../HomeRecommendeds/HomeRecommendeds';
+import HomeLastUsers from '../HomeLastUsers/HomeLastUsers';
 
 class Home extends Component {
     render(){
         return(
             <Container className="padre">
-                <Carousel />
-                <Noticias />
-                <Lastgames />
-                <ExpectedGames />
-                <Recommendeds />
-                <LastUsers />
+                <HomeCarousel />
+                <HomeNews />
+                <HomeLastGames />
+                <HomeExpectedGames />
+                <HomeRecommendeds />
+                <HomeLastUsers />
             </Container>
         )
     }

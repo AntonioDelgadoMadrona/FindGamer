@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
-import "./LastUsers.css";
+import "./HomeLastUsers.css";
 
 import foto1 from "../../img/foto-perfil1.jpg";
 import foto2 from "../../img/foto-perfil2.jpg";
 import foto3 from "../../img/foto-perfil3.jpg";
 
-class LastUsers extends Component {
+class HomeLastUsers extends Component {
   render() {
     return (
       <Container className="hijo">
@@ -133,4 +133,4 @@ class LastUsers extends Component {
   }
 }
 
-export default LastUsers;
+export default HomeLastUsers;

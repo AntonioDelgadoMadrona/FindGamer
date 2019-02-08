@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Wallpaper from "./components/Wallpaper/Wallpaper";
+// import Wallpaper from "./components/Wallpaper/Wallpaper";
 import Header from "./components/Header/Header2";
 // import Smartphone from "./components/Smartphone/Smartphone";
 import Footer from "./components/Footer/Footer";
@@ -16,7 +16,7 @@ import FormSign from "./components/FormSign/FormSign";
 
 import "./App.css";
 
-import wallpaper1 from "./img/fondo-4.jpg";
+import wallpaper1 from "./img/fondo-6.jpg";
 
 const Style = {
   backgroundImage: `url(${wallpaper1})`
