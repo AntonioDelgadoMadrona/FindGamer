@@ -4,17 +4,18 @@ header {
 }
 
 
-header a {
+.route {
     text-decoration: none;
     color: white;
     font-weight: 700;
     opacity: .8;
+    padding: .5rem;
 }
 
-header a:hover {
+.route:hover {
     text-decoration: none;
-    color: white;
-    background: #202020;
+    color: white;;
+    background: #303030;
     border-radius: 3px;
     opacity: 1;
 }

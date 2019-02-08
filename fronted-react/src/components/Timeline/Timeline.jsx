@@ -36,7 +36,7 @@ class Timeline extends Component {
                                     <div>
                                         <img src={foto1} className="float-left imagen-usuario" alt=""></img>
                                         <div className="float-right ml-3 usuario-mensaje">
-                                           <a href="">
+                                           <a href="/">
                                             <p className="font-weight-bold">Nombre de Jugador</p>
                                             </a>
                                             <p className="text-muted">17/12/1960 - 15:45h</p>
@@ -67,7 +67,7 @@ class Timeline extends Component {
                                     <div>
                                         <img src={foto1} className="float-left imagen-usuario" alt=""></img>
                                         <div className="float-right ml-3 usuario-mensaje">
-                                           <a href="">
+                                           <a href="/">
                                             <p className="font-weight-bold">Nombre de Jugador</p>
                                             </a>
                                             <p className="text-muted">17/12/1960 - 15:45h</p>
@@ -75,9 +75,9 @@ class Timeline extends Component {
                                     </div>
                                 </div>
                             </Row>
-                            <Row class="my-1">
+                            <Row className="my-1">
                                 <Col>
-                                    <img src={imagen1} class="imagen-mensaje-timeline rounded" alt=""></img>
+                                    <img src={imagen1} className="imagen-mensaje-timeline rounded" alt=""></img>
                                 </Col>
                             </Row>
                             <Row>

@@ -15,22 +15,23 @@ import {
 import imagen from "../../img/fondo-7.jpg";
 import fondo from "../../img/fondo-10.jpg";
 
+
 class GameInfo extends Component {
   componentDidMount() {
-    axios
-      .get("https://api-v3.igdb.com/games/1942?fields=*", {
-        mode: "no-cors",
-        headers: {
-          "user-key": "f0f1952d6e1bfdcea5a1bdd0785d2a85",
-          Accept: "application/json"
-        }
-      })
+    axios({
+      url: "https://api-v3.igdb.com/games",
+      method: 'POST',
+      headers: {
+          'accept': 'application/json',
+          'user-key': "f0f1952d6e1bfdcea5a1bdd0785d2a85"
+      },
+      data: "fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,collection,cover,created_at,dlcs,expansions,external_games,first_release_date,follows,franchise,franchises,game_engines,game_modes,genres,hypes,involved_companies,keywords,multiplayer_modes,name,parent_game,platforms,player_perspectives,popularity,pulse_count,rating,rating_count,release_dates,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,time_to_beat,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;"
+    })
       .then(response => {
-        // Do work here
-        console.log(response.data);
+          console.log(response.data);
       })
-      .catch(e => {
-        console.log("error", e);
+      .catch(err => {
+          console.error(err);
       });
   }
 

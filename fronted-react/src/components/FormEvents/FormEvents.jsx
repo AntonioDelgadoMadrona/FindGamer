@@ -20,7 +20,7 @@ class FormEvents extends Component {
 
   render() {
     return (
-      <Container classNameName="hijo text-center">
+      <Container className="hijo text-center">
         <Button
           className="boton-celeste"
           onClick={this.toggle}

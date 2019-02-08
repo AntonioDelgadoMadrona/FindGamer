@@ -34,10 +34,10 @@ class GamesHeader extends Component {
           </Row>
         </Container>
 
-        <Container className="hijo mt-3">
+        <Container className="hijo mt-3 mb-0">
           <Row>
             <Col>
-              <h2 class="titulo-h2">JUEGOS DE PC</h2>
+              <h2 className="titulo-h2">JUEGOS DE PC</h2>
             </Col>
           </Row>
         </Container>

@@ -68,7 +68,7 @@ class EventOne extends Component {
                       <h3 className="subtitulo">
                         PLATAFORMA:
                         <span className="badge badge-success">Xbox One</span>
-                        <span class="badge badge-primary mx-1">PS4</span>
+                        <span className="badge badge-primary mx-1">PS4</span>
                       </h3>
                     </Col>
                   </Row>

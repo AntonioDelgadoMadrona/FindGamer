@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +8,7 @@ import "./Header.css";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import NavLink from "react-bootstrap/NavLink";
 
+import logo from '../../img/findgamer2.png'
 //import img_perfil from '../../img/foto-perfil1.jpg';
 
 class Header extends Component {
@@ -17,22 +19,22 @@ class Header extends Component {
           <Row>
             {/* COLUMNA DEL LOGOTIPO  */}
             <Col xs={10} md={2} className="d-flex justify-content-center align-items-center">
-              FindGamer
+              <Link to="/home"><img src={logo}/></Link>
             </Col>
             {/* COLUMNA DE MENU NAVEGACION */}
-            <Col md={9} className="d-none d-md-block">
-              <Nav className="justify-content-center align-items-center">
-                <NavLink href="inicio.html" className="mr-xl-5">Inicio</NavLink>
-                <NavLink href="comunidad.html" className="mr-xl-5">Comunidad</NavLink>
-                <NavLink href="juegos.html" className="mr-xl-5">Juegos</NavLink>
-                <NavLink href="eventos.html" className="mr-xl-5">Eventos</NavLink>
-                <NavLink href="mired.html" className="mr-xl-5">Mi Red</NavLink>
-                <NavLink href="/" className="mr-xl-5">Noticias</NavLink>
+            <Col md={7} className="d-none d-md-block offset-1">
+              <Nav className="justify-content-around align-items-end">
+                <Link to="/home" className="route">Inicio</Link>
+                <Link to="/community" className="route">Comunidad</Link>
+                <Link to="/games" className="route">Juegos</Link>
+                <Link to="/events" className="route">Eventos</Link>
+                <Link to="/user" className="route">Mi Perfil</Link>
+                <Link to="/home" className="route" >Noticias</Link>
               </Nav>
             </Col>
 
             {/* COLUMNA DEL MENU DE NAVEGACION DERECHO */}
-            <Col xs={2} md={1} className="d-flex menu align-items-center">
+            <Col xs={2} md={1} className="d-flex menu offset-1 align-items-center">
               <NavLink href="/">
                 <FontAwesomeIcon icon={faUser} size={"lg"} className=""/>
               </NavLink>

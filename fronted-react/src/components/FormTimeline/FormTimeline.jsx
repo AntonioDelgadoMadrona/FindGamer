@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Col, Collapse, Button, Form } from 'reactstrap';
 
+import './FormTimeline.css'
+
 class FormTimeline extends Component {
   constructor(props) {
     super(props);

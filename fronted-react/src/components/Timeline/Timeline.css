@@ -25,13 +25,6 @@
     line-height: 60%;
 }
 
-.publicar-mensaje {
-    background: #fafafa;
-    color: black;
-    padding: 1rem;
-    margin: 1rem 0;
-}
-
 .imagen-mensaje-timeline {
     max-height: 300px;
     max-width: 400px;

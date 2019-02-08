@@ -2,24 +2,24 @@
 
 .App {
 
-  background: #262626;
-  /* Old browsers */
-  background: -moz-linear-gradient(left, #262626 1%, #46c5e0 45%, #46c5e0 49%, #262626 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #262626 1%, #46c5e0 45%, #46c5e0 49%, #262626 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #262626 1%, #46c5e0 45%, #46c5e0 49%, #262626 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #262626;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #262626 1%, #46c5e0 45%, #46c5e0 49%, #262626 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #262626 1%, #46c5e0 45%, #46c5e0 49%, #262626 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #262626 1%, #46c5e0 45%, #46c5e0 49%, #262626 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  color: white;
-  margin: 0px;
-  padding: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    color: white;
+    margin: 0px;
+    padding: 0px;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /* ------ CLASES PERSONALIZADAS ------- */
@@ -128,19 +128,6 @@ a {
     text-decoration: none;
 }
 
-.boton-verde {
-    background: #49cc02;
-    color: white;
-    opacity: .8;
-    text-decoration: none;
-}
-
-.boton-verde:hover {
-    opacity: 1;
-    color: white;
-    text-decoration: none;
-}
-
 .imagen-usuario {
     max-width: 70px;
     max-height: 60px;
@@ -152,6 +139,18 @@ a {
 .fa-star:hover {
     color: yellow;
     cursor: pointer;
+}
+
+.imagen-fondo {
+    z-index: .5;
+    width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
 }
 
 

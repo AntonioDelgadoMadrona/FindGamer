@@ -17,8 +17,8 @@ class GamesForm extends Component {
 
   render() {
     return (
-      <div className="busqueda-avanzada">
-      <Col>
+      <>
+      <Col className="busqueda-avanzada">
       <Button
           className="boton-celeste"
           onClick={this.toggle}
@@ -137,7 +137,7 @@ class GamesForm extends Component {
             </Row>
           
         </Collapse>
-      </div>
+      </>
     );
   }
 }
