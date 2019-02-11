@@ -44,7 +44,7 @@ class HomeNews extends Component {
         >
           <Carousel.Item className="carousel-item">
             <Row>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3}>
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -64,7 +64,7 @@ class HomeNews extends Component {
                   </a>
                 </div>
               </Col>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -84,7 +84,7 @@ class HomeNews extends Component {
                   </a>
                 </div>
               </Col>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -104,7 +104,7 @@ class HomeNews extends Component {
                   </a>
                 </div>
               </Col>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -126,10 +126,9 @@ class HomeNews extends Component {
               </Col>
             </Row>
           </Carousel.Item>
-
           <Carousel.Item className="carousel-item">
             <Row>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3}>
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -149,7 +148,7 @@ class HomeNews extends Component {
                   </a>
                 </div>
               </Col>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -169,7 +168,7 @@ class HomeNews extends Component {
                   </a>
                 </div>
               </Col>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -189,7 +188,7 @@ class HomeNews extends Component {
                   </a>
                 </div>
               </Col>
-              <Col xs={6} lg={3}>
+              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
                 <div className="ultimas-noticias" />
                 <div className="ultima-noticia p-1">
                   <a href="/">
@@ -211,6 +210,9 @@ class HomeNews extends Component {
               </Col>
             </Row>
           </Carousel.Item>
+          
+
+         
         </Carousel>
       </Container>
     );

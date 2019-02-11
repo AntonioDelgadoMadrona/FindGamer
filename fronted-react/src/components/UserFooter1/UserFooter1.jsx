@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+
 import { Row, Col } from "react-bootstrap";
 
-import './UserFooter1.css';
+import "./UserFooter1.css";
 
 class UserFooter extends Component {
   render() {
@@ -14,23 +15,36 @@ class UserFooter extends Component {
             </Col>
             <Col xs={12}>
               <h6>
-                Nombre: <small className="subtitulo">Juan veintitres</small>
+                Nombre:{" "}
+                <span className="datos-usuario">
+                  {this.props.first_name} {this.props.last_name}
+                </span>
               </h6>
               <h6>
-                Vivo en: <small className="subtitulo">La red</small>
+                Vivo en:{" "}
+                <span className="datos-usuario">
+                  {this.props.city}, {this.props.country}
+                </span>
               </h6>
               <h6>
-                Plataforma favorita: <small className="subtitulo">PC</small>
+                Plataforma:{" "}
+                <span className="datos-usuario">{this.props.fav_platform}</span>
               </h6>
               <h6>
-                Juego favorito:
-                <small className="subtitulo">Formularios 2.0</small>
+                Juego favorito:{" "}
+                <span className="datos-usuario">{this.props.fav_game}</span>
               </h6>
               <h6>
-                Juegos pasados: <small className="subtitulo">120</small>
+                Juegos completados:{" "}
+                <span className="datos-usuario">
+                  {this.props.games_complete_length}
+                </span>
               </h6>
               <h6>
-                Registrado el: <small className="subtitulo">15/10/2019</small>
+                Registrado el:{" "}
+                <span className="datos-usuario">
+                  {this.props.register_date}
+                </span>
               </h6>
             </Col>
           </Row>
@@ -41,18 +55,9 @@ class UserFooter extends Component {
               <h4 className="titulo-h4">ACTUALMENTE JUGANDO</h4>
             </Col>
             <Col xs={12} className="juegos-usuario">
-              <h6>Red Dead Redemption 2</h6>
-              <h6>The Witcher 3: Wild Hunt</h6>
-              <h6>Outlast</h6>
-              <h6>Outlast 2</h6>
-              <h6>Red Dead Redemption 2</h6>
-              <h6>The Witcher 3: Wild Hunt</h6>
-              <h6>Outlast</h6>
-              <h6>Outlast 2</h6>
-              <h6>Red Dead Redemption 2</h6>
-              <h6>The Witcher 3: Wild Hunt</h6>
-              <h6>Outlast</h6>
-              <h6>Outlast 2</h6>
+              {this.props.playing_games.map((game, i) => {
+                return <h6 key={i}>{game}</h6>;
+              })}
             </Col>
           </Row>
         </Col>
@@ -62,18 +67,9 @@ class UserFooter extends Component {
               <h4 className="titulo-h4">PROXIMOS JUEGOS</h4>
             </Col>
             <Col xs={12} className="juegos-usuario">
-              <h6>Red Dead Redemption 2</h6>
-              <h6>The Witcher 3: Wild Hunt</h6>
-              <h6>Outlast</h6>
-              <h6>Outlast 2</h6>
-              <h6>Red Dead Redemption 2</h6>
-              <h6>The Witcher 3: Wild Hunt</h6>
-              <h6>Outlast</h6>
-              <h6>Outlast 2</h6>
-              <h6>Red Dead Redemption 2</h6>
-              <h6>The Witcher 3: Wild Hunt</h6>
-              <h6>Outlast</h6>
-              <h6>Outlast 2</h6>
+              {this.props.next_games.map((game, i) => {
+                return <h6 key={i}>{game}</h6>;
+              })}
             </Col>
           </Row>
         </Col>

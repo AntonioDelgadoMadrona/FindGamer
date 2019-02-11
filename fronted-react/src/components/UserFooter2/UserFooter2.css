@@ -1,5 +1,5 @@
 .amigos-usuario {
-    line-height: 60%;
+    line-height: 40%;
     font-size: .8rem;
     max-height: 300px;
     overflow: scroll;
@@ -39,4 +39,8 @@
 .amigo-usuario:hover {
     padding: .3rem 0;
     background: #101010;
+}
+
+.amigo-usuario {
+    margin: .2rem 0;
 }

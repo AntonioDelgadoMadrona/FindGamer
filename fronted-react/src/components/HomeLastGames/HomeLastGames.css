@@ -3,12 +3,14 @@ div.ultimos-juegos {
     white-space: nowrap;
 }
 
-div.ultimos-juegos .ultimo-juego {
+.ultimo-juego {
     display: inline-block;
     text-align: center;
     padding: 14px;
     text-decoration: none;
     max-width: 250px;
+    max-height: 160px;
+    overflow: hidden;
 }
 
 .cuerpo-juego {

@@ -2,7 +2,7 @@ const eventosModel = require("../models/eventos");
 
 var controller = {
   // CREAR EVENTO
-  crearEvento: (req, res) => {
+  createEvent: (req, res) => {
     console.log(req.body);
     let evento = new eventosModel();
     let participantes = new Array();
@@ -93,7 +93,7 @@ var controller = {
   },
 
   // MOSTRAR TODOS LOS EVENTOS
-  getAllEvents: function(req, res) {
+  getAll: function(req, res) {
     eventosModel.find({}, (err, result) => {
       if (err) {
         res.send(err);
@@ -104,7 +104,7 @@ var controller = {
   },
 
   // MOSTRAR LA INFO DE UN DETERMINADO EVENTO(pasarle el ID)
-  getInfoEvent: function(req, res) {
+  getInfo: function(req, res) {
     eventosModel.find({ _id: req.body._id }, (err, result) => {
       if (err) {
         res.send(err);

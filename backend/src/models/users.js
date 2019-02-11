@@ -15,7 +15,7 @@ var usuarioSchema = Schema({
     imagen_portada: String,
     fecha_registro: Date,
     permiso: String,
-    puntuacion: Number,
+    puntuacion: Array,
     amigos: Array,
     juego_fav: String,
     j_completados: Array,

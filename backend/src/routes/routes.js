@@ -1,104 +1,91 @@
-var app = require('../app');
+var app = require("../app");
 
-var UsersController = require('../controllers/users');
-var TimelineController = require('../controllers/timeline');
-var EventoController = require('../controllers/eventos');
+var UserController = require("../controllers/users");
+var TimelineController = require("../controllers/timeline");
+var EventController = require("../controllers/eventos");
 
 // RUTA INICIO
 // app.get('/', function (req, res) {
 //     res.render('index');
 // });
 
-var auth = function (req, res, next) {
-    if (req.session.user)
-        return next();
-    else
-        return res.sendStatus(404);
+var auth = function(req, res, next) {
+  if (req.session.user) return next();
+  else return res.sendStatus(404);
 };
-
-
 
 // --------------------------------- USUARIOS ------------------------
 
 // REGISTRO USUARIO
-app.post('/users/register', UsersController.registerUser);
+app.post("/user/register", UserController.registerUser);
 
 // LOGIN USUARIO
-app.post('/users/login', UsersController.loginUser);
+app.post("/user/login", UserController.loginUser);
 
 // CERRAR SESION
-app.get('/logout', UsersController.logoutUser);
+app.get("/user/logout", UserController.logoutUser);
 
 // VALIDACION USUARIO
-app.get('/home', auth, function (req, res) {
-    res.render('home', {
-        email: req.session.user.email
-    });
+app.get("/home", auth, function(req, res) {
+  res.render("home", {
+    email: req.session.user.email
+  });
 });
 
 // SUBIR IMAGEN PERFIL
-app.post('/users/imgperfil', UsersController.addImageUser);
+app.post("/user/addimgperfil", UserController.addImageUser);
 
 // AÑADIR AMIGOS
-app.post('/users/addfriend', UsersController.addFriend);
+app.post("/user/addfriend", UserController.addFriend);
 
 // JUEGO FAVORITO
-app.post('/users/addgamefav', UsersController.addGameFav);
+app.post("/user/addgamefav", UserController.addGameFav);
 
 // AÑADIR JUEGOS COMPLETADOS
-app.post('/users/addgamecomplete', UsersController.addGameComplete);
+app.post("/user/addgamecomplete", UserController.addGameComplete);
 
 // AÑADIR JUEGOS JUGANDO
-app.post('/users/addgamenow', UsersController.addGameNow);
+app.post("/user/addgamenow", UserController.addGameNow);
 
 // AÑADIR JUEGOS PROXIMOS
-app.post('/users/addgamenext', UsersController.addGameNext);
+app.post("/user/addgamenext", UserController.addGameNext);
 
 // MOSTRAR LOS USUARIOS REGISTRADOS
-app.get('/users/all', UsersController.getUsers);
+app.get("/user/getall", UserController.getAll);
 
 // MOSTRAR TODA LA INFO DE MI USUARIO
-app.get('/users/getallinfo', UsersController.getAllInfo);
+app.get("/user/getinfo", UserController.getInfo);
 
 // ------------------------------------ TIMELINE ------------
 
 // CREAR MENSAJE
-app.post('/timeline/crear', TimelineController.crearMensaje);
+app.post("/timeline/create", TimelineController.createMessage);
 
 // AÑADIR COMENTARIO
-app.post('/timeline/addcomment', TimelineController.addComment);
+app.post("/timeline/addcomment", TimelineController.addComment);
 
 // LIKES MENSAJE
-app.post('/timeline/addlike', TimelineController.addLike);
+app.post("/timeline/addlike", TimelineController.addLike);
 
 // MOSTRAR TODOS LOS MENSAJES
-app.get('/timeline/all', TimelineController.getAll);
+app.get("/timeline/getall", TimelineController.getAll);
 
 // ---------------------------- EVENTOS -----------------
 
 // CREAR EVENTO
-app.post('/eventos/crear', EventoController.crearEvento);
+app.post("/event/create", EventController.createEvent);
 
 // AÑADIR COMENTARIO
-app.post('/eventos/addcomment', EventoController.addComment);
+app.post("/event/addcomment", EventController.addComment);
 
 // LIKES MENSAJE
-app.post('/eventos/addlike', EventoController.addLike);
+app.post("/event/addlike", EventController.addLike);
 
 // MOSTRAR TODOS LOS EVENTOS
-app.get('/eventos/getall', EventoController.getAllEvents);
+app.get("/event/getall", EventController.getAll);
 
 // MOSTRAR LA INFO DEL EVENTO
-app.get('/eventos/getinfo', EventoController.getInfoEvent);
-
-
-
-
-
-
-
-
-
+app.get("/event/getinfo", EventController.getInfo);
 
 // // CUANDO EL USUARIO ESTA LOGEADO (VUELVO A COMPROBAR SI EN LA SESION ESTA EL PERMISO ADECUADO)
 // app.get('/invitado', auth, function (req, res) {
@@ -130,7 +117,5 @@ app.get('/eventos/getinfo', EventoController.getInfoEvent);
 //         });
 //     }
 // })
-
-
 
 module.exports = app;

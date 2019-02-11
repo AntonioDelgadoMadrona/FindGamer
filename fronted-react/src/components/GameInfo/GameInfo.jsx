@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import striptags from 'striptags';
+import moment from "moment";
 
 import { ProgressBar, Container, Row, Col } from "react-bootstrap";
 import "./GameInfo.css";
@@ -28,44 +28,34 @@ class GameInfo extends Component {
         release_date: null,
         platforms: [],
         genres: [],
-        description: null
+        description: null,
+        rating: null
       }
     };
   }
 
   componentDidMount() {
+    var juego = "1942";
+    var URL = "http://localhost:3001";
+
     axios
-      .get(
-        "http://www.gamespot.com/api/games/3030-41484/?api_key=2a45309483f28ff6845b76e6b201aa7808ce57b6&format=json",
-        {}
-      )
+      .get(`${URL}/game/info?id=${juego}`)
       .then(response => {
-        console.log(response);
-        this.setState({
-          ...this.state.juego,
-          juego: {
-            name: response.data.results.name,
-            developer: response.data.results.developers[0].name,
-            image: response.data.results.image.original_url,
-            screen: response.data.results.image.screen_url,
-            release_date: response.data.results.original_release_date,
-            platforms: response.data.results.platforms,
-            genres: response.data.results.genres,
-            description: response.data.results.description
-          }
-        });
+        console.log(response.data[0]);
+       
+
+        return axios.get(`${URL}/game/cover`);
       })
-      .catch(e => {
-        console.log("error", e);
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.error(err);
       });
   }
 
   render() {
-    let hola = "<h1>Hola</h1>"
-    let descriptionClear = this.state.juego.description;
-
-    console.log(striptags(descriptionClear))
-    // console.log(this.state.juego);
+    console.log(this.state.juego);
     let platformsString = " ";
     const platforms = this.state.juego.platforms.map(platform => {
       platformsString += platform.name + " || ";
@@ -73,8 +63,8 @@ class GameInfo extends Component {
 
     let genresString = " ";
     const genres = this.state.juego.genres.map(genre => {
-      genresString += genre.name + ' / ';
-    })
+      genresString += genre.name + " / ";
+    });
     return (
       <Container className="hijo pt-0">
         <Row>
@@ -111,14 +101,10 @@ class GameInfo extends Component {
               Publicado: {this.state.juego.release_date}
             </h5>
             <br />
-            <p>
-              Genero: {genresString}
-            </p>
+            <p>Genero: {genresString}</p>
             <p>Plataformas: {platformsString}</p>
             <p>Descripcion:</p>
-            <p>
-              {this.state.juego.description}
-            </p>
+            <p>{this.state.juego.description}</p>
           </Col>
           <Col xs={12} lg={3}>
             <h4>Puntuacion:</h4>

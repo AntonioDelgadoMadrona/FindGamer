@@ -10,7 +10,9 @@ import foto from "../../img/foto-perfil2.jpg";
 import imagen from "../../img/juego1.jpg";
 
 class UserFooter2 extends Component {
+  
   render() {
+    console.log(this.props.friends)
     return (
       <Row className="justify-content-between">
         <Col xs={3}>
@@ -19,26 +21,41 @@ class UserFooter2 extends Component {
               <h4 className="titulo-h4">AMIGOS</h4>
             </Col>
             <Col xs={12} className="amigos-usuario">
-              <Row className="amigo-usuario">
-                <Col xs={4}>
-                  <img src={foto} className="imagen-usuario" alt="" />
-                </Col>
-                <Col xs={8}>
-                  <a href="/">
-                    <p>
-                      <strong className="text-white">Nombre de Jugador</strong>
-                    </p>
-                  </a>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                    </span>
-                  </p>
-                  <p className="text-muted">Fecha de registro</p>
-                </Col>
-              </Row>
+            {/* {this.props.friends.map((f, i) => {
+                return (
+                  <Row className="amigo-usuario" key={i}>
+                    <Col xs={4}>
+                      <img src={foto} className="imagen-usuario" alt="" />
+                    </Col>
+                    <Col xs={8}>
+                      <a href="/">
+                        <p>
+                          <strong className="text-white">{f}</strong>
+                        </p>
+                      </a>
+                      <p>
+                        <span>
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            className="text-warning"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            className="text-warning"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            className="text-warning"
+                          />
+                        </span>
+                      </p>
+                      <p className="text-muted">Fecha de registro</p>
+                    </Col>
+                  </Row>
+                );
+              })} */}
+           
+
               <Row className="amigo-usuario">
                 <Col xs={4}>
                   <img src={foto} className="imagen-usuario" alt="" />
@@ -141,86 +158,26 @@ class UserFooter2 extends Component {
             </Col>
           </Row>
           <Col className="lista-juegos-completados">
-            <Row className="juego-completado">
-              <Col xs={2}>
-                <img src={imagen} className="imagen-juego-usuario" alt="" />
-              </Col>
-              <Col xs={4}>
-                <a href="/">
-                  <p>Red Dead Redemption 2</p>
-                </a>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>96/100</p>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>15/01/2019</p>
-              </Col>
-            </Row>
-            <Row className="juego-completado">
-              <Col xs={2}>
-                <img src={imagen} className="imagen-juego-usuario" alt="" />
-              </Col>
-              <Col xs={4}>
-                <a href="/">
-                  <p>Red Dead Redemption 2</p>
-                </a>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>96/100</p>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>15/01/2019</p>
-              </Col>
-            </Row>
-            <Row className="juego-completado">
-              <Col xs={2}>
-                <img src={imagen} className="imagen-juego-usuario" alt="" />
-              </Col>
-              <Col xs={4}>
-                <a href="/">
-                  <p>Red Dead Redemption 2</p>
-                </a>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>96/100</p>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>15/01/2019</p>
-              </Col>
-            </Row>
-            <Row className="juego-completado">
-              <Col xs={2}>
-                <img src={imagen} className="imagen-juego-usuario" alt="" />
-              </Col>
-              <Col xs={4}>
-                <a href="/">
-                  <p>Red Dead Redemption 2</p>
-                </a>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>96/100</p>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>15/01/2019</p>
-              </Col>
-            </Row>
-            <Row className="juego-completado">
-              <Col xs={2}>
-                <img src={imagen} className="imagen-juego-usuario" alt="" />
-              </Col>
-              <Col xs={4}>
-                <a href="/">
-                  <p>Red Dead Redemption 2</p>
-                </a>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>96/100</p>
-              </Col>
-              <Col xs={3} className="text-center">
-                <p>15/01/2019</p>
-              </Col>
-            </Row>
+            {this.props.games_complete.map((game, id) => {
+              return (
+                <Row className="juego-completado" key={id}>
+                  <Col xs={2}>
+                    <img src={imagen} className="imagen-juego-usuario" alt="" />
+                  </Col>
+                  <Col xs={4}>
+                    <a href="/">
+                      <p>{game.juego}</p>
+                    </a>
+                  </Col>
+                  <Col xs={3} className="text-center">
+                    <p>{game.valoracion}/100</p>
+                  </Col>
+                  <Col xs={3} className="text-center">
+                    <p>{game.f_completado}</p>
+                  </Col>
+                </Row>
+              );
+            })}
           </Col>
         </Col>
       </Row>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 
-// import Wallpaper from "./components/Wallpaper/Wallpaper";
 import Header from "./components/Header/Header2";
 // import Smartphone from "./components/Smartphone/Smartphone";
 import Footer from "./components/Footer/Footer";
@@ -16,10 +16,10 @@ import FormSign from "./components/FormSign/FormSign";
 
 import "./App.css";
 
-import wallpaper1 from "./img/fondo-6.jpg";
-
 const Style = {
-  backgroundImage: `url(${wallpaper1})`
+  backgroundImage: `url(${require("./img/fondo-" +
+    (1 + Math.round(Math.random() * 11)) +
+    ".jpg")})`
 };
 
 class App extends Component {
@@ -28,15 +28,17 @@ class App extends Component {
       <BrowserRouter>
         <div className="App" style={Style}>
           <Header />
-          <img src={wallpaper1} className="imagen-fondo" alt="" />
-          <Route path="/home" component={Home} />
-          <Route path="/community" component={Community} />
-          <Route path="/games" component={Games} />
-          <Route path="/events" component={Events} />
-          <Route path="/event/info" component={EventInfo} />
-          <Route path="/game" component={Game} />
-          <Route path="/user" component={UserInfo} />
-          <Route path="/singin" component={FormSign} />
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/community" component={Community} />
+            <Route path="/games" exact component={Games} />
+            <Route path="/games/:id" component={Game} />
+            <Route path="/events" exact component={Events} />
+            <Route path="/events/:id" component={EventInfo} />
+            <Route path="/user" component={UserInfo} />
+            <Route path="/singin" component={FormSign} />
+            <Redirect to="/home" />
+          </Switch>
           <Footer />
         </div>
       </BrowserRouter>

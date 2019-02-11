@@ -1,0 +1,1 @@
+db.getCollection('eventos').find({})

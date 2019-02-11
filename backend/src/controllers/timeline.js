@@ -3,7 +3,7 @@ const timelineModel = require("../models/timeline");
 
 var controller = {
     // CREAR UN MENSAJE
-  crearMensaje: (req, res) => {
+  createMessage: (req, res) => {
 //      console.log(req.body)
     let timeline = new timelineModel();
       
@@ -36,7 +36,7 @@ var controller = {
     
     //COMENTAR MENSAJE
     addComment: function (req, res) {
-        let userId = req.body._id;
+        let userId = req.body.id;
         let update = {
             $push: {
                 comentarios:{
@@ -59,7 +59,7 @@ var controller = {
     
     // LIKES MENSAJE
     addLike: function (req, res) {
-        let userId = req.body._id;
+        let userId = req.body.id;
         let update = {
             $push: {
                 likes:{

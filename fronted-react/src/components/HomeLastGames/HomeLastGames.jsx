@@ -1,16 +1,42 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import axios from "axios";
 
-import { Container, Row, Col } from 'react-bootstrap';
-import './HomeLastGames.css';
+import { Container, Row, Col } from "react-bootstrap";
+import "./HomeLastGames.css";
 
-import juego1 from '../../img/ultimo1.jpg';
-import juego2 from '../../img/ultimo2.jpg';
-import juego3 from '../../img/ultimo3.jpg';
+import juego1 from "../../img/ultimo1.jpg";
+import juego2 from "../../img/ultimo2.jpg";
+import juego3 from "../../img/ultimo3.jpg";
+
+const url_img = "https://images.igdb.com/igdb/image/upload/";
+const size = "t_720p/";
+const format = ".jpg";
 
 class HomeLastgames extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/lastgames")
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          data: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
-        <Container className="hijo">
+      <Container className="hijo">
         <Row>
           <Col>
             <h4 className="titulo-h4">ULTIMOS JUEGOS PUBLICADOS</h4>
@@ -18,139 +44,29 @@ class HomeLastgames extends Component {
         </Row>
         <Row>
           <div className="ultimos-juegos mx-2">
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego1}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
+            {this.state.data.map((e, i) => (
+              <div className="p-0 mr-1 ultimo-juego" key={i}>
+                <div className="card-body cuerpo-juego w-100 p-1">
+                  <a href="/" className="enlace-juego">
+                    <img
+                      src={`${url_img}${size}${e.cover.image_id}${format}`}
+                      className="w-100 imagen-ultimos-juegos"
+                      alt=""
+                    />
+                    <div className="texto-juego">
+                      <p>{e.name}</p>
+                      <p>Plataformas</p>
+                      <p>Fecha publicacion</p>
+                    </div>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego2}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego3}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego1}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego2}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego3}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego1}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="p-0 mr-1 ultimo-juego">
-              <div className="card-body cuerpo-juego w-100 p-1">
-                <a href="/" className="enlace-juego">
-                  <img
-                    src={juego2}
-                    className="w-100 imagen-ultimos-juegos"
-                    alt=""
-                  />
-                  <div className="texto-juego">
-                    <p>Nombre del juego</p>
-                    <p>Plataformas</p>
-                    <p>Fecha publicacion</p>
-                  </div>
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </Row>
       </Container>
-    )
+    );
   }
-};
+}
 
 export default HomeLastgames;

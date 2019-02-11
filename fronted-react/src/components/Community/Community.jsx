@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import { Container, Row } from 'react-bootstrap';
 
-import Timeline from '../Timeline/Timeline';
-import ActiveUsers from '../ActiveUsers/ActiveUsers';
+import Timeline from '../CommunityTimeline/CommunityTimeline';
+import ActiveUsers from '../CommunityActiveUsers/CommunityActiveUsers';
 
 class Community extends Component {
     render(){

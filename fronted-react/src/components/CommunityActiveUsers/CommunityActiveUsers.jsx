@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 import foto1 from "../../img/foto-perfil2.jpg";
 
-import "./ActiveUsers.css";
+import "./CommunityActiveUsers.css";
 
 class ActiveUsers extends Component {
   render() {
