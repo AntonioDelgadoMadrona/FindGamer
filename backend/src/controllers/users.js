@@ -231,6 +231,24 @@ var controller = {
     });
   },
 
+  // AÑADIR VALORACION USUARIO
+  addValoration: function(req, res) {
+    let userId = req.body.id;
+    let update = {
+      $push: {
+        puntuacion: req.body.valoracion
+      }
+    };
+    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+      if (err) {
+        res.send(err);
+      } else {
+        // console.log(result);
+        res.status(200).send(result);
+      }
+    });
+  },
+
   // AÑADIR PROXIMOS JUEGOS
   addGameNext: function(req, res) {
     let userId = req.body.id;
@@ -256,9 +274,8 @@ var controller = {
       if (err) {
         res.send(err);
       } else {
-          // console.log(result)
+        // console.log(result)
         res.status(200).send(result);
-        
       }
     });
   },
@@ -279,7 +296,8 @@ var controller = {
         }
       }
     );
-  }
+  },
+
 };
 
 module.exports = controller;

@@ -20,7 +20,7 @@
 }
 
 #lista-vertical .juego-recomendacion:hover {
-    margin: .4rem;
+    padding: .5rem 0;
 }
 
 .imagen-juego-vertical {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 import { Col, Row } from "react-bootstrap";
 
@@ -9,7 +10,33 @@ import foto2 from "../../img/foto-perfil2.jpg";
 import foto3 from "../../img/foto-perfil3.jpg";
 
 class RecoUsers extends Component {
+
   render() {
+
+    // const array = this.state.data.
+
+    // function media(array) {
+    //   let suma = 0;
+    //   for (let i = 0; i < array.length; i++) {
+    //     suma = suma + array[i];
+    //   }
+    //   let media = suma / array.length;
+    //   return media;
+    // }
+
+    // const rounded_mean = Math.round(media(this.state.data));
+
+    // const starsRender = [];
+
+    // for (let i = 0; i < 5; i++) {
+    //   starsRender.push(
+    //     <FontAwesomeIcon
+    //       key={i}
+    //       icon={faStar}
+    //       className={`text-${i < rounded_mean ? "warning" : "light"} fa-lg`}
+    //     />
+    //   );
+    // }
     return (
       <Col xs={12} lg={4}>
         <Row>

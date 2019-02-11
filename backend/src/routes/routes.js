@@ -56,6 +56,9 @@ app.get("/user/getall", UserController.getAll);
 // MOSTRAR TODA LA INFO DE MI USUARIO
 app.get("/user/getinfo", UserController.getInfo);
 
+// AÑADIR PUNTUACION USUARIO
+app.post("/user/addvaloration", UserController.addValoration);
+
 // ------------------------------------ TIMELINE ------------
 
 // CREAR MENSAJE

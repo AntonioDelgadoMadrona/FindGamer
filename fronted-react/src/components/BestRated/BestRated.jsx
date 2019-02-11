@@ -1,130 +1,71 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 import { Col, Row } from "react-bootstrap";
 
-import './BestRated.css';
+import "./BestRated.css";
 
-import juego1 from '../../img/juego1.jpg';
-import juego2 from '../../img/ultimo2.jpg';
-import juego3 from '../../img/ultimo1.jpg';
+const url_img = "https://images.igdb.com/igdb/image/upload/";
+const size = "t_thumb/";
+const format = ".jpg";
 
 class BestRated extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/ratedgames")
+      .then(response => {
+        // console.log(response.data);
+        this.setState({
+          data: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <Col xs={12} lg={4}>
         <Row>
           <Col>
-            <h4 className="titulo-h4">JUEGOS RECOMENDADOS</h4>
+            <h4 className="titulo-h4">TOP 10 MEJOR VALORADOS</h4>
           </Col>
         </Row>
         <div id="lista-vertical">
-          <Row className="pb-3 juego-recomendacion">
-            <div>
-              <img
-                src={juego1}
-                className="float-left imagen-juego-vertical"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <a href="/">
-                    <strong className="text-white">Nombre del juego</strong>
-                  </a>
-                </p>
-                <p className="celeste">Xbox One/PS4/PC</p>
-                <p className="text-muted">Fecha de publicacion</p>
+          {this.state.data.map((e, i) => (
+            <Row className="pb-3 juego-recomendacion" key={i}>
+              <div>
+                <img
+                  src={`${url_img}${size}${e.cover.image_id}${format}`}
+                  className="float-left imagen-juego-vertical"
+                  alt=""
+                />
+                <div className="float-right ml-3">
+                  <p>
+                    <a href="/">
+                      <strong className="text-white">{e.name}</strong>
+                    </a>
+                  </p>
+                  <p>
+                    {e.platforms.map((m, j) => (
+                      <span className="celeste" key={j}>
+                        {m.name}
+                      </span>
+                    ))}
+                  </p>
+                  <p className="text-muted">{e.rating}</p>
+                </div>
               </div>
-            </div>
-          </Row>
-          <Row className="bg-dark juego-recomendacion">
-            <div>
-              <img
-                src={juego2}
-                className="float-left imagen-juego-vertical"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <a href="/">
-                    <strong className="text-white">Nombre del juego</strong>
-                  </a>
-                </p>
-                <p className="celeste">Xbox One/PS4/PC</p>
-                <p className="text-muted">Fecha de publicacion</p>
-              </div>
-            </div>
-          </Row>
-          <Row className="juego-recomendacion">
-            <div>
-              <img
-                src={juego3}
-                className="float-left imagen-juego-vertical"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <a href="/">
-                    <strong className="text-white">Nombre del juego</strong>
-                  </a>
-                </p>
-                <p className="celeste">Xbox One/PS4/PC</p>
-                <p className="text-muted">Fecha de publicacion</p>
-              </div>
-            </div>
-          </Row>
-          <Row className="bg-dark juego-recomendacion">
-            <div>
-              <img
-                src={juego1}
-                className="float-left imagen-juego-vertical"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <a href="/">
-                    <strong className="text-white">Nombre del juego</strong>
-                  </a>
-                </p>
-                <p className="celeste">Xbox One/PS4/PC</p>
-                <p className="text-muted">Fecha de publicacion</p>
-              </div>
-            </div>
-          </Row>
-          <Row className="juego-recomendacion">
-            <div>
-              <img
-                src={juego2}
-                className="float-left imagen-juego-vertical"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <a href="/">
-                    <strong className="text-white">Nombre del juego</strong>
-                  </a>
-                </p>
-                <p className="celeste">Xbox One/PS4/PC</p>
-                <p className="text-muted">Fecha de publicacion</p>
-              </div>
-            </div>
-          </Row>
-          <Row className="bg-dark juego-recomendacion">
-            <div>
-              <img
-                src={juego3}
-                className="float-left imagen-juego-vertical"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <a href="/">
-                    <strong className="text-white">Nombre del juego</strong>
-                  </a>
-                </p>
-                <p className="celeste">Xbox One/PS4/PC</p>
-                <p className="text-muted">Fecha de publicacion</p>
-              </div>
-            </div>
-          </Row>
+            </Row>
+          ))}
         </div>
       </Col>
     );

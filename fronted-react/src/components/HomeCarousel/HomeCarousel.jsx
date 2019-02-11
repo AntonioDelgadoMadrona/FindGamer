@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 import { Carousel, Container } from "react-bootstrap";
 
 import juego1 from "../../img/foto-juego1.jpg";
@@ -8,6 +10,21 @@ import juego3 from "../../img/fortnite.jpg";
 import './HomeCarousel.css';
 
 class HomeCarousel extends Component {
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/lastgames")
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          data: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   constructor(props, context) {
     super(props, context);
 
@@ -15,7 +32,8 @@ class HomeCarousel extends Component {
 
     this.state = {
       index: 0,
-      direction: null
+      direction: null,
+      data: []
     };
   }
 

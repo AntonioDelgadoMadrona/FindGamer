@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 import "./HomeExpectedGames.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -6,8 +7,26 @@ import { Container, Row, Col } from "react-bootstrap";
 import juego1 from "../../img/ultimo1.jpg";
 import juego2 from "../../img/ultimo2.jpg";
 import juego3 from "../../img/ultimo3.jpg";
+import Axios from "axios";
 
 class HomeExpectedGames extends Component {
+  constructor(){
+    super();
+    this.state = {
+      data: []
+    }
+  };
+
+  componentDidMount(){
+    axios.get("http://localhost:3001/hypegames").then(response => {
+      console.log(response.data)
+      this.setState({
+        data: response.data
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+  }
   render() {
     return (
       <Container className="hijo">
@@ -18,6 +37,9 @@ class HomeExpectedGames extends Component {
         </Row>
         <Row>
           <div className="ultimos-juegos mx-2">
+          {/* {this.state.data.map((e, i) => (
+
+          ))} */}
             <div className="p-0 mr-1 ultimo-juego">
               <div className="card-body cuerpo-juego w-100 p-1">
                 <a href="/" className="enlace-juego">

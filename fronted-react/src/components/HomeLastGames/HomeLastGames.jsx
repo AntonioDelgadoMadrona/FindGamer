@@ -4,10 +4,6 @@ import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 import "./HomeLastGames.css";
 
-import juego1 from "../../img/ultimo1.jpg";
-import juego2 from "../../img/ultimo2.jpg";
-import juego3 from "../../img/ultimo3.jpg";
-
 const url_img = "https://images.igdb.com/igdb/image/upload/";
 const size = "t_720p/";
 const format = ".jpg";
@@ -24,7 +20,7 @@ class HomeLastgames extends Component {
     axios
       .get("http://localhost:3001/lastgames")
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           data: response.data
         });
