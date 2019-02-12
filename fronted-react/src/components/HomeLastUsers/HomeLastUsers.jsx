@@ -7,7 +7,6 @@ import "./HomeLastUsers.css";
 import foto1 from "../../img/foto-perfil1.jpg";
 import foto2 from "../../img/foto-perfil2.jpg";
 import foto3 from "../../img/foto-perfil3.jpg";
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from "constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import "./HomeNews.css";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
-import juego1 from "../../img/juego1.jpg";
-import juego2 from "../../img/juego2.jpg";
-import juego3 from "../../img/pubg.jpg";
+const url_img = "https://images.igdb.com/igdb/image/upload/";
+const size = "t_thumb/";
+const format = ".jpg";
 
 class HomeNews extends Component {
   constructor(props, context) {
@@ -15,7 +16,8 @@ class HomeNews extends Component {
 
     this.state = {
       index: 0,
-      direction: null
+      direction: null,
+      data: []
     };
   }
 
@@ -24,6 +26,20 @@ class HomeNews extends Component {
       index: selectedIndex,
       direction: e.direction
     });
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/ratedgames")
+      .then(response => {
+        // console.log(response.data);
+        this.setState({
+          data: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -42,177 +58,92 @@ class HomeNews extends Component {
           direction={direction}
           onSelect={this.handleSelect}
         >
-          <Carousel.Item className="carousel-item">
-            <Row>
-              <Col xs={12} md={6} lg={3}>
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
+          {this.state.data.map((e, i) => (
+            <Carousel.Item className="carousel-item">
+              <Row>
+                <Col xs={12} md={6} lg={3} key={i}>
+                  <div className="ultimas-noticias" />
+                  <div className="ultima-noticia p-1">
+                    <a href="/">
+                      <div className=" noticia">
+                        <img
+                          src={`${url_img}${size}${e.cover.image_id}${format}`}
+                          className="card-img-top imagen-noticia"
+                          alt=""
+                        />
+                        <div>
+                          <h4>Titulo de la noticia</h4>
+                          <div className="d-flex justify-content-end">
+                            <small className="text-muted ">9 min</small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
+                    </a>
+                  </div>
+                </Col>
+                <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
+                  <div className="ultimas-noticias" />
+                  <div className="ultima-noticia p-1">
+                    <a href="/">
+                      <div className=" noticia">
+                        <img
+                          src={`${url_img}${size}${e.cover.image_id}${format}`}
+                          className="card-img-top imagen-noticia"
+                          alt=""
+                        />
+                        <div>
+                          <h4>Titulo de la noticia</h4>
+                          <div className="d-flex justify-content-end">
+                            <small className="text-muted ">9 min</small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
+                    </a>
+                  </div>
+                </Col>
+                <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
+                  <div className="ultimas-noticias" />
+                  <div className="ultima-noticia p-1">
+                    <a href="/">
+                      <div className=" noticia">
+                        <img
+                          src={`${url_img}${size}${e.cover.image_id}${format}`}
+                          className="card-img-top imagen-noticia"
+                          alt=""
+                        />
+                        <div>
+                          <h4>Titulo de la noticia</h4>
+                          <div className="d-flex justify-content-end">
+                            <small className="text-muted ">9 min</small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
+                    </a>
+                  </div>
+                </Col>
+                <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
+                  <div className="ultimas-noticias" />
+                  <div className="ultima-noticia p-1">
+                    <a href="/">
+                      <div className=" noticia">
+                        <img
+                          src={`${url_img}${size}${e.cover.image_id}${format}`}
+                          className="card-img-top imagen-noticia"
+                          alt=""
+                        />
+                        <div>
+                          <h4>Titulo de la noticia</h4>
+                          <div className="d-flex justify-content-end">
+                            <small className="text-muted ">9 min</small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-            </Row>
-          </Carousel.Item>
-          <Carousel.Item className="carousel-item">
-            <Row>
-              <Col xs={12} md={6} lg={3}>
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                <div className="ultimas-noticias" />
-                <div className="ultima-noticia p-1">
-                  <a href="/">
-                    <div className=" noticia">
-                      <img
-                        src={juego1}
-                        className="card-img-top imagen-noticia"
-                        alt=""
-                      />
-                      <div className="card-body">
-                        <h4>Titulo de la noticia</h4>
-                        <div className="d-flex justify-content-end">
-                          <small className="text-muted ">9 min</small>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </Col>
-            </Row>
-          </Carousel.Item>
-          
-
-         
+                    </a>
+                  </div>
+                </Col>
+              </Row>
+            </Carousel.Item>
+          ))}
         </Carousel>
       </Container>
     );

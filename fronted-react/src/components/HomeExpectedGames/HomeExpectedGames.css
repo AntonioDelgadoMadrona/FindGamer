@@ -30,7 +30,7 @@ div.ultimos-juegos .ultimo-juego {
 }
 
 .enlace-juego:hover {
-    opacity: 1;
+    opacity: .6;
     color: white;
     text-decoration: none;
     font-size: 1rem;

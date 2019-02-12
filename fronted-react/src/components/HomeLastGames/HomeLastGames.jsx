@@ -47,12 +47,16 @@ class HomeLastgames extends Component {
                     <img
                       src={`${url_img}${size}${e.cover.image_id}${format}`}
                       className="w-100 imagen-ultimos-juegos"
-                      alt=""
+                      alt={e.name}
                     />
                     <div className="texto-juego">
                       <p>{e.name}</p>
-                      <p>Plataformas</p>
-                      <p>Fecha publicacion</p>
+                      <p>{e.platforms.map((f, k) => (
+                        <span key={k}>{`${f.name} / `}</span>
+                      ))}</p>
+                      <p>{e.genres.map((g, l) => (
+                        <span key={l}>{`${l.name} / `}</span>
+                      ))}</p>
                     </div>
                   </a>
                 </div>

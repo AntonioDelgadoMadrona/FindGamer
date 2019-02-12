@@ -30,6 +30,6 @@
 }
 
 .imagen-noticia {
-    max-width: 250px;
-    max-height: 120px;
+    max-width: 280px !important;
+    max-height: 150px;
 }

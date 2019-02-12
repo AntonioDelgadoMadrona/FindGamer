@@ -1,30 +1,15 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import { Carousel, Container } from "react-bootstrap";
 
-import juego1 from "../../img/foto-juego1.jpg";
-import juego2 from "../../img/pubg.jpg";
-import juego3 from "../../img/fortnite.jpg";
+import "./HomeCarousel.css";
 
-import './HomeCarousel.css';
+const url_img = "https://images.igdb.com/igdb/image/upload/";
+const size = "t_1080p/";
+const format = ".jpg";
 
 class HomeCarousel extends Component {
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:3001/lastgames")
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          data: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
   constructor(props, context) {
     super(props, context);
 
@@ -35,6 +20,20 @@ class HomeCarousel extends Component {
       direction: null,
       data: []
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/carouselgames")
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          data: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   handleSelect(selectedIndex, e) {
@@ -50,36 +49,22 @@ class HomeCarousel extends Component {
     return (
       <Container className="hijo">
         <Carousel
-        className="carrusel"
+          className="carrusel"
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
         >
-          <Carousel.Item className="carousel-item">
-            <img className="imagen-carrusel" src={juego1} alt="First slide" />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item >
-          <Carousel.Item className="carousel-item">
-            <img className="imagen-carrusel" src={juego2} alt="Third slide" />
-
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className="carousel-item">
-            <img className="imagen-carrusel" src={juego3} alt="Third slide" />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
+          {this.state.data.map((e, i) => (
+            <Carousel.Item className="carousel-item" key={i}>
+              <img className="imagen-carrusel" src={`${url_img}${size}${e.cover.image_id}${format}`} alt={`${i} slide`} />
+              <Carousel.Caption>
+                <h3>{e.name}</h3>
+                <p>
+                  hola
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
         </Carousel>
       </Container>
     );

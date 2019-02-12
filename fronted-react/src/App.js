@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 
-import Header from "./components/Header/Header2";
+import Header from "./components/Header/Header";
 // import Smartphone from "./components/Smartphone/Smartphone";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";

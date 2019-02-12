@@ -4,7 +4,8 @@ var app = require("../app");
 var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
 
 // MOSTRAR TODA LA INFO DE UN JUEGO
-app.get("/game/info", function(req, res) {
+app.get("/game/info/:id", function(req, res) {
+  console.log(req.params)
   axios({
     url: "https://api-v3.igdb.com/games",
     method: "POST",
@@ -13,17 +14,33 @@ app.get("/game/info", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: "fields name,cover.url; where id = 1942;"
+    data: `fields name,cover.image_id,platforms.name,release_dates.created_at,summary,rating,involved_companies.company.name,genres.name,screenshots.image_id; where id = ${req.params.id};`
   })
     .then(response => {
       //   console.log(response.data)
       res.status(200).send(response.data);
     })
     .catch(err => {
-      console.error(err);
+      // console.error(err);
       res.send(err);
     });
 });
+
+axios({
+  url: "https://api-v3.igdb.com/page_backgrounds",
+  method: 'POST',
+  headers: {
+      'Accept': 'application/json',
+      'user-key': API_KEY
+  },
+  data: "fields alpha_channel,animated,height,image_id,url,width;"
+})
+  .then(response => {
+      console.log(response.data);
+  })
+  .catch(err => {
+      console.error(err);
+  });
 
 // LOS ULTIMOS JUEGOS PUBLICADOS
 app.get("/lastgames", function(req, res) {
@@ -35,7 +52,7 @@ app.get("/lastgames", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: "fields name,cover.image_id,platforms.name,screenshots.url,popularity;sort popularity desc;limit 8;"
+    data: "fields name,cover.image_id,genres.name,platforms.name;where popularity > 80;limit 14;"
   })
     .then(response => {
       //   console.log(response.data)
@@ -46,29 +63,6 @@ app.get("/lastgames", function(req, res) {
       res.send(err);
     });
 });
-
-
-// // LOS JUEGOS MAS POPULARES
-// app.get("/popularitygames", function(req, res) {
-//   axios({
-//     url: "https://api-v3.igdb.com/games",
-//     method: "POST",
-//     mode: "no-cors",
-//     headers: {
-//       Accept: "application/json",
-//       "user-key": API_KEY
-//     },
-//     data: "fields name,cover.image_id,platforms.name,screenshots.url,popularity;sort popularity desc;limit 10;"
-//   })
-//     .then(response => {
-//       //   console.log(response.data)
-//       res.status(200).send(response.data);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res.send(err);
-//     });
-// });
 
 // LOS JUEGOS MAS ESPERADOS
 app.get("/hypegames", function (req, res) {
@@ -114,7 +108,7 @@ app.get("/ratedgames", (req, res) => {
     });
 })
 
-// JUEGOS RECOMENDADOS
+// TOP 10 JUEGOS MAS POPULARES
 app.get('/popularitygames', (req, res) => {
   axios({
     url: "https://api-v3.igdb.com/games",
@@ -125,6 +119,28 @@ app.get('/popularitygames', (req, res) => {
       "user-key": API_KEY
     },
     data: "fields name,cover.image_id,platforms.name,popularity,involved_companies.company.name;sort popularity desc;where popularity >200;limit 10;"
+  })
+    .then(response => {
+        // console.log(response.data)
+      res.status(200).send(response.data);
+    })
+    .catch(err => {
+      console.error(err);
+      res.send(err);
+    });
+})
+
+// LOS MEJORES JUEGOS CAROUSEL
+app.get('/carouselgames', (req, res) => {
+  axios({
+    url: "https://api-v3.igdb.com/games",
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      Accept: "application/json",
+      "user-key": API_KEY
+    },
+    data: "fields name,cover.image_id,popularity,rating;sort popularity desc;where rating >95;limit 10;"
   })
     .then(response => {
         // console.log(response.data)

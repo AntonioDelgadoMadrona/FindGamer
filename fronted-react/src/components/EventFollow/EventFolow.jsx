@@ -11,7 +11,7 @@ class EventFollow extends Component {
                     <h2 className="titulo">PLAZAS DISPONIBLES: <span className="badge badge-light">3/4</span></h2>
                 </Col>
                 <Col xs={2}>
-                    <button type="submit" className="btn btn-sm boton-verde">Participar</button>
+                    <button type="submit" className="btn btn-sm boton-celeste">Participar</button>
                 </Col>
             </Row>
         </Container>

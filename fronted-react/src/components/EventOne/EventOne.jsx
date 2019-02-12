@@ -109,7 +109,7 @@ class EventOne extends Component {
                         <span className="subtitulo">{m.n_jugadores - m.participantes.length}</span>
                       </Col>
                     </Row>
-                    <hr />
+                    <Row><Col className="titulo-h4 mb-1"></Col></Row>
                     <Row>
                       <Col xs={12} md={6}>
                         <h5>
@@ -124,7 +124,7 @@ class EventOne extends Component {
                     </Row>
                   </Col>
                 </Row>
-                <Row>
+                <Row className="my-0">
                   <Col>
                     <p>
                       {m.mensaje}
