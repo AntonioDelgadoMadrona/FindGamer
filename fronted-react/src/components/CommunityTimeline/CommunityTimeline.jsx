@@ -18,19 +18,43 @@ class Timeline extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
+      username: 'Juanito23'
     };
   }
   componentDidMount() {
     axios
       .get("http://localhost:3001/timeline/getall")
       .then(response => {
-        this.setState({ data: response.data });
+        // console.log(response.data)
+        this.setState({ data: response.data.reverse() });
       })
       .catch(err => {
         console.log(err);
       });
   }
+
+  newMessage = (message) => {
+    console.log(message)
+    this.setState({
+      data: [
+        ...message,
+        ...this.state.data
+      ]
+    })
+  }
+
+  handleLike(id){
+    let username = this.state.username
+    axios.post("http://localhost:3001/timeline/addlike", { user: username, id_message: id }).then(response => {
+      // this.setState({
+      //   data: response.data
+      // })
+      console.log(this.state.data)
+    }).catch(error => {
+      console.log(error)
+    })
+  };
 
   render() {
     return (
@@ -42,11 +66,11 @@ class Timeline extends Component {
         </Row>
 
         <Row className="d-flex justify-content-center">
-          <FormTimeline />
+          <FormTimeline newMessage={this.newMessage}/>
 
           <Container className="timeline">
-            {this.state.data.map(m => (
-              <Col xs="12" className="mensaje-timeline">
+            {this.state.data.map((m, i) => (
+              <Col xs="12" className="mensaje-timeline" key={i}>
                 <Row className="p-2 mensaje-cuerpo">
                   <div className=" d-flex justify-content-around">
                     <div>
@@ -75,6 +99,7 @@ class Timeline extends Component {
                   <Col>
                     <FontAwesomeIcon
                       icon={faThumbsUp}
+                      onClick={() => this.handleLike(m._id)}
                       className="fa-lg cursor like mr-md-3"
                     />
                     <small className="text-muted">{m.likes.length} likes</small>

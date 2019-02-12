@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 import {
   Container,
@@ -10,17 +11,55 @@ import {
 class FormEvents extends Component {
   constructor(props) {
     super(props);
+    this.state = { 
+      collapse: false,
+      event: {
+        username: 'Madrona5',
+        game: null,
+        platform: null,
+        start_event: null,
+        end_event: null,
+        n_gamers: null,
+        rating: null,
+        message: null,
+      }
+    };
+
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
 
+  handleChange(e){
+    this.setState({
+      event: {
+         ...this.state.event,
+        [e.target.id]: e.target.value
+      }
+      
+    })
+    console.log(this.state)
+  }
+
+  handleClick(){
+    let event = this.state.event;
+    console.log(this.state.event)
+    axios.post("http://localhost:3001/event/create", event).then(response => {
+      console.log(response.data)
+      this.props.newMessage(response.data)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
   render() {
     return (
-      <Container className="hijo text-center">
+      <Container className="hijo text-left">
         <Button
           className="boton-celeste"
           onClick={this.toggle}
@@ -34,13 +73,14 @@ class FormEvents extends Component {
             className="my-2 p-2 text-dark publicar-evento"
             id="bloque1"
           >
-            <form action="" className="form-group">
+            <form className="form-group">
               <div className="form-row">
                 <Col xs={12} md={6} className="form-group">
                   <input
                     type="text"
                     className="form-control"
-                    id="inputJuego"
+                    onChange={this.handleChange}
+                    id="game"
                     placeholder="Nombre del juego"
                     required
                   />
@@ -48,14 +88,15 @@ class FormEvents extends Component {
                 <Col xs={12} md={6} className="form-group">
                   <select
                     className="custom-select"
-                    id="inputGroupSelect04"
+                    onChange={this.handleChange}
+                    id="platform"
                     aria-label="Example select with button addon"
                   >
                     <option defaultValue>Plataforma</option>
-                    <option value="1">PC</option>
-                    <option value="2">Xbox One</option>
-                    <option value="3">Playstation 4</option>
-                    <option value="4">Nintendo Switch</option>
+                    <option value="PC">PC</option>
+                    <option value="Xbox One">Xbox One</option>
+                    <option value="PS4">Playstation 4</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
                   </select>
                 </Col>
               </div>
@@ -65,7 +106,8 @@ class FormEvents extends Component {
                   <input
                     type="date"
                     className="form-control"
-                    id="f-inicioEvento"
+                    onChange={this.handleChange}
+                    id="start_event"
                     required
                   />
                 </Col>
@@ -74,7 +116,7 @@ class FormEvents extends Component {
                   <input
                     type="time"
                     className="form-control"
-                    id="h-inicioEvento"
+                    id="h-start_event"
                     required
                   />
                 </Col>
@@ -85,7 +127,8 @@ class FormEvents extends Component {
                   <input
                     type="date"
                     className="form-control"
-                    id="f-finEvento"
+                    id="end_event"
+                    onChange={this.handleChange}
                     required
                   />
                 </Col>
@@ -94,7 +137,8 @@ class FormEvents extends Component {
                   <input
                     type="time"
                     className="form-control"
-                    id="h-finEvento"
+                    id="h_end_event"
+                    onChange={this.handleChange}
                     required
                   />
                 </Col>
@@ -103,20 +147,21 @@ class FormEvents extends Component {
                 <Col xs={12} md={6} className="form-group">
                   <select
                     className="custom-select"
-                    id="inputJugadores"
-                    aria-label="Example select with button addon"
+                    id="n_gamers"
+                    onChange={this.handleChange}
                   >
-                    <option defaultValue>Numero de jugadores</option>
+                    <option defaultValue>Numero de jugadores (incluido tú)</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="4">4</option>
                   </select>
                 </Col>
                 <Col xs={12} md={6} className="form-group">
                   <select
                     className="custom-select"
-                    id="inputJugadores"
-                    aria-label="Example select with button addon"
+                    id="rating"
+                    onChange={this.handleChange}
                   >
                     <option defaultValue>
                       Minimo de estrellas para participar
@@ -124,8 +169,8 @@ class FormEvents extends Component {
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="3">4</option>
-                    <option value="3">5</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                   </select>
                 </Col>
               </div>
@@ -133,13 +178,13 @@ class FormEvents extends Component {
                 <textarea
                   className="form-control"
                   placeholder="Si quieres añadir un mensaje..."
-                  name=""
-                  id=""
+                  onChange={this.handleChange}
+                  id="message"
                 />
               </div>
               <br/>
               <div className="form-row d-flex justify-content-center">
-                <button type="submit" className="btn boton-celeste">
+                <button onClick={this.handleClick} className="btn boton-celeste">
                   Publicar
                 </button>
               </div>

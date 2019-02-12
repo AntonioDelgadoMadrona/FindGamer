@@ -6,17 +6,17 @@ var controller = {
     console.log(req.body);
     let evento = new eventosModel();
     let participantes = new Array();
-    participantes.push(req.body.creador);
+    participantes.push(req.body.username);
 
-    evento.creador = req.body.creador;
-    evento.juego = req.body.juego;
-    evento.plataforma = req.body.plataforma;
-    evento.f_inicio = req.body.f_inicio;
-    evento.f_fin = req.body.f_fin;
-    evento.n_jugadores = req.body.n_jugadores;
-    evento.puntuacion_min = req.body.puntuacion_min;
-    if (req.body.mensaje) {
-      evento.mensaje = req.body.mensaje;
+    evento.creador = req.body.username;
+    evento.juego = req.body.game;
+    evento.plataforma = req.body.platform;
+    evento.f_inicio = req.body.start_event;
+    evento.f_fin = req.body.end_event;
+    evento.n_jugadores = req.body.n_gamers;
+    evento.puntuacion_min = req.body.rating;
+    if (req.body.message) {
+      evento.mensaje = req.body.message;
     }
     evento.participantes = participantes;
     evento.likes = new Array();

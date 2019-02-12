@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-
 import Modal from "../Modal/Modal";
 
 import "./Header.css";
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import NavLink from "react-bootstrap/NavLink";
 
 import logo from "../../img/findgamer2.png";
 //import img_perfil from '../../img/foto-perfil1.jpg';

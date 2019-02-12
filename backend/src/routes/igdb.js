@@ -26,22 +26,6 @@ app.get("/game/info/:id", function(req, res) {
     });
 });
 
-axios({
-  url: "https://api-v3.igdb.com/page_backgrounds",
-  method: 'POST',
-  headers: {
-      'Accept': 'application/json',
-      'user-key': API_KEY
-  },
-  data: "fields alpha_channel,animated,height,image_id,url,width;"
-})
-  .then(response => {
-      console.log(response.data);
-  })
-  .catch(err => {
-      console.error(err);
-  });
-
 // LOS ULTIMOS JUEGOS PUBLICADOS
 app.get("/lastgames", function(req, res) {
   axios({

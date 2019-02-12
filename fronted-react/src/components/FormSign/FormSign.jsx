@@ -1,10 +1,50 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 import { Container, Row, Col } from "react-bootstrap";
 
+
 class FormSign extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      first_name: null,
+      last_name: null,
+      username: null,
+      fav_platform: null,
+      country: null,
+      city: null,
+      birthday: null,
+      email: null,
+      password: null
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  };
+
+  handleChange(event) {
+    this.setState({
+      [event.target.id]: event.target.value
+  
+    });
+    console.log(this.state)
+  };
+
+  handleClick(){
+    let user = this.state
+    axios.post('http://localhost:3001/user/register', user).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
   render() {
     return (
-      <Container className="my-3">
+      <Container className="padre">
+      <Container className="hijo py-5">
         <Row className="row justify-content-center">
           <Col xs={12} lg={8}>
             <form id="formulario_registro">
@@ -14,8 +54,8 @@ class FormSign extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    name="nombre"
-                    id="inputNombre1"
+                    id="first_name"
+                    onChange={this.handleChange}
                     required
                   />
                   <div id="errorNombre1" />
@@ -25,8 +65,8 @@ class FormSign extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    name="apellidos"
-                    id="inputApellidos1"
+                    onChange={this.handleChange}                 
+                    id="last_name"
                     required
                   />
                   <div id="errorApellidos1" />
@@ -38,34 +78,34 @@ class FormSign extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    name="telefono"
-                    id="inputTelefono1"
+                    onChange={this.handleChange}
+                    id="username"
                     required
                   />
                   <div id="errorUsuario" />
                 </Col>
                 <Col xs={12} lg={6} className="form-group">
                   <label>Plataforma favorita</label>
-                  <select className="custom-select" id="inputGroupSelect04">
-                    <option selected />
-                    <option value="1">PC</option>
-                    <option value="2">Xbox One</option>
-                    <option value="3">Playstation 4</option>
-                    <option value="4">Nintendo Switch</option>
+                  <select className="custom-select" onChange={this.handleChange} id="fav_platform">
+                    <option defaultValue />
+                    <option value="PC">PC</option>
+                    <option value="Xbox One">Xbox One</option>
+                    <option value="PS4">Playstation 4</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
                   </select>
                 </Col>
               </div>
               <div className="form-row">
                 <Col xs={12} md={6} lg={4} className="form-group">
                   <label>Pais</label>
-                  <select className="custom-select" id="inputGroupSelect04">
-                    <option selected />
-                    <option value="es">España</option>
-                    <option value="ar">Argentina</option>
-                    <option value="mx">Mexico</option>
-                    <option value="co">Colombia</option>
-                    <option value="ch">Chile</option>
-                    <option value="ur">Uruguay</option>
+                  <select className="custom-select" onChange={this.handleChange} id="country">
+                    <option defaultValue />
+                    <option value="España">España</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Uruguay">Uruguay</option>
                   </select>
                 </Col>
                 <Col xs={12} md={6} lg={4} className="form-group">
@@ -73,8 +113,8 @@ class FormSign extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    name="ciudad"
-                    id="inputCiudad1"
+                    onChange={this.handleChange}
+                    id="city"
                     required
                   />
                   <div id="errorCiudad1" />
@@ -84,8 +124,8 @@ class FormSign extends Component {
                   <input
                     type="date"
                     className="form-control"
-                    name="f_nacimiento"
-                    id="inputDate"
+                    onChange={this.handleChange}
+                    id="birthday"
                     required
                   />
                   <div id="errorFecha" />
@@ -97,8 +137,8 @@ class FormSign extends Component {
                   <input
                     type="email"
                     className="form-control"
-                    name="email"
-                    id="inputEmail1"
+                    onChange={this.handleChange}
+                    id="email"
                     required
                   />
                   <div id="errorEmail1" />
@@ -109,7 +149,6 @@ class FormSign extends Component {
                   <input
                     type="password"
                     className="form-control"
-                    id="inputPassword11"
                     required
                   />
                   <div id="errorPassword11" />
@@ -121,7 +160,8 @@ class FormSign extends Component {
                     type="password"
                     className="form-control"
                     name="password"
-                    id="inputPassword12"
+                    id="password"
+                    onChange={this.handleChange}
                     required
                   />
                   <div id="errorPassword12" />
@@ -149,7 +189,7 @@ class FormSign extends Component {
                 <Col className="col-12">
                   <button
                     type="button"
-                    onclick="enviarFormulario()"
+                    onClick={this.handleClick}
                     id="boton_formulario_registro"
                     className="btn btn-outline-secondary"
                   >
@@ -160,6 +200,7 @@ class FormSign extends Component {
             </form>
           </Col>
         </Row>
+      </Container>
       </Container>
     );
   }

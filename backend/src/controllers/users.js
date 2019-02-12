@@ -5,7 +5,7 @@ var bcrypt = require("bcrypt-nodejs");
 var controller = {
   // REGISTRAR USUARIO
   registerUser: (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
     usuariosModel.find(
       {
         email: req.body.email
@@ -22,13 +22,13 @@ var controller = {
 
                 let usuario = new usuariosModel();
 
-                usuario.nombre = req.body.nombre;
-                usuario.apellidos = req.body.apellidos;
-                usuario.nombre_usuario = req.body.nombre_usuario;
-                usuario.plataforma_fav = req.body.plataforma_fav;
-                usuario.pais = req.body.pais;
-                usuario.ciudad = req.body.ciudad;
-                usuario.f_nacimiento = req.body.f_nacimiento;
+                usuario.first_name = req.body.first_name;
+                usuario.apellidos = req.body.last_name;
+                usuario.nombre_usuario = req.body.username;
+                usuario.plataforma_fav = req.body.fav_platform;
+                usuario.pais = req.body.country;
+                usuario.ciudad = req.body.city;
+                usuario.f_nacimiento = req.body.birthday;
                 usuario.email = req.body.email;
                 usuario.password = password;
                 usuario.imagen_perfil = "";

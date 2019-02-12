@@ -5,7 +5,7 @@ import "./HomeNews.css";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
 const url_img = "https://images.igdb.com/igdb/image/upload/";
-const size = "t_thumb/";
+const size = "t_720p/";
 const format = ".jpg";
 
 class HomeNews extends Component {
@@ -59,7 +59,7 @@ class HomeNews extends Component {
           onSelect={this.handleSelect}
         >
           {this.state.data.map((e, i) => (
-            <Carousel.Item className="carousel-item">
+            <Carousel.Item className="carousel-item" key={i}>
               <Row>
                 <Col xs={12} md={6} lg={3} key={i}>
                   <div className="ultimas-noticias" />

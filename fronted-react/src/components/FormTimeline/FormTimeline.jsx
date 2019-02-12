@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import { Container, Col, Collapse, Button, Form } from 'reactstrap';
 
 import './FormTimeline.css'
@@ -6,12 +8,45 @@ import './FormTimeline.css'
 class FormTimeline extends Component {
   constructor(props) {
     super(props);
+    this.state = { 
+      collapse: false,
+      message: {
+        message: null,
+        image: null,
+        username: "RickRos"
+      }
+
+     };
+
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
-  }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  };
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
+  }
+
+  handleChange(e){
+    this.setState({
+      message: {
+         ...this.state.message,
+        [e.target.id]: e.target.value
+      }
+      
+    })
+    console.log(this.state)
+  }
+
+  handleClick(){
+    let message = this.state.message;
+    console.log(message)
+    axios.post("http://localhost:3001/timeline/create", message).then(response => {
+      console.log(response.data)
+      this.props.newMessage(response.data)
+    }).catch(error => {
+      console.log(error)
+    })
   }
 
   render() {
@@ -19,12 +54,12 @@ class FormTimeline extends Component {
       <Container className="hijo text-center">
         <Button className="boton-celeste" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Publicar mensaje</Button>
         <Collapse isOpen={this.state.collapse}>
-          <Col xs={12} className="publicar-mensaje" id="bloque1">
-            <Form action="" className="form-group">
-                <textarea className="form-control" id="" placeholder="Comparte un mensaje, foto o evento..."></textarea>
+          <Col xs={12} className="publicar-mensaje">
+            <Form className="form-group">
+                <textarea className="form-control" id="message" onChange={this.handleChange} placeholder="Comparte un mensaje, foto o evento..."></textarea>
                 <div className="d-flex justify-content-between mt-2">
-                    <input type="file" className="form-control-file form-control-sm " name="" id=""></input>
-                    <button type="submit" className="btn btn-sm boton-celeste">Compartir</button>
+                    <input type="file" className="form-control-file form-control-sm " onChange={this.handleChange} id="image"></input>
+                    <button type="button" onClick={this.handleClick} className="btn btn-sm boton-celeste">Compartir</button>
                 </div>
             </Form>
         </Col>

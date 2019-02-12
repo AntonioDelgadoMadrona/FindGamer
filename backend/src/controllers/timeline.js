@@ -4,13 +4,13 @@ const timelineModel = require("../models/timeline");
 var controller = {
     // CREAR UN MENSAJE
   createMessage: (req, res) => {
-//      console.log(req.body)
+     console.log(req.body)
     let timeline = new timelineModel();
       
-    timeline.usuario = req.body.usuario;
-    timeline.mensaje = req.body.mensaje;
+    timeline.usuario = req.body.username;
+    timeline.mensaje = req.body.message;
     if(req.body.foto){
-        timeline.foto = req.body.foto;
+        timeline.foto = req.body.image;
     }
     timeline.comentarios = new Array();
     timeline.likes = new Array();
@@ -20,7 +20,7 @@ var controller = {
       if (err) {
         return res.send(err);
       } else {
-        let timeline = {
+        let timeline = [{
           id: result._id,
           usuario: result.usuario,
           mensaje: result.mensaje,
@@ -28,7 +28,7 @@ var controller = {
           comentarios: result.comentarios,
           likes: result.likes,
           f_publicacion: result.f_publicacion
-        };
+        }];
         return res.status(200).send(timeline);
       }
     });
@@ -59,18 +59,18 @@ var controller = {
     
     // LIKES MENSAJE
     addLike: function (req, res) {
-        let userId = req.body.id;
+        console.log(req.body)
+        let userId = req.body.id_message;
         let update = {
             $push: {
                 likes:{
-                    usuario: req.body.usuario,
+                    usuario: req.body.user,
                     f_like: new Date()
                 } 
                 
             }
         }
-
-        timelineModel.findByIdAndUpdate(userId, update, (err, result) => {
+        timelineModel.findByIdAndUpdate(req.body.id_message, update, (err, result) => {
             if (err) {
                 res.send(err)
             } else {
