@@ -7,8 +7,13 @@ import "./GamesList.css";
 
 import juego from "../../img/juego2.jpg";
 
+const url_img = "https://images.igdb.com/igdb/image/upload/";
+const small = "t_720p/";
+const format = ".jpg";
+
 class GamesList extends Component {
   render() {
+    console.log(this.props.listGames)
     return (
       <>
         <Container className="hijo">
@@ -44,183 +49,53 @@ class GamesList extends Component {
                   <option value="6">Los mas antiguos</option>
                 </select>
                 <div className="input-group-append">
-                  <button type="submit" className="btn h-75 btn-sm boton-celeste">
+                  <button
+                    type="submit"
+                    className="btn h-75 btn-sm boton-celeste"
+                  >
                     Filtrar
                   </button>
                 </div>
               </form>
             </Col>
-            
           </Row>
           <GamesForm />
         </Container>
+         <Container className="hijo">
+           <Row className="justify-content-around fila-lista-juegos"> 
 
-        <Container className="hijo">
-          <Row className="justify-content-around fila-lista-juegos">
-            {/* <!--CADA JUEGO DE LA LISTA--> */}
-            <Col
-              xs={12}
-              lg={5}
-              className="m-2 p-2 columna-lista-juegos rounded"
-            >
-              <Row className="juego-lista">
-                <Col xs={3}>
-                  <img src={juego} className="imagen-juego-lista" alt="" />
-                </Col>
-                <Col xs={9}>
-                  <p>
-                    <a href="/">The Witcher 3: Wild Hunt</a>
-                  </p>
-                  <p className="text-muted">
-                    Publicado: <span>29/10/2016</span>
-                  </p>
-                  <p>
-                    Plataformas:{" "}
-                    <span className="celeste">Xbox One/PS4/PC</span>
-                  </p>
-                  <p>
-                    Puntuacion: <span className="text-warning">94/100</span>
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col
-              xs={12}
-              lg={5}
-              className="m-2 p-2 columna-lista-juegos rounded"
-            >
-              <Row className="juego-lista">
-                <Col xs={3}>
-                  <img src={juego} className="imagen-juego-lista" alt="" />
-                </Col>
-                <Col xs={9}>
-                  <p>
-                    <a href="/">The Witcher 3: Wild Hunt</a>
-                  </p>
-                  <p className="text-muted">
-                    Publicado: <span>29/10/2016</span>
-                  </p>
-                  <p>
-                    Plataformas:{" "}
-                    <span className="celeste">Xbox One/PS4/PC</span>
-                  </p>
-                  <p>
-                    Puntuacion: <span className="text-warning">94/100</span>
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col
-              xs={12}
-              lg={5}
-              className="m-2 p-2 columna-lista-juegos rounded"
-            >
-              <Row className="juego-lista">
-                <Col xs={3}>
-                  <img src={juego} className="imagen-juego-lista" alt="" />
-                </Col>
-                <Col xs={9}>
-                  <p>
-                    <a href="/">The Witcher 3: Wild Hunt</a>
-                  </p>
-                  <p className="text-muted">
-                    Publicado: <span>29/10/2016</span>
-                  </p>
-                  <p>
-                    Plataformas:{" "}
-                    <span className="celeste">Xbox One/PS4/PC</span>
-                  </p>
-                  <p>
-                    Puntuacion: <span className="text-warning">94/100</span>
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col
-              xs={12}
-              lg={5}
-              className="m-2 p-2 columna-lista-juegos rounded"
-            >
-              <Row className="juego-lista">
-                <Col xs={3}>
-                  <img src={juego} className="imagen-juego-lista" alt="" />
-                </Col>
-                <Col xs={9}>
-                  <p>
-                    <a href="/">The Witcher 3: Wild Hunt</a>
-                  </p>
-                  <p className="text-muted">
-                    Publicado: <span>29/10/2016</span>
-                  </p>
-                  <p>
-                    Plataformas:{" "}
-                    <span className="celeste">Xbox One/PS4/PC</span>
-                  </p>
-                  <p>
-                    Puntuacion: <span className="text-warning">94/100</span>
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col
-              xs={12}
-              lg={5}
-              className="m-2 p-2 columna-lista-juegos rounded"
-            >
-              <Row className="juego-lista">
-                <Col xs={3}>
-                  <img src={juego} className="imagen-juego-lista" alt="" />
-                </Col>
-                <Col xs={9}>
-                  <p>
-                    <a href="/">The Witcher 3: Wild Hunt</a>
-                  </p>
-                  <p className="text-muted">
-                    Publicado: <span>29/10/2016</span>
-                  </p>
-                  <p>
-                    Plataformas:{" "}
-                    <span className="celeste">Xbox One/PS4/PC</span>
-                  </p>
-                  <p>
-                    Puntuacion: <span className="text-warning">94/100</span>
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col
-              xs={12}
-              lg={5}
-              className="m-2 p-2 columna-lista-juegos rounded"
-            >
-              <Row className="juego-lista">
-                <Col xs={3}>
-                  <img src={juego} className="imagen-juego-lista" alt="" />
-                </Col>
-                <Col xs={9}>
-                  <p>
-                    <a href="/">The Witcher 3: Wild Hunt</a>
-                  </p>
-                  <p className="text-muted">
-                    Publicado: <span>29/10/2016</span>
-                  </p>
-                  <p>
-                    Plataformas:{" "}
-                    <span className="celeste">Xbox One/PS4/PC</span>
-                  </p>
-                  <p>
-                    Puntuacion: <span className="text-warning">94/100</span>
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+            {this.props.listGames.map((e, i) => {
+              if(e.cover){
+              return(
+               <Col
+                 xs={12}
+                 lg={5}
+                 className="m-2 p-2 columna-lista-juegos rounded"
+               >
+                 <Row className="juego-lista">
+                   <Col xs={3}>
+                     <img src={`${url_img}${small}${e.cover.image_id}${format}`} className="imagen-juego-lista" alt={e.name} />
+                   </Col>
+                   <Col xs={9}>
+                     <p>
+                      <a href="/">{e.name}</a>
+                     </p>
+                     <p className="text-muted">
+                       {/* Publicado: <span>{e.release_dates.date}</span> */}
+                     </p>
+                     <p>
+                       Plataformas:{" "}
+                       <span className="celeste">Xbox One/PS4/PC</span>
+                     </p>
+                     <p>
+                       Puntuacion: <span className="text-warning">{e.rating}/100</span>
+                     </p>
+                   </Col>
+                 </Row>
+               </Col>
+            )}})}
+           </Row>
+         </Container>
       </>
     );
   }

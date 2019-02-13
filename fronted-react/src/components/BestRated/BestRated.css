@@ -19,9 +19,9 @@
     text-decoration: none;
 }
 
-#lista-vertical .juego-recomendacion:hover {
+/* #lista-vertical .juego-recomendacion:hover {
     margin: .4rem;
-}
+} */
 
 .imagen-juego-vertical {
     max-width: 70px;

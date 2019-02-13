@@ -42,21 +42,27 @@ class GameInfo extends Component {
     axios
       .get(`http://localhost:3001/game/info/${game}`)
       .then(response => {
+        console.log(response.data[0]);
         let r = response.data[0];
-        this.setState({
-          juego: {
-            id: r.id,
-            name: r.name,
-            companies: r.involved_companies[0].company.name,
-            image: r.cover.image_id,
-            release_date: r.release_dates[0].date,
-            platforms: r.platforms,
-            genres: r.genres,
-            summary: r.summary,
-            rating: r.rating
-          }
-        });
-        // console.log(this.state.juego);
+        if (
+          r.involved_companies[0].company.name !== "undefined" ||
+          r.release_dates[0].date !== "undefined"
+        ) {
+          this.setState({
+            juego: {
+              id: r.id,
+              name: r.name,
+              companies: r.involved_companies[0].company.name,
+              image: r.cover.image_id,
+              release_date: r.release_dates[0].date,
+              platforms: r.platforms,
+              genres: r.genres,
+              summary: r.summary,
+              rating: r.rating
+            }
+          });
+        }
+        console.log(this.state.juego);
       })
       .catch(err => {
         console.error(err);
@@ -81,7 +87,7 @@ class GameInfo extends Component {
     rating = rating.substring(0, 2);
 
     let lanzamiento = this.state.juego.release_date;
-    let date = moment.unix(lanzamiento, 'x').format("DD/MM/YYYY");
+    let date = moment.unix(lanzamiento, "x").format("DD/MM/YYYY");
 
     return (
       <Container className="hijo pt-0">
@@ -115,7 +121,9 @@ class GameInfo extends Component {
           <Col xs={12} lg={6}>
             <h2>{this.state.juego.name}</h2>
             <h4>{this.state.juego.companies}</h4>
-            <h5 className="text-white">Publicado: {date}</h5>
+            {date !== null ? (
+              <h5 className="text-white">Publicado: {date}</h5>
+            ) : null}
             <br />
             <p>Genero: {genresString}</p>
             <p>Plataformas: {platformsString}</p>
