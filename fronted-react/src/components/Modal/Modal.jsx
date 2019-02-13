@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Link } from 'react-router-dom';
+
 import { Button, Modal, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -50,7 +52,7 @@ class FormModal extends Component {
           </Modal.Body>
           <Modal.Footer>
             <span class="text-dark mr-5">
-              ¿Aun no estas registrado?<a href="/signin">Registrate!!</a>
+              ¿Aun no estas registrado?<Link to="/singin">Registrate!!</Link>
             </span>
             <Button className="btn-sm boton-celeste" onClick={this.handleClose}>
               Iniciar sesion

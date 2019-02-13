@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import { Link } from 'react-router-dom';
+
 import "./HomeExpectedGames.css";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -42,7 +44,7 @@ class HomeExpectedGames extends Component {
             {this.state.data.map((e, i) => (
               <div className="p-0 mr-1 ultimo-juego" key={i}>
                 <div className="card-body cuerpo-juego w-100 p-1">
-                  <a href="/" className="enlace-juego">
+                  <Link to={`/games/${e.id}`} className="enlace-juego">
                     <img
                       src={`${url_img}${size}${e.cover.image_id}${format}`}
                       className="imagen-ultimos-juegos"
@@ -59,7 +61,7 @@ class HomeExpectedGames extends Component {
                       </p> */}
                       <p>Fecha publicacion</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

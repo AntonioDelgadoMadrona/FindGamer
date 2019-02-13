@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 import { Col, Row } from "react-bootstrap";
 
@@ -50,9 +51,9 @@ class RecoGames extends Component {
                 />
                 <div className="float-right ml-3">
                   <p>
-                    <a href="/">
+                    <Link to={`/games/${e.id}`}>
                       <strong className="text-white">{e.name}</strong>
-                    </a>
+                    </Link>
                   </p>
                   <p>
                     {e.platforms.map((m, j) => (

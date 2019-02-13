@@ -35,7 +35,9 @@ class FormSign extends Component {
   handleClick(){
     let user = this.state
     axios.post('http://localhost:3001/user/register', user).then(response => {
-      console.log(response)
+      // console.log(response)
+      console.log(this.props.history)
+      this.props.history.push("/user");
     }).catch(error => {
       console.log(error)
     })
