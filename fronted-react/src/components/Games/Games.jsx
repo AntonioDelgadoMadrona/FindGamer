@@ -24,7 +24,6 @@ class Games extends Component {
       this.setState({
         games: response.data
       })
-      // console.log(this.state.games)
 
     }).catch(error => {
       console.log(error)

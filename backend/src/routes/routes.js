@@ -53,6 +53,9 @@ app.post("/user/addgamenext", UserController.addGameNext);
 // MOSTRAR LOS USUARIOS REGISTRADOS
 app.get("/user/getall", UserController.getAll);
 
+// MOSTRAR JUGADORES CON MAS PUNTUACION
+app.get("/user/getreco", UserController.getRecommended);
+
 // MOSTRAR TODA LA INFO DE MI USUARIO
 app.get("/user/getinfo", UserController.getInfo);
 

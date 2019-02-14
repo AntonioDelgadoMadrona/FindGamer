@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment";
+import { Link } from 'react-router-dom';
 
 import { Container, Row, Col } from "react-bootstrap";
 import "./HomeLastUsers.css";
@@ -14,7 +16,6 @@ class HomeLastUsers extends Component {
     super();
     this.state = {
       data: [],
-      media: []
     };
   }
 
@@ -24,7 +25,7 @@ class HomeLastUsers extends Component {
       .then(response => {
         // console.log(response.data);
         this.setState({
-          data: response.data
+          data: response.data.reverse()
         });
       })
       .catch(error => {
@@ -33,20 +34,31 @@ class HomeLastUsers extends Component {
   }
 
   render() {
+
+    // Calculo la media de valoraciones
     let suma = 0;
     let media = 0;
-    let estrellas = [];
     const jugadores = this.state.data.map((e, i) => {
       suma = 0;
       media = 0;
-      estrellas = [];
       e.puntuacion.map((l, i) => {
-        return suma = suma + l;
-      })
+        return (suma = suma + l);
+      });
       media = suma / e.puntuacion.length;
-      for(let i = 0; i < media; i++){
-        estrellas.push(<FontAwesomeIcon key={i} icon={faStar} className="text-warning"/>)
+
+      // Creo un array donde meto cada estrella en funcion de la media
+      let starsRender = [];
+      for (let i = 0; i < 5; i++) {
+        starsRender.push(
+          <FontAwesomeIcon
+            key={i}
+            icon={faStar}
+            className={`text-${i < media ? "warning" : "muted"} `}
+          />
+        );
       }
+
+      let register_date = moment.utc(e.fecha_registro).format("DD/MM/YYYY");
       return (
         <div className="p-0 mr-1 ultimo-jugador" key={i}>
           <div className="enlace-jugador">
@@ -56,11 +68,11 @@ class HomeLastUsers extends Component {
               </Row>
               <Row className="texto-jugador">
                 <Col xs={12}>
-                  <a href="/">
+                  <Link to={`/user/${e._id}`}>
                     <p className="text-white">{e.nombre_usuario}</p>
-                  </a>
-                  <p className="verde" >{estrellas}</p>
-                  <p className="text-muted">{e.fecha_registro}</p>
+                  </Link>
+                  <p className="verde">{starsRender}</p>
+                  <p className="text-muted">{register_date}</p>
                 </Col>
               </Row>
             </div>
@@ -77,9 +89,7 @@ class HomeLastUsers extends Component {
           </Col>
         </Row>
         <Row>
-          <div className="ultimos-jugadores mx-3">
-            {jugadores}
-          </div>
+          <div className="ultimos-jugadores mx-3">{jugadores}</div>
         </Row>
       </Container>
     );

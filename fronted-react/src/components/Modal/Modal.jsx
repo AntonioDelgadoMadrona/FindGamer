@@ -51,8 +51,8 @@ class FormModal extends Component {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <span class="text-dark mr-5">
-              ¿Aun no estas registrado?<Link to="/singin">Registrate!!</Link>
+            <span className="text-dark mr-5">
+              ¿Aun no estas registrado?<Link to="/singin" onClick={this.handleClose}>Registrate!!</Link>
             </span>
             <Button className="btn-sm boton-celeste" onClick={this.handleClose}>
               Iniciar sesion

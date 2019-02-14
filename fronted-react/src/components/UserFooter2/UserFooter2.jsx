@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,9 +11,8 @@ import foto from "../../img/foto-perfil2.jpg";
 import imagen from "../../img/juego1.jpg";
 
 class UserFooter2 extends Component {
-  
   render() {
-    console.log(this.props.friends)
+    console.log(this.props.friends);
     return (
       <Row className="justify-content-between">
         <Col xs={3}>
@@ -21,7 +21,7 @@ class UserFooter2 extends Component {
               <h4 className="titulo-h4">AMIGOS</h4>
             </Col>
             <Col xs={12} className="amigos-usuario">
-            {/* {this.props.friends.map((f, i) => {
+              {/* {this.props.friends.map((f, i) => {
                 return (
                   <Row className="amigo-usuario" key={i}>
                     <Col xs={4}>
@@ -54,7 +54,6 @@ class UserFooter2 extends Component {
                   </Row>
                 );
               })} */}
-           
 
               <Row className="amigo-usuario">
                 <Col xs={4}>
@@ -159,6 +158,8 @@ class UserFooter2 extends Component {
           </Row>
           <Col className="lista-juegos-completados">
             {this.props.games_complete.map((game, id) => {
+              let date = moment.utc(game.f_completado).format("DD/MM/YYYY");
+
               return (
                 <Row className="juego-completado" key={id}>
                   <Col xs={2}>
@@ -173,7 +174,7 @@ class UserFooter2 extends Component {
                     <p>{game.valoracion}/100</p>
                   </Col>
                   <Col xs={3} className="text-center">
-                    <p>{game.f_completado}</p>
+                    <p>{date}</p>
                   </Col>
                 </Row>
               );

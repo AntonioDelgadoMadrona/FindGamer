@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from 'moment';
 
 import { Row, Col } from "react-bootstrap";
 
@@ -6,6 +7,9 @@ import "./UserFooter1.css";
 
 class UserFooter extends Component {
   render() {
+
+    let register_date = moment.utc(this.props.register_date).format("DD/MM/YYYY");
+
     return (
       <Row className="justify-content-between">
         <Col xs={3}>
@@ -43,7 +47,7 @@ class UserFooter extends Component {
               <h6>
                 Registrado el:{" "}
                 <span className="datos-usuario">
-                  {this.props.register_date}
+                  {register_date}
                 </span>
               </h6>
             </Col>

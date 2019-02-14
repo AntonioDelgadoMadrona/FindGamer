@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from 'moment';
 
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
 
 import FormTimeline from "../FormTimeline/FormTimeline";
 import Comment from "../Comment/Comment";
@@ -19,7 +21,7 @@ class Timeline extends Component {
 
     this.state = {
       data: [],
-      username: 'Juanito23'
+      username: "Juanito23"
     };
   }
   componentDidMount() {
@@ -34,27 +36,30 @@ class Timeline extends Component {
       });
   }
 
-  newMessage = (message) => {
-    console.log(message)
+  newMessage = message => {
+    console.log(message);
     this.setState({
-      data: [
-        ...message,
-        ...this.state.data
-      ]
-    })
-  }
-
-  handleLike(id){
-    let username = this.state.username
-    axios.post("http://localhost:3001/timeline/addlike", { user: username, id_message: id }).then(response => {
-      // this.setState({
-      //   data: response.data
-      // })
-      console.log(this.state.data)
-    }).catch(error => {
-      console.log(error)
-    })
+      data: [...message, ...this.state.data]
+    });
   };
+
+  handleLike(id) {
+    let username = this.state.username;
+    axios
+      .post("http://localhost:3001/timeline/addlike", {
+        user: username,
+        id_message: id
+      })
+      .then(response => {
+        // this.setState({
+        //   data: response.data
+        // })
+        console.log(this.state.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   render() {
     return (
@@ -66,48 +71,54 @@ class Timeline extends Component {
         </Row>
 
         <Row className="d-flex justify-content-center">
-          <FormTimeline newMessage={this.newMessage}/>
+          <FormTimeline newMessage={this.newMessage} />
 
           <Container className="timeline">
-            {this.state.data.map((m, i) => (
-              <Col xs="12" className="mensaje-timeline" key={i}>
-                <Row className="p-2 mensaje-cuerpo">
-                  <div className=" d-flex justify-content-around">
-                    <div>
-                      <img
-                        src={foto1}
-                        className="float-left imagen-usuario"
-                        alt=""
-                      />
-                      <div className="float-right ml-3 usuario-mensaje">
-                        <a href="/">
-                          <p className="font-weight-bold">{m.usuario}</p>
-                        </a>
-                        <p className="text-muted">{m.f_publicacion}</p>
+            {this.state.data.map((m, i) => {
+                let date = moment.utc(m.f_publicacion).format("DD/MM/YYYY, h:mm");
+ 
+              return (
+                <Col xs="12" className="mensaje-timeline" key={i}>
+                  <Row className="p-2 mensaje-cuerpo">
+                    <div className=" d-flex justify-content-around">
+                      <div>
+                        <img
+                          src={foto1}
+                          className="float-left imagen-usuario"
+                          alt=""
+                        />
+                        <div className="float-right ml-3 usuario-mensaje">
+                          <Link to={`/user/${'hola'}`}>
+                            <p className="font-weight-bold">{m.usuario}</p>
+                          </Link>
+                          <p className="text-muted">{date}h</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Row>
-                <Row>
-                  <Col>
-                    <div className="texto-mensaje" id="mensaje-comunidad">
-                      <p>{m.mensaje}</p>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="text-right">
-                  <Col>
-                    <FontAwesomeIcon
-                      icon={faThumbsUp}
-                      onClick={() => this.handleLike(m._id)}
-                      className="fa-lg cursor like mr-md-3"
-                    />
-                    <small className="text-muted">{m.likes.length} likes</small>
-                  </Col>
-                </Row>
-                <Comment />
-              </Col>
-            ))}
+                  </Row>
+                  <Row>
+                    <Col>
+                      <div className="texto-mensaje" id="mensaje-comunidad">
+                        <p>{m.mensaje}</p>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row className="text-right">
+                    <Col>
+                      <FontAwesomeIcon
+                        icon={faThumbsUp}
+                        onClick={() => this.handleLike(m._id)}
+                        className="fa-lg cursor like mr-md-3"
+                      />
+                      <small className="text-muted">
+                        {m.likes.length} likes
+                      </small>
+                    </Col>
+                  </Row>
+                  <Comment />
+                </Col>
+              );
+            })}
 
             {/* MENSAJE IMAGENES */}
             <Col xs={12} className="mensaje-timeline">

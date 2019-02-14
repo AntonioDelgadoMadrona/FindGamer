@@ -35,9 +35,10 @@ class FormSign extends Component {
   handleClick(){
     let user = this.state
     axios.post('http://localhost:3001/user/register', user).then(response => {
-      // console.log(response)
-      console.log(this.props.history)
-      this.props.history.push("/user");
+
+    let id = response.data.id;
+    // Redirecciono al home del id recibido en el registro
+      this.props.history.push("/user/"+id);
     }).catch(error => {
       console.log(error)
     })
@@ -151,7 +152,7 @@ class FormSign extends Component {
                   <input
                     type="password"
                     className="form-control"
-                    required
+                  
                   />
                   <div id="errorPassword11" />
                 </Col>
@@ -162,7 +163,7 @@ class FormSign extends Component {
                     type="password"
                     className="form-control"
                     name="password"
-                    id="password"
+                    id="password2"
                     onChange={this.handleChange}
                     required
                   />

@@ -1,7 +1,9 @@
 var axios = require("axios");
 var app = require("../app");
 
-var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
+// var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
+var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
+
 
 // BUSCADOR DE JUEGOS
 app.get("/games/search", function(req, res) {
@@ -13,7 +15,7 @@ app.get("/games/search", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating;where popularity > 200;sort rating desc; limit 26;`
+    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating;where popularity > 50;sort rating desc; limit 15;`
   }).then(response => {
       console.log(response.data)
     res.status(200).send(response.data);

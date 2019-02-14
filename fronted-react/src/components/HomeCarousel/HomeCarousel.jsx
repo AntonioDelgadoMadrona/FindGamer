@@ -26,7 +26,7 @@ class HomeCarousel extends Component {
     axios
       .get("http://localhost:3001/carouselgames")
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           data: response.data
         });

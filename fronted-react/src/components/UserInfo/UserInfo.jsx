@@ -6,6 +6,9 @@ import UserFooter1 from "../UserFooter1/UserFooter1";
 import UserFooter2 from "../UserFooter2/UserFooter2";
 import axios from "axios";
 
+var userId = window.location.pathname;
+userId = userId.replace("/user/", "");
+
 class UserInfo extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +36,7 @@ class UserInfo extends Component {
   componentDidMount() {
     axios
       .get("http://localhost:3001/user/getinfo", {
-        params: { email: "antonio_dm93@hotmail.com" }
+        params: {userId}
       })
       .then(response => {
         const r = response.data[0];
