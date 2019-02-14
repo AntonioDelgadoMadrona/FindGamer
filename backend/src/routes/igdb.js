@@ -15,7 +15,7 @@ app.get("/games/search", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating;where popularity > 50;sort rating desc; limit 15;`
+    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating,genres.name;where popularity > 200;sort rating desc; limit 30;`
   }).then(response => {
       console.log(response.data)
     res.status(200).send(response.data);
@@ -108,7 +108,7 @@ app.get("/ratedgames", (req, res) => {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,platforms.name,rating;sort rating desc;limit 10;where rating <100 & rating >95;"
+      "fields name,cover.image_id,platforms.name,rating;sort rating desc;limit 10;where rating > 95;"
   })
     .then(response => {
       // console.log(response.data)

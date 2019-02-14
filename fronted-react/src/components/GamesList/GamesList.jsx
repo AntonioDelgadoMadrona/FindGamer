@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import moment from "moment";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import GamesForm from "../GamesForm/GamesForm";
 
 import "./GamesList.css";
-
-
 
 const url_img = "https://images.igdb.com/igdb/image/upload/";
 const small = "t_720p/";
@@ -25,7 +23,7 @@ var array = [
 
 class GamesList extends Component {
   render() {
-    // console.log(this.props.listGames);
+    console.log(this.props.listGames);
     // let platformsString = " ";
 
     // var juegos = this.props.listGames;
@@ -120,7 +118,6 @@ class GamesList extends Component {
               rating = rating.substring(0, 2);
 
               if (e.cover && e.platforms && e.release_dates && e.rating) {
-
                 let date = moment
                   .unix(e.release_dates[0].date, "x")
                   .format("DD/MM/YYYY");
@@ -147,7 +144,30 @@ class GamesList extends Component {
                         </p>
                         <p>
                           Plataformas:{" "}
-                          <span className="celeste">{e.platforms[0].name}</span>
+                          {e.platforms.map((f, j) => {
+                            if(f.name == "PC (Microsoft Windows)"){
+                              f.name = f.name.replace("PC (Microsoft Windows)", "PC - ")
+                            }
+                            if(f.name == "PlayStation 4"){
+                              f.name = f.name.replace("PlayStation 4", "PS4 - ")
+                            }
+                            if(f.name == "Xbox One"){
+                              f.name = f.name.replace("Xbox One", "XboxOne - ")
+                            }
+                            if(f.name == "Nintendo Switch"){
+                              f.name = f.name.replace("Nintendo Switch", "N.Switch ")
+                            }
+                            if(f.name == "Linux"){
+                              f.name = f.name.replace("Linux", "")
+                            }
+                            if(f.name == "Mac"){
+                              f.name = f.name.replace("Mac", "")
+                            }
+                            if(f.name == "SteamOS"){
+                              f.name = f.name.replace("SteamOS", "")
+                            }
+                            return <span className="celeste">{f.name}</span>
+                          })}
                         </p>
                         <p>
                           Puntuacion:{" "}

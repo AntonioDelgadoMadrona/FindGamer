@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
+import { withRouter } from 'react-router';
+
 
 import UserHeader from "../UserHeader/UserHeader";
 import UserFooter1 from "../UserFooter1/UserFooter1";
 import UserFooter2 from "../UserFooter2/UserFooter2";
 import axios from "axios";
-
-var userId = window.location.pathname;
-userId = userId.replace("/user/", "");
 
 class UserInfo extends Component {
   constructor(props) {
@@ -34,6 +33,8 @@ class UserInfo extends Component {
     };
   }
   componentDidMount() {
+    console.log(this.props.match)
+    let userId = this.props.match.params.id
     axios
       .get("http://localhost:3001/user/getinfo", {
         params: {userId}
@@ -97,4 +98,4 @@ class UserInfo extends Component {
   }
 }
 
-export default UserInfo;
+export default withRouter(UserInfo);

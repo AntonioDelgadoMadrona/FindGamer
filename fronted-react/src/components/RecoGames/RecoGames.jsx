@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import { Col, Row } from "react-bootstrap";
 
@@ -56,11 +56,33 @@ class RecoGames extends Component {
                     </Link>
                   </p>
                   <p>
-                    {e.platforms.map((m, j) => (
-                      <span className="celeste" key={j}>
-                        {`${m.name} `}
-                      </span>
-                    ))}
+                    {e.platforms.map((f, j) => {
+                      if (f.name == "PC (Microsoft Windows)") {
+                        f.name = f.name.replace(
+                          "PC (Microsoft Windows)",
+                          "PC"
+                        );
+                      }
+                      if (f.name == "PlayStation 4") {
+                        f.name = f.name.replace("PlayStation 4", " - PS4");
+                      }
+                      if (f.name == "Xbox One") {
+                        f.name = f.name.replace("Xbox One", " - XboxOne");
+                      }
+                      if (f.name == "Nintendo Switch") {
+                        f.name = f.name.replace("Nintendo Switch", " - Switch ");
+                      }
+                      if (f.name == "Linux") {
+                        f.name = f.name.replace("Linux", "");
+                      }
+                      if (f.name == "Mac") {
+                        f.name = f.name.replace("Mac", "");
+                      }
+                      if (f.name == "SteamOS") {
+                        f.name = f.name.replace("SteamOS", "");
+                      }
+                      return <span className="celeste">{f.name}</span>;
+                    })}
                   </p>
                   <p className="text-muted">
                     {e.involved_companies[0].company.name}

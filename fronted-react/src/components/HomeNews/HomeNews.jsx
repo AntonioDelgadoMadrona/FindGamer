@@ -44,6 +44,70 @@ class HomeNews extends Component {
 
   render() {
     const { index, direction } = this.state;
+    let columns = [];
+    let items = [];
+    this.state.data.map((e, i) => {
+      if (i !== 0 && i % 4 === 0) {
+        items.push(
+          <Carousel.Item className="carousel-item">
+            <Row>{columns}</Row>
+          </Carousel.Item>
+        );
+        columns = [];
+        columns.push(
+          <Col xs={12} md={6} lg={3} key={i}>
+            <div className="ultimas-noticias" />
+            <div className="ultima-noticia p-1">
+              <a href="/">
+                <div className=" noticia">
+                  <img
+                    src={`${url_img}${size}${e.cover.image_id}${format}`}
+                    className="card-img-top imagen-noticia"
+                    alt=""
+                  />
+                  <div>
+                    <h4>Titulo de la noticia</h4>
+                    <div className="d-flex justify-content-end">
+                      <small className="text-muted ">9 min</small>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </Col>
+        );
+      } else {
+        columns.push(
+          <Col xs={12} md={6} lg={3} key={i}>
+            <div className="ultimas-noticias" />
+            <div className="ultima-noticia p-1">
+              <a href="/">
+                <div className=" noticia">
+                  <img
+                    src={`${url_img}${size}${e.cover.image_id}${format}`}
+                    className="card-img-top imagen-noticia"
+                    alt=""
+                  />
+                  <div>
+                    <h4>Titulo de la noticia</h4>
+                    <div className="d-flex justify-content-end">
+                      <small className="text-muted ">9 min</small>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </Col>
+        );
+      }
+    });
+
+    items.push(
+      <Carousel.Item className="carousel-item">
+        <Row>{columns}</Row>
+      </Carousel.Item>
+    );
+
     return (
       <Container className="hijo">
         <Row>
@@ -58,92 +122,7 @@ class HomeNews extends Component {
           direction={direction}
           onSelect={this.handleSelect}
         >
-          {this.state.data.map((e, i) => (
-            <Carousel.Item className="carousel-item" key={i}>
-              <Row>
-                <Col xs={12} md={6} lg={3} key={i}>
-                  <div className="ultimas-noticias" />
-                  <div className="ultima-noticia p-1">
-                    <a href="/">
-                      <div className=" noticia">
-                        <img
-                          src={`${url_img}${size}${e.cover.image_id}${format}`}
-                          className="card-img-top imagen-noticia"
-                          alt=""
-                        />
-                        <div>
-                          <h4>Titulo de la noticia</h4>
-                          <div className="d-flex justify-content-end">
-                            <small className="text-muted ">9 min</small>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </Col>
-                <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                  <div className="ultimas-noticias" />
-                  <div className="ultima-noticia p-1">
-                    <a href="/">
-                      <div className=" noticia">
-                        <img
-                          src={`${url_img}${size}${e.cover.image_id}${format}`}
-                          className="card-img-top imagen-noticia"
-                          alt=""
-                        />
-                        <div>
-                          <h4>Titulo de la noticia</h4>
-                          <div className="d-flex justify-content-end">
-                            <small className="text-muted ">9 min</small>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </Col>
-                <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                  <div className="ultimas-noticias" />
-                  <div className="ultima-noticia p-1">
-                    <a href="/">
-                      <div className=" noticia">
-                        <img
-                          src={`${url_img}${size}${e.cover.image_id}${format}`}
-                          className="card-img-top imagen-noticia"
-                          alt=""
-                        />
-                        <div>
-                          <h4>Titulo de la noticia</h4>
-                          <div className="d-flex justify-content-end">
-                            <small className="text-muted ">9 min</small>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </Col>
-                <Col xs={12} md={6} lg={3} className="d-none d-lg-block">
-                  <div className="ultimas-noticias" />
-                  <div className="ultima-noticia p-1">
-                    <a href="/">
-                      <div className=" noticia">
-                        <img
-                          src={`${url_img}${size}${e.cover.image_id}${format}`}
-                          className="card-img-top imagen-noticia"
-                          alt=""
-                        />
-                        <div>
-                          <h4>Titulo de la noticia</h4>
-                          <div className="d-flex justify-content-end">
-                            <small className="text-muted ">9 min</small>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </Col>
-              </Row>
-            </Carousel.Item>
-          ))}
+          {items}
         </Carousel>
       </Container>
     );

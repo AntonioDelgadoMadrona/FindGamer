@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 })); 
 app.use(bodyParser.json()); // Cuando entra cualquier peticion transforma los datos datos en un JSON
-
+app.use(express.static(__dirname + '/public'))
+console.log(__dirname + '/src/public/')
 app.use(morgan('dev')); // Muestra por consola las peticiones al servidor
 
 app.use(session({   // Guarda en la session

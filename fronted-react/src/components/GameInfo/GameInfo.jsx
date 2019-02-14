@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
+import { withRouter } from 'react-router';
 
 import { ProgressBar, Container, Row, Col } from "react-bootstrap";
 import "./GameInfo.css";
@@ -17,8 +18,6 @@ const url_img = "https://images.igdb.com/igdb/image/upload/";
 const large = "t_1080p/";
 const small = "t_720p/";
 const format = ".jpg";
-var game = window.location.pathname;
-game = game.replace("/games/", "");
 
 class GameInfo extends Component {
   constructor() {
@@ -39,8 +38,9 @@ class GameInfo extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     axios
-      .get(`http://localhost:3001/game/info/${game}`)
+      .get(`http://localhost:3001/game/info/${this.props.match.params.id}`)
       .then(response => {
         console.log(response.data[0]);
         let r = response.data[0];
@@ -160,4 +160,4 @@ class GameInfo extends Component {
   }
 }
 
-export default GameInfo;
+export default withRouter(GameInfo);

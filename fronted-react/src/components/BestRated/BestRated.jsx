@@ -62,25 +62,38 @@ class BestRated extends Component {
                       </Link>
                     </p>
                     <p>
-                      {e.platforms.map((m, j) => {
-                        let platformsString = "";
-                        if (m.name == "PC (Microsoft Windows)") {
-                          m.name = m.name.replace(
+                      {e.platforms.map((f, j) => {
+                        if (f.name == "PC (Microsoft Windows)") {
+                          f.name = f.name.replace(
                             "PC (Microsoft Windows)",
-                            "PC "
+                            "PC"
                           );
-                          platformsString += m.name;
                         }
-                        if (m.name == "PlayStation 4") {
-                          m.name = m.name.replace("PlayStation 4", "PS4 ");
-                          platformsString += m.name;
+                        if (f.name == "PlayStation 4") {
+                          f.name = f.name.replace("PlayStation 4", " - PS4");
                         }
-                        if (m.name == "Xbox One") {
-                          m.name = m.name.replace("Xbox One", "XboxOne ");
-                          platformsString += m.name;
+                        if (f.name == "Xbox One") {
+                          f.name = f.name.replace("Xbox One", " - XboxOne");
                         }
-                        console.log(platformsString);
-                        return <span>{platformsString}</span>;
+                        if (f.name == "Nintendo Switch") {
+                          f.name = f.name.replace(
+                            "Nintendo Switch",
+                            " - Switch "
+                          );
+                        }
+                        if (f.name == "Linux") {
+                          f.name = f.name.replace("Linux", "");
+                        }
+                        if (f.name == "Mac") {
+                          f.name = f.name.replace("Mac", "");
+                        }
+                        if (f.name == "SteamOS") {
+                          f.name = f.name.replace("SteamOS", "");
+                        }
+                        if (f.name == "PlayStation 3") {
+                          f.name = f.name.replace("PlayStation 3", "PS3");
+                        }
+                        return <span className="celeste" key={j} >{f.name}</span>;
                       })}
                     </p>
                     <p className="text-warning font-weight-bold">

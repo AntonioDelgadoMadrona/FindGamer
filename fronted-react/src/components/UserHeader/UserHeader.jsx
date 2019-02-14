@@ -13,18 +13,17 @@ const array = [5, 4, 3, 2, 5, 4, 3, 2];
 
 class UserHeader extends Component {
   render() {
-    function media(array) {
+
       let suma = 0;
-      for (let i = 0; i < array.length; i++) {
-        suma = suma + array[i];
+      const starsRender = [];
+      if(this.props.rating){
+      for (let i = 0; i < this.props.rating.length; i++) {
+        suma = suma + this.props.rating[i];
       }
-      let media = suma / array.length;
-      return media;
-    }
+      let media = suma / this.props.rating.length;
+      console.log(media)
 
-    const rounded_mean = Math.round(media(array));
-
-    const starsRender = [];
+    const rounded_mean = Math.round(media);
 
     for (let i = 0; i < 5; i++) {
       starsRender.push(
@@ -35,6 +34,7 @@ class UserHeader extends Component {
         />
       );
     }
+  }
 
     return (
       <Container className="hijo">

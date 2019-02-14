@@ -35,7 +35,7 @@ class App extends Component {
             <Route path="/games/:id" component={Game} />
             <Route path="/events" exact component={Events} />
             <Route path="/events/:id" component={EventInfo} />
-            <Route path="/user" component={UserInfo} />
+            <Route path="/user/:id" component={UserInfo} />
             <Route path="/singin" component={FormSign} />
             <Redirect to="/home" />
           </Switch>

@@ -45,16 +45,23 @@ class Timeline extends Component {
 
   handleLike(id) {
     let username = this.state.username;
+    let comentario;
     axios
       .post("http://localhost:3001/timeline/addlike", {
         user: username,
         id_message: id
       })
       .then(response => {
-        // this.setState({
-        //   data: response.data
-        // })
-        console.log(this.state.data);
+        this.state.data.map((comentario,index)=> {
+          if(comentario._id === id){
+          this.setState(prevState => ({
+              ...prevState,
+              'data[index].likes': prevState.data[index].likes.push({usuario: username, f_like: new Date()})
+          }))
+        }
+        })
+
+        
       })
       .catch(error => {
         console.log(error);
