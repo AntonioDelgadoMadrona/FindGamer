@@ -1,8 +1,3 @@
-div.ultimos-juegos {
-    overflow: auto;
-    white-space: nowrap;
-}
-
 .ultimo-juego {
     display: inline-block;
     text-align: center;
@@ -18,22 +13,19 @@ div.ultimos-juegos {
     text-align: center;
     color: white;
     background: #141414;
+    overflow: hidden;
+    line-height: 60%;
 }
 
 .enlace-juego {
     width: 100%;
-    opacity: .4;
     text-decoration: none;
     color: white;
-    line-height: 8px;
-    font-size: .8rem;
 }
 
 .enlace-juego:hover {
-    opacity: 1;
     color: white;
     text-decoration: none;
-    font-size: 1rem;
     font-weight: bolder;
 }
 
@@ -43,6 +35,8 @@ div.ultimos-juegos {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    background: rgb(0, 0, 0, .7);
+    padding: 10px 0;
 }
 
 .imagen-ultimos-juegos {
@@ -50,4 +44,5 @@ div.ultimos-juegos {
     max-height: 150px !important;
     min-height: 150px !important;
     min-width: 100%;
+    width: 100%;
 }

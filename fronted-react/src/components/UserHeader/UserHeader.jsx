@@ -9,8 +9,6 @@ import "./UserHeader.css";
 import portada from "../../img/fondo-pantalla.jpg";
 import foto from "../../img/foto-perfil1.jpg";
 
-const array = [5, 4, 3, 2, 5, 4, 3, 2];
-
 class UserHeader extends Component {
   render() {
 

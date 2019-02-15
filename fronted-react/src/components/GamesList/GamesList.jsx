@@ -12,55 +12,8 @@ const url_img = "https://images.igdb.com/igdb/image/upload/";
 const small = "t_720p/";
 const format = ".jpg";
 
-var array = [
-  "PC (Microsoft Windows)",
-  "PlayStation 4",
-  "Mac",
-  "Xbox One",
-  "Nintendo Switch",
-  "Linux"
-];
-
 class GamesList extends Component {
   render() {
-    console.log(this.props.listGames);
-    // let platformsString = " ";
-
-    // var juegos = this.props.listGames;
-    // console.log(juegos)
-
-    // for (let j = 0; j < juegos.length; j++) {
-    //   for (let i = 0; i < juegos[j].platforms.length; i++) {
-    //     // Intento recorrer el array de juegos para cambiar el nombre de la plataforma
-
-    //     if (juegos[j].platforms[i].name === "PC (Microsoft Windows)") {
-    //       juegos[j].platforms[i].name = juegos[j].platforms[i].name.replace("PC (Microsoft Windows)", "PC");
-    //       platformsString += juegos[j].platforms[i].name;
-    //     }
-
-    // console.log(platformsString)
-    // if (platform[i].name === "PlayStation 4") {
-    //   platform[i] = platform[i].replace("PlayStation 4", "PS4");
-    //   platformsString += platform[i];
-    // }
-    // if (platform[i].name === "Mac") {
-    //   platform[i] = platform[i].replace("Mac", "");
-    //   platformsString += platform[i];
-    // }
-    // if (platform[i].name === "Nintendo Switch") {
-    //   platform[i] = platform[i].replace("Nintendo Switch", "Switch");
-    //   platformsString += platform[i];
-    // }
-    // if (platform[i].name === "Linux") {
-    //   platform[i] = platform[i].replace("Linux", "");
-    //   platformsString += platform[i];
-    // }
-    //   }
-    // }
-    // console.log(platformsString);
-    // return (platformsString += platform.[i] + " || ");
-
-    // });
 
     return (
       <>
@@ -145,28 +98,23 @@ class GamesList extends Component {
                         <p>
                           Plataformas:{" "}
                           {e.platforms.map((f, j) => {
-                            if(f.name == "PC (Microsoft Windows)"){
-                              f.name = f.name.replace("PC (Microsoft Windows)", "PC - ")
+                            switch(f.name) {
+                              case "PC (Microsoft Windows)":
+                                f.name = "PC";
+                                break;
+                              case "PlayStation 4":
+                                f.name = " - PS4";
+                                break;
+                              case "Xbox One":
+                                f.name = " - XboxOne";
+                                break;
+                              case "Nintendo Switch":
+                                f.name = " - Switch";
+                                break;
+                              default:
+                                f.name = "";
                             }
-                            if(f.name == "PlayStation 4"){
-                              f.name = f.name.replace("PlayStation 4", "PS4 - ")
-                            }
-                            if(f.name == "Xbox One"){
-                              f.name = f.name.replace("Xbox One", "XboxOne - ")
-                            }
-                            if(f.name == "Nintendo Switch"){
-                              f.name = f.name.replace("Nintendo Switch", "N.Switch ")
-                            }
-                            if(f.name == "Linux"){
-                              f.name = f.name.replace("Linux", "")
-                            }
-                            if(f.name == "Mac"){
-                              f.name = f.name.replace("Mac", "")
-                            }
-                            if(f.name == "SteamOS"){
-                              f.name = f.name.replace("SteamOS", "")
-                            }
-                            return <span className="celeste">{f.name}</span>
+                            return <span className="celeste" key={j}>{f.name}</span>;
                           })}
                         </p>
                         <p>

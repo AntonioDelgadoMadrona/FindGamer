@@ -57,31 +57,23 @@ class RecoGames extends Component {
                   </p>
                   <p>
                     {e.platforms.map((f, j) => {
-                      if (f.name == "PC (Microsoft Windows)") {
-                        f.name = f.name.replace(
-                          "PC (Microsoft Windows)",
-                          "PC"
-                        );
+                      switch(f.name) {
+                        case "PC (Microsoft Windows)":
+                          f.name = "PC";
+                          break;
+                        case "PlayStation 4":
+                          f.name = " - PS4";
+                          break;
+                        case "Xbox One":
+                          f.name = " - XboxOne";
+                          break;
+                        case "Nintendo Switch":
+                          f.name = " - Switch";
+                          break;
+                        default:
+                          f.name = "";
                       }
-                      if (f.name == "PlayStation 4") {
-                        f.name = f.name.replace("PlayStation 4", " - PS4");
-                      }
-                      if (f.name == "Xbox One") {
-                        f.name = f.name.replace("Xbox One", " - XboxOne");
-                      }
-                      if (f.name == "Nintendo Switch") {
-                        f.name = f.name.replace("Nintendo Switch", " - Switch ");
-                      }
-                      if (f.name == "Linux") {
-                        f.name = f.name.replace("Linux", "");
-                      }
-                      if (f.name == "Mac") {
-                        f.name = f.name.replace("Mac", "");
-                      }
-                      if (f.name == "SteamOS") {
-                        f.name = f.name.replace("SteamOS", "");
-                      }
-                      return <span className="celeste">{f.name}</span>;
+                      return <span className="celeste" key={j}>{f.name}</span>;
                     })}
                   </p>
                   <p className="text-muted">

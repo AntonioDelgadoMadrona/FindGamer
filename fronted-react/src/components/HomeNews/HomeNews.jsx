@@ -49,7 +49,7 @@ class HomeNews extends Component {
     this.state.data.map((e, i) => {
       if (i !== 0 && i % 4 === 0) {
         items.push(
-          <Carousel.Item className="carousel-item">
+          <Carousel.Item className="carousel-item" key={i}>
             <Row>{columns}</Row>
           </Carousel.Item>
         );
@@ -103,7 +103,7 @@ class HomeNews extends Component {
     });
 
     items.push(
-      <Carousel.Item className="carousel-item">
+      <Carousel.Item className="carousel-item" key="carousel">
         <Row>{columns}</Row>
       </Carousel.Item>
     );
@@ -118,7 +118,9 @@ class HomeNews extends Component {
         <Carousel
           className="carrusel"
           indicators={null}
+          fade={true}
           activeIndex={index}
+          interval={7000}
           direction={direction}
           onSelect={this.handleSelect}
         >

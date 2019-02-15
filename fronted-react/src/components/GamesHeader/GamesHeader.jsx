@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import NavLink from "react-bootstrap/NavLink";
-import { Link } from 'react-router-dom';
 
 import "./GamesHeader.css";
 

@@ -24,7 +24,7 @@ class RecoUsers extends Component {
     axios
       .get("http://localhost:3001/user/getreco")
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.setState({
           data: response.data
         })

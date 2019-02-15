@@ -22,7 +22,7 @@ class BestRated extends Component {
     axios
       .get("http://localhost:3001/ratedgames")
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           data: response.data
         });
@@ -45,7 +45,7 @@ class BestRated extends Component {
             // Convierto en string y me quedo con los dos primeros numeros
             let puntuacion = e.rating;
             let rating = "" + puntuacion;
-            rating = rating.substring(0, 2);
+            rating = rating.substring(0, 4);
 
             return (
               <Row className="pb-3 juego-recomendacion" key={i}>
@@ -62,38 +62,30 @@ class BestRated extends Component {
                       </Link>
                     </p>
                     <p>
-                      {e.platforms.map((f, j) => {
-                        if (f.name == "PC (Microsoft Windows)") {
-                          f.name = f.name.replace(
-                            "PC (Microsoft Windows)",
-                            "PC"
-                          );
+                      {e.genres.map((f, j) => {
+                        switch(f.name) {
+                          case "Role-playing (RPG)":
+                            f.name = " / RPG";
+                            break;
+                          case "Adventure":
+                            f.name = " / Adventura";
+                            break;
+                          case "Strategy":
+                            f.name = " / Estrategia";
+                            break;
+                          case "Shooter":
+                            f.name = " / Shooter";
+                            break;
+                            case "Racing":
+                            f.name = " / Carreras";
+                            break;
+                            case "Sport":
+                            f.name = " / Deporte";
+                            break;
+                          default:
+                            f.name = "";
                         }
-                        if (f.name == "PlayStation 4") {
-                          f.name = f.name.replace("PlayStation 4", " - PS4");
-                        }
-                        if (f.name == "Xbox One") {
-                          f.name = f.name.replace("Xbox One", " - XboxOne");
-                        }
-                        if (f.name == "Nintendo Switch") {
-                          f.name = f.name.replace(
-                            "Nintendo Switch",
-                            " - Switch "
-                          );
-                        }
-                        if (f.name == "Linux") {
-                          f.name = f.name.replace("Linux", "");
-                        }
-                        if (f.name == "Mac") {
-                          f.name = f.name.replace("Mac", "");
-                        }
-                        if (f.name == "SteamOS") {
-                          f.name = f.name.replace("SteamOS", "");
-                        }
-                        if (f.name == "PlayStation 3") {
-                          f.name = f.name.replace("PlayStation 3", "PS3");
-                        }
-                        return <span className="celeste" key={j} >{f.name}</span>;
+                        return <span className="text-muted" key={j}>{f.name}</span>;
                       })}
                     </p>
                     <p className="text-warning font-weight-bold">

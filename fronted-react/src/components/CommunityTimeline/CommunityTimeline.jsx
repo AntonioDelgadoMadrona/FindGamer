@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import moment from 'moment';
 
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom';
+
 
 import FormTimeline from "../FormTimeline/FormTimeline";
 import Comment from "../Comment/Comment";
@@ -14,6 +13,7 @@ import "./CommunityTimeline.css";
 
 import foto1 from "../../img/foto-perfil3.jpg";
 import imagen1 from "../../img/fondo-1.jpg";
+import CommunityTimelineMessage from "./CommunityTimelineMessage";
 
 class Timeline extends Component {
   constructor(props) {
@@ -49,19 +49,21 @@ class Timeline extends Component {
     axios
       .post("http://localhost:3001/timeline/addlike", {
         user: username,
-        id_message: id
+        id_message: id,
+        token: localStorage.getItem('token')
       })
       .then(response => {
-        this.state.data.map((comentario,index)=> {
-          if(comentario._id === id){
-          this.setState(prevState => ({
+        this.state.data.map((comentario, index) => {
+          if (comentario._id === id) {
+            this.setState(prevState => ({
               ...prevState,
-              'data[index].likes': prevState.data[index].likes.push({usuario: username, f_like: new Date()})
-          }))
-        }
-        })
-
-        
+              "data[index].likes": prevState.data[index].likes.push({
+                usuario: username,
+                f_like: new Date()
+              })
+            }));
+          }
+        });
       })
       .catch(error => {
         console.log(error);
@@ -82,49 +84,7 @@ class Timeline extends Component {
 
           <Container className="timeline">
             {this.state.data.map((m, i) => {
-                let date = moment.utc(m.f_publicacion).format("DD/MM/YYYY, h:mm");
- 
-              return (
-                <Col xs="12" className="mensaje-timeline" key={i}>
-                  <Row className="p-2 mensaje-cuerpo">
-                    <div className=" d-flex justify-content-around">
-                      <div>
-                        <img
-                          src={foto1}
-                          className="float-left imagen-usuario"
-                          alt=""
-                        />
-                        <div className="float-right ml-3 usuario-mensaje">
-                          <Link to={`/user/${'hola'}`}>
-                            <p className="font-weight-bold">{m.usuario}</p>
-                          </Link>
-                          <p className="text-muted">{date}h</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <div className="texto-mensaje" id="mensaje-comunidad">
-                        <p>{m.mensaje}</p>
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="text-right">
-                    <Col>
-                      <FontAwesomeIcon
-                        icon={faThumbsUp}
-                        onClick={() => this.handleLike(m._id)}
-                        className="fa-lg cursor like mr-md-3"
-                      />
-                      <small className="text-muted">
-                        {m.likes.length} likes
-                      </small>
-                    </Col>
-                  </Row>
-                  <Comment />
-                </Col>
-              );
+              return <CommunityTimelineMessage m={m} key={i} />;
             })}
 
             {/* MENSAJE IMAGENES */}

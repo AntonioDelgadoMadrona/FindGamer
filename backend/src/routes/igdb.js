@@ -62,7 +62,7 @@ app.get("/lastgames", function(req, res) {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,genres.name,platforms.name;where popularity > 80;limit 14;"
+      "fields name,cover.image_id,genres.name,platforms.name,release_dates.date;where popularity > 250 & rating > 70;limit 12;"
   })
     .then(response => {
       //   console.log(response.data)
@@ -85,7 +85,7 @@ app.get("/hypegames", function(req, res) {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,platforms.name,screenshots.url,hypes;where hypes >100;sort hypes desc;limit 8;"
+      "fields name,cover.image_id,platforms.name,screenshots.url,hypes;where hypes >100;sort hypes desc;limit 12;"
   })
     .then(response => {
       // console.log(response.data)
@@ -108,7 +108,7 @@ app.get("/ratedgames", (req, res) => {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,platforms.name,rating;sort rating desc;limit 10;where rating > 95;"
+      "fields name,cover.image_id,platforms.name,rating,genres.name;sort rating desc;where rating > 95 & popularity > 50;limit 10;"
   })
     .then(response => {
       // console.log(response.data)
