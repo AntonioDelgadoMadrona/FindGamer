@@ -107,12 +107,12 @@ var controller = {
                 return res.send(err);
               } else {
                 if (iguales) {
-                  req.session.user = {
-                    name: result[0].name,
-                    email: result[0].email,
-                    permiso: result[0].permiso
-                  };
-                  return res.send(result);
+                  res.json({
+                    ok: true,
+                    usuario: result,
+                    token: "123"
+                  })
+                  // return res.send(result);
                 } else {
                   return res.send("La contraseña no es correcta");
                 }
