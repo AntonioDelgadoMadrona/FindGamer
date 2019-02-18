@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +13,6 @@ import imagen from "../../img/juego1.jpg";
 
 class UserFooter2 extends Component {
   render() {
-    console.log(this.props.friends);
     return (
       <Row className="justify-content-between">
         <Col xs={3}>
@@ -21,123 +21,53 @@ class UserFooter2 extends Component {
               <h4 className="titulo-h4">AMIGOS</h4>
             </Col>
             <Col xs={12} className="amigos-usuario">
-              {/* {this.props.friends.map((f, i) => {
+              {this.props.friends.map((f, i) => {
+                let suma = 0;
+                const starsRender = [];
+                if (f.puntuacion) {
+                  for (let i = 0; i < f.puntuacion.length; i++) {
+                    suma = suma + f.puntuacion[i];
+                  }
+                  let media = suma / f.puntuacion.length;
+
+                  const rounded_mean = Math.round(media);
+
+                  for (let i = 0; i < 5; i++) {
+                    starsRender.push(
+                      <FontAwesomeIcon
+                        key={i}
+                        icon={faStar}
+                        className={`text-${
+                          i < rounded_mean ? "warning" : "muted"
+                        }`}
+                      />
+                    );
+                  }
+                }
+
                 return (
                   <Row className="amigo-usuario" key={i}>
                     <Col xs={4}>
-                      <img src={foto} className="imagen-usuario" alt="" />
+                      <img src={foto} className="imagen-usuario" alt={f.name} />
                     </Col>
                     <Col xs={8}>
-                      <a href="/">
+                      <Link to={`/user/${f._id}`}>
                         <p>
-                          <strong className="text-white">{f}</strong>
+                          <strong className="text-white">
+                            {f.nombre_usuario}
+                          </strong>
                         </p>
-                      </a>
-                      <p>
-                        <span>
-                          <FontAwesomeIcon
-                            icon={faStar}
-                            className="text-warning"
-                          />
-                          <FontAwesomeIcon
-                            icon={faStar}
-                            className="text-warning"
-                          />
-                          <FontAwesomeIcon
-                            icon={faStar}
-                            className="text-warning"
-                          />
-                        </span>
-                      </p>
-                      <p className="text-muted">Fecha de registro</p>
+                      </Link>
+                      <p>{starsRender}</p>
+                      <p className="text-muted">{f.plataforma_fav}</p>
                     </Col>
                   </Row>
                 );
-              })} */}
-
-              <Row className="amigo-usuario">
-                <Col xs={4}>
-                  <img src={foto} className="imagen-usuario" alt="" />
-                </Col>
-                <Col xs={8}>
-                  <a href="/">
-                    <p>
-                      <strong className="text-white">Nombre de Jugador</strong>
-                    </p>
-                  </a>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                    </span>
-                  </p>
-                  <p className="text-muted">Fecha de registro</p>
-                </Col>
-              </Row>
-              <Row className="amigo-usuario">
-                <Col xs={4}>
-                  <img src={foto} className="imagen-usuario" alt="" />
-                </Col>
-                <Col xs={8}>
-                  <a href="/">
-                    <p>
-                      <strong className="text-white">Nombre de Jugador</strong>
-                    </p>
-                  </a>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                    </span>
-                  </p>
-                  <p className="text-muted">Fecha de registro</p>
-                </Col>
-              </Row>
-              <Row className="amigo-usuario">
-                <Col xs={4}>
-                  <img src={foto} className="imagen-usuario" alt="" />
-                </Col>
-                <Col xs={8}>
-                  <a href="/">
-                    <p>
-                      <strong className="text-white">Nombre de Jugador</strong>
-                    </p>
-                  </a>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                    </span>
-                  </p>
-                  <p className="text-muted">Fecha de registro</p>
-                </Col>
-              </Row>
-              <Row className="amigo-usuario">
-                <Col xs={4}>
-                  <img src={foto} className="imagen-usuario" alt="" />
-                </Col>
-                <Col xs={8}>
-                  <a href="/">
-                    <p>
-                      <strong className="text-white">Nombre de Jugador</strong>
-                    </p>
-                  </a>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                      <FontAwesomeIcon icon={faStar} className="text-warning" />
-                    </span>
-                  </p>
-                  <p className="text-muted">Fecha de registro</p>
-                </Col>
-              </Row>
+              })}
             </Col>
           </Row>
         </Col>
+
         <Col xs={8}>
           <Row>
             <Col xs={12}>

@@ -53,6 +53,7 @@ a {
   border: 3px solid #202020;
   padding: 0;
   box-shadow: 0 0 3px 3px #303030;
+  /* opacity: .9; */
 }
 
 .hijo {
@@ -111,13 +112,9 @@ a {
 }
 
 .like {
-  opacity: 0.5;
-}
-
-.like:hover {
-  opacity: 1;
   color: #46c5e0;
 }
+
 
 .input-pequeño {
   height: 30px !important;

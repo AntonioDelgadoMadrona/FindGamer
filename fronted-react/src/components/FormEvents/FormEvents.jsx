@@ -14,11 +14,13 @@ class FormEvents extends Component {
     this.state = { 
       collapse: false,
       event: {
-        username: 'Madrona5',
+        userId: '5c5f4d2b310eaf1330ddbd05',
         game: null,
         platform: null,
         start_event: null,
+        h_start_event: null,
         end_event: null,
+        h_end_event: null,
         n_gamers: null,
         rating: null,
         message: null,
@@ -50,8 +52,8 @@ class FormEvents extends Component {
     let event = this.state.event;
     console.log(this.state.event)
     axios.post("http://localhost:3001/event/create", event).then(response => {
-      console.log(response.data)
-      this.props.newMessage(response.data)
+      // console.log(response.data)
+      this.props.newEvent(response.data)
     }).catch(error => {
       console.log(error)
     })
@@ -116,7 +118,8 @@ class FormEvents extends Component {
                   <input
                     type="time"
                     className="form-control"
-                    id="h-start_event"
+                    onChange={this.handleChange}
+                    id="h_start_event"
                     required
                   />
                 </Col>
@@ -184,7 +187,7 @@ class FormEvents extends Component {
               </div>
               <br/>
               <div className="form-row d-flex justify-content-center">
-                <button onClick={this.handleClick} className="btn boton-celeste">
+                <button type="button" onClick={this.handleClick} className="btn boton-celeste">
                   Publicar
                 </button>
               </div>

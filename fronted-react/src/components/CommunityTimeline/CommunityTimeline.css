@@ -7,12 +7,11 @@
 .mensaje-timeline {
     border-right: 1px solid #858585;
     border-left: 1px solid #858585;
-    border-bottom: 2px solid #e6e6e6;
+    border-bottom: 2px solid #CEE3F6;
     color: black;
-    background: white;
+    background: #E0ECF8;
     padding-bottom: .6rem;
     padding-top: .6rem;
-    /*    margin: .4rem .2rem;*/
 }
 
 .texto-mensaje {

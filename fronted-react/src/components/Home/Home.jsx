@@ -14,8 +14,7 @@ class Home extends Component {
     
 
     render(){
-        var holal = "<h3>Joder</h3>";
-    console.log(holal.replace("<h3>,</h3>", ""))
+        
         return(
             <Container className="padre">
                 <HomeCarousel />

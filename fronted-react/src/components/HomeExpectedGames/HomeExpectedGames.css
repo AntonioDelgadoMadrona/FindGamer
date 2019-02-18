@@ -1,52 +1,60 @@
-.ultimo-juego {
-    display: inline-block;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-    max-width: 250px;
-    max-height: 160px;
-    overflow: hidden;
+.ultimo-juego-esperado {
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  max-width: 250px;
+  max-height: 250px;
 }
 
-.cuerpo-juego {
-    position: relative;
-    text-align: center;
-    color: white;
-    background: #141414;
-    overflow: hidden;
-    line-height: 60%;
+.ultimo-juego-esperado:hover {
+  box-shadow: 0px 0px 20px black;
 }
 
-.ultimo-juego:focus-within {
-    background: rgb(0, 0, 0, 1);
+.cuerpo-juego-esperado {
+  position: relative;
+  text-align: center;
+  color: white;
+  background: #141414;
+  overflow: hidden;
+  line-height: 60%;
 }
 
-.enlace-juego {
-    width: 100%;
-    text-decoration: none;
-    color: white;
+.enlace-juego-esperado {
+  width: 100%;
+  text-decoration: none;
+  color: white;
 }
 
-.enlace-juego:hover {
-    color: white;
-    text-decoration: none;
-    font-weight: bolder;
+.texto-juego-esperado {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: white;
+  background: rgb(0, 0, 0, 0.7);
+  padding: 10px 0;
+  font-weight: bold;
 }
 
-.texto-juego {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    background: rgb(0, 0, 0, .7);
-    padding: 10px 0;
+.texto-juego-esperado:hover {
+  background: rgb(0, 0, 0, 0.8);
+
+
 }
 
-.imagen-ultimos-juegos {
-    max-width: 250px;
-    max-height: 150px !important;
-    min-height: 150px !important;
-    min-width: 100%;
-    width: 100%;
+.imagen-ultimos-juegos-esperado {
+  max-width: 250px;
+  max-height: 200px !important;
+  min-height: 200px !important;
+  min-width: 100%;
+  width: 100%;
+  /* -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 1s ease-in-out; */
 }
+
+/* .enlace-juego-esperado:hover .imagen-ultimos-juegos-esperado {
+  transform: rotateY(6.142rad);
+  background: black;
+} */

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import moment from "moment";
+
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -8,13 +10,31 @@ import "./EventBody.css";
 import imagen1 from "../../img/fondo-1.jpg";
 
 class EventBody extends Component {
+
   render() {
+
+    let puntuacion = [];
+    for (let i = 0; i < 5; i++) {
+      puntuacion.push(
+        <FontAwesomeIcon
+          key={i}
+          icon={faStar}
+          className={`text-${
+            i < this.props.rating ? "warning" : "light"
+          } fa-lg`}
+        />
+      );
+    };
+
+    let start_event = moment.utc(this.props.start_event).format("DD/MM/YYYY");
+    let end_event = moment.utc(this.props.end_event).format("DD/MM/YYYY");
+
     return (
       <Container className="hijo">
         {/* <Nombre del juego del evento */}
         <Row>
           <Col xs={12} className="text-center">
-            <h3 className="titulo-h2">FORTNITE: BATTLE ROYALE</h3>
+            <h3 className="titulo-h2">{this.props.game}</h3>
           </Col>
         </Row>
 
@@ -27,23 +47,22 @@ class EventBody extends Component {
           </Col>
           <Col xs={12} md={8}>
             <h3 className="titulo">
-              CREADOR:{"  "}<span className="badge badge-dark">Madrona5</span>
+              CREADOR:{"  "}
+              <span className="badge badge-dark">{this.props.creator.nombre_usuario}</span>
             </h3>
             <h3 className="titulo">
               PLATAFORMA:{"  "}
-              <span className="badge badge-success mx-1">Xbox One</span>
-              <span className="badge badge-primary mx-1">PS4</span>
+              <span className="badge badge-success mx-1">
+                {this.props.platform}
+              </span>
             </h3>
             <h3 className="titulo">
-              Nº JUGADORES:{"  "}<span className="badge badge-info">4</span>
+              Nº JUGADORES:{"  "}
+              <span className="badge badge-info">{this.props.n_gamers}</span>
             </h3>
             <h3 className="titulo">
               PUNTUACION MINIMA:{"  "}
-              <span className="subtitulo">
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-              </span>
+              <span className="subtitulo">{puntuacion}</span>
             </h3>
           </Col>
         </Row>
@@ -52,13 +71,13 @@ class EventBody extends Component {
           <Col xs={12} md={6}>
             <p className="subtitulo">
               INICIO DEL EVENTO:{"  "}
-              <span className="text-muted">15/01/19 - 11:00h</span>
+              <span className="text-muted">{start_event} - {this.props.h_start_event}h</span>
             </p>
           </Col>
           <Col xs={12} md={6}>
             <p className="subtitulo">
               FIN DEL EVENTO:{"  "}
-              <span className="text-muted">15/01/19 - 12:00h</span>
+              <span className="text-muted">{end_event} - {this.props.h_end_event}h</span>
             </p>
           </Col>
         </Row>
@@ -67,13 +86,7 @@ class EventBody extends Component {
           <Col xs={12}>
             <h5 className="titulo-h4">Mensaje del creador:</h5>
             <div className="justify-content-center">
-              <p>
-                Hola busco 3 jugadores que se unan conmigo para partir cabezas
-                ahi fuera, no quiero ningun mierdecillas que no tenga huevos
-                para a una media de 15 kills por partida, juro que todo aquel
-                que no cumpla con este promedio le voy a dar una puntuacion de
-                mierda, como el gamer que es.
-              </p>
+              <p>{this.props.message}</p>
             </div>
           </Col>
         </Row>

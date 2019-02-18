@@ -4,7 +4,6 @@ var app = require("../app");
 // var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
 var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
 
-
 // BUSCADOR DE JUEGOS
 app.get("/games/search", function(req, res) {
   axios({
@@ -16,14 +15,15 @@ app.get("/games/search", function(req, res) {
       "user-key": API_KEY
     },
     data: `fields name,cover.image_id,platforms.name,release_dates.date,rating,genres.name;where popularity > 200;sort rating desc; limit 30;`
-  }).then(response => {
-      console.log(response.data)
-    res.status(200).send(response.data);
   })
-  .catch(err => {
-    // console.error(err);
-    res.send(err);
-  });
+    .then(response => {
+      // console.log(response.data);
+      res.status(200).send(response.data);
+    })
+    .catch(err => {
+      // console.error(err);
+      res.send(err);
+    });
 });
 
 // MOSTRAR TODA LA INFO DE UN JUEGO
@@ -62,7 +62,7 @@ app.get("/lastgames", function(req, res) {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,genres.name,platforms.name,release_dates.date;where popularity > 250 & rating > 70;limit 12;"
+      "fields name,cover.image_id,genres.name,platforms.name,release_dates.date;where themes != 42 & popularity > 50;sort release_dates.date desc;limit 12;"
   })
     .then(response => {
       //   console.log(response.data)
@@ -85,7 +85,7 @@ app.get("/hypegames", function(req, res) {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,platforms.name,screenshots.url,hypes;where hypes >100;sort hypes desc;limit 12;"
+      "fields name,cover.image_id,release_dates.date,platforms.name,screenshots.url,hypes;where hypes >100;sort hypes desc;limit 12;"
   })
     .then(response => {
       // console.log(response.data)
@@ -94,6 +94,27 @@ app.get("/hypegames", function(req, res) {
     .catch(err => {
       console.error(err);
       res.send(err);
+    });
+});
+
+// NOTICIAS
+app.get("/news", (req, res) => {
+  axios({
+    url: "https://api-v3.igdb.com/pulses",
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'user-key': API_KEY
+    },
+    data: "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;where created_at > 15440718528010;sort created_at desc;limit 12;"
+  })
+    .then(response => {
+        // console.log(response.data);
+        res.status(200).send(response.data)
+    })
+    .catch(err => {
+        console.error(err);
+        res.send(err)
     });
 });
 
@@ -108,7 +129,7 @@ app.get("/ratedgames", (req, res) => {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,platforms.name,rating,genres.name;sort rating desc;where rating > 95 & popularity > 50;limit 10;"
+      "fields name,cover.image_id,platforms.name,rating,genres.name;sort rating desc;where rating > 90 & themes != 42 & popularity > 30;limit 10;"
   })
     .then(response => {
       // console.log(response.data)

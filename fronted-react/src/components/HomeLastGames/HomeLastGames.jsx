@@ -33,7 +33,7 @@ class HomeLastgames extends Component {
     axios
       .get("http://localhost:3001/lastgames")
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           data: response.data
         });
@@ -90,40 +90,10 @@ class HomeLastgames extends Component {
                             f.name = "";
                         }
                         return (
-                          <span className="celeste" key={k}>
+                          <span key={k}>
                             {f.name}
                           </span>
                         );
-                      })}
-                    </p>
-                    <p>
-                      {e.genres.map((f, j) => {
-                        switch (f.name) {
-                          case "Role-playing (RPG)":
-                            f.name = " / RPG";
-                            break;
-                          case "Adventure":
-                            f.name = " / Adventura";
-                            break;
-                          case "Strategy":
-                            f.name = " / Estrategia";
-                            break;
-                          case "Shooter":
-                            f.name = " / Shooter";
-                            break;
-                          case "Racing":
-                            f.name = " / Carreras";
-                            break;
-                          case "Sport":
-                            f.name = " / Deporte";
-                            break;
-                          case "Simulator":
-                            f.name = " / Simulador";
-                            break;
-                          default:
-                            f.name = "";
-                        }
-                        return <span key={j}>{f.name}</span>;
                       })}
                     </p>
                   </div>
@@ -147,58 +117,27 @@ class HomeLastgames extends Component {
                   <div className="texto-juego">
                     <p>{e.name}</p>
                     <p>
-                      {e.platforms.map((f, k) => {
-                        switch (f.name) {
+                      {e.platforms.map((g, l) => {
+                        switch (g.name) {
                           case "PC (Microsoft Windows)":
-                            f.name = "PC";
+                            g.name = "PC";
                             break;
                           case "PlayStation 4":
-                            f.name = " - PS4";
+                            g.name = " - PS4";
                             break;
                           case "Xbox One":
-                            f.name = " - XboxOne";
+                            g.name = " - XboxOne";
                             break;
                           case "Nintendo Switch":
-                            f.name = " - Switch";
+                            g.name = " - Switch";
                             break;
                           case "":
-                            f.name = "PC - Xbox One";
+                            g.name = "PC - Xbox One";
                             break;
                           default:
-                            f.name = "";
+                            g.name = "";
                         }
-                        return (
-                          <span key={k}>
-                            {f.name}
-                          </span>
-                        );
-                      })}
-                    </p>
-                    <p>
-                      {e.genres.map((f, j) => {
-                        switch (f.name) {
-                          case "Role-playing (RPG)":
-                            f.name = " / RPG";
-                            break;
-                          case "Adventure":
-                            f.name = " / Adventura";
-                            break;
-                          case "Strategy":
-                            f.name = " / Estrategia";
-                            break;
-                          case "Shooter":
-                            f.name = " / Shooter";
-                            break;
-                          case "Racing":
-                            f.name = " / Carreras";
-                            break;
-                          case "Sport":
-                            f.name = " / Deporte";
-                            break;
-                          default:
-                            f.name = "";
-                        }
-                        return <span key={j}>{f.name}</span>;
+                        return <span key={l}>{g.name}</span>;
                       })}
                     </p>
                   </div>
@@ -208,6 +147,8 @@ class HomeLastgames extends Component {
           </Col>
         );
       }
+
+      return({items})
     });
 
     return (

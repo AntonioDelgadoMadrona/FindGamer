@@ -15,8 +15,7 @@ class FormSign extends Component {
       city: null,
       birthday: null,
       email: null,
-      password: null,
-      file: null
+      password: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,11 +23,10 @@ class FormSign extends Component {
   }
 
   handleChange(event) {
-   console.log(event.target.files[0])
     this.setState({
       [event.target.id]: event.target.value
     });
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleClick() {
@@ -36,6 +34,7 @@ class FormSign extends Component {
     axios
       .post("http://localhost:3001/user/register", user)
       .then(response => {
+        // console.log(response.data)
         let id = response.data.id;
         // Redirecciono al home del id recibido en el registro
         this.props.history.push("/user/" + id);
@@ -174,12 +173,6 @@ class FormSign extends Component {
                     />
                     <div id="errorPassword12" />
                   </Col>
-                  <Row>
-                    <input type="file" name=""
-                    onChange={this.handleChange}
-                    id="file"
-                    />
-                  </Row>
                 </div>
 
                 <div className="form-group">

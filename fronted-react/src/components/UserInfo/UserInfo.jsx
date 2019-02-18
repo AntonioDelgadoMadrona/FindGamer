@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import { withRouter } from 'react-router';
-
+import { withRouter } from "react-router";
 
 import UserHeader from "../UserHeader/UserHeader";
 import UserFooter1 from "../UserFooter1/UserFooter1";
@@ -13,6 +12,7 @@ class UserInfo extends Component {
     super(props);
 
     this.state = {
+      id: null,
       first_name: null,
       last_name: null,
       username: null,
@@ -27,21 +27,23 @@ class UserInfo extends Component {
       playing_games: [],
       next_games: [],
       licence: null,
-      friends: null,
+      friends: [],
       img_small: null,
       img_big: null
     };
   }
   componentDidMount() {
-    console.log(this.props.match)
-    let userId = this.props.match.params.id
+    // console.log(this.props.match.params)
+    let userID = this.props.match.params.id;
     axios
       .get("http://localhost:3001/user/getinfo", {
-        params: {userId}
+        params: { userID }
       })
       .then(response => {
+        // console.log(response.data[0])
         const r = response.data[0];
         this.setState({
+          id: r._id,
           first_name: r.nombre,
           last_name: r.apellidos,
           username: r.nombre_usuario,
@@ -59,7 +61,6 @@ class UserInfo extends Component {
           friends: r.amigos,
           img_small: r.imagen_perfil,
           img_big: r.imagen_portada
-          
         });
       })
       .catch(error => {
@@ -70,6 +71,7 @@ class UserInfo extends Component {
     return (
       <Container className="padre">
         <UserHeader
+          id={this.state.id}
           img_small={this.state.img_small}
           img_big={this.state.img_big}
           rating={this.state.rating}
@@ -88,9 +90,9 @@ class UserInfo extends Component {
             next_games={this.state.next_games}
             games_complete_length={this.state.games_complete.length}
           />
-          <UserFooter2 
-          friends={this.state.friends}
-          games_complete={this.state.games_complete}
+          <UserFooter2
+            friends={this.state.friends}
+            games_complete={this.state.games_complete}
           />
         </Container>
       </Container>

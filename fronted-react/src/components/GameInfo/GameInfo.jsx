@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
-import { withRouter } from 'react-router';
+import { withRouter } from "react-router";
 
 import { ProgressBar, Container, Row, Col } from "react-bootstrap";
 import "./GameInfo.css";
@@ -38,16 +38,12 @@ class GameInfo extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     axios
       .get(`http://localhost:3001/game/info/${this.props.match.params.id}`)
       .then(response => {
-        console.log(response.data[0]);
+        // console.log(response.data[0]);
         let r = response.data[0];
-        if (
-          r.involved_companies[0].company.name !== "undefined" ||
-          r.release_dates[0].date !== "undefined"
-        ) {
+        if (r.involved_companies[0].company.name !== "undefined") {
           this.setState({
             juego: {
               id: r.id,
@@ -62,17 +58,51 @@ class GameInfo extends Component {
             }
           });
         }
-        console.log(this.state.juego);
       })
       .catch(err => {
         console.error(err);
       });
   }
 
+  addNextGame(game) {
+    let userID = "5c5f4d2b310eaf1330ddbd05";
+    axios
+      .post("http://localhost:3001/user/addgamenext", { game, userID })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  addPlayingGame(game) {
+    let userID = "5c5f4d2b310eaf1330ddbd05";
+    axios
+      .post("http://localhost:3001/user/addgamenow", { game, userID })
+      .then(response => {
+        // console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  addCompletedGame(gameID) {
+    let userID = "5c5f4d2b310eaf1330ddbd05";
+    axios
+      .post("http://localhost:3001/user/addgamecomplete", { gameID, userID })
+      .then(response => {
+        // console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
-    // console.log(this.state.juego);
     let platformsString = " ";
-    const platforms = this.state.juego.platforms.map(platform => {
+    this.state.juego.platforms.map(platform => {
       return (platformsString += platform.name + " || ");
     });
 
@@ -103,17 +133,26 @@ class GameInfo extends Component {
             <img
               src={`${url_img}${small}${this.state.juego.image}${format}`}
               className="imagen-juego-portada"
-              alt={this.state.name}
+              alt={this.state.juego.name}
             />
             <div className="d-flex justify-content-around mt-5">
-              <FontAwesomeIcon icon={faClock} className="fa-2x enlace" />
+              <FontAwesomeIcon
+                icon={faClock}
+                className="fa-2x enlace"
+                onClick={() => this.addNextGame(this.state.juego.name)}
+              />
               <p>
-                <FontAwesomeIcon icon={faGamepad} className="fa-2x enlace" />
+                <FontAwesomeIcon
+                  icon={faGamepad}
+                  className="fa-2x enlace"
+                  onClick={() => this.addPlayingGame(this.state.juego.name)}
+                />
               </p>
               <p>
                 <FontAwesomeIcon
                   icon={faCheckCircle}
                   className="fa-2x enlace"
+                  onClick={() => this.addCompletedGame(this.state.juego.id)}
                 />
               </p>
             </div>

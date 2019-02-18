@@ -20,7 +20,7 @@ class Games extends Component {
 
   searchGames = (search) => {
     axios.get("http://localhost:3001/games/search", { params: search }).then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       this.setState({
         games: response.data
       })

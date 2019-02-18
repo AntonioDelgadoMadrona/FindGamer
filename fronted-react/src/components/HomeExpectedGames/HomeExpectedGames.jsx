@@ -48,7 +48,7 @@ class HomeExpectedGames extends Component {
     let columns = [];
     let items = [];
     this.state.data.map((e, i) => {
-      if(e.platforms !== "undefined"){
+      if (e.platforms) {
         if (i !== 0 && i % 4 === 0) {
           items.push(
             <Carousel.Item className="carousel-item" key={i}>
@@ -58,26 +58,40 @@ class HomeExpectedGames extends Component {
           columns = [];
           columns.push(
             <Col xs={12} md={6} lg={3} key={i}>
-              <div className="ultimos-juegos mx-2" />
-              <div className="p-0 mr-1 ultimo-juego" key={i}>
-                <div className="card-body cuerpo-juego w-100 p-1">
-                  <Link to={`/games/${e.id}`} className="enlace-juego">
+              <div className="ultimos-juegos-esperados mx-2" />
+              <div className="p-0 mr-1 ultimo-juego-esperado" key={i}>
+                <div className="card-body cuerpo-juego-esperado w-100 p-1">
+                  <Link to={`/games/${e.id}`} className="enlace-juego-esperado">
                     <img
                       src={`${url_img}${size}${e.cover.image_id}${format}`}
-                      className="imagen-ultimos-juegos"
+                      className="imagen-ultimos-juegos-esperado"
                       alt={e.name}
                     />
-                    <div className="texto-juego">
+                    <div className="texto-juego-esperado">
                       <p>{e.name}</p>
                       <p>
-                        {e.platforms.map((f, k) => (
-                          <span key={k}>{`${f.name} / `}</span>
-                        ))}
-                      </p>
-                      <p>
-                        {/* {e.genres.map((g, l) => (
-                          <span key={l}>{`${l.name} / `}</span>
-                        ))} */}
+                        {e.platforms.map((g, l) => {
+                          switch (g.name) {
+                            case "PC (Microsoft Windows)":
+                              g.name = "PC";
+                              break;
+                            case "PlayStation 4":
+                              g.name = " - PS4";
+                              break;
+                            case "Xbox One":
+                              g.name = " - XboxOne";
+                              break;
+                            case "Nintendo Switch":
+                              g.name = " - Switch";
+                              break;
+                            case "":
+                              g.name = "PC - Xbox One";
+                              break;
+                            default:
+                              g.name = "";
+                          }
+                          return <span key={l}>{g.name}</span>;
+                        })}
                       </p>
                     </div>
                   </Link>
@@ -88,26 +102,40 @@ class HomeExpectedGames extends Component {
         } else {
           columns.push(
             <Col xs={12} md={6} lg={3} key={i}>
-              <div className="ultimos-juegos mx-2" />
-              <div className="p-0 mr-1 ultimo-juego" key={i}>
-                <div className="card-body cuerpo-juego w-100 p-1">
-                  <Link to={`/games/${e.id}`} className="enlace-juego">
+              <div className="ultimos-juegos-esperados mx-2" />
+              <div className="p-0 mr-1 ultimo-juego-esperado" key={i}>
+                <div className="card-body cuerpo-juego-esperado w-100 p-1">
+                  <Link to={`/games/${e.id}`} className="enlace-juego-esperado">
                     <img
                       src={`${url_img}${size}${e.cover.image_id}${format}`}
-                      className="w-100 imagen-ultimos-juegos"
+                      className="w-100 imagen-ultimos-juegos-esperado"
                       alt={e.name}
                     />
-                    <div className="texto-juego">
+                    <div className="texto-juego-esperado">
                       <p>{e.name}</p>
-                      {/* <p>
-                        {e.platforms.map((f, k) => (
-                          <span key={k}>{`${f.name} / `}</span>
-                        ))}
-                      </p> */}
                       <p>
-                        {/* {e.genres.map((g, l) => (
-                          <span key={l}>{`${l.name} / `}</span>
-                        ))} */}
+                        {e.platforms.map((g, l) => {
+                          switch (g.name) {
+                            case "PC (Microsoft Windows)":
+                              g.name = "PC";
+                              break;
+                            case "PlayStation 4":
+                              g.name = " - PS4";
+                              break;
+                            case "Xbox One":
+                              g.name = " - XboxOne";
+                              break;
+                            case "Nintendo Switch":
+                              g.name = " - Switch";
+                              break;
+                            case "":
+                              g.name = "PC - Xbox One";
+                              break;
+                            default:
+                              g.name = "";
+                          }
+                          return <span key={l}>{g.name}</span>;
+                        })}
                       </p>
                     </div>
                   </Link>
@@ -117,7 +145,8 @@ class HomeExpectedGames extends Component {
           );
         }
       }
-      
+
+      return({items})
     });
 
     return (

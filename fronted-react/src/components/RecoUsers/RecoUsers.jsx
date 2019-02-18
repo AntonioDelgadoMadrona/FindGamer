@@ -58,8 +58,6 @@ class RecoUsers extends Component {
         );
       }
 
-      let register_date = moment.utc(e.fecha_registro).format("DD/MM/YYYY");
-      
       return (
         <Row className="pb-3 jugador-recomendacion" key={i}>
           <div className="d-flex justify-content-around">
@@ -77,7 +75,7 @@ class RecoUsers extends Component {
               <p>
                 <span className="verde">{starsRender}</span>
               </p>
-              <p className="text-muted">{register_date}</p>
+              <p className="text-muted">{e.plataforma_fav}</p>
             </div>
           </div>
         </Row>

@@ -5,7 +5,7 @@ var bcrypt = require("bcrypt-nodejs");
 var controller = {
   // REGISTRAR USUARIO
   registerUser: (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     usuariosModel.find(
       {
         email: req.body.email
@@ -42,7 +42,7 @@ var controller = {
                 usuario.j_jugando = new Array();
                 usuario.fecha_registro = new Date();
                 let puntuacion = usuario.puntuacion;
-                puntuacion.push(2);
+                puntuacion.push(1);
 
                 usuario.save((err, result) => {
                   if (err) {
@@ -111,7 +111,7 @@ var controller = {
                     ok: true,
                     usuario: result,
                     token: "123"
-                  })
+                  });
                   // return res.send(result);
                 } else {
                   return res.send("La contraseña no es correcta");
@@ -135,14 +135,14 @@ var controller = {
 
   // SUBIR IMAGEN PERFIL
   addImageUser: function(req, res) {
-    console.log(req.file);
-    res.send(req);
+    console.log(req.files);
+    // res.send(req);
     //        let userId = req.body._id;
-    //
+    
     //        let update = {
     //            imagen_perfil: req.body.img
     //        }
-    //
+    
     //        usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
     //            if (err) {
     //                res.send(err)
@@ -154,22 +154,22 @@ var controller = {
 
   // AÑADIR AMIGOS
   addFriend: function(req, res) {
-    console.log(req.body);
-    let userId = req.body.id;
-    let update = {
-      $push: {
-        amigos: req.body.email_friend
-      }
-    };
+    // console.log(req.body);
+    // let userId = req.body.id;
+    // let update = {
+    //   $push: {
+    //     amigos: req.body.email_friend
+    //   }
+    // };
 
-    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
-      if (err) {
-        res.send(err);
-      } else {
-        console.log(result);
-        res.status(200).send(result);
-      }
-    });
+    // usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    //   if (err) {
+    //     res.send(err);
+    //   } else {
+    //     // console.log(result);
+    //     res.status(200).send(result);
+    //   }
+    // });
   },
 
   // JUEGO FAVORITO
@@ -183,7 +183,7 @@ var controller = {
       if (err) {
         res.send(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
       }
     });
@@ -191,22 +191,22 @@ var controller = {
 
   //AÑADIR JUEGOS COMPLETADOS
   addGameComplete: function(req, res) {
-    let userId = req.body.id;
+    // console.log(req.body)
     let update = {
       $push: {
         j_completados: {
-          juego: req.body.game,
-          valoracion: req.body.valoration,
+          juego: req.body.gameID,
+          // valoracion: req.body.valoration,
           f_completado: new Date()
         }
       }
     };
 
-    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    usuariosModel.findByIdAndUpdate(req.body.userID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
       }
     });
@@ -214,7 +214,7 @@ var controller = {
 
   // AÑADIR ACTUALMENTE JUGANDO
   addGameNow: function(req, res) {
-    let userId = req.body.id;
+    let userId = req.body.userID;
     let update = {
       $push: {
         j_jugando: req.body.game
@@ -225,7 +225,7 @@ var controller = {
       if (err) {
         res.send(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
       }
     });
@@ -251,18 +251,18 @@ var controller = {
 
   // AÑADIR PROXIMOS JUEGOS
   addGameNext: function(req, res) {
-    let userId = req.body.id;
+    let userID = req.body.userID;
     let update = {
       $push: {
         j_proximos: req.body.game
       }
     };
 
-    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    usuariosModel.findByIdAndUpdate(userID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
       }
     });
@@ -282,20 +282,16 @@ var controller = {
 
   // MOSTRAR TODA LA INFO DE MI USUARIO(SEGUN EL CORREO DE LA SESION)
   getInfo: function(req, res) {
-    // console.log(req.query);
-    usuariosModel.find(
-      {
-        _id: req.query.userId
-      },
-      (err, result) => {
+    usuariosModel.find({ _id: req.query.userID }, (err, result) => {
+      usuariosModel.populate(result, { path: "amigos" }, (err, result) => {
         if (err) {
           res.send(err);
         } else {
-          console.log(result);
+          // console.log(result);
           res.status(200).send(result);
         }
-      }
-    );
+      });
+    });
   },
 
   // MOSTRAR LOS USUARIOS CON MAYOR PUNTUACION
@@ -304,7 +300,7 @@ var controller = {
       if (err) {
         res.send(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
       }
     });

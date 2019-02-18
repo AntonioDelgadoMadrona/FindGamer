@@ -1,7 +1,5 @@
 /* -------------------------------------  NOTICIAS  ------------------------------ */
 
-
-
 .ultima-noticia {
     display: inline-block;
     text-align: center;
@@ -11,13 +9,12 @@
 
 }
 
-/* .ultimas-noticias .ultima-noticia:hover {
-    border: 0.5px solid #46c5e0;
-} */
+.ultima-noticia:hover {
+    transform: translate(10px, -10px)
+}
 
 .noticia {
     color: white;
-    /* background: linear-gradient(to bottom, #151515 18%, #151515 64%, #151515 92%, rgba(67, 175, 198, 1) 100%); */
 }
 
 .ultima-noticia a {
@@ -32,4 +29,5 @@
 .imagen-noticia {
     max-width: 280px !important;
     max-height: 150px;
+    min-height: 150px;
 }

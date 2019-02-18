@@ -4,15 +4,10 @@ var UserController = require("../controllers/users");
 var TimelineController = require("../controllers/timeline");
 var EventController = require("../controllers/eventos");
 
-// RUTA INICIO
-// app.get('/', function (req, res) {
-//     res.render('index');
-// });
-
-var auth = function(req, res, next) {
-  if (req.session.user) return next();
-  else return res.sendStatus(404);
-};
+// var auth = function(req, res, next) {
+//   if (req.session.user) return next();
+//   else return res.sendStatus(404);
+// };
 
 // --------------------------------- USUARIOS ------------------------
 
@@ -26,14 +21,20 @@ app.post("/user/login", UserController.loginUser);
 app.get("/user/logout", UserController.logoutUser);
 
 // VALIDACION USUARIO
-app.get("/home", auth, function(req, res) {
-  res.render("home", {
-    email: req.session.user.email
-  });
-});
+// app.get("/home", auth, function(req, res) {
+//   res.render("home", {
+//     email: req.session.user.email
+//   });
+// });
 
 // SUBIR IMAGEN PERFIL
-app.post("/user/addimgperfil", UserController.addImageUser);
+app.post("/user/addimgprofile", (req, res) => {
+  console.log(JSON.stringify(req.body));
+  res.send(req)
+});
+
+// SUBIR IMAGEN PORTADA
+// app.post("/user/addcoverprofile", UserController.addCoverUser);
 
 // AÑADIR AMIGOS
 app.post("/user/addfriend", UserController.addFriend);
@@ -70,8 +71,11 @@ app.post("/timeline/create", TimelineController.createMessage);
 // AÑADIR COMENTARIO
 app.post("/timeline/addcomment", TimelineController.addComment);
 
-// LIKES MENSAJE
+// AÑADIR LIKE
 app.post("/timeline/addlike", TimelineController.addLike);
+
+// ELIMINAR LIKE
+app.post("/timeline/deletelike", TimelineController.deleteLike);
 
 // MOSTRAR TODOS LOS MENSAJES
 app.get("/timeline/getall", TimelineController.getAll);
@@ -84,14 +88,14 @@ app.post("/event/create", EventController.createEvent);
 // AÑADIR COMENTARIO
 app.post("/event/addcomment", EventController.addComment);
 
-// LIKES MENSAJE
-app.post("/event/addlike", EventController.addLike);
-
 // MOSTRAR TODOS LOS EVENTOS
 app.get("/event/getall", EventController.getAll);
 
 // MOSTRAR LA INFO DEL EVENTO
 app.get("/event/getinfo", EventController.getInfo);
+
+// AÑADIR GAMER AL EVENTO
+app.post("/event/addgamer", EventController.addGamer);
 
 // // CUANDO EL USUARIO ESTA LOGEADO (VUELVO A COMPROBAR SI EN LA SESION ESTA EL PERMISO ADECUADO)
 // app.get('/invitado', auth, function (req, res) {

@@ -21,14 +21,13 @@ class Timeline extends Component {
 
     this.state = {
       data: [],
-      username: "Juanito23"
     };
   }
   componentDidMount() {
     axios
       .get("http://localhost:3001/timeline/getall")
       .then(response => {
-        // console.log(response.data)
+        console.log(response.data.reverse())
         this.setState({ data: response.data.reverse() });
       })
       .catch(err => {
@@ -37,38 +36,11 @@ class Timeline extends Component {
   }
 
   newMessage = message => {
-    console.log(message);
+    // console.log(message);
     this.setState({
       data: [...message, ...this.state.data]
     });
   };
-
-  handleLike(id) {
-    let username = this.state.username;
-    let comentario;
-    axios
-      .post("http://localhost:3001/timeline/addlike", {
-        user: username,
-        id_message: id,
-        token: localStorage.getItem('token')
-      })
-      .then(response => {
-        this.state.data.map((comentario, index) => {
-          if (comentario._id === id) {
-            this.setState(prevState => ({
-              ...prevState,
-              "data[index].likes": prevState.data[index].likes.push({
-                usuario: username,
-                f_like: new Date()
-              })
-            }));
-          }
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
 
   render() {
     return (
@@ -133,7 +105,7 @@ class Timeline extends Component {
                 <Col>
                   <FontAwesomeIcon
                     icon={faThumbsUp}
-                    className="fa-lg cursor like mr-md-3"
+                    className="fa-lg cursor mr-md-3"
                   />
                   <small className="text-muted">15 likes</small>
                 </Col>

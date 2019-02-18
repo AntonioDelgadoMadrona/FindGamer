@@ -79,6 +79,7 @@ class GamesList extends Component {
                     xs={12}
                     lg={5}
                     className="m-2 p-2 columna-lista-juegos rounded"
+                    key={i}
                   >
                     <Row className="juego-lista" key={i}>
                       <Col xs={3}>

@@ -13,7 +13,7 @@ class FormTimeline extends Component {
       message: {
         message: null,
         image: null,
-        username: "RickRos"
+        userID: "5c6499b7492bf012dc9826ac"
       }
 
      };
@@ -35,15 +35,15 @@ class FormTimeline extends Component {
       }
       
     })
-    console.log(this.state)
   }
 
   handleClick(){
     let message = this.state.message;
-    console.log(message)
+    // console.log(message)
     axios.post("http://localhost:3001/timeline/create", message).then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       this.props.newMessage(response.data)
+      this.setState({ collapse: !this.state.collapse })
     }).catch(error => {
       console.log(error)
     })
