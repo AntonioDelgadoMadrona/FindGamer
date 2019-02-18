@@ -5,5 +5,6 @@ mongoose.connect('mongodb://localhost/FindGamer', { useNewUrlParser: true })
         console.log('La conexión a MongoDB ha sido realizada correctamente')
     })
     .catch(err => console.log(err));
+    
 
 module.exports = mongoose;

@@ -23,7 +23,9 @@ const Style = {
 };
 
 class App extends Component {
+
   render() {
+  
     return (
       <BrowserRouter>
         <div className="App" style={Style}>

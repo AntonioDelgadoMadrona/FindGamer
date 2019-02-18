@@ -2,27 +2,24 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const path = require("path");
+const cors = require('cors');
 const multer = require("multer"); // Subir imagenes
 const uuid = require("uuid/v4"); // Nombre imagenes(hash)
+const jwt = require('jwt-simple');
+const moment = require('moment');
+const config = require('./config.taken');
 
 const port = 3001;
 const app = express();
 
-// Sockets
-const http = require("http");
-const socketio = require("socket.io");
-const server = http.createServer(app);
-const io = socketio.listen(server);
-require("./routes/sockets")(io);
-
-
 // MIDDLEWARES
+app.use(bodyParser.json()); // Cuando entra cualquier peticion transforma los datos datos en un JSON
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: true
   })
 );
-app.use(bodyParser.json()); // Cuando entra cualquier peticion transforma los datos datos en un JSON
+app.use(cors());
 app.use(morgan("dev")); // Muestra por consola las peticiones al servidor
 
 // Aqui definimos el nombre al guardar
@@ -68,5 +65,14 @@ app.listen(port, () => {
 //     saveUninitialized: true,
 //     cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 } // Tiempo duracion de la cookie en ms(1 año)
 // }));
+
+
+// // SOCKETS
+// // Sockets
+// const http = require("http");
+// const socketio = require("socket.io");
+// const server = http.createServer(app);
+// const io = socketio.listen(server);
+// require("./routes/sockets")(io);
 
 module.exports = app;

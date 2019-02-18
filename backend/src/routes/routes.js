@@ -1,13 +1,26 @@
 var app = require("../app");
+const jwt = require('jwt-simple');
+const moment = require('moment');
+const config = require('../config.taken');
 
 var UserController = require("../controllers/users");
 var TimelineController = require("../controllers/timeline");
 var EventController = require("../controllers/eventos");
 
-// var auth = function(req, res, next) {
-//   if (req.session.user) return next();
-//   else return res.sendStatus(404);
-// };
+const auth = function(req, res, next) {
+  if (!req.headers.authorization) {
+    return res.status(403).send({ alert: 'No tienes autorizacion'})
+  }
+  const token = req.headers.authorization.split(" ")[1]
+  const payload = jwt.decode(token, config.TOKEN_SECRET)
+
+  if(payload.exp <= moment().unix()) {
+    return res.status(401).send({ message: 'El token ha expirado'})
+  }
+
+  req.user = payload.sub
+  next()
+};
 
 // --------------------------------- USUARIOS ------------------------
 
@@ -20,13 +33,6 @@ app.post("/user/login", UserController.loginUser);
 // CERRAR SESION
 app.get("/user/logout", UserController.logoutUser);
 
-// VALIDACION USUARIO
-// app.get("/home", auth, function(req, res) {
-//   res.render("home", {
-//     email: req.session.user.email
-//   });
-// });
-
 // SUBIR IMAGEN PERFIL
 app.post("/user/addimgprofile", (req, res) => {
   console.log(JSON.stringify(req.body));
@@ -37,19 +43,19 @@ app.post("/user/addimgprofile", (req, res) => {
 // app.post("/user/addcoverprofile", UserController.addCoverUser);
 
 // AÑADIR AMIGOS
-app.post("/user/addfriend", UserController.addFriend);
+app.post("/user/addfriend", auth, UserController.addFriend);
 
 // JUEGO FAVORITO
-app.post("/user/addgamefav", UserController.addGameFav);
+app.post("/user/addgamefav", auth, UserController.addGameFav);
 
 // AÑADIR JUEGOS COMPLETADOS
-app.post("/user/addgamecomplete", UserController.addGameComplete);
+app.post("/user/addgamecomplete", auth, UserController.addGameComplete);
 
 // AÑADIR JUEGOS JUGANDO
-app.post("/user/addgamenow", UserController.addGameNow);
+app.post("/user/addgamenow", auth, UserController.addGameNow);
 
 // AÑADIR JUEGOS PROXIMOS
-app.post("/user/addgamenext", UserController.addGameNext);
+app.post("/user/addgamenext", auth, UserController.addGameNext);
 
 // MOSTRAR LOS USUARIOS REGISTRADOS
 app.get("/user/getall", UserController.getAll);
@@ -61,21 +67,21 @@ app.get("/user/getreco", UserController.getRecommended);
 app.get("/user/getinfo", UserController.getInfo);
 
 // AÑADIR PUNTUACION USUARIO
-app.post("/user/addvaloration", UserController.addValoration);
+app.post("/user/addvaloration", auth, UserController.addValoration);
 
 // ------------------------------------ TIMELINE ------------
 
 // CREAR MENSAJE
-app.post("/timeline/create", TimelineController.createMessage);
+app.post("/timeline/create", auth, TimelineController.createMessage);
 
 // AÑADIR COMENTARIO
-app.post("/timeline/addcomment", TimelineController.addComment);
+app.post("/timeline/addcomment", auth, TimelineController.addComment);
 
 // AÑADIR LIKE
-app.post("/timeline/addlike", TimelineController.addLike);
+app.post("/timeline/addlike", auth, TimelineController.addLike);
 
 // ELIMINAR LIKE
-app.post("/timeline/deletelike", TimelineController.deleteLike);
+app.post("/timeline/deletelike", auth, TimelineController.deleteLike);
 
 // MOSTRAR TODOS LOS MENSAJES
 app.get("/timeline/getall", TimelineController.getAll);
@@ -83,10 +89,10 @@ app.get("/timeline/getall", TimelineController.getAll);
 // ---------------------------- EVENTOS -----------------
 
 // CREAR EVENTO
-app.post("/event/create", EventController.createEvent);
+app.post("/event/create", auth, EventController.createEvent);
 
 // AÑADIR COMENTARIO
-app.post("/event/addcomment", EventController.addComment);
+app.post("/event/addcomment", auth, EventController.addComment);
 
 // MOSTRAR TODOS LOS EVENTOS
 app.get("/event/getall", EventController.getAll);
@@ -95,37 +101,7 @@ app.get("/event/getall", EventController.getAll);
 app.get("/event/getinfo", EventController.getInfo);
 
 // AÑADIR GAMER AL EVENTO
-app.post("/event/addgamer", EventController.addGamer);
+app.post("/event/addgamer", auth, EventController.addGamer);
 
-// // CUANDO EL USUARIO ESTA LOGEADO (VUELVO A COMPROBAR SI EN LA SESION ESTA EL PERMISO ADECUADO)
-// app.get('/invitado', auth, function (req, res) {
-//     if (req.session.user.permiso == 'invitado') {
-//         res.render('invitado', {
-//             email: req.session.user.email,
-//             name: req.session.user.name,
-//             permiso: req.session.user.permiso
-//         });
-//     }
-// })
-
-// app.get('/administrador', auth, function (req, res) {
-//     if (req.session.user.permiso == 'administrador') {
-//         res.render('administrador', {
-//             email: req.session.user.email,
-//             name: req.session.user.name,
-//             permiso: req.session.user.permiso
-//         });
-//     }
-// });
-
-// app.get('/super', auth, function (req, res) {
-//     if (req.session.user.permiso == 'superAdmin') {
-//         res.render('super', {
-//             email: req.session.user.email,
-//             name: req.session.user.name,
-//             permiso: req.session.user.permiso
-//         });
-//     }
-// })
 
 module.exports = app;

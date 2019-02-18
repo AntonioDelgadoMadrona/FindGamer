@@ -1,69 +1,95 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import { Container, Col, Collapse, Button, Form } from 'reactstrap';
+import { Container, Col, Collapse, Button, Form } from "reactstrap";
 
-import './FormTimeline.css'
+import "./FormTimeline.css";
 
 class FormTimeline extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       collapse: false,
       message: {
         message: null,
-        image: null,
-        userID: "5c6499b7492bf012dc9826ac"
+        image: null
       }
-
-     };
+    };
 
     this.toggle = this.toggle.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-  };
+  }
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  handleChange(e){
+  handleChange(e) {
     this.setState({
       message: {
-         ...this.state.message,
+        ...this.state.message,
         [e.target.id]: e.target.value
       }
-      
-    })
+    });
   }
 
-  handleClick(){
+  handleClick() {
     let message = this.state.message;
+    let token = localStorage.getItem("token");
     // console.log(message)
-    axios.post("http://localhost:3001/timeline/create", message).then(response => {
-      // console.log(response.data)
-      this.props.newMessage(response.data)
-      this.setState({ collapse: !this.state.collapse })
-    }).catch(error => {
-      console.log(error)
-    })
+    axios
+      .post("http://localhost:3001/timeline/create", message, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
+      .then(response => {
+        // console.log(response.data)
+        this.props.newMessage(response.data);
+        this.setState({ collapse: !this.state.collapse });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
     return (
       <Container className="hijo text-center">
-        <Button className="boton-celeste" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Publicar mensaje</Button>
+        <Button
+          className="boton-celeste"
+          onClick={this.toggle}
+          style={{ marginBottom: "1rem" }}
+        >
+          Publicar mensaje
+        </Button>
         <Collapse isOpen={this.state.collapse}>
           <Col xs={12} className="publicar-mensaje">
             <Form className="form-group">
-                <textarea className="form-control" id="message" onChange={this.handleChange} placeholder="Comparte un mensaje, foto o evento..."></textarea>
-                <div className="d-flex justify-content-between mt-2">
-                    <input type="file" className="form-control-file form-control-sm " onChange={this.handleChange} id="image"></input>
-                    <button type="button" onClick={this.handleClick} className="btn btn-sm boton-celeste">Compartir</button>
-                </div>
+              <textarea
+                className="form-control"
+                id="message"
+                onChange={this.handleChange}
+                placeholder="Comparte un mensaje, foto o evento..."
+              />
+              <div className="d-flex justify-content-between mt-2">
+                <input
+                  type="file"
+                  className="form-control-file form-control-sm "
+                  onChange={this.handleChange}
+                  id="image"
+                />
+                <button
+                  type="button"
+                  onClick={this.handleClick}
+                  className="btn btn-sm boton-celeste"
+                >
+                  Compartir
+                </button>
+              </div>
             </Form>
-        </Col>
-        
+          </Col>
         </Collapse>
       </Container>
     );

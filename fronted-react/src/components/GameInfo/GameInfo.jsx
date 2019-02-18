@@ -33,7 +33,8 @@ class GameInfo extends Component {
         genres: [],
         summary: null,
         rating: null
-      }
+      },
+      token: null
     };
   }
 
@@ -65,37 +66,64 @@ class GameInfo extends Component {
   }
 
   addNextGame(game) {
-    let userID = "5c5f4d2b310eaf1330ddbd05";
+    let token = localStorage.getItem("token");
     axios
-      .post("http://localhost:3001/user/addgamenext", { game, userID })
+      .post(
+        "http://localhost:3001/user/addgamenext",
+        { game },
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }
+      )
       .then(response => {
         console.log(response.data);
       })
       .catch(error => {
+        alert("Debes haber iniciado sesion para añadir un juego a tus listas");
         console.log(error);
       });
   }
 
   addPlayingGame(game) {
-    let userID = "5c5f4d2b310eaf1330ddbd05";
+    let token = localStorage.getItem("token");
     axios
-      .post("http://localhost:3001/user/addgamenow", { game, userID })
+      .post(
+        "http://localhost:3001/user/addgamenow",
+        { game },
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }
+      )
       .then(response => {
         // console.log(response.data);
       })
       .catch(error => {
+        alert("Debes haber iniciado sesion para añadir un juego a tus listas");
         console.log(error);
       });
-  };
+  }
 
   addCompletedGame(gameID) {
-    let userID = "5c5f4d2b310eaf1330ddbd05";
+    let token = localStorage.getItem("token");
     axios
-      .post("http://localhost:3001/user/addgamecomplete", { gameID, userID })
+      .post(
+        "http://localhost:3001/user/addgamecomplete",
+        { gameID },
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }
+      )
       .then(response => {
         // console.log(response.data);
       })
       .catch(error => {
+        alert("Debes haber iniciado sesion para añadir un juego a tus listas");
         console.log(error);
       });
   }

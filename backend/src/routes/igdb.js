@@ -2,7 +2,8 @@ var axios = require("axios");
 var app = require("../app");
 
 // var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
-var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
+// var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
+var API_KEY = "415fe0b9204132522e64181ccd609ac0";
 
 // BUSCADOR DE JUEGOS
 app.get("/games/search", function(req, res) {

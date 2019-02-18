@@ -19,7 +19,8 @@ class EventOne extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      token: null
     };
   }
   componentDidMount() {
@@ -34,6 +35,11 @@ class EventOne extends Component {
       .catch(error => {
         console.log(error);
       });
+
+    let token = localStorage.getItem("token");
+    this.setState({
+      token: token
+    });
   }
 
   // Para añadir el evento a la lista al momento
@@ -45,6 +51,11 @@ class EventOne extends Component {
   };
 
   render() {
+    let formEvents = null;
+    if (this.state.token) {
+      formEvents = <FormEvents newEvent={this.newEvent} />;
+    }
+
     return (
       <Col xs={12} lg={8} xl={9}>
         <Row>
@@ -54,8 +65,7 @@ class EventOne extends Component {
         </Row>
 
         <Row className="d-flex justify-content-center">
-          <FormEvents newEvent={this.newEvent} />
-
+        {formEvents}
           {this.state.data.map((m, i) => {
             let date = moment.utc(m.f_publicacion).format("DD/MM/YYYY, HH:mm");
 

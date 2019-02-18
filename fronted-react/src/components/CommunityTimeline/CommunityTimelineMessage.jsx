@@ -16,24 +16,29 @@ class CommunityTimelineMessage extends React.Component {
     super(props);
 
     this.state = {
-      isLiked: false,
-      userID: "5c6499b7492bf012dc9826ac"
+      isLiked: false
     };
   }
 
   updateLike = id => {
     console.log(id);
-    let username = this.state.username;
+    let token = localStorage.getItem("token");
     const newIsLiked = !this.state.isLiked; // declaro el que va a ser mi nuevo estado
     // TODO: Actualizar en base de datos
     if (newIsLiked) {
       // como mi nuevo estado es "like", añado mi like a la base de datos
       axios
-        .post("http://localhost:3001/timeline/addlike", {
-          user: username,
-          id_message: id
-          // token: localStorage.getItem('token')
-        })
+        .post(
+          "http://localhost:3001/timeline/addlike",
+          {
+            id_message: id
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+          }
+        )
         .then(response => {
           // this.state.data.map((comentario, index) => {
           //   if (comentario._id === id) {
@@ -52,12 +57,19 @@ class CommunityTimelineMessage extends React.Component {
         });
     } else {
       // como mi nuevo estado es "no like", elimino mi like de la base de datos
+      let token = localStorage.getItem("token");
       axios
-        .post("http://localhost:3001/timeline/deletelike", {
-          user: username,
-          id_message: id
-          // token: localStorage.getItem('token')
-        })
+        .post(
+          "http://localhost:3001/timeline/deletelike",
+          {
+            id_message: id
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+          }
+        )
         .then(response => {
           console.log(response);
         })

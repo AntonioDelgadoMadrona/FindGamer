@@ -21,6 +21,7 @@ class Timeline extends Component {
 
     this.state = {
       data: [],
+      token: null
     };
   }
   componentDidMount() {
@@ -33,6 +34,10 @@ class Timeline extends Component {
       .catch(err => {
         console.log(err);
       });
+      let token = localStorage.getItem('token');
+      this.setState({
+        token: token
+      });
   }
 
   newMessage = message => {
@@ -43,6 +48,10 @@ class Timeline extends Component {
   };
 
   render() {
+    let formTimeline = null;
+    if(this.state.token) {
+      formTimeline = <FormTimeline newMessage={this.newMessage} />
+    }
     return (
       <Col xs={12} lg={8} xl={9}>
         <Row>
@@ -52,8 +61,7 @@ class Timeline extends Component {
         </Row>
 
         <Row className="d-flex justify-content-center">
-          <FormTimeline newMessage={this.newMessage} />
-
+              {formTimeline}
           <Container className="timeline">
             {this.state.data.map((m, i) => {
               return <CommunityTimelineMessage m={m} key={i} />;

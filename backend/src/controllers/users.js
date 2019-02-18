@@ -1,4 +1,7 @@
 const usuariosModel = require("../models/users");
+const service = require("../takens");
+const jwt = require('jwt-simple');
+const config = require('../config.taken');
 
 var bcrypt = require("bcrypt-nodejs");
 
@@ -72,8 +75,10 @@ var controller = {
 
                       // GUARDAR EN LA SESSION EL USUARIO REGISTRADO Y CARGAR INICIO
                     };
-                    console.log(usuario);
-                    return res.status(200).send(usuario);
+                    // console.log(service);
+                    return res
+                      .status(200)
+                      .send({ token: service(usuario), ...usuario });
                   }
                 });
               });
@@ -88,40 +93,41 @@ var controller = {
 
   //INICIAR SESION
   loginUser: (req, res) => {
-    usuariosModel.find(
-      {
-        email: req.body.email
-      },
-      (err, result) => {
-        if (err) {
-          res.send(err);
-        } else {
-          if (result == "") {
-            return res.send("Email no valido");
-          } else {
-            bcrypt.compare(req.body.password, result[0].password, function(
-              err,
-              iguales
-            ) {
-              if (err) {
-                return res.send(err);
-              } else {
-                if (iguales) {
-                  res.json({
-                    ok: true,
-                    usuario: result,
-                    token: "123"
-                  });
-                  // return res.send(result);
-                } else {
-                  return res.send("La contraseña no es correcta");
-                }
-              }
-            });
-          }
-        }
-      }
-    );
+    console.log(req.body)
+    // usuariosModel.find(
+    //   {
+    //     email: req.body.email
+    //   },
+    //   (err, result) => {
+    //     if (err) {
+    //       res.send(err);
+    //     } else {
+    //       if (result == "") {
+    //         return res.send("Email no valido");
+    //       } else {
+    //         bcrypt.compare(req.body.password, result[0].password, function(
+    //           err,
+    //           iguales
+    //         ) {
+    //           if (err) {
+    //             return res.send(err);
+    //           } else {
+    //             if (iguales) {
+    //               let user = {
+    //                 id: result[0]._id
+    //               };
+    //               return res
+    //                 .status(200)
+    //                 .send({ token: service(user), ...user });
+    //             } else {
+    //               return res.status(500).send("La contraseña no es correcta");
+    //             }
+    //           }
+    //         });
+    //       }
+    //     }
+    //   }
+    // );
   },
 
   // CERRAR SESION
@@ -138,11 +144,11 @@ var controller = {
     console.log(req.files);
     // res.send(req);
     //        let userId = req.body._id;
-    
+
     //        let update = {
     //            imagen_perfil: req.body.img
     //        }
-    
+
     //        usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
     //            if (err) {
     //                res.send(err)
@@ -161,7 +167,6 @@ var controller = {
     //     amigos: req.body.email_friend
     //   }
     // };
-
     // usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
     //   if (err) {
     //     res.send(err);
@@ -174,12 +179,14 @@ var controller = {
 
   // JUEGO FAVORITO
   addGameFav: function(req, res) {
-    let userId = req.body.id;
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     let update = {
       juego_fav: req.body.game
     };
     console.log(update);
-    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    usuariosModel.findByIdAndUpdate(userID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
@@ -191,6 +198,9 @@ var controller = {
 
   //AÑADIR JUEGOS COMPLETADOS
   addGameComplete: function(req, res) {
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     // console.log(req.body)
     let update = {
       $push: {
@@ -202,7 +212,7 @@ var controller = {
       }
     };
 
-    usuariosModel.findByIdAndUpdate(req.body.userID, update, (err, result) => {
+    usuariosModel.findByIdAndUpdate(userID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
@@ -214,14 +224,16 @@ var controller = {
 
   // AÑADIR ACTUALMENTE JUGANDO
   addGameNow: function(req, res) {
-    let userId = req.body.userID;
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     let update = {
       $push: {
         j_jugando: req.body.game
       }
     };
 
-    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    usuariosModel.findByIdAndUpdate(userID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
@@ -233,13 +245,15 @@ var controller = {
 
   // AÑADIR VALORACION USUARIO
   addValoration: function(req, res) {
-    let userId = req.body.id;
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     let update = {
       $push: {
         puntuacion: req.body.valoracion
       }
     };
-    usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    usuariosModel.findByIdAndUpdate(userID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
@@ -251,7 +265,9 @@ var controller = {
 
   // AÑADIR PROXIMOS JUEGOS
   addGameNext: function(req, res) {
-    let userID = req.body.userID;
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     let update = {
       $push: {
         j_proximos: req.body.game

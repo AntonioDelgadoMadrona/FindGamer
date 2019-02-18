@@ -4,10 +4,13 @@ const usuarioModel = require("../models/users");
 var controller = {
   // CREAR UN MENSAJE
   createMessage: (req, res) => {
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     console.log(req.body);
     let timeline = new timelineModel();
 
-    timeline.usuario = req.body.userID;
+    timeline.usuario = userID;
     timeline.mensaje = req.body.message;
     if (req.body.foto) {
       timeline.foto = req.body.image;
@@ -31,7 +34,7 @@ var controller = {
             f_publicacion: result.f_publicacion
           }
         ];
-        console.log(result)
+        console.log(result);
         return res.status(200).send(timeline);
       }
     });
@@ -39,18 +42,21 @@ var controller = {
 
   //COMENTAR MENSAJE
   addComment: function(req, res) {
-    let userId = req.body.id;
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
+    let messageID = req.body.id;
     let update = {
       $push: {
         comentarios: {
-          usuario: req.body.usuario,
+          usuario: userID,
           comentario: req.body.comentario,
           f_comentario: new Date()
         }
       }
     };
 
-    timelineModel.findByIdAndUpdate(userId, update, (err, result) => {
+    timelineModel.findByIdAndUpdate(messageID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
@@ -61,11 +67,13 @@ var controller = {
 
   // LIKES MENSAJE
   addLike: function(req, res) {
-    console.log(req.body);
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     let update = {
       $push: {
         likes: {
-          usuario: req.body.user,
+          usuario: userID,
           f_like: new Date()
         }
       }
@@ -85,11 +93,14 @@ var controller = {
 
   // DELETE LIKE
   deleteLike: function(req, res) {
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     console.log(req.body);
     let update = {
       $unset: {
         likes: {
-          usuario: req.body.user
+          usuario: userID
           // f_like: new Date()
         }
       }

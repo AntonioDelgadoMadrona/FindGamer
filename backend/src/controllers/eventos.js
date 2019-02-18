@@ -4,12 +4,15 @@ const usuarioModel = require("../models/users");
 var controller = {
   // CREAR EVENTO
   createEvent: (req, res) => {
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     // console.log(req.body);
     let evento = new eventosModel();
     let participantes = new Array();
-    participantes.push(req.body.userId);
+    participantes.push(userID);
 
-    evento.creador = req.body.userId;
+    evento.creador = userID;
     evento.juego = req.body.game;
     evento.plataforma = req.body.platform;
     evento.f_inicio = req.body.start_event;
@@ -55,18 +58,21 @@ var controller = {
   // COMENTAR EVENTO
   addComment: function(req, res) {
     console.log(req.body);
-    let userId = req.body._id;
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
+    let eventID = req.body._id;
     let update = {
       $push: {
         comentarios: {
-          usuario: req.body.usuario,
+          usuario: userID,
           comentario: req.body.comentario,
           f_comentario: new Date()
         }
       }
     };
 
-    eventosModel.findByIdAndUpdate(userId, update, (err, result) => {
+    eventosModel.findByIdAndUpdate(eventID, update, (err, result) => {
       if (err) {
         res.send(err);
       } else {
@@ -77,10 +83,12 @@ var controller = {
 
   // LIKES EVENTO
   addGamer: function(req, res) {
-    console.log(req.body.params);
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
     let update = {
       $push: {
-        participantes: req.body.params.userID
+        participantes: userID
       }
     };
 

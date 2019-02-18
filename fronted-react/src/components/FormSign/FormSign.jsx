@@ -37,6 +37,8 @@ class FormSign extends Component {
         // console.log(response.data)
         let id = response.data.id;
         // Redirecciono al home del id recibido en el registro
+        // console.log(response)
+        localStorage.setItem('token', response.data.token, id)
         this.props.history.push("/user/" + id);
       })
       .catch(error => {

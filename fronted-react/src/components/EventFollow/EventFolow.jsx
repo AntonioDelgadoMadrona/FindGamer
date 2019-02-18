@@ -1,24 +1,33 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import { Container, Row, Col } from "react-bootstrap";
 
-let userID = "5c6499b7492bf012dc9826ac";
-
 class EventFollow extends Component {
-
-  updateGamer(eventID){
-    axios.post("http://localhost:3001/event/addgamer", {
-      params: {userID, eventID}
-    }).then(response => {
-      console.log(response.data)
-    }).catch(error => {
-      console.log(error)
-    })
+  updateGamer(eventID) {
+    let token = localStorage.getItem("token");
+    axios
+      .post(
+        "http://localhost:3001/event/addgamer",
+        {
+          params: { eventID }
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }
+      )
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
-// console.log(this.props)
+    // console.log(this.props)
     return (
       <Container className="hijo">
         <Row>
@@ -32,7 +41,11 @@ class EventFollow extends Component {
             </h2>
           </Col>
           <Col xs={2}>
-            <button type="submit" onClick={() => this.updateGamer(this.props.eventID)} className="btn btn-sm boton-celeste">
+            <button
+              type="submit"
+              onClick={() => this.updateGamer(this.props.eventID)}
+              className="btn btn-sm boton-celeste"
+            >
               Participar
             </button>
           </Col>

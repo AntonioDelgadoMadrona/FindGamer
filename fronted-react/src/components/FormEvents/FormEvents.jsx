@@ -1,20 +1,14 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
-import {
-  Container,
-  Col,
-  Collapse,
-  Button
-} from "reactstrap";
+import { Container, Col, Collapse, Button } from "reactstrap";
 
 class FormEvents extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       collapse: false,
       event: {
-        userId: '5c5f4d2b310eaf1330ddbd05',
         game: null,
         platform: null,
         start_event: null,
@@ -23,40 +17,46 @@ class FormEvents extends Component {
         h_end_event: null,
         n_gamers: null,
         rating: null,
-        message: null,
+        message: null
       }
     };
 
     this.toggle = this.toggle.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
   }
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  handleChange(e){
+  handleChange(e) {
     this.setState({
       event: {
-         ...this.state.event,
+        ...this.state.event,
         [e.target.id]: e.target.value
       }
-      
-    })
-    console.log(this.state)
+    });
+    console.log(this.state);
   }
 
-  handleClick(){
+  handleClick() {
     let event = this.state.event;
-    console.log(this.state.event)
-    axios.post("http://localhost:3001/event/create", event).then(response => {
-      // console.log(response.data)
-      this.props.newEvent(response.data)
-    }).catch(error => {
-      console.log(error)
-    })
+    let token = localStorage.getItem("token");
+    axios
+      .post("http://localhost:3001/event/create", event, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
+      .then(response => {
+        // console.log(response.data)
+        this.props.newEvent(response.data);
+      })
+      .catch(error => {
+        alert("Debes estar registrado para crear o participar en un evento");
+        console.log(error);
+      });
   }
 
   render() {
@@ -153,7 +153,9 @@ class FormEvents extends Component {
                     id="n_gamers"
                     onChange={this.handleChange}
                   >
-                    <option defaultValue>Numero de jugadores (incluido tú)</option>
+                    <option defaultValue>
+                      Numero de jugadores (incluido tú)
+                    </option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -185,9 +187,13 @@ class FormEvents extends Component {
                   id="message"
                 />
               </div>
-              <br/>
+              <br />
               <div className="form-row d-flex justify-content-center">
-                <button type="button" onClick={this.handleClick} className="btn boton-celeste">
+                <button
+                  type="button"
+                  onClick={this.handleClick}
+                  className="btn boton-celeste"
+                >
                   Publicar
                 </button>
               </div>
