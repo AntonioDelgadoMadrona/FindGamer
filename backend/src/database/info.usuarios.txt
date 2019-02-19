@@ -1,0 +1,203 @@
+/* 1 */
+{
+    "_id" : ObjectId("5c5f4d2b310eaf1330ddbd05"),
+    "puntuacion" : [ 
+        2, 
+        5, 
+        1
+    ],
+    "amigos" : [ 
+        "5c6499b7492bf012dc9826ac", 
+        "5c649b81492bf012dc9826ad"
+    ],
+    "j_completados" : [ 
+        {
+            "juego" : "Red Dead Redemption 2",
+            "valoracion" : "95",
+            "f_completado" : ISODate("2019-02-09T22:19:20.318Z")
+        }, 
+        {
+            "juego" : "The Witcher 3",
+            "valoracion" : "93",
+            "f_completado" : ISODate("2019-02-09T22:20:35.665Z")
+        }, 
+        {
+            "juego" : "FarCry 4",
+            "valoracion" : "76",
+            "f_completado" : ISODate("2019-02-09T22:21:43.874Z")
+        }, 
+        {
+            "juego" : "Outlast2",
+            "valoracion" : "78",
+            "f_completado" : ISODate("2019-02-09T22:22:15.666Z")
+        }, 
+        {
+            "juego" : 2933,
+            "f_completado" : ISODate("2019-02-17T21:38:49.307Z")
+        }
+    ],
+    "j_proximos" : [ 
+        "Fifa 20", 
+        "Assasins Creed Origins", 
+        "Halo", 
+        "Resident Evil 2", 
+        "Kingdom Hearts III"
+    ],
+    "j_jugando" : [ 
+        "Kingdom Hearts 3", 
+        "Fifa 19", 
+        "Anthem", 
+        "Los Sims 5", 
+        "Resident Evil 2"
+    ],
+    "nombre" : "Antonio",
+    "apellidos" : "Delgado Madrona",
+    "nombre_usuario" : "Madrona5",
+    "plataforma_fav" : "Xbox One",
+    "pais" : "España",
+    "ciudad" : "Málaga",
+    "email" : "antonio_dm93@hotmail.com",
+    "password" : "$2a$10$aDhxqQ7GDMzVm4jfDpI8zOZjgHVqeqaKSrZX.GbVbDZaLxjxY39/y",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "Red Dead Redemption 2",
+    "fecha_registro" : ISODate("2019-02-09T21:59:07.965Z"),
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c6499b7492bf012dc9826ac"),
+    "puntuacion" : [ 
+        2
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Alberto",
+    "apellidos" : "Delgado Madrona",
+    "nombre_usuario" : "Albertar10",
+    "plataforma_fav" : "PS4",
+    "pais" : "España",
+    "ciudad" : "Málaga",
+    "email" : "albertar@hotmail.com",
+    "password" : "$2a$10$4k4lUVrdOcRP/ZYNifkUl.uBbqy9QeDHur5aWGXiojwuuad5BPjtS",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-13T22:27:03.386Z"),
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5c649b81492bf012dc9826ad"),
+    "puntuacion" : [ 
+        2
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Juan",
+    "apellidos" : "Veinte tres",
+    "nombre_usuario" : "Juanito23",
+    "plataforma_fav" : "Nintendo Switch",
+    "pais" : "Argentina",
+    "ciudad" : "Buenos Aires",
+    "email" : "juanito@hotmail.com",
+    "password" : "$2a$10$XLTaVL6/f9XTaGJt4ggQKO6DLID0FGdA.89W/l8/MpkgFvPlzy7nK",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-13T22:34:41.045Z"),
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5c69e8e2def61e0d88bfefa7"),
+    "puntuacion" : [ 
+        2
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Jose",
+    "apellidos" : "Galvez Fernandez",
+    "nombre_usuario" : "Galfer",
+    "plataforma_fav" : "PS4",
+    "pais" : "España",
+    "ciudad" : "Málaga",
+    "email" : "galfer@hotmail.com",
+    "password" : "$2a$10$J4zEBChJEca4UWggNVgnSeAb0WTqwAviYDIDXrXyxOA/sosGXzZaC",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-17T23:06:10.277Z"),
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5c6b27a8d74aba12b83797e9"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [ 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "j_completados" : [],
+    "j_proximos" : [ 
+        "Ace Combat 7: Skies Unknown"
+    ],
+    "j_jugando" : [ 
+        "Metro Exodus"
+    ],
+    "nombre" : "Fernando",
+    "apellidos" : "Laborda Moreno",
+    "nombre_usuario" : "Laborda23",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Barcelona",
+    "email" : "fernando@hotmail.com",
+    "password" : "$2a$10$S6rQG6Sp6SQvB0sUzcWMT.TzmXsnB1jYw.a/xPflF1oH69/iNxtzm",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-18T21:46:16.481Z"),
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5c6b4e1b9447771530afe051"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Alejandro",
+    "apellidos" : "Benitez Bueno",
+    "nombre_usuario" : "AlexBenbue",
+    "plataforma_fav" : "Nintendo Switch",
+    "pais" : "España",
+    "ciudad" : "Cadiz",
+    "email" : "alex@hotmail.com",
+    "password" : "$2a$10$admuYQHswNgAZEfwJykNM.P44EDLBFjcEfb0L4GC1oZkCP86LuhDC",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-19T00:30:19.682Z"),
+    "__v" : 0
+}

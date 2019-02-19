@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-
 
 import FormTimeline from "../FormTimeline/FormTimeline";
 import Comment from "../Comment/Comment";
@@ -28,16 +27,16 @@ class Timeline extends Component {
     axios
       .get("http://localhost:3001/timeline/getall")
       .then(response => {
-        console.log(response.data.reverse())
-        this.setState({ data: response.data.reverse() });
+        console.log(response.data);
+        // this.setState({ data: response.data.reverse() });
       })
       .catch(err => {
         console.log(err);
       });
-      let token = localStorage.getItem('token');
-      this.setState({
-        token: token
-      });
+    // let token = localStorage.getItem("token");
+    // this.setState({
+    //   token: token
+    // });
   }
 
   newMessage = message => {
@@ -49,8 +48,17 @@ class Timeline extends Component {
 
   render() {
     let formTimeline = null;
-    if(this.state.token) {
-      formTimeline = <FormTimeline newMessage={this.newMessage} />
+    let moreInfo = false;
+    let alert = null;
+    if (this.state.token) {
+      formTimeline = <FormTimeline newMessage={this.newMessage} />;
+      moreInfo = true;
+    } else {
+      alert = (
+        <Alert variant="warning">
+          Debes iniciar sesion para interactuar con los mensajes
+        </Alert>
+      );
     }
     return (
       <Col xs={12} lg={8} xl={9}>
@@ -59,12 +67,15 @@ class Timeline extends Component {
             <h4 className="titulo-h4">MENSAJES DE LA COMUNIDAD</h4>
           </Col>
         </Row>
-
+        {alert}
         <Row className="d-flex justify-content-center">
-              {formTimeline}
+          {formTimeline}
+
           <Container className="timeline">
             {this.state.data.map((m, i) => {
-              return <CommunityTimelineMessage m={m} key={i} />;
+              return (
+                <CommunityTimelineMessage moreInfo={moreInfo} m={m} key={i} />
+              );
             })}
 
             {/* MENSAJE IMAGENES */}

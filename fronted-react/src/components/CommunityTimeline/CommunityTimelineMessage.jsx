@@ -82,10 +82,29 @@ class CommunityTimelineMessage extends React.Component {
   };
 
   render() {
-    console.log(this.props.m.usuario);
     let date = moment
       .utc(this.props.m.f_publicacion)
       .format("DD/MM/YYYY, HH:mm");
+
+    let comment = null;
+    let like = null;
+    if (this.props.moreInfo) {
+      comment = <Comment messageID={this.props.m._id} />;
+      like = (
+        <Col>
+          <FontAwesomeIcon
+            icon={faThumbsUp}
+            onClick={() => this.updateLike(this.props.m._id)}
+            className={`fa-lg cursor mr-md-3 ${
+              this.state.isLiked ? "like" : "text-muted"
+            }`}
+          />
+          <small>
+            {this.props.m.likes.length + (this.state.isLiked ? 1 : 0)} likes
+          </small>
+        </Col>
+      );
+    }
     return (
       <Col xs="12" className="mensaje-timeline">
         <Row className="p-2 mensaje-cuerpo">
@@ -110,21 +129,14 @@ class CommunityTimelineMessage extends React.Component {
             </div>
           </Col>
         </Row>
+        <Row className="text-right">{like}</Row>
         <Row className="text-right">
-          <Col>
-            <FontAwesomeIcon
-              icon={faThumbsUp}
-              onClick={() => this.updateLike(this.props.m._id)}
-              className={`fa-lg cursor mr-md-3 ${
-                this.state.isLiked ? "like" : "text-muted"
-              }`}
-            />
-            <small>
-              {this.props.m.likes.length + (this.state.isLiked ? 1 : 0)} likes
-            </small>
-          </Col>
+        
+          {this.props.m.comentarios.map((e, i) => {
+            return <Col xs="10" key={i} >{e.comentario}</Col>;
+          })}
         </Row>
-        <Comment />
+        {comment}
       </Col>
     );
   }

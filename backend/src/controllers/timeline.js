@@ -1,3 +1,7 @@
+const service = require("../takens");
+const jwt = require('jwt-simple');
+const config = require('../config.taken');
+
 const timelineModel = require("../models/timeline");
 const usuarioModel = require("../models/users");
 
@@ -7,7 +11,7 @@ var controller = {
     const token = req.headers.authorization.split(" ")[1];
     const payload = jwt.decode(token, config.TOKEN_SECRET);
     let userID = payload.sub;
-    console.log(req.body);
+    // console.log(req.body);
     let timeline = new timelineModel();
 
     timeline.usuario = userID;
@@ -45,12 +49,12 @@ var controller = {
     const token = req.headers.authorization.split(" ")[1];
     const payload = jwt.decode(token, config.TOKEN_SECRET);
     let userID = payload.sub;
-    let messageID = req.body.id;
+    let messageID = req.body.messageID;
     let update = {
       $push: {
         comentarios: {
           usuario: userID,
-          comentario: req.body.comentario,
+          comentario: req.body.comment,
           f_comentario: new Date()
         }
       }
@@ -127,7 +131,7 @@ var controller = {
         if (err) {
           res.send(err);
         } else {
-          console.log(result);
+          // console.log(result);
           res.status(200).send(result);
         }
       });

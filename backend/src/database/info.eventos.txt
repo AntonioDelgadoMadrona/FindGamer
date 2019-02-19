@@ -1,0 +1,64 @@
+/* 1 */
+{
+    "_id" : ObjectId("5c6889e30f1f0117647b9db6"),
+    "participantes" : [ 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "comentarios" : [],
+    "creador" : "5c5f4d2b310eaf1330ddbd05",
+    "juego" : "Fifa 19",
+    "plataforma" : "Xbox One",
+    "f_inicio" : ISODate("2019-02-17T00:00:00.000Z"),
+    "h_inicio" : "15:00",
+    "f_fin" : ISODate("2019-02-17T00:00:00.000Z"),
+    "h_fin" : "16:00",
+    "n_jugadores" : 2,
+    "puntuacion_min" : 4,
+    "mensaje" : "Estoy buscando 1 jugador para echar unas partidas al Fifa 19, sería para hacer un torneo de Fifa Ultimate Team",
+    "f_creacion" : ISODate("2019-02-16T22:08:35.464Z"),
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c689ddf35c1c218f8540887"),
+    "participantes" : [ 
+        "5c5f4d2b310eaf1330ddbd05", 
+        "5c6499b7492bf012dc9826ac"
+    ],
+    "comentarios" : [],
+    "creador" : "5c5f4d2b310eaf1330ddbd05",
+    "juego" : "Fortnite",
+    "plataforma" : "PS4",
+    "f_inicio" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_inicio" : "18:00",
+    "f_fin" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_fin" : "19:00",
+    "n_jugadores" : 3,
+    "puntuacion_min" : 2,
+    "mensaje" : "Estoy buscando 2 jugagadores para formar una squad y que matemos a todos los que pillemos",
+    "f_creacion" : ISODate("2019-02-16T23:33:51.763Z"),
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5c69a803f2a75a154ce1b22b"),
+    "participantes" : [ 
+        "5c5f4d2b310eaf1330ddbd05", 
+        "5c6499b7492bf012dc9826ac"
+    ],
+    "comentarios" : [],
+    "creador" : "5c5f4d2b310eaf1330ddbd05",
+    "juego" : "Apex Legends",
+    "plataforma" : "PS4",
+    "f_inicio" : ISODate("2019-02-17T00:00:00.000Z"),
+    "h_inicio" : "20:00",
+    "f_fin" : ISODate("2019-02-17T00:00:00.000Z"),
+    "h_fin" : "22:00",
+    "n_jugadores" : 3,
+    "puntuacion_min" : 3,
+    "mensaje" : "Busco dos jugadores para jugar al torneo de esta tarde",
+    "f_creacion" : ISODate("2019-02-17T18:29:23.278Z"),
+    "__v" : 0
+}

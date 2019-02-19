@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import axios from "axios";
+
 import Modal from "../Modal/Modal";
+import HeaderUser from "../HeaderUser/HeaderUser";
 
 import "./Header.css";
 import { Container, Row, Col, Nav } from "react-bootstrap";
@@ -10,6 +13,33 @@ import logo from "../../img/findgamer2.png";
 //import img_perfil from '../../img/foto-perfil1.jpg';
 
 class Header extends Component {
+
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     token: null
+  //   }
+  // }
+
+  // componentDidMount() {
+  //   let token = localStorage.getItem("token");
+  //   if (token) {
+  //     axios
+  //       .get("http://localhost:3001/user/getinfo")
+  //       .then(response => {
+  //         console.log(response.data.reverse());
+  //         this.setState({ data: response.data.reverse() });
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+
+  //     this.setState({
+  //       token: token
+  //     });
+  //   }
+  // }
+
   render() {
     return (
       <header>
@@ -56,9 +86,7 @@ class Header extends Component {
               className="d-flex menu offset-1 align-items-center"
             >
               <Modal />
-              {/*<NavLink href="#" className="imagen">
-                <img src={img_perfil} className="imagen_perfil_header" alt=""></img>
-              </NavLink>*/}
+              {/* <HeaderUser /> */}
             </Col>
           </Row>
         </Container>

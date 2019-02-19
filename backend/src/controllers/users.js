@@ -1,7 +1,7 @@
 const usuariosModel = require("../models/users");
 const service = require("../takens");
-const jwt = require('jwt-simple');
-const config = require('../config.taken');
+const jwt = require("jwt-simple");
+const config = require("../config.taken");
 
 var bcrypt = require("bcrypt-nodejs");
 
@@ -93,41 +93,41 @@ var controller = {
 
   //INICIAR SESION
   loginUser: (req, res) => {
-    console.log(req.body)
-    // usuariosModel.find(
-    //   {
-    //     email: req.body.email
-    //   },
-    //   (err, result) => {
-    //     if (err) {
-    //       res.send(err);
-    //     } else {
-    //       if (result == "") {
-    //         return res.send("Email no valido");
-    //       } else {
-    //         bcrypt.compare(req.body.password, result[0].password, function(
-    //           err,
-    //           iguales
-    //         ) {
-    //           if (err) {
-    //             return res.send(err);
-    //           } else {
-    //             if (iguales) {
-    //               let user = {
-    //                 id: result[0]._id
-    //               };
-    //               return res
-    //                 .status(200)
-    //                 .send({ token: service(user), ...user });
-    //             } else {
-    //               return res.status(500).send("La contraseña no es correcta");
-    //             }
-    //           }
-    //         });
-    //       }
-    //     }
-    //   }
-    // );
+    console.log(req.body);
+    usuariosModel.find(
+      {
+        email: req.body.email
+      },
+      (err, result) => {
+        if (err) {
+          res.send(err);
+        } else {
+          if (result == "") {
+            return res.send("Email no valido");
+          } else {
+            bcrypt.compare(req.body.password, result[0].password, function(
+              err,
+              iguales
+            ) {
+              if (err) {
+                return res.send(err);
+              } else {
+                if (iguales) {
+                  let user = {
+                    id: result[0]._id
+                  };
+                  return res
+                    .status(200)
+                    .send({ token: service(user), ...user });
+                } else {
+                  return res.status(500).send("La contraseña no es correcta");
+                }
+              }
+            });
+          }
+        }
+      }
+    );
   },
 
   // CERRAR SESION
@@ -160,21 +160,22 @@ var controller = {
 
   // AÑADIR AMIGOS
   addFriend: function(req, res) {
-    // console.log(req.body);
-    // let userId = req.body.id;
-    // let update = {
-    //   $push: {
-    //     amigos: req.body.email_friend
-    //   }
-    // };
-    // usuariosModel.findByIdAndUpdate(userId, update, (err, result) => {
-    //   if (err) {
-    //     res.send(err);
-    //   } else {
-    //     // console.log(result);
-    //     res.status(200).send(result);
-    //   }
-    // });
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
+    let update = {
+      $push: {
+        amigos: req.body.friendID
+      }
+    };
+    usuariosModel.findByIdAndUpdate(userID, update, (err, result) => {
+      if (err) {
+        res.send(err);
+      } else {
+        // console.log(result);
+        res.status(200).send(result);
+      }
+    });
   },
 
   // JUEGO FAVORITO

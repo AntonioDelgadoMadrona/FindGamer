@@ -48,7 +48,7 @@ class HomeExpectedGames extends Component {
     let columns = [];
     let items = [];
     this.state.data.map((e, i) => {
-      if (e.platforms) {
+      if (e.platforms && e.cover) {
         if (i !== 0 && i % 4 === 0) {
           items.push(
             <Carousel.Item className="carousel-item" key={i}>
@@ -69,30 +69,6 @@ class HomeExpectedGames extends Component {
                     />
                     <div className="texto-juego-esperado">
                       <p>{e.name}</p>
-                      <p>
-                        {e.platforms.map((g, l) => {
-                          switch (g.name) {
-                            case "PC (Microsoft Windows)":
-                              g.name = "PC";
-                              break;
-                            case "PlayStation 4":
-                              g.name = " - PS4";
-                              break;
-                            case "Xbox One":
-                              g.name = " - XboxOne";
-                              break;
-                            case "Nintendo Switch":
-                              g.name = " - Switch";
-                              break;
-                            case "":
-                              g.name = "PC - Xbox One";
-                              break;
-                            default:
-                              g.name = "";
-                          }
-                          return <span key={l}>{g.name}</span>;
-                        })}
-                      </p>
                     </div>
                   </Link>
                 </div>
@@ -113,30 +89,6 @@ class HomeExpectedGames extends Component {
                     />
                     <div className="texto-juego-esperado">
                       <p>{e.name}</p>
-                      <p>
-                        {e.platforms.map((g, l) => {
-                          switch (g.name) {
-                            case "PC (Microsoft Windows)":
-                              g.name = "PC";
-                              break;
-                            case "PlayStation 4":
-                              g.name = " - PS4";
-                              break;
-                            case "Xbox One":
-                              g.name = " - XboxOne";
-                              break;
-                            case "Nintendo Switch":
-                              g.name = " - Switch";
-                              break;
-                            case "":
-                              g.name = "PC - Xbox One";
-                              break;
-                            default:
-                              g.name = "";
-                          }
-                          return <span key={l}>{g.name}</span>;
-                        })}
-                      </p>
                     </div>
                   </Link>
                 </div>
@@ -145,8 +97,7 @@ class HomeExpectedGames extends Component {
           );
         }
       }
-
-      return({items})
+      return { items };
     });
 
     return (

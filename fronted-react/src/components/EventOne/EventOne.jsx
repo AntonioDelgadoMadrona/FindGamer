@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -52,8 +52,17 @@ class EventOne extends Component {
 
   render() {
     let formEvents = null;
+    let comment = null;
+    let alert = null;
     if (this.state.token) {
       formEvents = <FormEvents newEvent={this.newEvent} />;
+      comment = <Comment />;
+    } else {
+      alert = (
+        <Alert variant="warning">
+          Debes iniciar sesion para interactuar con los eventos
+        </Alert>
+      );
     }
 
     return (
@@ -63,9 +72,9 @@ class EventOne extends Component {
             <h4 className="titulo-h4">EVENTOS PUBLICADOS</h4>
           </Col>
         </Row>
-
+        {alert}
         <Row className="d-flex justify-content-center">
-        {formEvents}
+          {formEvents}
           {this.state.data.map((m, i) => {
             let date = moment.utc(m.f_publicacion).format("DD/MM/YYYY, HH:mm");
 
@@ -82,6 +91,20 @@ class EventOne extends Component {
                     i < m.puntuacion_min ? "warning" : "muted"
                   } fa-lg`}
                 />
+              );
+            }
+            let moreInfo = null;
+            if (this.state.token) {
+              moreInfo = (
+                <Row className="mb-1 text-center">
+                  <Col>
+                    <Link to={`/events/${m._id}`}>
+                      <button type="button" className="btn bg-warning">
+                        <strong>+ info</strong>
+                      </button>
+                    </Link>
+                  </Col>
+                </Row>
               );
             }
             return (
@@ -171,17 +194,8 @@ class EventOne extends Component {
                       </Row>
                     </Col>
                   </Row>
-                  <Row className="mb-1 text-center">
-                    <Col>
-                      <Link to={`/events/${m._id}`}>
-                        <button type="button" className="btn bg-warning">
-                          <strong>+ info</strong>
-                        </button>
-                      </Link>
-                    </Col>
-                  </Row>
-
-                  <Comment />
+                  {moreInfo}
+                  {comment}
                 </Col>
               </Container>
             );

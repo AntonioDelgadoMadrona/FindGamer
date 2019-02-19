@@ -1,0 +1,43 @@
+/* 1 */
+{
+    "_id" : ObjectId("5c699541122c860558d11fff"),
+    "comentarios" : [],
+    "likes" : [ 
+        {
+            "usuario" : null,
+            "f_like" : ISODate("2019-02-17T17:32:39.071Z")
+        }
+    ],
+    "usuario" : "5c5f4d2b310eaf1330ddbd05",
+    "mensaje" : "Bienvenido Albertar10, yo precisamente soy de Xbox One y llevo tiempo buscando gamers",
+    "f_publicacion" : ISODate("2019-02-17T17:09:21.200Z"),
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c699596122c860558d12000"),
+    "comentarios" : [ 
+        {
+            "usuario" : "5c6b4e1b9447771530afe051",
+            "comentario" : "Venga te agrego",
+            "f_comentario" : ISODate("2019-02-19T02:01:03.420Z")
+        }
+    ],
+    "likes" : [],
+    "usuario" : "5c6499b7492bf012dc9826ac",
+    "mensaje" : "Perfecto Madrona5, agregame en la xbox y  jugamos unas partidas al Fifa 19",
+    "f_publicacion" : ISODate("2019-02-17T17:10:46.040Z"),
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5c6b28892f56240e90765338"),
+    "comentarios" : [],
+    "likes" : [],
+    "usuario" : "5c6b27a8d74aba12b83797e9",
+    "mensaje" : "Hola findgamers mi nombre es Fernando y soy nuevo en la comunidad, encantado de formar parte",
+    "f_publicacion" : ISODate("2019-02-18T21:50:01.435Z"),
+    "__v" : 0
+}

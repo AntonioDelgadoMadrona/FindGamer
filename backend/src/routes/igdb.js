@@ -63,7 +63,7 @@ app.get("/lastgames", function(req, res) {
       "user-key": API_KEY
     },
     data:
-      "fields name,cover.image_id,genres.name,platforms.name,release_dates.date;where themes != 42 & popularity > 50;sort release_dates.date desc;limit 12;"
+      "fields name,cover.image_id,genres.name,platforms.name,release_dates.date;where themes != 42 & popularity > 100;sort first_release_date desc;limit 16;"
   })
     .then(response => {
       //   console.log(response.data)
@@ -107,7 +107,7 @@ app.get("/news", (req, res) => {
         'Accept': 'application/json',
         'user-key': API_KEY
     },
-    data: "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;where created_at > 15440718528010;sort created_at desc;limit 12;"
+    data: "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;sort created_at desc;limit 16;"
   })
     .then(response => {
         // console.log(response.data);

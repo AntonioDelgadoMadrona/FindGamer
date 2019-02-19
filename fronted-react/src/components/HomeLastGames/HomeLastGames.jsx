@@ -68,7 +68,7 @@ class HomeLastgames extends Component {
                   />
                   <div className="texto-juego">
                     <p>{e.name}</p>
-                    <p>
+                    {/* <p>
                       {e.platforms.map((f, k) => {
                         switch (f.name) {
                           case "PC (Microsoft Windows)":
@@ -95,7 +95,7 @@ class HomeLastgames extends Component {
                           </span>
                         );
                       })}
-                    </p>
+                    </p> */}
                   </div>
                 </Link>
               </div>
@@ -116,7 +116,7 @@ class HomeLastgames extends Component {
                   />
                   <div className="texto-juego">
                     <p>{e.name}</p>
-                    <p>
+                    {/* <p>
                       {e.platforms.map((g, l) => {
                         switch (g.name) {
                           case "PC (Microsoft Windows)":
@@ -139,7 +139,7 @@ class HomeLastgames extends Component {
                         }
                         return <span key={l}>{g.name}</span>;
                       })}
-                    </p>
+                    </p> */}
                   </div>
                 </Link>
               </div>
@@ -155,7 +155,7 @@ class HomeLastgames extends Component {
       <Container className="hijo py-0">
         <Row>
           <Col>
-            <h4 className="titulo-h4">ULTIMOS JUEGOS PUBLICADOS</h4>
+            <h4 className="titulo-h4">ULTIMAS PUBLICACIONES</h4>
           </Col>
         </Row>
         <Carousel

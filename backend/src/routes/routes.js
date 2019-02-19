@@ -7,6 +7,7 @@ var UserController = require("../controllers/users");
 var TimelineController = require("../controllers/timeline");
 var EventController = require("../controllers/eventos");
 
+// MIDDLEWARE TOKEN
 const auth = function(req, res, next) {
   if (!req.headers.authorization) {
     return res.status(403).send({ alert: 'No tienes autorizacion'})

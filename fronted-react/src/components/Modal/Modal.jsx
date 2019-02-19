@@ -10,16 +10,16 @@ class FormModal extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-
     this.state = {
       show: false,
-      user: {
-        email: null,
-        password: null
-      }
+      email: null,
+      password: null
     };
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClose() {
@@ -31,20 +31,21 @@ class FormModal extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({
-      user: {
         [event.target.id]: event.target.value
-      }
     });
   }
 
   handleClick() {
-    let user = this.state.user;
+    let user = this.state;
     axios
       .post("http://localhost:3001/user/login", user)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
+        let id = response.data.id;
+        localStorage.setItem('token', response.data.token)
+        this.setState({ show: false})
+        this.props.history.push("/user/" + id);
       })
       .catch(error => {
         console.log(error);

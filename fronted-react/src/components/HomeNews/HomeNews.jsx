@@ -45,7 +45,7 @@ class HomeNews extends Component {
     let items = [];
     this.state.data.map((e, i) => {
 
-      let date = moment.utc(e.updated_at).format("DD/MM/YYYY");
+      // let date = moment.utc(e.updated_at).format("DD/MM/YYYY");
       if (e.image) {
         if (i !== 0 && i % 4 === 0) {
           items.push(
@@ -67,9 +67,9 @@ class HomeNews extends Component {
                     />
                     <div className="overlay">
                       <small>{e.title}</small>
-                      <div className="d-flex justify-content-end">
+                      {/* <div className="d-flex justify-content-end">
                         <small className="text-muted texto-noticia">{date}</small>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </a>
@@ -90,9 +90,9 @@ class HomeNews extends Component {
                     />
                     <div className="overlay">
                       <small className="text">{e.title}</small>
-                      <div className="d-flex justify-content-end">
+                      {/* <div className="d-flex justify-content-end">
                         <small className="text-muted texto-noticia">{date}</small>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </a>
@@ -122,7 +122,7 @@ class HomeNews extends Component {
           indicators={null}
           fade={true}
           activeIndex={index}
-          interval={7000}
+          interval={10000}
           direction={direction}
           onSelect={this.handleSelect}
         >

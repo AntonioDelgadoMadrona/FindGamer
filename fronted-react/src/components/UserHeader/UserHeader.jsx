@@ -12,12 +12,19 @@ import "./UserHeader.css";
 import portada from "../../img/fondo-pantalla.jpg";
 import foto from "../../img/foto-perfil1.jpg";
 
-let userID = "5c5f4d2b310eaf1330ddbd05";
-
 class UserHeader extends Component {
   addFriend(friendID) {
+    let token = localStorage.getItem("token");
     axios
-      .post("http://localhost:3001/user/addfriend", { userID, friendID })
+      .post(
+        "http://localhost:3001/user/addfriend",
+        { friendID },
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }
+      )
       .then(response => {
         console.log(response.data);
       })
