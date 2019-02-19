@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 
 
-class ModalImageProfile extends React.Component {
+class ModalImageProfile extends Component {
   constructor(props, context) {
     super(props, context);
 

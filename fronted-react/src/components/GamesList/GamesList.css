@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.fila-lista-juegos {
+  min-height: 400px;
+}
+
 .imagen-juego-lista {
   max-height: 100px;
   width: 100%;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -116,4 +116,4 @@ class UserFooter2 extends Component {
   }
 }
 
-export default UserFooter2;
+export default withRouter(UserFooter2);

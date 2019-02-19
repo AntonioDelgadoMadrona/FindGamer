@@ -130,12 +130,11 @@ class CommunityTimelineMessage extends React.Component {
           </Col>
         </Row>
         <Row className="text-right">{like}</Row>
-        <Row className="text-right">
-        
+        {/* <Row className="text-right">
           {this.props.m.comentarios.map((e, i) => {
             return <Col xs="10" key={i} >{e.comentario}</Col>;
           })}
-        </Row>
+        </Row> */}
         {comment}
       </Col>
     );

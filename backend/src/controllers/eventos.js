@@ -1,3 +1,6 @@
+const jwt = require('jwt-simple');
+const config = require('../config.taken');
+
 const eventosModel = require("../models/eventos");
 const usuarioModel = require("../models/users");
 

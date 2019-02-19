@@ -34,6 +34,10 @@
         {
             "juego" : 2933,
             "f_completado" : ISODate("2019-02-17T21:38:49.307Z")
+        }, 
+        {
+            "juego" : 27081,
+            "f_completado" : ISODate("2019-02-19T15:10:46.555Z")
         }
     ],
     "j_proximos" : [ 
@@ -41,7 +45,8 @@
         "Assasins Creed Origins", 
         "Halo", 
         "Resident Evil 2", 
-        "Kingdom Hearts III"
+        "Kingdom Hearts III", 
+        "Spyro Reignited Trilogy"
     ],
     "j_jugando" : [ 
         "Kingdom Hearts 3", 
@@ -199,5 +204,31 @@
     "permiso" : "usuario",
     "juego_fav" : "",
     "fecha_registro" : ISODate("2019-02-19T00:30:19.682Z"),
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5c6c1ceaf85b442a845d7522"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Antonio",
+    "apellidos" : "Parra",
+    "nombre_usuario" : "AJPaharo",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Málaga",
+    "email" : "parra@hotmail.com",
+    "password" : "$2a$10$F8rnsILBYCVE91A2VgHspO.KZf19DpbAf30gQ//sOdyLvZxNj.ik.",
+    "imagen_perfil" : "",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-19T15:12:42.037Z"),
     "__v" : 0
 }

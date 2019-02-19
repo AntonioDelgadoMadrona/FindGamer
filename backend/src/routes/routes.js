@@ -64,7 +64,10 @@ app.get("/user/getall", UserController.getAll);
 // MOSTRAR JUGADORES CON MAS PUNTUACION
 app.get("/user/getreco", UserController.getRecommended);
 
-// MOSTRAR TODA LA INFO DE MI USUARIO
+// MOSTRAR TODA LA INFO DE MI USUARIO(TOKEN)
+app.get("/user/getmyuser", UserController.getMyUser);
+
+// MOSTRAR TODA LA INFO DE UN USUARIO
 app.get("/user/getinfo", UserController.getInfo);
 
 // AÑADIR PUNTUACION USUARIO

@@ -34,10 +34,41 @@
 /* 3 */
 {
     "_id" : ObjectId("5c6b28892f56240e90765338"),
-    "comentarios" : [],
-    "likes" : [],
+    "comentarios" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "comentario" : "asdfasdf",
+            "f_comentario" : ISODate("2019-02-19T11:39:08.943Z")
+        }
+    ],
+    "likes" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-19T09:43:52.748Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-19T16:37:23.047Z")
+        }
+    ],
     "usuario" : "5c6b27a8d74aba12b83797e9",
     "mensaje" : "Hola findgamers mi nombre es Fernando y soy nuevo en la comunidad, encantado de formar parte",
     "f_publicacion" : ISODate("2019-02-18T21:50:01.435Z"),
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5c6c5479b69d3b34f00da76b"),
+    "comentarios" : [],
+    "likes" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-19T19:09:55.958Z")
+        }
+    ],
+    "usuario" : "5c5f4d2b310eaf1330ddbd05",
+    "mensaje" : "Heyy os funciona Fortnite? Me dice que los servidores estan caidos",
+    "f_publicacion" : ISODate("2019-02-19T19:09:45.074Z"),
     "__v" : 0
 }

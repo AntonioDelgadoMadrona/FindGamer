@@ -62,3 +62,24 @@
     "f_creacion" : ISODate("2019-02-17T18:29:23.278Z"),
     "__v" : 0
 }
+
+/* 4 */
+{
+    "_id" : ObjectId("5c6c554e12e00136c047abad"),
+    "participantes" : [ 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "comentarios" : [],
+    "creador" : "5c5f4d2b310eaf1330ddbd05",
+    "juego" : "Mario Karts",
+    "plataforma" : "Nintendo Switch",
+    "f_inicio" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_inicio" : "10:00",
+    "f_fin" : ISODate("2019-02-23T00:00:00.000Z"),
+    "h_fin" : "12:00",
+    "n_jugadores" : 4,
+    "puntuacion_min" : 2,
+    "mensaje" : "Busco tres jugadores para echar unas partiditas al Mario karts, alguien se anima?",
+    "f_creacion" : ISODate("2019-02-19T19:13:18.881Z"),
+    "__v" : 0
+}

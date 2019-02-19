@@ -34,6 +34,33 @@ class UserHeader extends Component {
   }
 
   render() {
+    let leftButton = (
+      <button
+        type="button"
+        className="btn btn-success"
+        onClick={() => {
+          this.addFriend(this.props.id);
+        }}
+      >
+        Añadir amigo
+      </button>
+    );
+
+    let rightButton = (
+      <button type="button" className="btn boton-celeste">
+        Mensaje
+      </button>
+    );
+
+    if (!this.props.anotherUser) {
+      leftButton = (
+        <button type="button" className="btn btn-success">
+          Editar perfil
+        </button>
+      );
+      rightButton = <ModalImageProfile />;
+    }
+
     let suma = 0;
     const starsRender = [];
     if (this.props.rating) {
@@ -69,21 +96,10 @@ class UserHeader extends Component {
         </Row>
         <Row className="mensaje-seguir">
           <Col xs={5} className="text-center">
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={() => {
-                this.addFriend(this.props.id);
-              }}
-            >
-              Añadir amigo
-            </button>
+            {leftButton}
           </Col>
           <Col xs={5} className="text-right">
-            {/* <button type="button" className="btn boton-celeste">
-              Mensaje
-            </button> */}
-            <ModalImageProfile />
+            {rightButton}
           </Col>
         </Row>
         <Row>

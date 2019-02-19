@@ -5,8 +5,32 @@ var app = require("../app");
 // var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
 var API_KEY = "415fe0b9204132522e64181ccd609ac0";
 
-// BUSCADOR DE JUEGOS
-app.get("/games/search", function(req, res) {
+// BUSCADOR DE JUEGOS(POR PLATAFORMA)
+app.get("/games/search/platforms:id", function(req, res) {
+  // console.log(req.params.id)
+  let platform = req.params.id;
+  axios({
+    url: "https://api-v3.igdb.com/games",
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "user-key": API_KEY
+    },
+    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating,genres.name;where rating > 80 & platforms = ${platform};sort first_release_date desc;limit 20;`
+  })
+    .then(response => {
+      console.log(response.data);
+      res.status(200).send(response.data);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+});
+
+// BUSQUEDA POR NOMBRE
+app.get("/games/search:name", function(req, res) {
+  // console.log(req.params.name);
+  let game = req.params.name;
   axios({
     url: "https://api-v3.igdb.com/games",
     method: "POST",
@@ -15,7 +39,7 @@ app.get("/games/search", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating,genres.name;where popularity > 200;sort rating desc; limit 30;`
+    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating; search "${game}";`
   })
     .then(response => {
       // console.log(response.data);
@@ -102,20 +126,21 @@ app.get("/hypegames", function(req, res) {
 app.get("/news", (req, res) => {
   axios({
     url: "https://api-v3.igdb.com/pulses",
-    method: 'POST',
+    method: "POST",
     headers: {
-        'Accept': 'application/json',
-        'user-key': API_KEY
+      Accept: "application/json",
+      "user-key": API_KEY
     },
-    data: "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;sort created_at desc;limit 16;"
+    data:
+      "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;sort created_at desc;limit 16;"
   })
     .then(response => {
-        // console.log(response.data);
-        res.status(200).send(response.data)
+      // console.log(response.data);
+      res.status(200).send(response.data);
     })
     .catch(err => {
-        console.error(err);
-        res.send(err)
+      console.error(err);
+      res.send(err);
     });
 });
 

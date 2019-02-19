@@ -28,15 +28,15 @@ class Timeline extends Component {
       .get("http://localhost:3001/timeline/getall")
       .then(response => {
         console.log(response.data);
-        // this.setState({ data: response.data.reverse() });
+        this.setState({ data: response.data.reverse() });
       })
       .catch(err => {
         console.log(err);
       });
-    // let token = localStorage.getItem("token");
-    // this.setState({
-    //   token: token
-    // });
+    let token = localStorage.getItem("token");
+    this.setState({
+      token: token
+    });
   }
 
   newMessage = message => {

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 
 import { ButtonToolbar, Overlay, Popover } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import img_perfil from "../../img/foto-perfil1.jpg";
 
@@ -16,6 +17,16 @@ class HeaderUser extends Component {
     this.state = {
       show: false
     };
+
+    this.deleteSession = this.deleteSession.bind(this);
+  }
+
+  deleteSession() {
+    localStorage.removeItem("token");
+    this.setState({
+      show: false
+    });
+    this.props.history.push("/home");
   }
 
   render() {
@@ -35,11 +46,14 @@ class HeaderUser extends Component {
           containerPadding={20}
         >
           <Popover id="popover-contained" title="Hola" placement="top-start">
-            <Link to={`/user/${"hola"}`}>
+            <Link
+              to={`/user/${this.props.infoUser._id}`}
+              onClick={this.handleClick}
+            >
               <h5 className="text-dark">Mi Perfil</h5>
             </Link>
 
-            <div>
+            <div onClick={this.deleteSession}>
               <p className="text-danger cursor">Cerrar sesion</p>
             </div>
           </Popover>
@@ -49,4 +63,4 @@ class HeaderUser extends Component {
   }
 }
 
-export default HeaderUser;
+export default withRouter(HeaderUser);

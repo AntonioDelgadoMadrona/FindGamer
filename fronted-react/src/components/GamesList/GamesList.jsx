@@ -13,24 +13,50 @@ const small = "t_720p/";
 const format = ".jpg";
 
 class GamesList extends Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      search: null
+    };
 
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleChange(e) {
+    // console.log(e.target.value);
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+    this.props.searchName(this.state.search)
+  }
+
+  handleClick() {
+    console.log(this.state.search)
+    this.props.searchName(this.state.search)
+
+  }
+
+  render() {
+    // console.log(this.props.listGames)
     return (
       <>
         <Container className="hijo">
           <Row className="text-right">
             <Col xs={12} md={5}>
-              <form
-                action=""
-                className="form-group input-group-sm form-inline align-items-center"
-              >
+              <form className="form-group input-group-sm form-inline align-items-center">
                 <input
                   type="text"
                   className="form-control mb-1"
-                  name=""
+                  id="search"
                   placeholder="¿Buscas algun juego?"
+                  onChange={this.handleChange}
                 />
-                <button type="submit" className="btn btn-sm boton-celeste ml-1">
+                <button
+                  type="button"
+                  onClick={this.handleClick}
+                  className="btn btn-sm boton-celeste ml-1"
+                >
                   Buscar
                 </button>
               </form>
@@ -99,7 +125,7 @@ class GamesList extends Component {
                         <p>
                           Plataformas:{" "}
                           {e.platforms.map((f, j) => {
-                            switch(f.name) {
+                            switch (f.name) {
                               case "PC (Microsoft Windows)":
                                 f.name = "PC";
                                 break;
@@ -115,7 +141,11 @@ class GamesList extends Component {
                               default:
                                 f.name = "";
                             }
-                            return <span className="celeste" key={j}>{f.name}</span>;
+                            return (
+                              <span className="celeste" key={j}>
+                                {f.name}
+                              </span>
+                            );
                           })}
                         </p>
                         <p>

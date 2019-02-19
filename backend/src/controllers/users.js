@@ -298,14 +298,35 @@ var controller = {
   },
 
   // MOSTRAR TODA LA INFO DE MI USUARIO(SEGUN EL CORREO DE LA SESION)
+  getMyUser: function(req, res) {
+    const token = req.headers.authorization.split(" ")[1];
+    const payload = jwt.decode(token, config.TOKEN_SECRET);
+    let userID = payload.sub;
+    usuariosModel.findById(userID, (err, result) => {
+      if (err) {
+        res.send(err);
+      } else {
+        // console.log(result);
+        res.status(200).send(result);
+      }
+    });
+  },
+
+  // MOSTRAR LA INFO DE UN USUARIO
   getInfo: function(req, res) {
+    let userID = null;
+    if (req.headers.authorization) {
+      const token = req.headers.authorization.split(" ")[1];
+      const payload = jwt.decode(token, config.TOKEN_SECRET);
+      userID = payload.sub;
+    }
     usuariosModel.find({ _id: req.query.userID }, (err, result) => {
       usuariosModel.populate(result, { path: "amigos" }, (err, result) => {
         if (err) {
           res.send(err);
         } else {
-          // console.log(result);
-          res.status(200).send(result);
+          console.log(result, userID);
+          res.status(200).send({ ...result, userID: userID });
         }
       });
     });

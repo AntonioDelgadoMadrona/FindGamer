@@ -1,4 +1,3 @@
-const service = require("../takens");
 const jwt = require('jwt-simple');
 const config = require('../config.taken');
 

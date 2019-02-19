@@ -12,6 +12,7 @@ class UserInfo extends Component {
     super(props);
 
     this.state = {
+      tokenID: null,
       id: null,
       first_name: null,
       last_name: null,
@@ -35,14 +36,23 @@ class UserInfo extends Component {
   componentDidMount() {
     // console.log(this.props.match.params)
     let userID = this.props.match.params.id;
+    let token = localStorage.getItem("token");
+    let headers;
+    if (token) {
+      headers = { Authorization: "Bearer " + token };
+    }
     axios
       .get("http://localhost:3001/user/getinfo", {
-        params: { userID }
+        params: { userID },
+        headers: {
+          ...headers
+        }
       })
       .then(response => {
-        // console.log(response.data[0])
+        console.log(response);
         const r = response.data[0];
         this.setState({
+          tokenID: response.data.userID,
           id: r._id,
           first_name: r.nombre,
           last_name: r.apellidos,
@@ -68,6 +78,11 @@ class UserInfo extends Component {
       });
   }
   render() {
+    let anotherUser = true;
+    if (this.state.tokenID === this.state.id) {
+      anotherUser = false;
+    }
+
     return (
       <Container className="padre">
         <UserHeader
@@ -76,6 +91,7 @@ class UserInfo extends Component {
           img_big={this.state.img_big}
           rating={this.state.rating}
           username={this.state.username}
+          anotherUser={anotherUser}
         />
         <Container className="hijo">
           <UserFooter1

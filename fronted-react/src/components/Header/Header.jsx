@@ -13,34 +13,42 @@ import logo from "../../img/findgamer2.png";
 //import img_perfil from '../../img/foto-perfil1.jpg';
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      token: null,
+      data: null
+    };
+  }
 
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     token: null
-  //   }
-  // }
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios
+        .get("http://localhost:3001/user/getmyuser", {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        })
+        .then(response => {
+          // console.log(response.data);
+          this.setState({ data: response.data });
+        })
+        .catch(err => {
+          console.log(err);
+        });
 
-  // componentDidMount() {
-  //   let token = localStorage.getItem("token");
-  //   if (token) {
-  //     axios
-  //       .get("http://localhost:3001/user/getinfo")
-  //       .then(response => {
-  //         console.log(response.data.reverse());
-  //         this.setState({ data: response.data.reverse() });
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       });
-
-  //     this.setState({
-  //       token: token
-  //     });
-  //   }
-  // }
+      this.setState({
+        token: token
+      });
+    }
+  }
 
   render() {
+    let modal = <Modal />;
+    if (this.state.data) {
+      modal = <HeaderUser infoUser={this.state.data} />;
+    }
     return (
       <header>
         <Container fluid>
@@ -85,8 +93,7 @@ class Header extends Component {
               md={1}
               className="d-flex menu offset-1 align-items-center"
             >
-              <Modal />
-              {/* <HeaderUser /> */}
+              {modal}
             </Col>
           </Row>
         </Container>
