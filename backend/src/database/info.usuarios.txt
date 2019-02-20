@@ -63,7 +63,7 @@
     "ciudad" : "Málaga",
     "email" : "antonio_dm93@hotmail.com",
     "password" : "$2a$10$aDhxqQ7GDMzVm4jfDpI8zOZjgHVqeqaKSrZX.GbVbDZaLxjxY39/y",
-    "imagen_perfil" : "",
+    "imagen_perfil" : "5c5f4d2b310eaf1330ddbd05-239.png",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "Red Dead Redemption 2",
@@ -89,7 +89,7 @@
     "ciudad" : "Málaga",
     "email" : "albertar@hotmail.com",
     "password" : "$2a$10$4k4lUVrdOcRP/ZYNifkUl.uBbqy9QeDHur5aWGXiojwuuad5BPjtS",
-    "imagen_perfil" : "",
+    "imagen_perfil" : "defaultImage.png",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -115,7 +115,7 @@
     "ciudad" : "Buenos Aires",
     "email" : "juanito@hotmail.com",
     "password" : "$2a$10$XLTaVL6/f9XTaGJt4ggQKO6DLID0FGdA.89W/l8/MpkgFvPlzy7nK",
-    "imagen_perfil" : "",
+    "imagen_perfil" : "defaultImage.png",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -141,7 +141,7 @@
     "ciudad" : "Málaga",
     "email" : "galfer@hotmail.com",
     "password" : "$2a$10$J4zEBChJEca4UWggNVgnSeAb0WTqwAviYDIDXrXyxOA/sosGXzZaC",
-    "imagen_perfil" : "",
+    "imagen_perfil" : "defaultImage.png",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -173,7 +173,7 @@
     "ciudad" : "Barcelona",
     "email" : "fernando@hotmail.com",
     "password" : "$2a$10$S6rQG6Sp6SQvB0sUzcWMT.TzmXsnB1jYw.a/xPflF1oH69/iNxtzm",
-    "imagen_perfil" : "",
+    "imagen_perfil" : "defaultImage.png",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -199,7 +199,7 @@
     "ciudad" : "Cadiz",
     "email" : "alex@hotmail.com",
     "password" : "$2a$10$admuYQHswNgAZEfwJykNM.P44EDLBFjcEfb0L4GC1oZkCP86LuhDC",
-    "imagen_perfil" : "",
+    "imagen_perfil" : "defaultImage.png",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -230,5 +230,57 @@
     "permiso" : "usuario",
     "juego_fav" : "",
     "fecha_registro" : ISODate("2019-02-19T15:12:42.037Z"),
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5c6d640a22fd730ff4edd496"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Vicente",
+    "apellidos" : "Martinez",
+    "nombre_usuario" : "Vicenterr",
+    "plataforma_fav" : "PS4",
+    "pais" : "España",
+    "ciudad" : "Huesca",
+    "email" : "vicente@hotmail.com",
+    "password" : "$2a$10$z8QBG1RevO0s767vCbdCvO3DQscx8NidZFepStfTMhR.VbWfO5cVe",
+    "imagen_perfil" : "5c6d640a22fd730ff4edd496-137.png",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-20T14:28:26.052Z"),
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5c6d771d84ac5f0e086c5c42"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Pepe",
+    "apellidos" : "Entero",
+    "nombre_usuario" : "Pepin87",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Gerona",
+    "email" : "pepe@hotmail.com",
+    "password" : "$2a$10$awQh/sZ1KlDBqpSr11ql0.IZl2HgAgAwkAs8P7MGNhv/nADaHKg8G",
+    "imagen_perfil" : "defaultImage.png",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-20T15:49:49.270Z"),
     "__v" : 0
 }

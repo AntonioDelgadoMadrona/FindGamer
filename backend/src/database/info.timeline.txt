@@ -59,16 +59,22 @@
 
 /* 4 */
 {
-    "_id" : ObjectId("5c6c5479b69d3b34f00da76b"),
+    "_id" : ObjectId("5c6d774584ac5f0e086c5c43"),
     "comentarios" : [],
-    "likes" : [ 
-        {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-19T19:09:55.958Z")
-        }
-    ],
-    "usuario" : "5c5f4d2b310eaf1330ddbd05",
-    "mensaje" : "Heyy os funciona Fortnite? Me dice que los servidores estan caidos",
-    "f_publicacion" : ISODate("2019-02-19T19:09:45.074Z"),
+    "likes" : [],
+    "usuario" : "5c6d771d84ac5f0e086c5c42",
+    "mensaje" : "Hola findgamers soy nuevo en la comunidad, agregarme como amigo",
+    "f_publicacion" : ISODate("2019-02-20T15:50:29.607Z"),
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5c6d777084ac5f0e086c5c44"),
+    "comentarios" : [],
+    "likes" : [],
+    "usuario" : "5c6d771d84ac5f0e086c5c42",
+    "mensaje" : "Me gusta jugar a Fifa y Fortnite",
+    "f_publicacion" : ISODate("2019-02-20T15:51:12.459Z"),
     "__v" : 0
 }

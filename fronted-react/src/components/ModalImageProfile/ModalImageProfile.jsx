@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import { withRouter } from "react-router-dom";
+
+import axios from "axios";
 
 import { Button, Modal } from "react-bootstrap";
-
 
 class ModalImageProfile extends Component {
   constructor(props, context) {
@@ -26,19 +27,29 @@ class ModalImageProfile extends Component {
   }
 
   fileSelectedHandler = event => {
-      this.setState({
-          selectedFile: event.target.files[0]
-      })
+    this.setState({
+      selectedFile: event.target.files[0]
+    });
   };
 
   fileUploadHandler = () => {
-      let file = this.state.selectedFile
-    axios.post("http://localhost:3001/user/addimgprofile", file).then(response => {
-        console.log(response)
-    }).catch(error => {
-        console.log(error)
-    })
-  }
+    let userID = this.props.match.params.id;
+    const fd = new FormData();
+    fd.append("image", this.state.selectedFile);
+    fd.append("type", "users");
+    fd.append("id", userID);
+    axios
+      .put("http://localhost:3001/upload", fd)
+      .then(response => {
+        this.setState({
+          show: false
+        });
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
@@ -52,12 +63,12 @@ class ModalImageProfile extends Component {
             <Modal.Title>Cambia tu foto de perfil</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <input
-                type="file"
-                name="img_profile"
-                onChange={this.fileSelectedHandler}
-                placeholder="Selecciona una imagen"
-              />
+            <input
+              type="file"
+              name="img_profile"
+              onChange={this.fileSelectedHandler}
+              placeholder="Selecciona una imagen"
+            />
           </Modal.Body>
           <Modal.Footer>
             <Button className="boton-celeste" onClick={this.fileUploadHandler}>
@@ -70,4 +81,4 @@ class ModalImageProfile extends Component {
   }
 }
 
-export default ModalImageProfile;
+export default withRouter(ModalImageProfile);

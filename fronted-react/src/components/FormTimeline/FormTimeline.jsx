@@ -12,7 +12,7 @@ class FormTimeline extends Component {
       collapse: false,
       message: {
         message: null,
-        image: null
+        selectedFile: null
       }
     };
 
@@ -29,7 +29,8 @@ class FormTimeline extends Component {
     this.setState({
       message: {
         ...this.state.message,
-        [e.target.id]: e.target.value
+        [e.target.id]: e.target.value,
+        selectedFile: event.target.files[0]
       }
     });
   }
@@ -45,8 +46,13 @@ class FormTimeline extends Component {
         }
       })
       .then(response => {
-        // console.log(response.data)
-        this.props.newMessage(response.data);
+        const fd = new FormData();
+        fd.append("image", this.state.selectedFile);
+        fd.append("type", "messages");
+        fd.append("id", response);
+        axios// console.log(response.data)
+        .this.props
+          .newMessage(response.data);
         this.setState({ collapse: !this.state.collapse });
       })
       .catch(error => {

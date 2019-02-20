@@ -8,6 +8,8 @@ const port = 3001;
 const app = express();
 
 // MIDDLEWARES
+app.use(express.static(__dirname + '/uploads')); 
+console.log(__dirname + '/uploads')
 app.use(bodyParser.json()); // Cuando entra cualquier peticion transforma los datos datos en un JSON
 app.use(
   bodyParser.urlencoded({
@@ -25,10 +27,11 @@ const path = require("path");
 // app.use(require("/upload"));
 
 app.use(fileUpload({ useTempFiles: true }));
-app.put("/upload/:tipo/:id", (req, res) => {
+app.put("/upload", (req, res) => {
   console.log(req.files);
-  let tipo = req.params.tipo;
-  let id = req.params.id;
+  console.log(req.body);
+  let tipo = req.body.type;
+  let id = req.body.id;
 
   // Validar tipo
   let tiposValidos = ["users", "messages"];
@@ -43,7 +46,7 @@ app.put("/upload/:tipo/:id", (req, res) => {
     return res.status(400).send("No hay archivos que subir");
   }
 
-  let archivo = req.files.archivo;
+  let archivo = req.files.image;
   let nombreCortado = archivo.name.split(".");
   let extension = nombreCortado[nombreCortado.length - 1];
 
@@ -59,7 +62,7 @@ app.put("/upload/:tipo/:id", (req, res) => {
   // Cambiar nombre al archivo
   let nombreArchivo = `${id}-${new Date().getMilliseconds()}.${extension}`;
 
-  archivo.mv(`uploads/${tipo}/${nombreArchivo}`, err => {
+  archivo.mv(`src/uploads/${tipo}/${nombreArchivo}`, err => {
     if (err) {
       console.log("da error");
       return res.status(500).send(err);
@@ -73,17 +76,22 @@ app.put("/upload/:tipo/:id", (req, res) => {
 function imagenUsuario(id, res, nombreArchivo) {
   usuarioModel.findById(id, (err, usuarioDB) => {
     if (err) {
+      console.log("error");
       borrarArchivo(nombreArchivo, "users");
       return res.status(500).send(err);
     }
 
     if (!usuarioDB) {
+      console.log("!usuario");
       borrarArchivo(nombreArchivo, "users");
       return res.status(400).send("Usuario no existe");
     }
 
     // Si existe una imagen la elimino primero
-    borrarArchivo(usuarioDB.imagen_perfil, "users");
+    if (usuarioDB.imagen_perfil) {
+      console.log('ok')
+      borrarArchivo(usuarioDB.imagen_perfil, "users");
+    }
 
     usuarioDB.imagen_perfil = nombreArchivo;
     usuarioDB.save((err, usuarioGuardado) => {
