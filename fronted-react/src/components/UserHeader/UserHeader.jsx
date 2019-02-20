@@ -34,7 +34,6 @@ class UserHeader extends Component {
   }
 
   render() {
-    
     let leftButton = (
       <button
         type="button"
@@ -106,7 +105,7 @@ class UserHeader extends Component {
         <Row>
           <Col xs={12} className="text-center">
             <img
-              src={`http://localhost:3001/5c5f4d2b310eaf1330ddbd05-366.jpg`}
+              src={`http://localhost:3001/users/${this.props.img_small}`}
               className="icono-perfil-usuario img-fluid rounded-circle"
               alt=""
             />

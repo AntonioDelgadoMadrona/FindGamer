@@ -82,6 +82,7 @@ class CommunityTimelineMessage extends React.Component {
   };
 
   render() {
+    console.log(this.props.m)
     let date = moment
       .utc(this.props.m.f_publicacion)
       .format("DD/MM/YYYY, HH:mm");
@@ -110,7 +111,13 @@ class CommunityTimelineMessage extends React.Component {
         <Row className="p-2 mensaje-cuerpo">
           <div className=" d-flex justify-content-around">
             <div>
-              <img src={foto1} className="float-left imagen-usuario" alt="" />
+              <img
+                src={`http://localhost:3001/users/${
+                  this.props.m.usuario.imagen_perfil
+                }`}
+                className="float-left imagen-usuario"
+                alt=""
+              />
               <div className="float-right ml-3 usuario-mensaje">
                 <Link to={`/user/${this.props.m.usuario._id}`}>
                   <p className="font-weight-bold">

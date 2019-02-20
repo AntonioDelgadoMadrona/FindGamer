@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 import { ButtonToolbar, Overlay, Popover } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -30,10 +30,13 @@ class HeaderUser extends Component {
   }
 
   render() {
+    console.log(this.props.infoUser);
     return (
       <ButtonToolbar>
         <img
-          src={img_perfil}
+          src={`http://localhost:3001/users/${
+            this.props.infoUser.imagen_perfil
+          }`}
           className="imagen_perfil_header cursor"
           onClick={this.handleClick}
           alt=""
