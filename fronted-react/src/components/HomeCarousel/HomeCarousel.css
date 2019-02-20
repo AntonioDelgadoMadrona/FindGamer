@@ -1,16 +1,21 @@
 .carrusel {
-    max-height: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    min-width: 100%;
-    align-content: center;
+  max-height: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  align-content: center;
 }
 
 .imagen-carrusel {
-    max-width: 900px;
-    max-height: 500px;
-    width: 100%;
-    min-height: 100%;
-    min-width: 100%;
-opacity: 1;
+  max-width: 900px;
+  max-height: 500px;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 1;
+}
+
+.texto-carrusel {
+  background: #101010;
+  opacity: 0.7;
 }

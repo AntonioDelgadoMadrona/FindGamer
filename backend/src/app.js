@@ -1,13 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
-const path = require("path");
-const cors = require('cors');
-const multer = require("multer"); // Subir imagenes
-const uuid = require("uuid/v4"); // Nombre imagenes(hash)
-const jwt = require('jwt-simple');
-const moment = require('moment');
-const config = require('./config.taken');
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
 
 const port = 3001;
 const app = express();
@@ -22,57 +17,109 @@ app.use(
 app.use(cors());
 app.use(morgan("dev")); // Muestra por consola las peticiones al servidor
 
-// Aqui definimos el nombre al guardar
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, "/public/uploads"),
-    filename: (req, file, cb) => {
-      cb(null, uuid() + path.extname(file.originalname));
+// IMAGENES
+
+const usuarioModel = require("../src/models/users");
+const fs = require("fs");
+const path = require("path");
+// app.use(require("/upload"));
+
+app.use(fileUpload({ useTempFiles: true }));
+app.put("/upload/:tipo/:id", (req, res) => {
+  console.log(req.files);
+  let tipo = req.params.tipo;
+  let id = req.params.id;
+
+  // Validar tipo
+  let tiposValidos = ["users", "messages"];
+  if (tiposValidos.indexOf(tipo) < 0) {
+    return res
+      .status(400)
+      .send("Las tipos permitidos son " + tiposValidos.join(", "));
+  }
+
+  // Comprobar si llega archivo
+  if (!req.files) {
+    return res.status(400).send("No hay archivos que subir");
+  }
+
+  let archivo = req.files.archivo;
+  let nombreCortado = archivo.name.split(".");
+  let extension = nombreCortado[nombreCortado.length - 1];
+
+  // Extensiones permitidas
+  let extensionesValidas = ["png", "jpg", "gif", "jpeg"];
+
+  if (extensionesValidas.indexOf(extension) < 0) {
+    return res
+      .status(400)
+      .send("Las extensiones permitidas son " + extensionesValidas.join(", "));
+  }
+
+  // Cambiar nombre al archivo
+  let nombreArchivo = `${id}-${new Date().getMilliseconds()}.${extension}`;
+
+  archivo.mv(`uploads/${tipo}/${nombreArchivo}`, err => {
+    if (err) {
+      console.log("da error");
+      return res.status(500).send(err);
     }
+
+    // Imagen cargada, toca asignarla al usuario
+    imagenUsuario(id, res, nombreArchivo);
   });
-app.use(
-  multer({
-    // Donde va a almacenar los archivos
-    storage: storage,
-    dest: path.join(__dirname, "/public/uploads"),
-    limits: {
-      fileSize: 1000000
-    }, // Peso maximo en bytes
-    fileFilter: (req, file, cb) => {
-        console.log(req)
-      // Comprobamos la extendion del archivo
-      const filetypes = /jpeg|jpg|png|gif/;
-      const mimetype = filetypes.test(file.mimetype);
-      const extname = filetypes.test(path.extname(file.originalname));
-      if (mimetype && extname) {
-        return cb(null, true);
-      }
-      cb("Error: El archivo no tiene extension jpeg, jpg, png o gif");
+});
+
+function imagenUsuario(id, res, nombreArchivo) {
+  usuarioModel.findById(id, (err, usuarioDB) => {
+    if (err) {
+      borrarArchivo(nombreArchivo, "users");
+      return res.status(500).send(err);
     }
-  }).single("image")
-);
+
+    if (!usuarioDB) {
+      borrarArchivo(nombreArchivo, "users");
+      return res.status(400).send("Usuario no existe");
+    }
+
+    // Si existe una imagen la elimino primero
+    borrarArchivo(usuarioDB.imagen_perfil, "users");
+
+    usuarioDB.imagen_perfil = nombreArchivo;
+    usuarioDB.save((err, usuarioGuardado) => {
+      res.status(200).send(usuarioGuardado);
+    });
+  });
+}
+
+function borrarArchivo(nombreImagen, tipo) {
+  let pahtImagen = path.resolve(
+    __dirname,
+    `../uploads/${tipo}/${nombreImagen}`
+  );
+  if (fs.existsSync(pahtImagen)) {
+    fs.unlinkSync(pahtImagen);
+  }
+}
+
+// MOSTRAR LA IMAGEN
+app.get("/imagen/:tipo/:img", (req, res) => {
+  let tipo = req.params.tipo;
+  let img = req.params.img;
+
+  let pahtImagen = path.resolve(__dirname, `../uploads/${tipo}/${img}`);
+
+  if (fs.existsSync(pahtImagen)) {
+    res.sendfile(pahtImagen);
+  } else {
+    let noImagePath = path.resolve(__dirname, "../src/assets/icono-perfil.png");
+    res.sendfile(noImagePath);
+  }
+});
 
 // SERVER
 app.listen(port, () => {
   console.log("Servidor corriendo correctamente en puerto " + port);
 });
-
-// SESION USUARIO(FAKE)
-// const session = require('express-session');
-
-// app.use(session({   // Guarda en la session
-//     secret: 'cadena aleatoria',
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 } // Tiempo duracion de la cookie en ms(1 año)
-// }));
-
-
-// // SOCKETS
-// // Sockets
-// const http = require("http");
-// const socketio = require("socket.io");
-// const server = http.createServer(app);
-// const io = socketio.listen(server);
-// require("./routes/sockets")(io);
 
 module.exports = app;
