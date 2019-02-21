@@ -106,13 +106,34 @@ class EventOne extends Component {
                 </Row>
               );
             }
+            let plataforma = null;
+            if (m.plataforma == "PS4") {
+              plataforma = (
+                <span className="badge badge-primary">{m.plataforma}</span>
+              );
+            } else if (m.plataforma == "Xbox One") {
+              plataforma = (
+                <span className="badge badge-success">{m.plataforma}</span>
+              );
+            } else if (m.plataforma == "PC") {
+              plataforma = (
+                <span className="badge badge-warning">{m.plataforma}</span>
+              );
+            } else if (m.plataforma == "Nintendo Switch") {
+              plataforma = (
+                <span className="badge badge-danger text-white">{m.plataforma}</span>
+              );
+            }
+
             return (
               <Container className="evento" key={i}>
                 <Col xs={12} className="mensaje-timeline-eventos">
                   <Row className="p-2">
                     <div className="d-flex align-items-center">
                       <img
-                        src={`http://localhost:3001/users/${m.creador.imagen_perfil}`}
+                        src={`http://localhost:3001/users/${
+                          m.creador.imagen_perfil
+                        }`}
                         className="float-left imagen-usuario"
                         alt=""
                       />
@@ -151,10 +172,7 @@ class EventOne extends Component {
                         </Col>
                         <Col xs={12} md={6} className="info-evento-2">
                           <h3 className="subtitulo">
-                            PLATAFORMA:
-                            <span className="badge badge-success">
-                              {m.plataforma}
-                            </span>
+                            PLATAFORMA: {plataforma}
                           </h3>
                         </Col>
                       </Row>

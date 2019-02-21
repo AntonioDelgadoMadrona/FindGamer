@@ -1,18 +1,47 @@
-import React from "react";
-import { render } from "react-dom";
-import { positions, Provider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
-import Home from "../../App";
+class Example extends React.Component {
+  constructor(props, context) {
+    super(props, context);
 
-const options = {
-  timeout: 5000,
-  position: positions.BOTTOM_CENTER
-};
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
 
-const App = () => (
-  <Provider template={AlertTemplate} {...options}>
-    <Home />
-  </Provider>
-);
+    this.state = {
+      show: false,
+    };
+  }
 
-render(<App />, document.getElementById("root"));
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
+  render() {
+    return (
+      <>
+        <Button variant="primary" onClick={this.handleShow}>
+          Launch demo modal
+        </Button>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={this.handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
+}
+
+render(<Example />);

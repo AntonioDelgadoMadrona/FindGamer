@@ -3,6 +3,8 @@ import axios from "axios";
 
 import { Container, Row, Col } from "react-bootstrap";
 
+import "./FormSign.css";
+
 class FormSign extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class FormSign extends Component {
         let id = response.data.id;
         // Redirecciono al home del id recibido en el registro
         // console.log(response)
-        localStorage.setItem('token', response.data.token)
+        localStorage.setItem("token", response.data.token);
         this.props.history.push("/user/" + id);
       })
       .catch(error => {
@@ -48,8 +50,13 @@ class FormSign extends Component {
 
   render() {
     return (
-      <Container className="padre">
-        <Container className="hijo py-5">
+      <Container className="padre registro">
+        <Container className="hijo py-5 registro align-items-center">
+          <Row className="justify-content-center ">
+            <Col xs={6} className="titulo-h2 text-center mb-5">
+              <h1>REGISTRO</h1>
+            </Col>
+          </Row>
           <Row className="row justify-content-center">
             <Col xs={12} lg={8}>
               <form id="formulario_registro">
@@ -177,7 +184,7 @@ class FormSign extends Component {
                   </Col>
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                   <div className="custom-control custom-checkbox">
                     <input
                       type="checkbox"
@@ -193,14 +200,14 @@ class FormSign extends Component {
                     </label>
                     <div id="errorAcepto1" />
                   </div>
-                </div>
-                <Row className="row text-center">
+                </div> */}
+                <Row className="row text-center mt-5">
                   <Col className="col-12">
                     <button
                       type="button"
                       onClick={this.handleClick}
                       id="boton_formulario_registro"
-                      className="btn btn-outline-secondary"
+                      className="btn boton-celeste"
                     >
                       Registrarse
                     </button>

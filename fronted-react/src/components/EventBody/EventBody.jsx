@@ -10,9 +10,7 @@ import "./EventBody.css";
 import imagen1 from "../../img/icono-evento-04.png";
 
 class EventBody extends Component {
-
   render() {
-
     let puntuacion = [];
     for (let i = 0; i < 5; i++) {
       puntuacion.push(
@@ -24,10 +22,31 @@ class EventBody extends Component {
           } fa-lg`}
         />
       );
-    };
+    }
 
     let start_event = moment.utc(this.props.start_event).format("DD/MM/YYYY");
     let end_event = moment.utc(this.props.end_event).format("DD/MM/YYYY");
+
+    let plataforma = null;
+    if (this.props.platform == "PS4") {
+      plataforma = (
+        <span className="badge badge-primary">{this.props.platform}</span>
+      );
+    } else if (this.props.platform == "Xbox One") {
+      plataforma = (
+        <span className="badge badge-success">{this.props.platform}</span>
+      );
+    } else if (this.props.platform == "PC") {
+      plataforma = (
+        <span className="badge badge-warning">{this.props.platform}</span>
+      );
+    } else if (this.props.platform == "Nintendo Switch") {
+      plataforma = (
+        <span className="badge badge-danger text-white">
+          {this.props.platform}
+        </span>
+      );
+    }
 
     return (
       <Container className="hijo">
@@ -48,13 +67,13 @@ class EventBody extends Component {
           <Col xs={12} md={8}>
             <h3 className="titulo">
               CREADOR:{"  "}
-              <span className="badge badge-dark">{this.props.creator.nombre_usuario}</span>
+              <span className="badge badge-dark">
+                {this.props.creator.nombre_usuario}
+              </span>
             </h3>
             <h3 className="titulo">
               PLATAFORMA:{"  "}
-              <span className="badge badge-success mx-1">
-                {this.props.platform}
-              </span>
+              {plataforma}
             </h3>
             <h3 className="titulo">
               Nº JUGADORES:{"  "}
@@ -71,13 +90,17 @@ class EventBody extends Component {
           <Col xs={12} md={6}>
             <p className="subtitulo">
               INICIO DEL EVENTO:{"  "}
-              <span className="text-muted">{start_event} - {this.props.h_start_event}h</span>
+              <span className="text-muted">
+                {start_event} - {this.props.h_start_event}h
+              </span>
             </p>
           </Col>
           <Col xs={12} md={6}>
             <p className="subtitulo">
               FIN DEL EVENTO:{"  "}
-              <span className="text-muted">{end_event} - {this.props.h_end_event}h</span>
+              <span className="text-muted">
+                {end_event} - {this.props.h_end_event}h
+              </span>
             </p>
           </Col>
         </Row>
