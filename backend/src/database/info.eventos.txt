@@ -43,50 +43,6 @@
 
 /* 3 */
 {
-    "_id" : ObjectId("5c69a803f2a75a154ce1b22b"),
-    "participantes" : [ 
-        "5c5f4d2b310eaf1330ddbd05", 
-        "5c6499b7492bf012dc9826ac"
-    ],
-    "comentarios" : [],
-    "creador" : "5c5f4d2b310eaf1330ddbd05",
-    "juego" : "Apex Legends",
-    "plataforma" : "PS4",
-    "f_inicio" : ISODate("2019-02-17T00:00:00.000Z"),
-    "h_inicio" : "20:00",
-    "f_fin" : ISODate("2019-02-17T00:00:00.000Z"),
-    "h_fin" : "22:00",
-    "n_jugadores" : 3,
-    "puntuacion_min" : 3,
-    "mensaje" : "Busco dos jugadores para jugar al torneo de esta tarde",
-    "f_creacion" : ISODate("2019-02-17T18:29:23.278Z"),
-    "__v" : 0
-}
-
-/* 4 */
-{
-    "_id" : ObjectId("5c6c554e12e00136c047abad"),
-    "participantes" : [ 
-        "5c5f4d2b310eaf1330ddbd05", 
-        "5c5f4d2b310eaf1330ddbd05"
-    ],
-    "comentarios" : [],
-    "creador" : "5c5f4d2b310eaf1330ddbd05",
-    "juego" : "Mario Karts",
-    "plataforma" : "Nintendo Switch",
-    "f_inicio" : ISODate("2019-02-21T00:00:00.000Z"),
-    "h_inicio" : "10:00",
-    "f_fin" : ISODate("2019-02-23T00:00:00.000Z"),
-    "h_fin" : "12:00",
-    "n_jugadores" : 4,
-    "puntuacion_min" : 2,
-    "mensaje" : "Busco tres jugadores para echar unas partiditas al Mario karts, alguien se anima?",
-    "f_creacion" : ISODate("2019-02-19T19:13:18.881Z"),
-    "__v" : 0
-}
-
-/* 5 */
-{
     "_id" : ObjectId("5c6de61f56227815ace91383"),
     "participantes" : [ 
         "5c6dd64a77d7f11100a2dd21"
@@ -106,7 +62,7 @@
     "__v" : 0
 }
 
-/* 6 */
+/* 4 */
 {
     "_id" : ObjectId("5c6de9488fb0b319505b5421"),
     "participantes" : [ 
@@ -127,7 +83,7 @@
     "__v" : 0
 }
 
-/* 7 */
+/* 5 */
 {
     "_id" : ObjectId("5c6dec6d8fb0b319505b5422"),
     "participantes" : [ 
@@ -149,7 +105,7 @@
     "__v" : 0
 }
 
-/* 8 */
+/* 6 */
 {
     "_id" : ObjectId("5c6df4d40932ab1bdc33412b"),
     "participantes" : [ 
@@ -167,5 +123,48 @@
     "puntuacion_min" : "3",
     "mensaje" : "Busco dos compañeros para jugar unas partidas a Apex",
     "f_creacion" : ISODate("2019-02-21T00:46:12.645Z"),
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5c6e924d51f73a16f81cea09"),
+    "participantes" : [ 
+        "5c6e86dd4e6ca816985cb287"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6e86dd4e6ca816985cb287",
+    "juego" : "Fortnite",
+    "plataforma" : "Xbox One",
+    "f_inicio" : ISODate("2019-02-22T00:00:00.000Z"),
+    "h_inicio" : "15:00",
+    "f_fin" : ISODate("2019-02-22T00:00:00.000Z"),
+    "h_fin" : "16:00",
+    "n_jugadores" : 4,
+    "puntuacion_min" : 5,
+    "mensaje" : "Busco tres compañeros para formar una squad en fortnite",
+    "f_creacion" : ISODate("2019-02-21T11:58:05.191Z"),
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5c6e935151f73a16f81cea0b"),
+    "participantes" : [ 
+        "5c6e92e851f73a16f81cea0a", 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6e92e851f73a16f81cea0a",
+    "juego" : "Battlefield 5",
+    "plataforma" : "Nintendo Switch",
+    "f_inicio" : ISODate("2019-02-23T00:00:00.000Z"),
+    "h_inicio" : "15:00",
+    "f_fin" : ISODate("2019-02-23T00:00:00.000Z"),
+    "h_fin" : "18:00",
+    "n_jugadores" : 4,
+    "puntuacion_min" : 1,
+    "mensaje" : "Busco tres jugadores para jugar al torneo de esta tarde",
+    "f_creacion" : ISODate("2019-02-21T12:02:25.955Z"),
     "__v" : 0
 }

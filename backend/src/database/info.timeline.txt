@@ -77,9 +77,25 @@
 {
     "_id" : ObjectId("5c6df35f0932ab1bdc33412a"),
     "comentarios" : [],
-    "likes" : [],
+    "likes" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-21T12:21:09.355Z")
+        }
+    ],
     "usuario" : "5c6defd03d584e15548b976a",
     "mensaje" : "Hola Laborda23, que tal, agregame y nos conectamos",
     "f_publicacion" : ISODate("2019-02-21T00:39:59.851Z"),
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5c6e97ae51f73a16f81cea0c"),
+    "comentarios" : [],
+    "likes" : [],
+    "usuario" : "5c5f4d2b310eaf1330ddbd05",
+    "mensaje" : "Hola findgamers, agregarme como amigo que me gustaria jugar aunque tenga pocas estrellas ",
+    "f_publicacion" : ISODate("2019-02-21T12:21:02.837Z"),
     "__v" : 0
 }

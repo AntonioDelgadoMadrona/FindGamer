@@ -206,8 +206,8 @@ var controller = {
     let update = {
       $push: {
         j_completados: {
-          juego: req.body.gameID,
-          // valoracion: req.body.valoration,
+          juego: req.body.game,
+          valoracion: '----',
           f_completado: new Date()
         }
       }

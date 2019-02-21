@@ -8,7 +8,9 @@
     ],
     "amigos" : [ 
         "5c6499b7492bf012dc9826ac", 
-        "5c649b81492bf012dc9826ad"
+        "5c649b81492bf012dc9826ad", 
+        "5c6e92e851f73a16f81cea0a", 
+        "5c6499b7492bf012dc9826ac"
     ],
     "j_completados" : [ 
         {
@@ -83,9 +85,16 @@
         {
             "juego" : 55038,
             "f_completado" : ISODate("2019-02-21T00:42:51.208Z")
+        }, 
+        {
+            "juego" : 2131,
+            "f_completado" : ISODate("2019-02-21T10:49:31.855Z")
         }
     ],
-    "j_proximos" : [],
+    "j_proximos" : [ 
+        "Forza Motorsport 5", 
+        "Forza Motorsport 5"
+    ],
     "j_jugando" : [],
     "nombre" : "Alberto",
     "apellidos" : "Delgado Madrona",
@@ -105,32 +114,6 @@
 
 /* 3 */
 {
-    "_id" : ObjectId("5c649b81492bf012dc9826ad"),
-    "puntuacion" : [ 
-        2
-    ],
-    "amigos" : [],
-    "j_completados" : [],
-    "j_proximos" : [],
-    "j_jugando" : [],
-    "nombre" : "Juan",
-    "apellidos" : "Veinte tres",
-    "nombre_usuario" : "Juanito23",
-    "plataforma_fav" : "Nintendo Switch",
-    "pais" : "Argentina",
-    "ciudad" : "Buenos Aires",
-    "email" : "juanito@hotmail.com",
-    "password" : "$2a$10$XLTaVL6/f9XTaGJt4ggQKO6DLID0FGdA.89W/l8/MpkgFvPlzy7nK",
-    "imagen_perfil" : "defaultImage.png",
-    "imagen_portada" : "",
-    "permiso" : "usuario",
-    "juego_fav" : "",
-    "fecha_registro" : ISODate("2019-02-13T22:34:41.045Z"),
-    "__v" : 0
-}
-
-/* 4 */
-{
     "_id" : ObjectId("5c69e8e2def61e0d88bfefa7"),
     "puntuacion" : [ 
         2
@@ -147,7 +130,7 @@
     "ciudad" : "Málaga",
     "email" : "galfer@hotmail.com",
     "password" : "$2a$10$J4zEBChJEca4UWggNVgnSeAb0WTqwAviYDIDXrXyxOA/sosGXzZaC",
-    "imagen_perfil" : "defaultImage.png",
+    "imagen_perfil" : "foto-perfil12.jpg",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -155,7 +138,7 @@
     "__v" : 0
 }
 
-/* 5 */
+/* 4 */
 {
     "_id" : ObjectId("5c6b27a8d74aba12b83797e9"),
     "puntuacion" : [ 
@@ -179,7 +162,7 @@
     "ciudad" : "Barcelona",
     "email" : "fernando@hotmail.com",
     "password" : "$2a$10$S6rQG6Sp6SQvB0sUzcWMT.TzmXsnB1jYw.a/xPflF1oH69/iNxtzm",
-    "imagen_perfil" : "defaultImage.png",
+    "imagen_perfil" : "foto-perfil13.jpg",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -187,7 +170,7 @@
     "__v" : 0
 }
 
-/* 6 */
+/* 5 */
 {
     "_id" : ObjectId("5c6b4e1b9447771530afe051"),
     "puntuacion" : [ 
@@ -213,59 +196,7 @@
     "__v" : 0
 }
 
-/* 7 */
-{
-    "_id" : ObjectId("5c6d640a22fd730ff4edd496"),
-    "puntuacion" : [ 
-        1
-    ],
-    "amigos" : [],
-    "j_completados" : [],
-    "j_proximos" : [],
-    "j_jugando" : [],
-    "nombre" : "Vicente",
-    "apellidos" : "Martinez",
-    "nombre_usuario" : "Vicenterr",
-    "plataforma_fav" : "PS4",
-    "pais" : "España",
-    "ciudad" : "Huesca",
-    "email" : "vicente@hotmail.com",
-    "password" : "$2a$10$z8QBG1RevO0s767vCbdCvO3DQscx8NidZFepStfTMhR.VbWfO5cVe",
-    "imagen_perfil" : "5c6d640a22fd730ff4edd496-137.png",
-    "imagen_portada" : "",
-    "permiso" : "usuario",
-    "juego_fav" : "",
-    "fecha_registro" : ISODate("2019-02-20T14:28:26.052Z"),
-    "__v" : 0
-}
-
-/* 8 */
-{
-    "_id" : ObjectId("5c6d771d84ac5f0e086c5c42"),
-    "puntuacion" : [ 
-        1
-    ],
-    "amigos" : [],
-    "j_completados" : [],
-    "j_proximos" : [],
-    "j_jugando" : [],
-    "nombre" : "Pepe",
-    "apellidos" : "Entero",
-    "nombre_usuario" : "Pepin87",
-    "plataforma_fav" : "PC",
-    "pais" : "España",
-    "ciudad" : "Gerona",
-    "email" : "pepe@hotmail.com",
-    "password" : "$2a$10$awQh/sZ1KlDBqpSr11ql0.IZl2HgAgAwkAs8P7MGNhv/nADaHKg8G",
-    "imagen_perfil" : "defaultImage.png",
-    "imagen_portada" : "",
-    "permiso" : "usuario",
-    "juego_fav" : "",
-    "fecha_registro" : ISODate("2019-02-20T15:49:49.270Z"),
-    "__v" : 0
-}
-
-/* 9 */
+/* 6 */
 {
     "_id" : ObjectId("5c6dd64a77d7f11100a2dd21"),
     "puntuacion" : [ 
@@ -296,7 +227,7 @@
     "__v" : 0
 }
 
-/* 10 */
+/* 7 */
 {
     "_id" : ObjectId("5c6de80a8fb0b319505b5420"),
     "puntuacion" : [ 
@@ -324,11 +255,12 @@
     "__v" : 0
 }
 
-/* 11 */
+/* 8 */
 {
     "_id" : ObjectId("5c6defd03d584e15548b976a"),
     "puntuacion" : [ 
-        1
+        1, 
+        4
     ],
     "amigos" : [],
     "j_completados" : [],
@@ -347,5 +279,101 @@
     "permiso" : "usuario",
     "juego_fav" : "",
     "fecha_registro" : ISODate("2019-02-21T00:24:48.160Z"),
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5c6e83e64e6ca816985cb286"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Miguel",
+    "apellidos" : "Atroche",
+    "nombre_usuario" : "XxVortexX",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Badalona",
+    "email" : "miguel@hotmail.com",
+    "password" : "$2a$10$KigYDrNsY9dBQufVmpizCOsD9.WBpLjXCgTW61WIHinnRGMRKv/oq",
+    "imagen_perfil" : "5c6e83e64e6ca816985cb286-85.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-21T10:56:38.153Z"),
+    "__v" : 0
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("5c6e86dd4e6ca816985cb287"),
+    "puntuacion" : [ 
+        1, 
+        2, 
+        5
+    ],
+    "amigos" : [ 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "j_completados" : [ 
+        {
+            "juego" : "Anthem",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-21T11:15:36.632Z")
+        }, 
+        {
+            "juego" : "Wonder Boy",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-21T11:15:36.632Z")
+        }
+    ],
+    "j_proximos" : [ 
+        "Pac-Man", 
+        "Archon"
+    ],
+    "j_jugando" : [],
+    "nombre" : "Juan",
+    "apellidos" : "Veinte",
+    "nombre_usuario" : "Juanito23",
+    "plataforma_fav" : "Nintendo Switch",
+    "pais" : "España",
+    "ciudad" : "Almeria",
+    "email" : "juan@hotmail.com",
+    "password" : "$2a$10$zrfPZVnc2cA00E2T.YoQp.b9EWfU9e4RjDuARr8kvzGH9aMpT7tfa",
+    "imagen_perfil" : "5c6e86dd4e6ca816985cb287-781.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-21T11:09:17.715Z"),
+    "__v" : 0
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("5c6e92e851f73a16f81cea0a"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Pablo",
+    "apellidos" : "Perita",
+    "nombre_usuario" : "PirocTC",
+    "plataforma_fav" : "Nintendo Switch",
+    "pais" : "Argentina",
+    "ciudad" : "Buenos Aires",
+    "email" : "pablo@hotmail.com",
+    "password" : "$2a$10$E9/v3lxh5jNf5JBXu6MkTeHisvCnWDI/zUGF.3h4BV2aZAH/PDile",
+    "imagen_perfil" : "5c6e92e851f73a16f81cea0a-84.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-21T12:00:40.999Z"),
     "__v" : 0
 }

@@ -73,7 +73,7 @@ app.get("/game/info/:id", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: `fields name,cover.image_id,platforms.name,release_dates.date,summary,rating,involved_companies.company.name,genres.name,screenshots.image_id; where id = ${
+    data: `fields name,cover.image_id,platforms.name,screenshots.image_id,release_dates.date,summary,rating,involved_companies.company.name,genres.name,screenshots.image_id; where id = ${
       req.params.id
     };`
   })

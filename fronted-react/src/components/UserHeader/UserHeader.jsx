@@ -10,7 +10,6 @@ import ModalImageProfile from "../ModalImageProfile/ModalImageProfile";
 import "./UserHeader.css";
 
 import portada from "../../img/fondo-pantalla.jpg";
-import foto from "../../img/foto-perfil1.jpg";
 
 class UserHeader extends Component {
   addFriend(friendID) {
@@ -26,7 +25,8 @@ class UserHeader extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
+        alert('Has añadido a ' + this.props.username + ' como amigo')
       })
       .catch(error => {
         console.log(error);
@@ -47,7 +47,7 @@ class UserHeader extends Component {
     );
 
     let rightButton = (
-      <button type="button" className="btn boton-celeste">
+      <button type="button" className="btn text-white bg-info" disabled>
         Mensaje
       </button>
     );

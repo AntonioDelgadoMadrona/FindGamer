@@ -107,9 +107,9 @@ class Header extends Component {
                 <Link to="/user" className="route">
                   Mi Perfil
                 </Link>
-                <Link to="/home" className="route">
-                  Administrador
-                </Link>
+                {/* <Link to="/home" className="route">
+                  Admin (proximamente)
+                </Link> */}
               </Nav>
             </Col>
 

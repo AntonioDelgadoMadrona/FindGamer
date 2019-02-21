@@ -34,10 +34,10 @@ class UserFooter extends Component {
                 Plataforma:{" "}
                 <span className="datos-usuario">{this.props.fav_platform}</span>
               </h6>
-              <h6>
+              {/* <h6>
                 Juego favorito:{" "}
                 <span className="datos-usuario">{this.props.fav_game}</span>
-              </h6>
+              </h6> */}
               <h6>
                 Juegos completados:{" "}
                 <span className="datos-usuario">
@@ -45,7 +45,7 @@ class UserFooter extends Component {
                 </span>
               </h6>
               <h6>
-                Registrado el:{" "}
+                Registrado:{" "}
                 <span className="datos-usuario">
                   {register_date}
                 </span>

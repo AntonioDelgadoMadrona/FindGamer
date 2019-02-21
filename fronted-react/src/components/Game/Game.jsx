@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 
 import GameInfo from '../GameInfo/GameInfo';
-import GameComment from '../GameComment/GameComment';
+// import GameComment from '../GameComment/GameComment';
+import GameScreenshoots from '../GameScreenshoots/GameScreenshoots';
 
 class Game extends Component {
     render(){
@@ -11,7 +12,8 @@ class Game extends Component {
             
             <Container className="padre">
                 <GameInfo />
-                <GameComment />
+                {/* <GameScreenshoots /> */}
+                {/* <GameComment /> */}
             </Container>
         )
     }

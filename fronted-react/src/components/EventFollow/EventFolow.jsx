@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 
 class EventFollow extends Component {
   updateGamer(eventID) {
@@ -19,7 +19,8 @@ class EventFollow extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
+        alert("Te has inscrito en el evento");
       })
       .catch(error => {
         console.log(error);
@@ -27,7 +28,23 @@ class EventFollow extends Component {
   }
 
   render() {
-    // console.log(this.props)
+    // console.log(this.props);
+    let participar = (
+      <Alert variant="danger">
+        <strong>Tu puntuacion es menor que la requerida</strong>
+      </Alert>
+    );
+    if (this.props.participar === true) {
+      participar = (
+        <button
+          type="button"
+          onClick={() => this.updateGamer(this.props.eventID)}
+          className="btn btn-sm boton-celeste"
+        >
+          Participar
+        </button>
+      );
+    }
     return (
       <Container className="hijo">
         <Row>
@@ -40,15 +57,7 @@ class EventFollow extends Component {
               </span>
             </h2>
           </Col>
-          <Col xs={2}>
-            <button
-              type="button"
-              onClick={() => this.updateGamer(this.props.eventID)}
-              className="btn btn-sm boton-celeste"
-            >
-              Participar
-            </button>
-          </Col>
+          <Col xs={4}>{participar}</Col>
         </Row>
       </Container>
     );

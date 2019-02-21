@@ -27,7 +27,10 @@ class EventInfo extends Component {
         participants: [],
         comments: []
       },
-      userActive: []
+      userActive: {
+        id: null,
+        rating: []
+      }
     };
   }
 
@@ -64,7 +67,10 @@ class EventInfo extends Component {
                 comments: r.comentarios
               },
 
-              userActive: response2.data
+              userActive: {
+                id: response2.data._id,
+                rating: response2.data.puntuacion
+              }
             });
           });
       })
@@ -74,21 +80,20 @@ class EventInfo extends Component {
   }
 
   render() {
-    console.log(this.state.userActive)
-    // TODO: Comprobar la media del usuario, sacandolo del array de puntuaciones(da problemas)
-    let participar = 1;
+
     let suma = 0;
     let media = 0;
-    // this.state.userActive.puntuacion.map((g, j) => {
-    //   return (suma = suma + g);
-    // });
-    // media = suma / this.state.userActive.puntuacion.length;
+    this.state.userActive.rating.map((g, j) => {
+      return (suma = suma + g);
+    });
+    media = suma / this.state.userActive.rating.length;
+    media = Math.round(media)
 
-    if (this.state.event.rating > media) {
-      console.log("Hola");
+    let participar = false;
+    if (this.state.event.rating <= media){
+      participar = true;
     }
 
-    // console.log(this.state);
     return (
       <Container className="padre">
         <EventBody
@@ -108,6 +113,7 @@ class EventInfo extends Component {
           n_gamers={this.state.event.n_gamers}
           participants={this.state.event.participants}
           eventID={this.state.event.id}
+          participar={participar}
         />
         <EventGamers participants={this.state.event.participants} />
       </Container>

@@ -3,6 +3,8 @@ import axios from "axios";
 import moment from "moment";
 import { withRouter } from "react-router";
 
+import GameScreenshoots from '../GameScreenshoots/GameScreenshoots';
+
 import { ProgressBar, Container, Row, Col } from "react-bootstrap";
 import "./GameInfo.css";
 
@@ -32,7 +34,8 @@ class GameInfo extends Component {
         platforms: [],
         genres: [],
         summary: null,
-        rating: null
+        rating: null,
+        screenshots: []
       },
       token: null
     };
@@ -55,7 +58,8 @@ class GameInfo extends Component {
               platforms: r.platforms,
               genres: r.genres,
               summary: r.summary,
-              rating: r.rating
+              rating: r.rating,
+              screenshots: r.screenshots
             }
           });
         }
@@ -78,7 +82,8 @@ class GameInfo extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
+        alert('Juego añadido a tu lista de proximos juego')
       })
       .catch(error => {
         alert("Debes haber iniciado sesion para añadir un juego a tus listas");
@@ -100,6 +105,7 @@ class GameInfo extends Component {
       )
       .then(response => {
         // console.log(response.data);
+        alert('Juego añadido a tu lista de jugando')
       })
       .catch(error => {
         alert("Debes haber iniciado sesion para añadir un juego a tus listas");
@@ -107,12 +113,12 @@ class GameInfo extends Component {
       });
   }
 
-  addCompletedGame(gameID) {
+  addCompletedGame(game) {
     let token = localStorage.getItem("token");
     axios
       .post(
         "http://localhost:3001/user/addgamecomplete",
-        { gameID },
+        { game },
         {
           headers: {
             Authorization: "Bearer " + token
@@ -121,6 +127,7 @@ class GameInfo extends Component {
       )
       .then(response => {
         // console.log(response.data);
+        alert('Juego añadido a tu lista de juegos completados')
       })
       .catch(error => {
         alert("Debes haber iniciado sesion para añadir un juego a tus listas");
@@ -129,6 +136,7 @@ class GameInfo extends Component {
   }
 
   render() {
+    console.log(this.state.juego.screenshots)
     let platformsString = " ";
     this.state.juego.platforms.map(platform => {
       return (platformsString += platform.name + " || ");
@@ -148,81 +156,85 @@ class GameInfo extends Component {
     let date = moment.unix(lanzamiento, "x").format("DD/MM/YYYY");
 
     return (
-      <Container className="hijo pt-0">
-        <Row>
-          <img
-            src={`${url_img}${large}${this.state.juego.image}${format}`}
-            className="imagen-juego-cabecera"
-            alt={this.state.name}
-          />
-        </Row>
-        <Row className="cuerpo-juego-portada">
-          <Col xs={12} lg={3}>
+      <>
+        <Container className="hijo pt-0">
+          <Row>
             <img
-              src={`${url_img}${small}${this.state.juego.image}${format}`}
-              className="imagen-juego-portada"
-              alt={this.state.juego.name}
+              src={`${url_img}${large}${this.state.juego.image}${format}`}
+              className="imagen-juego-cabecera"
+              alt={this.state.name}
             />
-            <div className="d-flex justify-content-around mt-5">
-              <FontAwesomeIcon
-                icon={faClock}
-                className="fa-2x enlace"
-                onClick={() => this.addNextGame(this.state.juego.name)}
+          </Row>
+          <Row className="cuerpo-juego-portada">
+            <Col xs={12} lg={3}>
+              <img
+                src={`${url_img}${small}${this.state.juego.image}${format}`}
+                className="imagen-juego-portada"
+                alt={this.state.juego.name}
               />
-              <p>
+              <div className="d-flex justify-content-around mt-5">
                 <FontAwesomeIcon
-                  icon={faGamepad}
+                  icon={faClock}
                   className="fa-2x enlace"
-                  onClick={() => this.addPlayingGame(this.state.juego.name)}
+                  onClick={() => this.addNextGame(this.state.juego.name)}
                 />
-              </p>
+                <p>
+                  <FontAwesomeIcon
+                    icon={faGamepad}
+                    className="fa-2x enlace"
+                    onClick={() => this.addPlayingGame(this.state.juego.name)}
+                  />
+                </p>
+                <p>
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="fa-2x enlace"
+                    onClick={() => this.addCompletedGame(this.state.juego.name)}
+                  />
+                </p>
+              </div>
+            </Col>
+            <Col xs={12} lg={6}>
+              <h2>{this.state.juego.name}</h2>
+              <h4>{this.state.juego.companies}</h4>
+              {date !== null ? (
+                <h5 className="text-white">Publicado: {date}</h5>
+              ) : null}
+              <br />
+              <p>Genero: {genresString}</p>
+              <p>Plataformas: {platformsString}</p>
+              <p>Descripcion:</p>
+              <p>{this.state.juego.summary}</p>
+            </Col>
+            <Col xs={12} lg={3}>
+              <h4>Puntuacion:</h4>
+              <ProgressBar
+                variant="success"
+                now={this.state.juego.rating}
+                label={`${rating}/100`}
+              />
+              <h4>Tu valoracion: (proximamente)</h4>
+              <ProgressBar variant="success" now="" label={`${""}/100`} />
+              <br />
+              <p>Valora este juego:</p>
               <p>
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="fa-2x enlace"
-                  onClick={() => this.addCompletedGame(this.state.juego.id)}
-                />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
+                <FontAwesomeIcon icon={faStar} className="fa-lg" />
               </p>
-            </div>
-          </Col>
-          <Col xs={12} lg={6}>
-            <h2>{this.state.juego.name}</h2>
-            <h4>{this.state.juego.companies}</h4>
-            {date !== null ? (
-              <h5 className="text-white">Publicado: {date}</h5>
-            ) : null}
-            <br />
-            <p>Genero: {genresString}</p>
-            <p>Plataformas: {platformsString}</p>
-            <p>Descripcion:</p>
-            <p>{this.state.juego.summary}</p>
-          </Col>
-          <Col xs={12} lg={3}>
-            <h4>Puntuacion:</h4>
-            <ProgressBar
-              variant="success"
-              now={this.state.juego.rating}
-              label={`${rating}/100`}
-            />
-            <h4>Tu valoracion:</h4>
-            <ProgressBar variant="success" now="95" label={`${95}/100`} />
-            <br />
-            <p>Valora este juego:</p>
-            <p>
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-              <FontAwesomeIcon icon={faStar} className="fa-lg" />
-            </p>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Container>
+        <GameScreenshoots screenshots={this.state.juego.screenshots}/>
+        
+      </>
     );
   }
 }

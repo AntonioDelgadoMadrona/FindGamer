@@ -8,9 +8,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 import "./UserFooter2.css";
 
-import foto from "../../img/foto-perfil2.jpg";
-import imagen from "../../img/juego1.jpg";
-
 class UserFooter2 extends Component {
   render() {
     return (
@@ -48,7 +45,7 @@ class UserFooter2 extends Component {
                 return (
                   <Row className="amigo-usuario" key={i}>
                     <Col xs={4}>
-                      <img src={foto} className="imagen-usuario" alt={f.name} />
+                      <img src={`http://localhost:3001/users/${f.imagen_perfil}`} className="imagen-usuario" alt={f.name} />
                     </Col>
                     <Col xs={8}>
                       <Link to={`/user/${f._id}`}>
@@ -93,7 +90,7 @@ class UserFooter2 extends Component {
               return (
                 <Row className="juego-completado" key={id}>
                   <Col xs={2}>
-                    <img src={imagen} className="imagen-juego-usuario" alt="" />
+                    {/* <img src={imagen} className="imagen-juego-usuario" alt="" /> */}
                   </Col>
                   <Col xs={4}>
                     <a href="/">

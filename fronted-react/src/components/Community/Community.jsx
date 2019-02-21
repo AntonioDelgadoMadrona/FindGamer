@@ -13,7 +13,7 @@ class Community extends Component {
                     <Row className="justify-content-between">
 
                         <Timeline />
-                        {/* <ActiveUsers /> */}
+                        <ActiveUsers />
 
                     </Row>
                 </Container>

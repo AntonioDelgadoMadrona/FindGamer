@@ -49,7 +49,7 @@ class UserInfo extends Component {
         }
       })
       .then(response => {
-        console.log(response);
+        // console.log(response.data[0]);
         const r = response.data[0];
         this.setState({
           tokenID: response.data.userID,
