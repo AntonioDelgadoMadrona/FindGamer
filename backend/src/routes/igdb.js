@@ -3,10 +3,11 @@ var app = require("../app");
 
 // var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
 // var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
-var API_KEY = "415fe0b9204132522e64181ccd609ac0";
+// var API_KEY = "415fe0b9204132522e64181ccd609ac0";
+var API_KEY = "c2f1d9cdffcb96713fe4e594b35945d2";
 
 // BUSCADOR DE JUEGOS(POR PLATAFORMA)
-app.get("/games/search/platforms:id", function(req, res) {
+app.get("/games/search/platforms/:id/:sortingMethod?", function(req, res) {
   // console.log(req.params.id)
   let platform = req.params.id;
   axios({
@@ -16,10 +17,16 @@ app.get("/games/search/platforms:id", function(req, res) {
       Accept: "application/json",
       "user-key": API_KEY
     },
-    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating,genres.name;where rating > 80 & platforms = ${platform};sort first_release_date desc;limit 20;`
+    data: `fields name,cover.image_id,platforms.name,release_dates.date,rating,genres.name;where rating > 50 & themes != 42 & platforms = ${
+      platform === "1" ? "(48,49,6,130)" : platform
+    };sort ${
+      req.params.sortingMethod
+        ? req.params.sortingMethod
+        : "first_release_date asc"
+    };limit 20;`
   })
     .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).send(response.data);
     })
     .catch(err => {
@@ -29,8 +36,12 @@ app.get("/games/search/platforms:id", function(req, res) {
 
 // BUSQUEDA POR NOMBRE
 app.get("/games/search:name", function(req, res) {
-  // console.log(req.params.name);
-  let game = req.params.name;
+  console.log(req.params.name);
+  let game = '';
+  if(req.params.name){
+    game = req.params.name;
+  }
+  
   axios({
     url: "https://api-v3.igdb.com/games",
     method: "POST",

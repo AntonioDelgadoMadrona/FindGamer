@@ -37,7 +37,6 @@ class FormEvents extends Component {
         [e.target.id]: e.target.value
       }
     });
-    console.log(this.state);
   }
 
   handleClick() {
@@ -52,9 +51,9 @@ class FormEvents extends Component {
       .then(response => {
         // console.log(response.data)
         this.props.newEvent(response.data);
+        this.setState({ collapse: !this.state.collapse });
       })
       .catch(error => {
-        alert("Debes estar registrado para crear o participar en un evento");
         console.log(error);
       });
   }

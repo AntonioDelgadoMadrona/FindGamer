@@ -16,25 +16,32 @@ class GamesList extends Component {
   constructor() {
     super();
     this.state = {
-      search: null
+      search: null,
+      sort: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClick2 = this.handleClick2.bind(this)
   }
 
   handleChange(e) {
-    // console.log(e.target.value);
+    console.log(e.target.value);
     this.setState({
       [e.target.id]: e.target.value
     });
-    this.props.searchName(this.state.search)
+    // this.props.searchName(this.state.search);
   }
 
   handleClick() {
-    console.log(this.state.search)
+    console.log(this.state.sort);
     this.props.searchName(this.state.search)
+    this.props.selectSort(this.state.sort);
+  }
 
+  handleClick2() {
+    console.log(this.state.sort);
+    this.props.selectSort(this.state.sort);
   }
 
   render() {
@@ -63,22 +70,20 @@ class GamesList extends Component {
             </Col>
             <Col xs={12} md={4}>
               <form action="" className="input-group">
-                <select
-                  className="custom-select input-pequeño mb-2"
-                  id="inputGroupSelect04"
-                >
+                <select className="custom-select input-pequeño mb-2" id="sort" onChange={this.handleChange}>
                   <option defaultValue>Ordenar por...</option>
-                  <option value="1">Mayor puntuación</option>
-                  <option value="2">Menor puntuación</option>
-                  <option value="3">A - Z</option>
-                  <option value="4">Z - A</option>
-                  <option value="5">Los mas recientes</option>
-                  <option value="6">Los mas antiguos</option>
+                  <option value="rating desc">Mayor puntuación</option>
+                  <option value="rating asc">Menor puntuación</option>
+                  <option value="popularity desc">Los mas populares</option>
+                  <option value="popularity asc">Los menos populares</option>
+                  <option value="first_release_date desc">Los mas recientes</option>
+                  <option value="first_release_date asc">Los mas antiguos</option>
                 </select>
                 <div className="input-group-append">
                   <button
-                    type="submit"
+                    type="button"
                     className="btn h-75 btn-sm boton-celeste"
+                    onClick={this.handleClick2}
                   >
                     Filtrar
                   </button>
@@ -137,6 +142,12 @@ class GamesList extends Component {
                                 break;
                               case "Nintendo Switch":
                                 f.name = " - Switch";
+                                break;
+                                case "PlayStation 3":
+                                f.name = " - PS3";
+                                break;
+                                case "Xbox 360":
+                                f.name = " - Xbox360";
                                 break;
                               default:
                                 f.name = "";

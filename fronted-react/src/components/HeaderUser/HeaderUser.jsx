@@ -30,7 +30,6 @@ class HeaderUser extends Component {
   }
 
   render() {
-    console.log(this.props.infoUser);
     return (
       <ButtonToolbar>
         <img

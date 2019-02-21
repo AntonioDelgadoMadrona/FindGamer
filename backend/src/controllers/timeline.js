@@ -14,6 +14,7 @@ var controller = {
     let timeline = new timelineModel();
 
     timeline.usuario = userID;
+    
     timeline.mensaje = req.body.message;
     if (req.body.foto) {
       timeline.foto = req.body.image;
@@ -37,8 +38,16 @@ var controller = {
             f_publicacion: result.f_publicacion
           }
         ];
-        console.log(result);
-        return res.status(200).send(timeline);
+        
+        usuarioModel.populate(timeline, { path: "usuario" }, (err, result) => {
+          if (err) {
+            res.send(err);
+          } else {
+            // console.log(result);
+            return res.status(200).send(result);
+          }
+        });
+        return null;
       }
     });
   },
@@ -70,6 +79,7 @@ var controller = {
 
   // LIKES MENSAJE
   addLike: function(req, res) {
+    console.log(req.body)
     const token = req.headers.authorization.split(" ")[1];
     const payload = jwt.decode(token, config.TOKEN_SECRET);
     let userID = payload.sub;

@@ -44,7 +44,8 @@ class ModalImageProfile extends Component {
         this.setState({
           show: false
         });
-        console.log(response);
+        // console.log(response);
+        
       })
       .catch(error => {
         console.log(error);

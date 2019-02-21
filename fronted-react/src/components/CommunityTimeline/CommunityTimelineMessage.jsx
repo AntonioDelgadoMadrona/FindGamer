@@ -9,7 +9,6 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 import Comment from "../Comment/Comment";
 
-import foto1 from "../../img/foto-perfil3.jpg";
 
 class CommunityTimelineMessage extends React.Component {
   constructor(props) {
@@ -21,11 +20,10 @@ class CommunityTimelineMessage extends React.Component {
   }
 
   updateLike = id => {
-    console.log(id);
     let token = localStorage.getItem("token");
     const newIsLiked = !this.state.isLiked; // declaro el que va a ser mi nuevo estado
     // TODO: Actualizar en base de datos
-    if (newIsLiked) {
+    // if (newIsLiked) {
       // como mi nuevo estado es "like", añado mi like a la base de datos
       axios
         .post(
@@ -55,34 +53,33 @@ class CommunityTimelineMessage extends React.Component {
         .catch(error => {
           console.log(error);
         });
-    } else {
-      // como mi nuevo estado es "no like", elimino mi like de la base de datos
-      let token = localStorage.getItem("token");
-      axios
-        .post(
-          "http://localhost:3001/timeline/deletelike",
-          {
-            id_message: id
-          },
-          {
-            headers: {
-              Authorization: "Bearer " + token
-            }
-          }
-        )
-        .then(response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+    // } else {
+    //   // como mi nuevo estado es "no like", elimino mi like de la base de datos
+    //   let token = localStorage.getItem("token");
+    //   axios
+    //     .post(
+    //       "http://localhost:3001/timeline/deletelike",
+    //       {
+    //         id_message: id
+    //       },
+    //       {
+    //         headers: {
+    //           Authorization: "Bearer " + token
+    //         }
+    //       }
+    //     )
+    //     .then(response => {
+    //       console.log(response);
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // }
 
     this.setState({ isLiked: newIsLiked }); // CAMBIO LO QUE EL USUARIO VE
   };
 
   render() {
-    console.log(this.props.m)
     let date = moment
       .utc(this.props.m.f_publicacion)
       .format("DD/MM/YYYY, HH:mm");

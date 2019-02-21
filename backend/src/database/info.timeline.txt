@@ -49,6 +49,22 @@
         {
             "usuario" : "5c5f4d2b310eaf1330ddbd05",
             "f_like" : ISODate("2019-02-19T16:37:23.047Z")
+        }, 
+        {
+            "usuario" : "5c6dd64a77d7f11100a2dd21",
+            "f_like" : ISODate("2019-02-20T22:39:49.616Z")
+        }, 
+        {
+            "usuario" : "5c6defd03d584e15548b976a",
+            "f_like" : ISODate("2019-02-21T00:39:15.199Z")
+        }, 
+        {
+            "usuario" : "5c6defd03d584e15548b976a",
+            "f_like" : ISODate("2019-02-21T00:39:24.278Z")
+        }, 
+        {
+            "usuario" : "5c6defd03d584e15548b976a",
+            "f_like" : ISODate("2019-02-21T00:39:25.493Z")
         }
     ],
     "usuario" : "5c6b27a8d74aba12b83797e9",
@@ -59,22 +75,11 @@
 
 /* 4 */
 {
-    "_id" : ObjectId("5c6d774584ac5f0e086c5c43"),
+    "_id" : ObjectId("5c6df35f0932ab1bdc33412a"),
     "comentarios" : [],
     "likes" : [],
-    "usuario" : "5c6d771d84ac5f0e086c5c42",
-    "mensaje" : "Hola findgamers soy nuevo en la comunidad, agregarme como amigo",
-    "f_publicacion" : ISODate("2019-02-20T15:50:29.607Z"),
-    "__v" : 0
-}
-
-/* 5 */
-{
-    "_id" : ObjectId("5c6d777084ac5f0e086c5c44"),
-    "comentarios" : [],
-    "likes" : [],
-    "usuario" : "5c6d771d84ac5f0e086c5c42",
-    "mensaje" : "Me gusta jugar a Fifa y Fortnite",
-    "f_publicacion" : ISODate("2019-02-20T15:51:12.459Z"),
+    "usuario" : "5c6defd03d584e15548b976a",
+    "mensaje" : "Hola Laborda23, que tal, agregame y nos conectamos",
+    "f_publicacion" : ISODate("2019-02-21T00:39:59.851Z"),
     "__v" : 0
 }

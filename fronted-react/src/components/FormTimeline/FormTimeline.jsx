@@ -29,8 +29,7 @@ class FormTimeline extends Component {
     this.setState({
       message: {
         ...this.state.message,
-        [e.target.id]: e.target.value,
-        selectedFile: event.target.files[0]
+        [e.target.id]: e.target.value
       }
     });
   }
@@ -46,13 +45,7 @@ class FormTimeline extends Component {
         }
       })
       .then(response => {
-        const fd = new FormData();
-        fd.append("image", this.state.selectedFile);
-        fd.append("type", "messages");
-        fd.append("id", response);
-        axios// console.log(response.data)
-        .this.props
-          .newMessage(response.data);
+        this.props.newMessage(response.data);
         this.setState({ collapse: !this.state.collapse });
       })
       .catch(error => {
@@ -80,12 +73,12 @@ class FormTimeline extends Component {
                 placeholder="Comparte un mensaje, foto o evento..."
               />
               <div className="d-flex justify-content-between mt-2">
-                <input
+                {/* <input
                   type="file"
                   className="form-control-file form-control-sm "
                   onChange={this.handleChange}
                   id="image"
-                />
+                /> */}
                 <button
                   type="button"
                   onClick={this.handleClick}

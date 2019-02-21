@@ -10,8 +10,6 @@ import Comment from "../Comment/Comment";
 
 import "./CommunityTimeline.css";
 
-import foto1 from "../../img/foto-perfil3.jpg";
-import imagen1 from "../../img/fondo-1.jpg";
 import CommunityTimelineMessage from "./CommunityTimelineMessage";
 
 class Timeline extends Component {
@@ -27,7 +25,7 @@ class Timeline extends Component {
     axios
       .get("http://localhost:3001/timeline/getall")
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({ data: response.data.reverse() });
       })
       .catch(err => {
@@ -79,7 +77,7 @@ class Timeline extends Component {
             })}
 
             {/* MENSAJE IMAGENES */}
-            <Col xs={12} className="mensaje-timeline">
+            {/* <Col xs={12} className="mensaje-timeline">
               <Row className="p-2 mensaje-cuerpo">
                 <div className=" d-flex justify-content-around">
                   <div>
@@ -130,7 +128,7 @@ class Timeline extends Component {
                 </Col>
               </Row>
               <Comment />
-            </Col>
+            </Col> */}
           </Container>
         </Row>
       </Col>

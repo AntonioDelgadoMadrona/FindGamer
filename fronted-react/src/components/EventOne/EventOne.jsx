@@ -12,8 +12,7 @@ import "./EventOne.css";
 import Comment from "../Comment/Comment";
 import FormEvents from "../FormEvents/FormEvents";
 
-import foto1 from "../../img/foto-perfil3.jpg";
-import imagen1 from "../../img/fortnite.jpg";
+import imagen1 from "../../img/icono-evento-04.png";
 
 class EventOne extends Component {
   constructor() {
@@ -113,7 +112,7 @@ class EventOne extends Component {
                   <Row className="p-2">
                     <div className="d-flex align-items-center">
                       <img
-                        src={foto1}
+                        src={`http://localhost:3001/users/${m.creador.imagen_perfil}`}
                         className="float-left imagen-usuario"
                         alt=""
                       />

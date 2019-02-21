@@ -31,7 +31,7 @@ class Header extends Component {
           }
         })
         .then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           this.setState({ data: response.data });
         })
         .catch(err => {
@@ -44,9 +44,35 @@ class Header extends Component {
     }
   }
 
+  componentWillUpdate() {
+    let oldToken = this.state.token;
+    let token = localStorage.getItem("token");
+    if (oldToken !== token) {
+      if (token) {
+        axios
+          .get("http://localhost:3001/user/getmyuser", {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+          })
+          .then(response => {
+            // console.log(response.data);
+            this.setState({ data: response.data });
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+
+      this.setState({
+        token: token
+      });
+    }
+  }
+
   render() {
     let modal = <Modal />;
-    if (this.state.data) {
+    if (this.state.token && this.state.data) {
       modal = <HeaderUser infoUser={this.state.data} />;
     }
     return (

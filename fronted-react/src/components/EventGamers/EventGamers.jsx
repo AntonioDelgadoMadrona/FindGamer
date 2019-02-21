@@ -40,7 +40,7 @@ class EventGamers extends Component {
                 <Row className="text-center align-items-center">
                   <Col xs={3}>
                     <img
-                      src={foto}
+                       src={`http://localhost:3001/users/${e.imagen_perfil}`}
                       className="imagen-usuario"
                       alt={e.nombre_usuario}
                     />

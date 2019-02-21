@@ -42,7 +42,7 @@ class EventFollow extends Component {
           </Col>
           <Col xs={2}>
             <button
-              type="submit"
+              type="button"
               onClick={() => this.updateGamer(this.props.eventID)}
               className="btn btn-sm boton-celeste"
             >

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import { Container, Row, Col } from "react-bootstrap";
 import "./HomeLastUsers.css";
@@ -15,7 +15,7 @@ class HomeLastUsers extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      data: []
     };
   }
 
@@ -34,7 +34,6 @@ class HomeLastUsers extends Component {
   }
 
   render() {
-
     // Calculo la media de valoraciones
     let suma = 0;
     let media = 0;
@@ -64,7 +63,11 @@ class HomeLastUsers extends Component {
           <div className="enlace-jugador">
             <div className=" cuerpo-jugador">
               <Row className="justify-content-center">
-                <img src={foto1} className="imagen-usuario my-1" alt="" />
+                <img
+                  src={`http://localhost:3001/users/${e.imagen_perfil}`}
+                  className="imagen-usuario my-1"
+                  alt=""
+                />
               </Row>
               <Row className="texto-jugador">
                 <Col xs={12}>

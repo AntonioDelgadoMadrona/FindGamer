@@ -46,7 +46,8 @@
         "Halo", 
         "Resident Evil 2", 
         "Kingdom Hearts III", 
-        "Spyro Reignited Trilogy"
+        "Spyro Reignited Trilogy", 
+        "Red Dead Redemption 2"
     ],
     "j_jugando" : [ 
         "Kingdom Hearts 3", 
@@ -63,7 +64,7 @@
     "ciudad" : "Málaga",
     "email" : "antonio_dm93@hotmail.com",
     "password" : "$2a$10$aDhxqQ7GDMzVm4jfDpI8zOZjgHVqeqaKSrZX.GbVbDZaLxjxY39/y",
-    "imagen_perfil" : "5c5f4d2b310eaf1330ddbd05-239.png",
+    "imagen_perfil" : "5c5f4d2b310eaf1330ddbd05-917.jpg",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "Red Dead Redemption 2",
@@ -78,7 +79,12 @@
         2
     ],
     "amigos" : [],
-    "j_completados" : [],
+    "j_completados" : [ 
+        {
+            "juego" : 55038,
+            "f_completado" : ISODate("2019-02-21T00:42:51.208Z")
+        }
+    ],
     "j_proximos" : [],
     "j_jugando" : [],
     "nombre" : "Alberto",
@@ -89,7 +95,7 @@
     "ciudad" : "Málaga",
     "email" : "albertar@hotmail.com",
     "password" : "$2a$10$4k4lUVrdOcRP/ZYNifkUl.uBbqy9QeDHur5aWGXiojwuuad5BPjtS",
-    "imagen_perfil" : "defaultImage.png",
+    "imagen_perfil" : "5c6499b7492bf012dc9826ac-187.jpg",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "",
@@ -209,32 +215,6 @@
 
 /* 7 */
 {
-    "_id" : ObjectId("5c6c1ceaf85b442a845d7522"),
-    "puntuacion" : [ 
-        1
-    ],
-    "amigos" : [],
-    "j_completados" : [],
-    "j_proximos" : [],
-    "j_jugando" : [],
-    "nombre" : "Antonio",
-    "apellidos" : "Parra",
-    "nombre_usuario" : "AJPaharo",
-    "plataforma_fav" : "PC",
-    "pais" : "España",
-    "ciudad" : "Málaga",
-    "email" : "parra@hotmail.com",
-    "password" : "$2a$10$F8rnsILBYCVE91A2VgHspO.KZf19DpbAf30gQ//sOdyLvZxNj.ik.",
-    "imagen_perfil" : "",
-    "imagen_portada" : "",
-    "permiso" : "usuario",
-    "juego_fav" : "",
-    "fecha_registro" : ISODate("2019-02-19T15:12:42.037Z"),
-    "__v" : 0
-}
-
-/* 8 */
-{
     "_id" : ObjectId("5c6d640a22fd730ff4edd496"),
     "puntuacion" : [ 
         1
@@ -259,7 +239,7 @@
     "__v" : 0
 }
 
-/* 9 */
+/* 8 */
 {
     "_id" : ObjectId("5c6d771d84ac5f0e086c5c42"),
     "puntuacion" : [ 
@@ -282,5 +262,90 @@
     "permiso" : "usuario",
     "juego_fav" : "",
     "fecha_registro" : ISODate("2019-02-20T15:49:49.270Z"),
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5c6dd64a77d7f11100a2dd21"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [ 
+        {
+            "juego" : 12942,
+            "f_completado" : ISODate("2019-02-20T23:31:34.939Z")
+        }
+    ],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Esteban",
+    "apellidos" : "Nuñez",
+    "nombre_usuario" : "BetiiX",
+    "plataforma_fav" : "Xbox One",
+    "pais" : "Argentina",
+    "ciudad" : "Bueno Aires",
+    "email" : "esteban@hotmail.com",
+    "password" : "$2a$10$XLOHJ3i224FnHLcg.c2ziut1VhT/CfdziJAAdSM9LlVxW8Gt76YjW",
+    "imagen_perfil" : "5c6dd64a77d7f11100a2dd21-802.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-20T22:35:54.485Z"),
+    "__v" : 0
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("5c6de80a8fb0b319505b5420"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [ 
+        "Forza Motorsport 5"
+    ],
+    "j_jugando" : [],
+    "nombre" : "Alexis",
+    "apellidos" : "Alloza",
+    "nombre_usuario" : "AlexisAlloza",
+    "plataforma_fav" : "Xbox One",
+    "pais" : "España",
+    "ciudad" : "Sevilla",
+    "email" : "alexis@hotmail.com",
+    "password" : "$2a$10$HhykvoZ358kXpOpAacOltOAspyvV3KRjCgVgJhtZ02WmgwE5f7Ty6",
+    "imagen_perfil" : "5c6de80a8fb0b319505b5420-343.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-20T23:51:38.475Z"),
+    "__v" : 0
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("5c6defd03d584e15548b976a"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Luis",
+    "apellidos" : "Alcantara",
+    "nombre_usuario" : "LuisitoComunica",
+    "plataforma_fav" : "PC",
+    "pais" : "Mexico",
+    "ciudad" : "Ciudad de Mexico",
+    "email" : "luis@hotmail.com",
+    "password" : "$2a$10$/dV.o8tF3S86FKBedDRbyefPEEuC/GhIeJjbyh26scy0UL27KtSHi",
+    "imagen_perfil" : "5c6defd03d584e15548b976a-956.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-21T00:24:48.160Z"),
     "__v" : 0
 }

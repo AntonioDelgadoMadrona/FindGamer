@@ -32,7 +32,7 @@ class FormModal extends Component {
 
   handleChange(event) {
     this.setState({
-        [event.target.id]: event.target.value
+      [event.target.id]: event.target.value
     });
   }
 
@@ -43,8 +43,8 @@ class FormModal extends Component {
       .then(response => {
         // console.log(response.data);
         let id = response.data.id;
-        localStorage.setItem('token', response.data.token)
-        this.setState({ show: false})
+        localStorage.setItem("token", response.data.token);
+        this.setState({ show: false });
         this.props.history.push("/user/" + id);
       })
       .catch(error => {

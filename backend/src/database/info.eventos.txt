@@ -84,3 +84,88 @@
     "f_creacion" : ISODate("2019-02-19T19:13:18.881Z"),
     "__v" : 0
 }
+
+/* 5 */
+{
+    "_id" : ObjectId("5c6de61f56227815ace91383"),
+    "participantes" : [ 
+        "5c6dd64a77d7f11100a2dd21"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6dd64a77d7f11100a2dd21",
+    "juego" : "Torneo Fifa 19",
+    "plataforma" : "PS4",
+    "f_inicio" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_inicio" : "12:00",
+    "f_fin" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_fin" : "13:00",
+    "n_jugadores" : 4,
+    "puntuacion_min" : 3,
+    "mensaje" : "Busco tres compañeros  para echar un torneo al fifa 19",
+    "f_creacion" : ISODate("2019-02-20T23:43:27.565Z"),
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5c6de9488fb0b319505b5421"),
+    "participantes" : [ 
+        "5c6de80a8fb0b319505b5420"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6de80a8fb0b319505b5420",
+    "juego" : "Call of Duty WaW",
+    "plataforma" : "PC",
+    "f_inicio" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_inicio" : "12:00",
+    "f_fin" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_fin" : "14:00",
+    "n_jugadores" : 2,
+    "puntuacion_min" : 4,
+    "mensaje" : "Busco un compañero para jugar al torneo de maestros de esta tarde",
+    "f_creacion" : ISODate("2019-02-20T23:56:56.643Z"),
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5c6dec6d8fb0b319505b5422"),
+    "participantes" : [ 
+        "5c6de80a8fb0b319505b5420", 
+        "5c6499b7492bf012dc9826ac"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6de80a8fb0b319505b5420",
+    "juego" : "Grand Theht Auto IV",
+    "plataforma" : "PS4",
+    "f_inicio" : ISODate("2019-02-10T00:00:00.000Z"),
+    "h_inicio" : "11:00",
+    "f_fin" : ISODate("2019-02-11T00:00:00.000Z"),
+    "h_fin" : "11:00",
+    "n_jugadores" : 4,
+    "puntuacion_min" : 3,
+    "mensaje" : "Busco tres compañeros para intentar golpe al banco",
+    "f_creacion" : ISODate("2019-02-21T00:10:21.740Z"),
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5c6df4d40932ab1bdc33412b"),
+    "participantes" : [ 
+        "5c6499b7492bf012dc9826ac"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6499b7492bf012dc9826ac",
+    "juego" : "Apex Legends",
+    "plataforma" : "PS4",
+    "f_inicio" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_inicio" : "18:00",
+    "f_fin" : ISODate("2019-02-21T00:00:00.000Z"),
+    "h_fin" : "20:00",
+    "n_jugadores" : "3",
+    "puntuacion_min" : "3",
+    "mensaje" : "Busco dos compañeros para jugar unas partidas a Apex",
+    "f_creacion" : ISODate("2019-02-21T00:46:12.645Z"),
+    "__v" : 0
+}

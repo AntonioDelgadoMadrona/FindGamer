@@ -1,5 +1,5 @@
-const jwt = require('jwt-simple');
-const config = require('../config.taken');
+const jwt = require("jwt-simple");
+const config = require("../config.taken");
 
 const eventosModel = require("../models/eventos");
 const usuarioModel = require("../models/users");
@@ -31,29 +31,38 @@ var controller = {
     evento.comentarios = new Array();
     evento.f_creacion = new Date();
 
-    console.log(evento);
     evento.save((err, result) => {
       if (err) {
         return res.send(err);
       } else {
-        let evento = {
-          id: result._id,
-          creador: result.creador,
-          juego: result.juego,
-          plataforma: result.plataforma,
-          f_inicio: result.f_inicio,
-          h_inicio: result.h_inicio,
-          f_fin: result.f_fin,
-          h_fin: result.h_fin,
-          n_jugadores: result.jugadores,
-          participantes: result.participantes,
-          puntuacion_min: result.puntuacion_min,
-          mensaje: result.mensaje,
-          comentarios: result.comentarios,
-          f_creacion: result.f_creacion
-        };
+        let evento = [
+          {
+            id: result._id,
+            creador: result.creador,
+            juego: result.juego,
+            plataforma: result.plataforma,
+            f_inicio: result.f_inicio,
+            h_inicio: result.h_inicio,
+            f_fin: result.f_fin,
+            h_fin: result.h_fin,
+            n_jugadores: result.jugadores,
+            participantes: result.participantes,
+            puntuacion_min: result.puntuacion_min,
+            mensaje: result.mensaje,
+            comentarios: result.comentarios,
+            f_creacion: result.f_creacion
+          }
+        ];
         // console.log(evento)
-        return res.status(200).send(evento);
+        usuarioModel.populate(evento, { path: "creador" }, (err, result) => {
+          if (err) {
+            res.send(err);
+          } else {
+            console.log(result);
+            return res.status(200).send(result);
+          }
+        });
+        return null;
       }
     });
   },

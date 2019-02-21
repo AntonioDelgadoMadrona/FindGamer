@@ -26,36 +26,47 @@ class EventInfo extends Component {
         message: null,
         participants: [],
         comments: []
-      }
+      },
+      userActive: []
     };
   }
 
   componentDidMount() {
     let eventID = this.props.match.params.id;
+    let token = localStorage.getItem("token");
     axios
       .get("http://localhost:3001/event/getinfo", {
         params: { eventID }
       })
       .then(response => {
-        // console.log(response.data[0])
-        let r = response.data[0];
-        this.setState({
-          event: {
-            id: r._id,
-            creator: r.creador,
-            game: r.juego,
-            platform: r.plataforma,
-            n_gamers: r.n_jugadores,
-            rating: r.puntuacion_min,
-            start_event: r.f_inicio,
-            h_start_event: r.h_inicio,
-            end_event: r.f_fin,
-            h_end_event: r.h_fin,
-            message: r.mensaje,
-            participants: r.participantes,
-            comments: r.comentarios
-          }
-        });
+        axios
+          .get("http://localhost:3001/user/getmyuser", {
+            headers: { Authorization: "Bearer " + token }
+          })
+          .then(response2 => {
+            // console.log(response.data[0]);
+            // console.log(response2.data);
+            let r = response.data[0];
+            this.setState({
+              event: {
+                id: r._id,
+                creator: r.creador,
+                game: r.juego,
+                platform: r.plataforma,
+                n_gamers: r.n_jugadores,
+                rating: r.puntuacion_min,
+                start_event: r.f_inicio,
+                h_start_event: r.h_inicio,
+                end_event: r.f_fin,
+                h_end_event: r.h_fin,
+                message: r.mensaje,
+                participants: r.participantes,
+                comments: r.comentarios
+              },
+
+              userActive: response2.data
+            });
+          });
       })
       .catch(error => {
         console.log(error);
@@ -63,6 +74,21 @@ class EventInfo extends Component {
   }
 
   render() {
+    console.log(this.state.userActive)
+    // TODO: Comprobar la media del usuario, sacandolo del array de puntuaciones(da problemas)
+    let participar = 1;
+    let suma = 0;
+    let media = 0;
+    // this.state.userActive.puntuacion.map((g, j) => {
+    //   return (suma = suma + g);
+    // });
+    // media = suma / this.state.userActive.puntuacion.length;
+
+    if (this.state.event.rating > media) {
+      console.log("Hola");
+    }
+
+    // console.log(this.state);
     return (
       <Container className="padre">
         <EventBody

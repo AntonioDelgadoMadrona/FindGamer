@@ -7,7 +7,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 import "./EventBody.css";
 
-import imagen1 from "../../img/fondo-1.jpg";
+import imagen1 from "../../img/icono-evento-04.png";
 
 class EventBody extends Component {
 

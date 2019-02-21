@@ -21,7 +21,7 @@ class GamesHeader extends Component {
   changePlatform(platform) {
     this.setState({
       platform: platform
-    })
+    });
   }
 
   render() {
@@ -37,7 +37,7 @@ class GamesHeader extends Component {
                 <span
                   className="mr-lg-3 cursor p-3 pc"
                   onClick={() => {
-                    this.props.searchPlatform(6);
+                    this.props.selectPlatform(6);
                     this.changePlatform("JUEGOS DE PC");
                   }}
                 >
@@ -46,7 +46,7 @@ class GamesHeader extends Component {
                 <span
                   className="mr-lg-3 p-3 cursor xbox-one"
                   onClick={() => {
-                    this.props.searchPlatform(49);
+                    this.props.selectPlatform(49);
                     this.changePlatform("JUEGOS DE XBOX ONE");
                   }}
                 >
@@ -55,7 +55,7 @@ class GamesHeader extends Component {
                 <span
                   className="mr-lg-3 p-3 cursor ps4"
                   onClick={() => {
-                    this.props.searchPlatform(48);
+                    this.props.selectPlatform(48);
                     this.changePlatform("JUEGOS DE PS4");
                   }}
                 >
@@ -65,7 +65,7 @@ class GamesHeader extends Component {
                   href="/"
                   className="mr-lg-3 cursor p-3 switch"
                   onClick={() => {
-                    this.props.searchPlatform(130);
+                    this.props.selectPlatform(130);
                     this.changePlatform("JUEGOS DE NINTENDO SWITCH");
                   }}
                 >

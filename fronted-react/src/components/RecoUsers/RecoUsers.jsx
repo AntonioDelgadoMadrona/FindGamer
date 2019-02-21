@@ -61,7 +61,7 @@ class RecoUsers extends Component {
         <Row className="pb-3 jugador-recomendacion" key={i}>
           <div className="d-flex justify-content-around">
             <img
-              src={foto1}
+              src={`http://localhost:3001/users/${e.imagen_perfil}`}
               className="float-left img-fluid rounded-circle imagen-usuario"
               alt=""
             />

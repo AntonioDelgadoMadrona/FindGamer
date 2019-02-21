@@ -34,15 +34,6 @@ app.post("/user/login", UserController.loginUser);
 // CERRAR SESION
 app.get("/user/logout", UserController.logoutUser);
 
-// SUBIR IMAGEN PERFIL
-app.post("/user/addimgprofile", (req, res) => {
-  console.log(JSON.stringify(req.body));
-  res.send(req)
-});
-
-// SUBIR IMAGEN PORTADA
-// app.post("/user/addcoverprofile", UserController.addCoverUser);
-
 // AÑADIR AMIGOS
 app.post("/user/addfriend", auth, UserController.addFriend);
 
