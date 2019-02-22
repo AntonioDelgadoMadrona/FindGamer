@@ -9,7 +9,6 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 import Comment from "../Comment/Comment";
 
-
 class CommunityTimelineMessage extends React.Component {
   constructor(props) {
     super(props);
@@ -24,35 +23,35 @@ class CommunityTimelineMessage extends React.Component {
     const newIsLiked = !this.state.isLiked; // declaro el que va a ser mi nuevo estado
     // TODO: Actualizar en base de datos
     // if (newIsLiked) {
-      // como mi nuevo estado es "like", añado mi like a la base de datos
-      axios
-        .post(
-          "http://localhost:3001/timeline/addlike",
-          {
-            id_message: id
-          },
-          {
-            headers: {
-              Authorization: "Bearer " + token
-            }
+    // como mi nuevo estado es "like", añado mi like a la base de datos
+    axios
+      .post(
+        "http://localhost:3001/timeline/addlike",
+        {
+          id_message: id
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token
           }
-        )
-        .then(response => {
-          // this.state.data.map((comentario, index) => {
-          //   if (comentario._id === id) {
-          //     this.setState(prevState => ({
-          //       ...prevState,
-          //       "data[index].likes": prevState.data[index].likes.push({
-          //         usuario: username,
-          //         f_like: new Date()
-          //       })
-          //     }));
-          //   }
-          // });
-        })
-        .catch(error => {
-          console.log(error);
-        });
+        }
+      )
+      .then(response => {
+        // this.state.data.map((comentario, index) => {
+        //   if (comentario._id === id) {
+        //     this.setState(prevState => ({
+        //       ...prevState,
+        //       "data[index].likes": prevState.data[index].likes.push({
+        //         usuario: username,
+        //         f_like: new Date()
+        //       })
+        //     }));
+        //   }
+        // });
+      })
+      .catch(error => {
+        console.log(error);
+      });
     // } else {
     //   // como mi nuevo estado es "no like", elimino mi like de la base de datos
     //   let token = localStorage.getItem("token");
@@ -80,6 +79,7 @@ class CommunityTimelineMessage extends React.Component {
   };
 
   render() {
+    console.log(this.props.isLiked)
     let date = moment
       .utc(this.props.m.f_publicacion)
       .format("DD/MM/YYYY, HH:mm");
@@ -94,7 +94,7 @@ class CommunityTimelineMessage extends React.Component {
             icon={faThumbsUp}
             onClick={() => this.updateLike(this.props.m._id)}
             className={`fa-lg cursor mr-md-3 ${
-              this.state.isLiked ? "like" : "text-muted"
+              this.state.isLiked || this.props.isLiked ? "like" : "text-muted"
             }`}
           />
           <small>

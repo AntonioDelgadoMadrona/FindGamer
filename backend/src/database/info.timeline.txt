@@ -6,6 +6,10 @@
         {
             "usuario" : null,
             "f_like" : ISODate("2019-02-17T17:32:39.071Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:48.737Z")
         }
     ],
     "usuario" : "5c5f4d2b310eaf1330ddbd05",
@@ -24,7 +28,16 @@
             "f_comentario" : ISODate("2019-02-19T02:01:03.420Z")
         }
     ],
-    "likes" : [],
+    "likes" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T12:30:11.977Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:51.557Z")
+        }
+    ],
     "usuario" : "5c6499b7492bf012dc9826ac",
     "mensaje" : "Perfecto Madrona5, agregame en la xbox y  jugamos unas partidas al Fifa 19",
     "f_publicacion" : ISODate("2019-02-17T17:10:46.040Z"),
@@ -65,6 +78,22 @@
         {
             "usuario" : "5c6defd03d584e15548b976a",
             "f_like" : ISODate("2019-02-21T00:39:25.493Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:44.628Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:45.193Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:45.617Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:46.113Z")
         }
     ],
     "usuario" : "5c6b27a8d74aba12b83797e9",
@@ -81,6 +110,10 @@
         {
             "usuario" : "5c5f4d2b310eaf1330ddbd05",
             "f_like" : ISODate("2019-02-21T12:21:09.355Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-21T14:16:42.284Z")
         }
     ],
     "usuario" : "5c6defd03d584e15548b976a",
@@ -93,9 +126,46 @@
 {
     "_id" : ObjectId("5c6e97ae51f73a16f81cea0c"),
     "comentarios" : [],
-    "likes" : [],
+    "likes" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-21T14:49:31.297Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-21T14:49:31.506Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-21T14:49:31.705Z")
+        }, 
+        {
+            "usuario" : "5c6ec2ae7ab4c31870598772",
+            "f_like" : ISODate("2019-02-21T15:27:01.304Z")
+        }, 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T16:23:54.202Z")
+        }
+    ],
     "usuario" : "5c5f4d2b310eaf1330ddbd05",
     "mensaje" : "Hola findgamers, agregarme como amigo que me gustaria jugar aunque tenga pocas estrellas ",
     "f_publicacion" : ISODate("2019-02-21T12:21:02.837Z"),
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5c6ec33c7ab4c31870598773"),
+    "comentarios" : [],
+    "likes" : [ 
+        {
+            "usuario" : "5c5f4d2b310eaf1330ddbd05",
+            "f_like" : ISODate("2019-02-22T14:19:48.352Z")
+        }
+    ],
+    "usuario" : "5c6ec2ae7ab4c31870598772",
+    "mensaje" : "Hola a todos, soy nuevo en la comunidad",
+    "f_publicacion" : ISODate("2019-02-21T15:26:52.411Z"),
     "__v" : 0
 }

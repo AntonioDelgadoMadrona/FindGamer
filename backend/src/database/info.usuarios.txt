@@ -10,7 +10,9 @@
         "5c6499b7492bf012dc9826ac", 
         "5c649b81492bf012dc9826ad", 
         "5c6e92e851f73a16f81cea0a", 
-        "5c6499b7492bf012dc9826ac"
+        "5c6499b7492bf012dc9826ac", 
+        "5c6b27a8d74aba12b83797e9", 
+        "5c6b27a8d74aba12b83797e9"
     ],
     "j_completados" : [ 
         {
@@ -49,14 +51,21 @@
         "Resident Evil 2", 
         "Kingdom Hearts III", 
         "Spyro Reignited Trilogy", 
-        "Red Dead Redemption 2"
+        "Red Dead Redemption 2", 
+        "The Last of Us Remastered", 
+        "FIFA 13", 
+        "Forza Motorsport 5", 
+        "Halo: The Master Chief Collection"
     ],
     "j_jugando" : [ 
         "Kingdom Hearts 3", 
         "Fifa 19", 
         "Anthem", 
         "Los Sims 5", 
-        "Resident Evil 2"
+        "Resident Evil 2", 
+        "Vortex Attack", 
+        "Archon", 
+        "Archon"
     ],
     "nombre" : "Antonio",
     "apellidos" : "Delgado Madrona",
@@ -66,7 +75,7 @@
     "ciudad" : "Málaga",
     "email" : "antonio_dm93@hotmail.com",
     "password" : "$2a$10$aDhxqQ7GDMzVm4jfDpI8zOZjgHVqeqaKSrZX.GbVbDZaLxjxY39/y",
-    "imagen_perfil" : "5c5f4d2b310eaf1330ddbd05-917.jpg",
+    "imagen_perfil" : "5c5f4d2b310eaf1330ddbd05-933.jpg",
     "imagen_portada" : "",
     "permiso" : "usuario",
     "juego_fav" : "Red Dead Redemption 2",
@@ -375,5 +384,41 @@
     "permiso" : "usuario",
     "juego_fav" : "",
     "fecha_registro" : ISODate("2019-02-21T12:00:40.999Z"),
+    "__v" : 0
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("5c6ec2ae7ab4c31870598772"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [ 
+        "5c6b27a8d74aba12b83797e9"
+    ],
+    "j_completados" : [ 
+        {
+            "juego" : "Forza Motorsport 5",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-21T15:31:14.875Z")
+        }
+    ],
+    "j_proximos" : [ 
+        "Assassin's Creed: Unity"
+    ],
+    "j_jugando" : [],
+    "nombre" : "Antonio",
+    "apellidos" : "Delgado",
+    "nombre_usuario" : "Madro0",
+    "plataforma_fav" : "Xbox One",
+    "pais" : "Argentina",
+    "ciudad" : "Buenos Aires",
+    "email" : "antonio@hotmail.com",
+    "password" : "$2a$10$nwsm3HF073hvesjUfhq7iOQJd0sbNKFSTn6hgLx9giijMtPBvpUKO",
+    "imagen_perfil" : "5c6ec2ae7ab4c31870598772-377.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-21T15:24:30.410Z"),
     "__v" : 0
 }

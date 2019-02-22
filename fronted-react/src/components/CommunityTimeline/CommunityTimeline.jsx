@@ -18,22 +18,35 @@ class Timeline extends Component {
 
     this.state = {
       data: [],
-      token: null
+      token: null,
+      userID: null
     };
   }
   componentDidMount() {
-    axios
-      .get("http://localhost:3001/timeline/getall")
-      .then(response => {
-        // console.log(response.data);
-        this.setState({ data: response.data.reverse() });
-      })
-      .catch(err => {
-        console.log(err);
+    axios.get("http://localhost:3001/timeline/getall").then(response => {
+      // console.log(response.data);
+      this.setState({
+        data: response.data
       });
-    let token = localStorage.getItem("token");
-    this.setState({
-      token: token
+      let token = localStorage.getItem("token");
+      axios
+        .get("http://localhost:3001/user/getmyuser", {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        })
+        .then(response2 => {
+          // console.log(response2.data._id);
+          this.setState({
+            userID: response2.data._id
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      this.setState({
+        token: token
+      });
     });
   }
 
@@ -45,6 +58,7 @@ class Timeline extends Component {
   };
 
   render() {
+    console.log(this.state.userID);
     let formTimeline = null;
     let moreInfo = false;
     let alert = null;
@@ -58,6 +72,7 @@ class Timeline extends Component {
         </Alert>
       );
     }
+    let liked = false;
     return (
       <Col xs={12} lg={8} xl={9}>
         <Row>
@@ -71,8 +86,18 @@ class Timeline extends Component {
 
           <Container className="timeline">
             {this.state.data.map((m, i) => {
+              m.likes.map((g, l) => {
+                if (g.id === this.state.userID) {
+                  liked = true;
+                }
+              });
               return (
-                <CommunityTimelineMessage moreInfo={moreInfo} m={m} key={i} />
+                <CommunityTimelineMessage
+                  moreInfo={moreInfo}
+                  m={m}
+                  key={i}
+                  isLiked={liked}
+                />
               );
             })}
 

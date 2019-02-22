@@ -45,7 +45,9 @@
 {
     "_id" : ObjectId("5c6de61f56227815ace91383"),
     "participantes" : [ 
-        "5c6dd64a77d7f11100a2dd21"
+        "5c6dd64a77d7f11100a2dd21", 
+        "5c5f4d2b310eaf1330ddbd05", 
+        "5c5f4d2b310eaf1330ddbd05"
     ],
     "comentarios" : [],
     "creador" : "5c6dd64a77d7f11100a2dd21",
@@ -88,7 +90,8 @@
     "_id" : ObjectId("5c6dec6d8fb0b319505b5422"),
     "participantes" : [ 
         "5c6de80a8fb0b319505b5420", 
-        "5c6499b7492bf012dc9826ac"
+        "5c6499b7492bf012dc9826ac", 
+        "5c5f4d2b310eaf1330ddbd05"
     ],
     "comentarios" : [],
     "creador" : "5c6de80a8fb0b319505b5420",
@@ -109,7 +112,8 @@
 {
     "_id" : ObjectId("5c6df4d40932ab1bdc33412b"),
     "participantes" : [ 
-        "5c6499b7492bf012dc9826ac"
+        "5c6499b7492bf012dc9826ac", 
+        "5c5f4d2b310eaf1330ddbd05"
     ],
     "comentarios" : [],
     "creador" : "5c6499b7492bf012dc9826ac",
@@ -166,5 +170,27 @@
     "puntuacion_min" : 1,
     "mensaje" : "Busco tres jugadores para jugar al torneo de esta tarde",
     "f_creacion" : ISODate("2019-02-21T12:02:25.955Z"),
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5c6ec4c57ab4c31870598774"),
+    "participantes" : [ 
+        "5c6ec2ae7ab4c31870598772", 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "comentarios" : [],
+    "creador" : "5c6ec2ae7ab4c31870598772",
+    "juego" : "Fornite",
+    "plataforma" : "Xbox One",
+    "f_inicio" : ISODate("2019-02-23T00:00:00.000Z"),
+    "h_inicio" : "10:00",
+    "f_fin" : ISODate("2019-02-23T00:00:00.000Z"),
+    "h_fin" : "12:00",
+    "n_jugadores" : 4,
+    "puntuacion_min" : 3,
+    "mensaje" : "Busco jugadores para una squad",
+    "f_creacion" : ISODate("2019-02-21T15:33:25.866Z"),
     "__v" : 0
 }

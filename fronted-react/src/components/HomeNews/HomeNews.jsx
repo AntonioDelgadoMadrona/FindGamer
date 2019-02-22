@@ -4,6 +4,8 @@ import axios from "axios";
 import "./HomeNews.css";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
+import imageDefault from "../../img/fondo-10.jpg";
+
 class HomeNews extends Component {
   constructor(props, context) {
     super(props, context);
@@ -42,65 +44,69 @@ class HomeNews extends Component {
     const { index, direction } = this.state;
     let columns = [];
     let items = [];
+    let image = "";
     this.state.data.map((e, i) => {
-
       // let date = moment.utc(e.updated_at).format("DD/MM/YYYY");
+      console.log(e.image)
       if (e.image) {
-        if (i !== 0 && i % 4 === 0) {
-          items.push(
-            <Carousel.Item className="carousel-item" key={i}>
-              <Row>{columns}</Row>
-            </Carousel.Item>
-          );
-          columns = [];
-          columns.push(
-            <Col xs={12} md={6} lg={3} key={i}>
-              <div className="ultimas-noticias" />
-              <div className="ultima-noticia p-1">
-                <a href={e.website.url}>
-                  <div className="noticia">
-                    <img
-                      src={e.image}
-                      className="card-img-top imagen-noticia"
-                      alt={e.title}
-                    />
-                    <div className="overlay">
-                      <small>{e.title}</small>
-                      {/* <div className="d-flex justify-content-end">
-                        <small className="text-muted texto-noticia">{date}</small>
-                      </div> */}
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </Col>
-          );
-        } else {
-          columns.push(
-            <Col xs={12} md={6} lg={3} key={i}>
-              <div className="ultimas-noticias" />
-              <div className="ultima-noticia p-1">
-                <a href={e.website.url}>
-                  <div className=" noticia">
-                    <img
-                      src={e.image}
-                      className="card-img-top imagen-noticia"
-                      alt={e.title}
-                    />
-                    <div className="overlay">
-                      <small className="text">{e.title}</small>
-                      {/* <div className="d-flex justify-content-end">
-                        <small className="text-muted texto-noticia">{date}</small>
-                      </div> */}
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </Col>
-          );
-        }
+        image = e.image;
+      } else {
+        image = imageDefault;
       }
-      return({items})
+      if (i !== 0 && i % 4 === 0) {
+        items.push(
+          <Carousel.Item className="carousel-item" key={i}>
+            <Row>{columns}</Row>
+          </Carousel.Item>
+        );
+        columns = [];
+        columns.push(
+          <Col xs={12} md={6} lg={3} key={i}>
+            <div className="ultimas-noticias" />
+            <div className="ultima-noticia p-1">
+              <a href={e.website.url}>
+                <div className="noticia">
+                  <img
+                    src={image}
+                    className="card-img-top imagen-noticia"
+                    alt={e.title}
+                  />
+                  <div className="overlay">
+                    <small>{e.title}</small>
+                    {/* <div className="d-flex justify-content-end">
+                        <small className="text-muted texto-noticia">{date}</small>
+                      </div> */}
+                  </div>
+                </div>
+              </a>
+            </div>
+          </Col>
+        );
+      } else {
+        columns.push(
+          <Col xs={12} md={6} lg={3} key={i}>
+            <div className="ultimas-noticias" />
+            <div className="ultima-noticia p-1">
+              <a href={e.website.url}>
+                <div className=" noticia">
+                  <img
+                    src={image}
+                    className="card-img-top imagen-noticia"
+                    alt={e.title}
+                  />
+                  <div className="overlay">
+                    <small className="text">{e.title}</small>
+                    {/* <div className="d-flex justify-content-end">
+                        <small className="text-muted texto-noticia">{date}</small>
+                      </div> */}
+                  </div>
+                </div>
+              </a>
+            </div>
+          </Col>
+        );
+      }
+      return { items };
     });
 
     items.push(

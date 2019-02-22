@@ -10,7 +10,6 @@ import "./Header.css";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 
 import logo from "../../img/findgamer2.png";
-//import img_perfil from '../../img/foto-perfil1.jpg';
 
 class Header extends Component {
   constructor() {
@@ -72,59 +71,65 @@ class Header extends Component {
 
   render() {
     let modal = <Modal />;
+    let myProfile = null;
     if (this.state.token && this.state.data) {
       modal = <HeaderUser infoUser={this.state.data} />;
+      myProfile = (
+        <Link to={`/user/${this.state.data._id}`} className="route">
+          Mi Perfil
+        </Link>
+      );
     }
-    return (
-      <header>
-        <Container fluid>
-          <Row>
-            {/* COLUMNA DEL LOGOTIPO  */}
-            <Col
-              xs={10}
-              md={2}
-              className="d-flex justify-content-center align-items-center"
-            >
-              <Link to="/home">
-                <img src={logo} alt="" />
-              </Link>
-            </Col>
-            {/* COLUMNA DE MENU NAVEGACION */}
-            <Col md={7} className="d-none d-md-block offset-1">
-              <Nav className="justify-content-around align-items-end">
-                <Link to="/home" className="route">
-                  Inicio
+
+   
+      return (
+        <header>
+          <Container fluid>
+            <Row>
+              {/* COLUMNA DEL LOGOTIPO  */}
+              <Col
+                xs={10}
+                md={2}
+                className="d-flex justify-content-center align-items-center"
+              >
+                <Link to="/home">
+                  <img src={logo} alt="" />
                 </Link>
-                <Link to="/community" className="route">
-                  Comunidad
-                </Link>
-                <Link to="/games" className="route">
-                  Juegos
-                </Link>
-                <Link to="/events" className="route">
-                  Eventos
-                </Link>
-                <Link to="/user" className="route">
-                  Mi Perfil
-                </Link>
-                {/* <Link to="/home" className="route">
+              </Col>
+              {/* COLUMNA DE MENU NAVEGACION */}
+              <Col md={7} className="d-none d-md-block offset-1">
+                <Nav className="justify-content-around align-items-end">
+                  <Link to="/home" className="route">
+                    Inicio
+                  </Link>
+                  <Link to="/community" className="route">
+                    Comunidad
+                  </Link>
+                  <Link to="/games" className="route">
+                    Juegos
+                  </Link>
+                  <Link to="/events" className="route">
+                    Eventos
+                  </Link>
+                  {myProfile}
+                  {/* <Link to="/home" className="route">
                   Admin (proximamente)
                 </Link> */}
-              </Nav>
-            </Col>
+                </Nav>
+              </Col>
 
-            {/* COLUMNA DEL MENU DE NAVEGACION DERECHO */}
-            <Col
-              xs={2}
-              md={1}
-              className="d-flex menu offset-1 align-items-center"
-            >
-              {modal}
-            </Col>
-          </Row>
-        </Container>
-      </header>
-    );
+              {/* COLUMNA DEL MENU DE NAVEGACION DERECHO */}
+              <Col
+                xs={2}
+                md={1}
+                className="d-flex menu offset-1 align-items-center"
+              >
+                {modal}
+              </Col>
+            </Row>
+          </Container>
+        </header>
+      );
   }
 }
 
