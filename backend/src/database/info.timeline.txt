@@ -1,15 +1,20 @@
 /* 1 */
 {
     "_id" : ObjectId("5c699541122c860558d11fff"),
-    "comentarios" : [],
+    "comentarios" : [ 
+        {
+            "usuario" : "5c6499b7492bf012dc9826ac",
+            "comentario" : "Pues yo tambien soy de xbox, cuando querais echamos unas partidas"
+        }
+    ],
     "likes" : [ 
         {
-            "usuario" : null,
-            "f_like" : ISODate("2019-02-17T17:32:39.071Z")
+            "usuario" : "5c7317e632a1b60f1c798767",
+            "f_like" : ISODate("2019-02-24T22:21:11.270Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:48.737Z")
+            "usuario" : "5c7321b212c5e10284665839",
+            "f_like" : ISODate("2019-02-24T23:01:48.463Z")
         }
     ],
     "usuario" : "5c5f4d2b310eaf1330ddbd05",
@@ -21,21 +26,23 @@
 /* 2 */
 {
     "_id" : ObjectId("5c699596122c860558d12000"),
-    "comentarios" : [ 
-        {
-            "usuario" : "5c6b4e1b9447771530afe051",
-            "comentario" : "Venga te agrego",
-            "f_comentario" : ISODate("2019-02-19T02:01:03.420Z")
-        }
-    ],
+    "comentarios" : [],
     "likes" : [ 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T12:30:11.977Z")
+            "usuario" : "5c7317e632a1b60f1c798767",
+            "f_like" : ISODate("2019-02-24T22:21:10.138Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:51.557Z")
+            "usuario" : "5c73195832a1b60f1c798768",
+            "f_like" : ISODate("2019-02-24T22:24:21.325Z")
+        }, 
+        {
+            "usuario" : "5c7321b212c5e10284665839",
+            "f_like" : ISODate("2019-02-24T23:01:52.860Z")
+        }, 
+        {
+            "usuario" : "5c73248ec0fe4b13604e8a32",
+            "f_like" : ISODate("2019-02-24T23:11:57.808Z")
         }
     ],
     "usuario" : "5c6499b7492bf012dc9826ac",
@@ -47,53 +54,23 @@
 /* 3 */
 {
     "_id" : ObjectId("5c6b28892f56240e90765338"),
-    "comentarios" : [ 
-        {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "comentario" : "asdfasdf",
-            "f_comentario" : ISODate("2019-02-19T11:39:08.943Z")
-        }
-    ],
+    "comentarios" : [],
     "likes" : [ 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-19T09:43:52.748Z")
+            "usuario" : "5c7317e632a1b60f1c798767",
+            "f_like" : ISODate("2019-02-24T22:21:06.205Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-19T16:37:23.047Z")
+            "usuario" : "5c73195832a1b60f1c798768",
+            "f_like" : ISODate("2019-02-24T22:24:20.000Z")
         }, 
         {
-            "usuario" : "5c6dd64a77d7f11100a2dd21",
-            "f_like" : ISODate("2019-02-20T22:39:49.616Z")
+            "usuario" : "5c7321b212c5e10284665839",
+            "f_like" : ISODate("2019-02-24T23:01:47.188Z")
         }, 
         {
-            "usuario" : "5c6defd03d584e15548b976a",
-            "f_like" : ISODate("2019-02-21T00:39:15.199Z")
-        }, 
-        {
-            "usuario" : "5c6defd03d584e15548b976a",
-            "f_like" : ISODate("2019-02-21T00:39:24.278Z")
-        }, 
-        {
-            "usuario" : "5c6defd03d584e15548b976a",
-            "f_like" : ISODate("2019-02-21T00:39:25.493Z")
-        }, 
-        {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:44.628Z")
-        }, 
-        {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:45.193Z")
-        }, 
-        {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:45.617Z")
-        }, 
-        {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:46.113Z")
+            "usuario" : "5c73248ec0fe4b13604e8a32",
+            "f_like" : ISODate("2019-02-24T23:11:57.000Z")
         }
     ],
     "usuario" : "5c6b27a8d74aba12b83797e9",
@@ -108,12 +85,16 @@
     "comentarios" : [],
     "likes" : [ 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-21T12:21:09.355Z")
+            "usuario" : "5c7317e632a1b60f1c798767",
+            "f_like" : ISODate("2019-02-24T22:21:05.205Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-21T14:16:42.284Z")
+            "usuario" : "5c73195832a1b60f1c798768",
+            "f_like" : ISODate("2019-02-24T22:24:19.273Z")
+        }, 
+        {
+            "usuario" : "5c73230fc0fe4b13604e8a2f",
+            "f_like" : ISODate("2019-02-24T23:05:44.489Z")
         }
     ],
     "usuario" : "5c6defd03d584e15548b976a",
@@ -128,24 +109,24 @@
     "comentarios" : [],
     "likes" : [ 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-21T14:49:31.297Z")
+            "usuario" : "5c7317e632a1b60f1c798767",
+            "f_like" : ISODate("2019-02-24T22:21:08.595Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-21T14:49:31.506Z")
+            "usuario" : "5c73195832a1b60f1c798768",
+            "f_like" : ISODate("2019-02-24T22:24:13.238Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-21T14:49:31.705Z")
+            "usuario" : "5c7321b212c5e10284665839",
+            "f_like" : ISODate("2019-02-24T23:01:45.898Z")
         }, 
         {
-            "usuario" : "5c6ec2ae7ab4c31870598772",
-            "f_like" : ISODate("2019-02-21T15:27:01.304Z")
+            "usuario" : "5c73230fc0fe4b13604e8a2f",
+            "f_like" : ISODate("2019-02-24T23:05:37.649Z")
         }, 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T16:23:54.202Z")
+            "usuario" : "5c73248ec0fe4b13604e8a32",
+            "f_like" : ISODate("2019-02-24T23:11:51.934Z")
         }
     ],
     "usuario" : "5c5f4d2b310eaf1330ddbd05",
@@ -160,12 +141,43 @@
     "comentarios" : [],
     "likes" : [ 
         {
-            "usuario" : "5c5f4d2b310eaf1330ddbd05",
-            "f_like" : ISODate("2019-02-22T14:19:48.352Z")
+            "usuario" : "5c7317e632a1b60f1c798767",
+            "f_like" : ISODate("2019-02-24T22:21:03.937Z")
+        }, 
+        {
+            "usuario" : "5c73195832a1b60f1c798768",
+            "f_like" : ISODate("2019-02-24T22:28:57.204Z")
         }
     ],
     "usuario" : "5c6ec2ae7ab4c31870598772",
     "mensaje" : "Hola a todos, soy nuevo en la comunidad",
     "f_publicacion" : ISODate("2019-02-21T15:26:52.411Z"),
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5c73237dc0fe4b13604e8a30"),
+    "comentarios" : [],
+    "likes" : [ 
+        {
+            "usuario" : "5c73248ec0fe4b13604e8a32",
+            "f_like" : ISODate("2019-02-24T23:11:50.113Z")
+        }
+    ],
+    "usuario" : "5c73230fc0fe4b13604e8a2f",
+    "mensaje" : "Hola soy nuevo en la comunidad, si buscais compañeros para jugar al Apex Legends contar conmigo",
+    "f_publicacion" : ISODate("2019-02-24T23:06:37.777Z"),
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5c73cfbaebd00a0a10fb0bb9"),
+    "comentarios" : [],
+    "likes" : [],
+    "usuario" : "5c73248ec0fe4b13604e8a32",
+    "mensaje" : "LolitoFdez, yo tambien soy nuevo y juego al Apex Legends, cuando quieras echamos unas partidas",
+    "f_publicacion" : ISODate("2019-02-25T11:21:30.244Z"),
     "__v" : 0
 }

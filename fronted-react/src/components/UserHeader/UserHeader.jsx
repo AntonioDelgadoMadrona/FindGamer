@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,6 +12,25 @@ import "./UserHeader.css";
 import portada from "../../img/fondo-pantalla.jpg";
 
 class UserHeader extends Component {
+  constructor() {
+    super();
+    this.state = {
+      show: false,
+      followed: false
+    };
+
+    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
   addFriend(friendID) {
     let token = localStorage.getItem("token");
     axios
@@ -26,7 +45,9 @@ class UserHeader extends Component {
       )
       .then(response => {
         // console.log(response.data);
-        alert('Has añadido a ' + this.props.username + ' como amigo')
+        this.setState({
+          followed: !this.state.followed
+        });
       })
       .catch(error => {
         console.log(error);
@@ -40,21 +61,36 @@ class UserHeader extends Component {
         className="btn btn-success"
         onClick={() => {
           this.addFriend(this.props.id);
+          this.handleShow();
         }}
       >
-        Añadir amigo
+        Seguir
       </button>
     );
+    if (this.state.followed) {
+      leftButton = (
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => {
+            this.addFriend(this.props.id);
+            this.handleShow();
+          }}
+        >
+          Dejar de seguir
+        </button>
+      );
+    }
 
     let rightButton = (
       <button type="button" className="btn text-white bg-info" disabled>
-        Mensaje
+        Valorar
       </button>
     );
 
     if (!this.props.anotherUser) {
       leftButton = (
-        <button type="button" className="btn btn-success">
+        <button type="button" className="btn btn-success" disabled>
           Editar perfil
         </button>
       );
@@ -81,6 +117,20 @@ class UserHeader extends Component {
         );
       }
     }
+    let modal = (
+      <Modal.Header className="bg-success" closeButton>
+        Has comenzado a seguir a
+        <strong className="ml-1">{this.props.username}</strong>
+      </Modal.Header>
+    );
+    if (!this.state.followed) {
+      modal = (
+        <Modal.Header className="bg-danger" closeButton>
+          Has dejado de seguir a
+          <strong className="ml-1">{this.props.username}</strong>
+        </Modal.Header>
+      );
+    }
 
     return (
       <Container className="hijo">
@@ -90,7 +140,7 @@ class UserHeader extends Component {
           </Col>
         </Row>
         <Row className="justify-content-center">
-          <Col xs={9}>
+          <Col xs={10}>
             <img src={portada} className="fondo-perfil-usuario" alt="" />
           </Col>
         </Row>
@@ -117,6 +167,11 @@ class UserHeader extends Component {
             <p>{starsRender}</p>
           </Col>
         </Row>
+        {/* ALERT MODAL */}
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          {modal}
+        </Modal>
       </Container>
     );
   }

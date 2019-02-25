@@ -3,9 +3,9 @@ import axios from "axios";
 import moment from "moment";
 import { withRouter } from "react-router";
 
-import GameScreenshoots from '../GameScreenshoots/GameScreenshoots';
+import GameScreenshoots from "../GameScreenshoots/GameScreenshoots";
 
-import { ProgressBar, Container, Row, Col } from "react-bootstrap";
+import { ProgressBar, Container, Row, Col, Modal } from "react-bootstrap";
 import "./GameInfo.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,9 +22,14 @@ const small = "t_720p/";
 const format = ".jpg";
 
 class GameInfo extends Component {
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
     this.state = {
+      show: false,
       juego: {
         id: null,
         name: null,
@@ -37,8 +42,17 @@ class GameInfo extends Component {
         rating: null,
         screenshots: []
       },
-      token: null
+      token: null,
+      estado: null
     };
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
   }
 
   componentDidMount() {
@@ -83,7 +97,9 @@ class GameInfo extends Component {
       )
       .then(response => {
         // console.log(response.data);
-        alert('Juego añadido a tu lista de proximos juego')
+        this.setState({
+          estado: "Proximos juegos"
+        });
       })
       .catch(error => {
         alert("Debes haber iniciado sesion para añadir un juego a tus listas");
@@ -105,7 +121,9 @@ class GameInfo extends Component {
       )
       .then(response => {
         // console.log(response.data);
-        alert('Juego añadido a tu lista de jugando')
+        this.setState({
+          estado: "Actualmente jugando"
+        });
       })
       .catch(error => {
         alert("Debes haber iniciado sesion para añadir un juego a tus listas");
@@ -127,7 +145,9 @@ class GameInfo extends Component {
       )
       .then(response => {
         // console.log(response.data);
-        alert('Juego añadido a tu lista de juegos completados')
+        this.setState({
+          estado: "Juegos completados"
+        });
       })
       .catch(error => {
         alert("Debes haber iniciado sesion para añadir un juego a tus listas");
@@ -136,7 +156,7 @@ class GameInfo extends Component {
   }
 
   render() {
-    console.log(this.state.juego.screenshots)
+    console.log(this.state.juego.screenshots);
     let platformsString = " ";
     this.state.juego.platforms.map(platform => {
       return (platformsString += platform.name + " || ");
@@ -176,20 +196,29 @@ class GameInfo extends Component {
                 <FontAwesomeIcon
                   icon={faClock}
                   className="fa-2x enlace"
-                  onClick={() => this.addNextGame(this.state.juego.name)}
+                  onClick={() => {
+                    this.addNextGame(this.state.juego.name);
+                    this.handleShow();
+                  }}
                 />
                 <p>
                   <FontAwesomeIcon
                     icon={faGamepad}
                     className="fa-2x enlace"
-                    onClick={() => this.addPlayingGame(this.state.juego.name)}
+                    onClick={() => {
+                      this.addPlayingGame(this.state.juego.name);
+                      this.handleShow();
+                    }}
                   />
                 </p>
                 <p>
                   <FontAwesomeIcon
                     icon={faCheckCircle}
                     className="fa-2x enlace"
-                    onClick={() => this.addCompletedGame(this.state.juego.name)}
+                    onClick={() => {
+                      this.addCompletedGame(this.state.juego.name);
+                      this.handleShow();
+                    }}
                   />
                 </p>
               </div>
@@ -198,7 +227,7 @@ class GameInfo extends Component {
               <h2>{this.state.juego.name}</h2>
               <h4>{this.state.juego.companies}</h4>
               {date !== null ? (
-                <h5 className="text-white">Publicado: {date}</h5>
+                <h5 className="text-white">Publicacion: {date}</h5>
               ) : null}
               <br />
               <p>Genero: {genresString}</p>
@@ -232,8 +261,15 @@ class GameInfo extends Component {
             </Col>
           </Row>
         </Container>
-        <GameScreenshoots screenshots={this.state.juego.screenshots}/>
-        
+        <GameScreenshoots screenshots={this.state.juego.screenshots} />
+        {/* ALERT MODAL */}
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            Juego añadido a tu lista de<strong className="ml-1">{this.state.estado}</strong>
+          </Modal.Header>
+          {/* <Modal.Body closeButton>Juego añadido a tu lista de "Jugando actualmente"</Modal.Body> */}
+        </Modal>
       </>
     );
   }

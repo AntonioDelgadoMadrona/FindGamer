@@ -15,7 +15,7 @@ class FormEvents extends Component {
         h_start_event: null,
         end_event: null,
         h_end_event: null,
-        n_gamers: null,
+        gamers: null,
         rating: null,
         message: null
       }
@@ -149,7 +149,7 @@ class FormEvents extends Component {
                 <Col xs={12} md={6} className="form-group">
                   <select
                     className="custom-select"
-                    id="n_gamers"
+                    id="gamers"
                     onChange={this.handleChange}
                   >
                     <option defaultValue>

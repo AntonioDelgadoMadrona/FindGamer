@@ -8,7 +8,7 @@ var bcrypt = require("bcrypt-nodejs");
 var controller = {
   // REGISTRAR USUARIO
   registerUser: (req, res) => {
-    // console.log(req.body);
+    // console.log(req.body)
     usuariosModel.find(
       {
         email: req.body.email
@@ -93,11 +93,8 @@ var controller = {
 
   //INICIAR SESION
   loginUser: (req, res) => {
-    console.log(req.body);
-    usuariosModel.find(
-      {
-        email: req.body.email
-      },
+    console.log(typeof req.body.password);
+    usuariosModel.find({email: req.body.email},
       (err, result) => {
         if (err) {
           res.send(err);
@@ -130,7 +127,7 @@ var controller = {
     );
   },
 
-  // CERRAR SESION
+  // CERRAR SESION(no operativo)
   logoutUser: function(req, res) {
     if (req.session.user) {
       req.session.destroy();
@@ -139,7 +136,7 @@ var controller = {
     }
   },
 
-  // SUBIR IMAGEN PERFIL
+  // SUBIR IMAGEN PERFIL(no operativo)
   addImageUser: function(req, res) {
     console.log(req.files);
     // res.send(req);
@@ -325,7 +322,7 @@ var controller = {
         if (err) {
           res.send(err);
         } else {
-          console.log(result, userID);
+          // console.log(result, userID);
           res.status(200).send({ ...result, userID: userID });
         }
       });

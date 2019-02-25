@@ -55,6 +55,7 @@ class Comment extends Component {
           color="danger"
           onClick={this.toggle}
           style={{ marginBottom: "1rem" }}
+          disabled
         >
           Comentar
         </Button>

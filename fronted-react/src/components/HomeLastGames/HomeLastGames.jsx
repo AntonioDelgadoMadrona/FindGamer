@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import "./HomeLastGames.css";
+import imageDefault from "../../img/imagen-no-disponible.png";
 
 const url_img = "https://images.igdb.com/igdb/image/upload/";
 const size = "t_720p/";
@@ -47,7 +48,13 @@ class HomeLastgames extends Component {
     const { index, direction } = this.state;
     let columns = [];
     let items = [];
+    let image = "";
     this.state.data.map((e, i) => {
+      if (e.cover) {
+        image = `${url_img}${size}${e.cover.image_id}${format}`;
+      } else {
+        image = imageDefault;
+      }
       if (i !== 0 && i % 4 === 0) {
         items.push(
           <Carousel.Item className="carousel-item" key={i}>
@@ -62,40 +69,12 @@ class HomeLastgames extends Component {
               <div className="card-body cuerpo-juego w-100 p-1">
                 <Link to={`/games/${e.id}`} className="enlace-juego">
                   <img
-                    src={`${url_img}${size}${e.cover.image_id}${format}`}
+                    src={image}
                     className="imagen-ultimos-juegos"
                     alt={e.name}
                   />
                   <div className="texto-juego">
                     <p>{e.name}</p>
-                    {/* <p>
-                      {e.platforms.map((f, k) => {
-                        switch (f.name) {
-                          case "PC (Microsoft Windows)":
-                            f.name = "PC";
-                            break;
-                          case "PlayStation 4":
-                            f.name = " - PS4";
-                            break;
-                          case "Xbox One":
-                            f.name = " - XboxOne";
-                            break;
-                          case "Nintendo Switch":
-                            f.name = " - Switch";
-                            break;
-                          case "":
-                            f.name = "PC - Xbox One";
-                            break;
-                          default:
-                            f.name = "";
-                        }
-                        return (
-                          <span key={k}>
-                            {f.name}
-                          </span>
-                        );
-                      })}
-                    </p> */}
                   </div>
                 </Link>
               </div>
@@ -110,36 +89,12 @@ class HomeLastgames extends Component {
               <div className="card-body cuerpo-juego w-100 p-1">
                 <Link to={`/games/${e.id}`} className="enlace-juego">
                   <img
-                    src={`${url_img}${size}${e.cover.image_id}${format}`}
+                    src={image}
                     className="w-100 imagen-ultimos-juegos"
                     alt={e.name}
                   />
                   <div className="texto-juego">
                     <p>{e.name}</p>
-                    {/* <p>
-                      {e.platforms.map((g, l) => {
-                        switch (g.name) {
-                          case "PC (Microsoft Windows)":
-                            g.name = "PC";
-                            break;
-                          case "PlayStation 4":
-                            g.name = " - PS4";
-                            break;
-                          case "Xbox One":
-                            g.name = " - XboxOne";
-                            break;
-                          case "Nintendo Switch":
-                            g.name = " - Switch";
-                            break;
-                          case "":
-                            g.name = "PC - Xbox One";
-                            break;
-                          default:
-                            g.name = "";
-                        }
-                        return <span key={l}>{g.name}</span>;
-                      })}
-                    </p> */}
                   </div>
                 </Link>
               </div>
@@ -148,7 +103,7 @@ class HomeLastgames extends Component {
         );
       }
 
-      return({items})
+      return { items };
     });
 
     return (

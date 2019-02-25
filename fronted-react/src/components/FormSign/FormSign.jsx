@@ -176,7 +176,7 @@ class FormSign extends Component {
                       type="password"
                       className="form-control"
                       name="password"
-                      id="password2"
+                      id="password"
                       onChange={this.handleChange}
                       required
                     />

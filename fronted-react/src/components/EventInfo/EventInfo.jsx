@@ -11,6 +11,7 @@ import EventGamers from "../EventGamers/EventGamers";
 class EventInfo extends Component {
   constructor() {
     super();
+
     this.state = {
       event: {
         id: null,
@@ -80,19 +81,25 @@ class EventInfo extends Component {
   }
 
   render() {
-
+    // console.log(this.state.event.participants)
     let suma = 0;
     let media = 0;
     this.state.userActive.rating.map((g, j) => {
       return (suma = suma + g);
     });
     media = suma / this.state.userActive.rating.length;
-    media = Math.round(media)
+    media = Math.round(media);
 
     let participar = false;
-    if (this.state.event.rating <= media){
+    if (this.state.event.rating <= media) {
       participar = true;
     }
+    let participante = false;
+    this.state.event.participants.map((k, p) => {
+      if (this.state.userActive.id && k._id === this.state.userActive.id) {
+        participante = true;
+      }
+    });
 
     return (
       <Container className="padre">
@@ -114,6 +121,8 @@ class EventInfo extends Component {
           participants={this.state.event.participants}
           eventID={this.state.event.id}
           participar={participar}
+          participante={participante}
+          creator={this.state.event.creator.nombre_usuario}
         />
         <EventGamers participants={this.state.event.participants} />
       </Container>

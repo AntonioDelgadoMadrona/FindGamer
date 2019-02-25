@@ -4,7 +4,8 @@ import moment from "moment";
 
 import { Link } from "react-router-dom";
 
-import GamesForm from "../GamesForm/GamesForm";
+// import GamesForm from "../GamesForm/GamesForm";
+import imageDefault from '../../img/imagen-no-disponible.png';
 
 import "./GamesList.css";
 
@@ -91,7 +92,7 @@ class GamesList extends Component {
               </form>
             </Col>
           </Row>
-          <GamesForm />
+          {/* <GamesForm /> */}
         </Container>
         <Container className="hijo">
           <Row className="justify-content-around fila-lista-juegos">
@@ -100,8 +101,12 @@ class GamesList extends Component {
               let puntuacion = e.rating;
               let rating = "" + puntuacion;
               rating = rating.substring(0, 2);
+              let imagen = imageDefault;
+              if(e.cover){
+                imagen = `${url_img}${small}${e.cover.image_id}${format}`;
+              }
 
-              if (e.cover && e.platforms && e.release_dates && e.rating) {
+              if (e.platforms && e.release_dates && e.rating) {
                 let date = moment
                   .unix(e.release_dates[0].date, "x")
                   .format("DD/MM/YYYY");
@@ -115,7 +120,7 @@ class GamesList extends Component {
                     <Row className="juego-lista" key={i}>
                       <Col xs={3}>
                         <img
-                          src={`${url_img}${small}${e.cover.image_id}${format}`}
+                          src={imagen}
                           className="imagen-juego-lista"
                           alt={e.name}
                         />
@@ -147,7 +152,7 @@ class GamesList extends Component {
                                 f.name = " - PS3";
                                 break;
                                 case "Xbox 360":
-                                f.name = " - Xbox360";
+                                f.name = " - X360";
                                 break;
                               default:
                                 f.name = "";

@@ -4,7 +4,7 @@ import axios from "axios";
 import "./HomeNews.css";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
-import imageDefault from "../../img/fondo-10.jpg";
+import imageDefault from "../../img/imagen-no-disponible.png";
 
 class HomeNews extends Component {
   constructor(props, context) {
@@ -47,7 +47,6 @@ class HomeNews extends Component {
     let image = "";
     this.state.data.map((e, i) => {
       // let date = moment.utc(e.updated_at).format("DD/MM/YYYY");
-      console.log(e.image)
       if (e.image) {
         image = e.image;
       } else {

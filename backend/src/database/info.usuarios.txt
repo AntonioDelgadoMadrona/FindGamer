@@ -422,3 +422,247 @@
     "fecha_registro" : ISODate("2019-02-21T15:24:30.410Z"),
     "__v" : 0
 }
+
+/* 13 */
+{
+    "_id" : ObjectId("5c7316f732a1b60f1c798766"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Alvaro",
+    "apellidos" : "Atroche",
+    "nombre_usuario" : "MaroK",
+    "plataforma_fav" : "PS4",
+    "pais" : "España",
+    "ciudad" : "Algeciras",
+    "email" : "alvaro@hotmail.com",
+    "password" : "$2a$10$U1t5.hUNzYa0nHsQnJWIsO2/d/IcoggyXKYCjtEoccmdrGhj1PpG2",
+    "imagen_perfil" : "5c7316f732a1b60f1c798766-423.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-24T22:13:11.313Z"),
+    "__v" : 0
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("5c7317e632a1b60f1c798767"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [ 
+        "Boulder Dash", 
+        "Pac-Man"
+    ],
+    "j_jugando" : [ 
+        "Horizon Zero Dawn", 
+        "Bloodborne", 
+        "Ultra Street Fighter II: The Final Challengers"
+    ],
+    "nombre" : "Fran",
+    "apellidos" : "Gutierrez",
+    "nombre_usuario" : "FranZip96",
+    "plataforma_fav" : "PS4",
+    "pais" : "España",
+    "ciudad" : "Huelva",
+    "email" : "fran@hotmail.com",
+    "password" : "$2a$10$c0ia7XzFjd2bS6BUNgg38evLTiiC/ywYoojI1ZMdj.sVqITCSfq6K",
+    "imagen_perfil" : "5c7317e632a1b60f1c798767-295.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-24T22:17:10.533Z"),
+    "__v" : 0
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("5c73195832a1b60f1c798768"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Jacobo",
+    "apellidos" : "Perita",
+    "nombre_usuario" : "JacobeoH",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Santiago",
+    "email" : "jacobo12@hotmail.com",
+    "password" : "$2a$10$X.dzjdLR3RoKughwlV0DeO6AN1Paafc2tTqCzYR.0/vUDrJBmS5Lm",
+    "imagen_perfil" : "5c73195832a1b60f1c798768-337.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-24T22:23:20.990Z"),
+    "__v" : 0
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("5c7321b212c5e10284665839"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Salvador",
+    "apellidos" : "Raya",
+    "nombre_usuario" : "SalvaThorr",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Cadiz",
+    "email" : "salvador@hotmail.com",
+    "password" : "$2a$10$GxrksTQvuAPuA3gOBrwg4.z7.rUGv6QRPh81eBpUzrN6BSchU1wwW",
+    "imagen_perfil" : "5c7321b212c5e10284665839-176.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-24T22:58:58.386Z"),
+    "__v" : 0
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("5c73230fc0fe4b13604e8a2f"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Manolo",
+    "apellidos" : "Fernandez",
+    "nombre_usuario" : "LolitoFdez",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Andorra",
+    "email" : "manolo@hotmail.com",
+    "password" : "$2a$10$vKcFXeW2FnLIOaCMPFuDiuQ5SxvLx6a8Dj7WWJxUNnmWx0PHq79oW",
+    "imagen_perfil" : "5c73230fc0fe4b13604e8a2f-980.jpg",
+    "imagen_portada" : "",
+    "permiso" : "usuario",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-24T23:04:47.211Z"),
+    "__v" : 0
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("5c73248ec0fe4b13604e8a32"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [ 
+        "5c73230fc0fe4b13604e8a2f", 
+        "5c5f4d2b310eaf1330ddbd05"
+    ],
+    "j_completados" : [ 
+        {
+            "juego" : "Horizon: Zero Dawn Complete Edition",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-24T23:51:52.409Z")
+        }, 
+        {
+            "juego" : "Horizon: Zero Dawn Complete Edition",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-24T23:52:05.666Z")
+        }, 
+        {
+            "juego" : "Uncharted: The Nathan Drake Collection",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-25T00:02:07.611Z")
+        }, 
+        {
+            "juego" : "Asteroids",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-25T00:04:48.459Z")
+        }, 
+        {
+            "juego" : "Asteroids",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-25T00:05:24.350Z")
+        }, 
+        {
+            "juego" : "Asteroids",
+            "valoracion" : "----",
+            "f_completado" : ISODate("2019-02-25T00:07:24.797Z")
+        }
+    ],
+    "j_proximos" : [ 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Uncharted: The Nathan Drake Collection", 
+        "Uncharted: The Nathan Drake Collection", 
+        "Uncharted: The Nathan Drake Collection", 
+        "Asteroids", 
+        "Asteroids", 
+        "Asteroids"
+    ],
+    "j_jugando" : [ 
+        "Horizon: Zero Dawn Complete Edition", 
+        "Asteroids", 
+        "Asteroids", 
+        "Asteroids"
+    ],
+    "nombre" : "Raul",
+    "apellidos" : "Jimenez",
+    "nombre_usuario" : "Raul7",
+    "plataforma_fav" : "PC",
+    "pais" : "España",
+    "ciudad" : "Madrid",
+    "email" : "raul@hotmail.com",
+    "password" : "$2a$10$UWSNYHvX3Fz9QNghXYUOkOEvb47Lk7g8TE.3lH00.dXrWIyH7/gOy",
+    "imagen_perfil" : "5c73248ec0fe4b13604e8a32-110.jpg",
+    "imagen_portada" : "",
+    "permiso" : "moderador",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-24T23:11:10.676Z"),
+    "__v" : 0
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("5c73df83622b21167873d78a"),
+    "puntuacion" : [ 
+        1
+    ],
+    "amigos" : [],
+    "j_completados" : [],
+    "j_proximos" : [],
+    "j_jugando" : [],
+    "nombre" : "Arturo",
+    "apellidos" : "Duro",
+    "nombre_usuario" : "ArtroiSS",
+    "plataforma_fav" : "PS4",
+    "pais" : "España",
+    "ciudad" : "Cordoba",
+    "email" : "moderador@admin.com",
+    "password" : "$2a$10$CcqG9EA6QYLA5nysbWcOtOPS5fTT3V3xArpM6zOOaV2Gj5k3sBvDy",
+    "imagen_perfil" : "5c73df83622b21167873d78a-545.jpg",
+    "imagen_portada" : "",
+    "permiso" : "moderador",
+    "juego_fav" : "",
+    "fecha_registro" : ISODate("2019-02-25T12:28:51.456Z"),
+    "__v" : 0
+}

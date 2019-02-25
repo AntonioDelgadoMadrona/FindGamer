@@ -86,9 +86,6 @@ app.get("/timeline/getall", TimelineController.getAll);
 // CREAR EVENTO
 app.post("/event/create", auth, EventController.createEvent);
 
-// AÑADIR COMENTARIO
-app.post("/event/addcomment", auth, EventController.addComment);
-
 // MOSTRAR TODOS LOS EVENTOS
 app.get("/event/getall", EventController.getAll);
 
@@ -97,6 +94,14 @@ app.get("/event/getinfo", EventController.getInfo);
 
 // AÑADIR GAMER AL EVENTO
 app.post("/event/addgamer", auth, EventController.addGamer);
+
+// ------------------------ MODERADOR --------------------------
+
+// ELIMINAR MENSAJE TIMELINE
+app.post("/timeline/delete", TimelineController.deleteMessage);
+
+// ELIMINAR EVENTO
+app.post("/event/delete", EventController.deleteEvent);
 
 
 module.exports = app;

@@ -10,7 +10,6 @@ var controller = {
     const token = req.headers.authorization.split(" ")[1];
     const payload = jwt.decode(token, config.TOKEN_SECRET);
     let userID = payload.sub;
-    // console.log(req.body);
     let evento = new eventosModel();
     let participantes = new Array();
     participantes.push(userID);
@@ -22,7 +21,7 @@ var controller = {
     evento.h_inicio = req.body.h_start_event;
     evento.f_fin = req.body.end_event;
     evento.h_fin = req.body.h_end_event;
-    evento.n_jugadores = req.body.n_gamers;
+    evento.n_jugadores = req.body.gamers;
     evento.puntuacion_min = req.body.rating;
     if (req.body.message) {
       evento.mensaje = req.body.message;
@@ -45,7 +44,7 @@ var controller = {
             h_inicio: result.h_inicio,
             f_fin: result.f_fin,
             h_fin: result.h_fin,
-            n_jugadores: result.jugadores,
+            n_jugadores: result.n_jugadores,
             participantes: result.participantes,
             puntuacion_min: result.puntuacion_min,
             mensaje: result.mensaje,
@@ -63,32 +62,6 @@ var controller = {
           }
         });
         return null;
-      }
-    });
-  },
-
-  // COMENTAR EVENTO
-  addComment: function(req, res) {
-    console.log(req.body);
-    const token = req.headers.authorization.split(" ")[1];
-    const payload = jwt.decode(token, config.TOKEN_SECRET);
-    let userID = payload.sub;
-    let eventID = req.body._id;
-    let update = {
-      $push: {
-        comentarios: {
-          usuario: userID,
-          comentario: req.body.comentario,
-          f_comentario: new Date()
-        }
-      }
-    };
-
-    eventosModel.findByIdAndUpdate(eventID, update, (err, result) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.status(200).send(result);
       }
     });
   },
@@ -151,6 +124,18 @@ var controller = {
         }
       );
     });
+  },
+
+  // ELIMINAR EVENTO
+  deleteEvent: function (req, res) {
+    console.log(req.body.eventID)
+    eventosModel.findByIdAndDelete(req.body.eventID, (err, result) => {
+      if(err){
+        res.status(500).send(err)
+      } else {
+        res.status(200).send(result)
+      }
+    })
   }
 };
 

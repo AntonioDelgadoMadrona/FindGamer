@@ -1,5 +1,5 @@
-const jwt = require('jwt-simple');
-const config = require('../config.taken');
+const jwt = require("jwt-simple");
+const config = require("../config.taken");
 
 const timelineModel = require("../models/timeline");
 const usuarioModel = require("../models/users");
@@ -14,7 +14,7 @@ var controller = {
     let timeline = new timelineModel();
 
     timeline.usuario = userID;
-    
+
     timeline.mensaje = req.body.message;
     if (req.body.foto) {
       timeline.foto = req.body.image;
@@ -38,7 +38,7 @@ var controller = {
             f_publicacion: result.f_publicacion
           }
         ];
-        
+
         usuarioModel.populate(timeline, { path: "usuario" }, (err, result) => {
           if (err) {
             res.send(err);
@@ -79,7 +79,7 @@ var controller = {
 
   // LIKES MENSAJE
   addLike: function(req, res) {
-    console.log(req.body)
+    console.log(req.body);
     const token = req.headers.authorization.split(" ")[1];
     const payload = jwt.decode(token, config.TOKEN_SECRET);
     let userID = payload.sub;
@@ -109,17 +109,16 @@ var controller = {
     const token = req.headers.authorization.split(" ")[1];
     const payload = jwt.decode(token, config.TOKEN_SECRET);
     let userID = payload.sub;
-    console.log(req.body);
+    console.log(req.body)
     let update = {
-      $unset: {
+      $pull: {
         likes: {
           usuario: userID
-          // f_like: new Date()
         }
       }
     };
     console.log(update);
-    timelineModel.findByIdAndDelete(
+    timelineModel.findByIdAndUpdate(
       req.body.id_message,
       update,
       (err, result) => {
@@ -140,11 +139,23 @@ var controller = {
         if (err) {
           res.send(err);
         } else {
-          // console.log(result);
+          console.log(result);
           res.status(200).send(result);
         }
       });
     });
+  },
+
+  // ELIMINAR MENSAJE (ADMINISTRADOR)
+  deleteMessage: function (req, res) {
+    console.log(req.body.messageID)
+    timelineModel.findByIdAndDelete(req.body.messageID, (err, result) => {
+      if(err){
+        res.status(500).send(err)
+      } else {
+        res.status(200).send(result)
+      }
+    })
   }
 };
 

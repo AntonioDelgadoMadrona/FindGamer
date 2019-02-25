@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Container, Row, Col, Alert } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { Container, Row, Col, Alert, Modal } from "react-bootstrap";
 
 import FormTimeline from "../FormTimeline/FormTimeline";
-import Comment from "../Comment/Comment";
 
 import "./CommunityTimeline.css";
 
@@ -17,18 +14,19 @@ class Timeline extends Component {
     super(props);
 
     this.state = {
+      show: false,
       data: [],
       token: null,
-      userID: null
+      myUser: {
+        id: null,
+        permiso: null
+      }
     };
   }
+
   componentDidMount() {
-    axios.get("http://localhost:3001/timeline/getall").then(response => {
-      // console.log(response.data);
-      this.setState({
-        data: response.data
-      });
-      let token = localStorage.getItem("token");
+    let token = localStorage.getItem("token");
+    if (token) {
       axios
         .get("http://localhost:3001/user/getmyuser", {
           headers: {
@@ -36,18 +34,33 @@ class Timeline extends Component {
           }
         })
         .then(response2 => {
-          // console.log(response2.data._id);
+          // console.log(response2.data);
           this.setState({
-            userID: response2.data._id
+            myUser: {
+              id: response2.data._id,
+              permiso: response2.data.permiso
+            }
           });
         })
         .catch(err => {
           console.log(err);
         });
-      this.setState({
-        token: token
+    }
+
+    axios
+      .get("http://localhost:3001/timeline/getall")
+      .then(response => {
+        // console.log(response.data);
+        this.setState({
+          data: response.data.reverse()
+        });
+        this.setState({
+          token: token
+        });
+      })
+      .catch(error => {
+        console.log(error);
       });
-    });
   }
 
   newMessage = message => {
@@ -58,7 +71,7 @@ class Timeline extends Component {
   };
 
   render() {
-    console.log(this.state.userID);
+    // console.log(this.state);
     let formTimeline = null;
     let moreInfo = false;
     let alert = null;
@@ -72,6 +85,11 @@ class Timeline extends Component {
         </Alert>
       );
     }
+    let moderador = false;
+    if (this.state.myUser.permiso === "moderador") {
+      moderador = true;
+    }
+
     let liked = false;
     return (
       <Col xs={12} lg={8} xl={9}>
@@ -86,8 +104,9 @@ class Timeline extends Component {
 
           <Container className="timeline">
             {this.state.data.map((m, i) => {
+              liked = false;
               m.likes.map((g, l) => {
-                if (g.id === this.state.userID) {
+                if (g.usuario === this.state.myUser.id) {
                   liked = true;
                 }
               });
@@ -96,7 +115,8 @@ class Timeline extends Component {
                   moreInfo={moreInfo}
                   m={m}
                   key={i}
-                  isLiked={liked}
+                  estadoLike={liked}
+                  moderador={moderador}
                 />
               );
             })}
