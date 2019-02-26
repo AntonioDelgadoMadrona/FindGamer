@@ -8,3 +8,5 @@ El proyecto tiene el front-end y back-end desacoplados por lo que para iniciarlo
 
 - El backend esta desarrollado con NodeJS, Express y MongoDB.
 * Para iniciarlo es necesario situarse en la carpeta, ejecutar en la consola "npm install" para instalar las dependencias y posteriormente "npm start" para iniciar el servidor.
+
+*(para poder ejecutar el comando hay que tener instalado Nodejs previamente)
