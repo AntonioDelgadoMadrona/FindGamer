@@ -4,7 +4,8 @@ var app = require("../app");
 // var API_KEY = "f0f1952d6e1bfdcea5a1bdd0785d2a85";
 // var API_KEY = "ffcf240e48780de90bcbc0dea4ecac93";
 // var API_KEY = "415fe0b9204132522e64181ccd609ac0";
-var API_KEY = "c2f1d9cdffcb96713fe4e594b35945d2";
+// var API_KEY = "c2f1d9cdffcb96713fe4e594b35945d2";
+var API_KEY = "a28bc2b42206c362aa5c24af2e887e6d";
 
 // BUSCADOR DE JUEGOS(POR PLATAFORMA)
 app.get("/games/search/platforms/:id/:sortingMethod?", function(req, res) {
@@ -143,7 +144,7 @@ app.get("/news", (req, res) => {
       "user-key": API_KEY
     },
     data:
-      "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;sort created_at desc;limit 16;"
+      "fields author,created_at,image,published_at,title,uid,updated_at,videos,website.url;sort created_at desc;limit 12;"
   })
     .then(response => {
       // console.log(response.data);

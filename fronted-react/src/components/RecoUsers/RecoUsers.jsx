@@ -15,7 +15,7 @@ class RecoUsers extends Component {
     super();
     this.state = {
       data: [],
-      user: null
+      user: {}
     };
   }
 
@@ -72,34 +72,34 @@ class RecoUsers extends Component {
           />
         );
       }
-      if (
-        this.state.user &&
-        e.plataforma_fav === this.state.user.plataforma_fav
-      ) {
-        plataforma_favorita =
+      
+      if (this.state.user) {
+        if (e.plataforma_fav === this.state.user.plataforma_fav) {
+          plataforma_favorita =
           "DE " + this.state.user.plataforma_fav.toUpperCase();
-        return (
-          <Row className="pb-3 jugador-recomendacion" key={i}>
-            <div className="d-flex justify-content-around">
-              <img
-                src={`http://localhost:3001/users/${e.imagen_perfil}`}
-                className="float-left img-fluid rounded-circle imagen-usuario"
-                alt=""
-              />
-              <div className="float-right ml-3">
-                <p>
-                  <Link to={`/user/${e._id}`}>
-                    <strong className="text-white">{e.nombre_usuario}</strong>
-                  </Link>
-                </p>
-                <p>
-                  <span className="verde">{starsRender}</span>
-                </p>
-                <p className="text-muted">{e.plataforma_fav}</p>
+          return (
+            <Row className="pb-3 jugador-recomendacion" key={i}>
+              <div className="d-flex justify-content-around">
+                <img
+                  src={`http://localhost:3001/users/${e.imagen_perfil}`}
+                  className="float-left img-fluid rounded-circle imagen-usuario"
+                  alt=""
+                />
+                <div className="float-right ml-3">
+                  <p>
+                    <Link to={`/user/${e._id}`}>
+                      <strong className="text-white">{e.nombre_usuario}</strong>
+                    </Link>
+                  </p>
+                  <p>
+                    <span className="verde">{starsRender}</span>
+                  </p>
+                  <p className="text-muted">{e.plataforma_fav}</p>
+                </div>
               </div>
-            </div>
-          </Row>
-        );
+            </Row>
+          );
+        }
       } else {
         return (
           <Row className="pb-3 jugador-recomendacion" key={i}>
